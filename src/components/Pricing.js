@@ -46,19 +46,26 @@ class Pricing extends Component {
 
         <section className="billing-section">
           <h4>Billing Period</h4>
-          <input
-            className="toggle-btn"
-            type="checkbox"
-            checked={this.state.checkedStatus}
-            // data-toggle="toggle"
-            // data-onstyle="warning"
-            // data-offstyle="info"
-            onChange={this.isChecked}
-          ></input>
-          <label htmlFor="yearly">Yearly</label>
+          <div className="toggle-btn">
+            <input
+              // className="toggle-btn"
+              type="checkbox"
+              checked={this.state.checkedStatus}
+              onChange={this.isChecked}
+            ></input>
+            <label htmlFor="yearly">Yearly</label>
+          </div>
+
           <p>
             You save <span>30%</span> with the yearly plane
           </p>
+        </section>
+
+        <section className="check-feature-section">
+          <p>Not yet convinced?</p>
+          <div className="btn-container">
+            <button> Check all features </button>
+          </div>
         </section>
       </section>
     );
