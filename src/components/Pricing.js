@@ -53,7 +53,7 @@ class Pricing extends Component {
               checked={this.state.checkedStatus}
               onChange={this.isChecked}
             ></input>
-            <label htmlFor="yearly">Yearly</label>
+            <label>Yearly</label>
           </div>
 
           <p>
