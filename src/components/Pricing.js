@@ -1,6 +1,7 @@
 import { Component } from "react";
 import JoinBtn from "./join-btn";
-
+import { GiCheckMark } from "@react-icons/all-files/gi/GiCheckMark";
+// import { IconContext } from "react-icons";
 class Pricing extends Component {
   state = {
     checkedStatus: true,
@@ -25,12 +26,42 @@ class Pricing extends Component {
           <div className="start-heading">Start Now</div>
 
           <section className="points-section">
-            <p>All current and future features</p>
-            <p>Over 50 filter metric</p>
-            <p>Daily update</p>
-            <p>unlimited property alerts</p>
-            <p>Unlimited collections</p>
-            <p>15-day trial</p>
+            <p>
+              <span>
+                <GiCheckMark />
+              </span>
+              All current and future features
+            </p>
+            <p>
+              <span>
+                <GiCheckMark />
+              </span>
+              Over 50 filter metric
+            </p>
+            <p>
+              <span>
+                <GiCheckMark />
+              </span>
+              Daily update
+            </p>
+            <p>
+              <span>
+                <GiCheckMark />
+              </span>
+              unlimited property alerts
+            </p>
+            <p>
+              <span>
+                <GiCheckMark />
+              </span>
+              Unlimited collections
+            </p>
+            <p>
+              <span>
+                <GiCheckMark />
+              </span>
+              15-day trial
+            </p>
           </section>
 
           <section className="price-section">
