@@ -5,6 +5,7 @@ td {
   padding-right: 40px;
 }
 
+/* ----------------Khloud-------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -73,7 +74,10 @@ p {
 }
 
 .billing-section {
-  line-height: 1rem;
+  padding: 2%;
+  position: relative;
+
+  border-bottom: 1px solid #b6b6b6;
 }
 
 .billing-section h4 {
@@ -87,25 +91,78 @@ p {
 }
 
 .toggle-btn {
-  position: absolute;
+  /* position: absolute;
   top: 15%;
-  left: 5%;
-  transform: translate(-50%, -50%);
+  left: 2%; */
+  /* transform: translate(-50%, -50%); */
+  /* transform: translate(-30%, 20%); */
+  margin: 2.5%;
 }
 
 input[type="checkbox"] {
+  transform: translate(-30%, 20%);
   position: relative;
-  width: 40px;
-  height: 20px;
+  width: 50px;
+  height: 25px;
   appearance: none;
-  background-color: #ffc107;
+  background-color: #8a8989;
+  outline: none;
+  border-radius: 20px;
+  transition: 0.5s;
 }
 
-/* .toggle.tog,
-  .toggle-on.tog,
-  .toggle-off.tog {
-    border-radius: 20px;
-  }
-  .toggle.ios .toggle-handle {
-    border-radius: 20px;
-  } */
+input:checked[type="checkbox"] {
+  background: #ffc107;
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border-radius: 20px;
+  top: 1%;
+  left: 5%;
+  background-color: #fff;
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+input:checked[type="checkbox"]:before {
+  left: 47%;
+}
+
+.check-feature-section {
+  padding: 3%;
+}
+
+.check-feature-section p {
+  font-weight: bold;
+}
+
+.check-feature-section .btn-container button {
+  padding: 2%;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+/* .check-feature-section button:hover {
+  background-color: #ffc107;
+  background-color: 1px solid #ffc107;
+  color: #fff;
+  transition: 0.5s;
+} */
+
+.check-feature-section .btn-container {
+  /* position: absolute; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* margin: auto; */
+  transform: translate(-50%, -50%);
+}
+
+.check-feature-section .btn-container button:hover {
+}
+/* -------------------------- */
