@@ -18,6 +18,7 @@ td {
 
 .heading-one {
   font-size: 3rem;
+ 
 }
 
 p {
@@ -166,3 +167,53 @@ input:checked[type="checkbox"]:before {
 .check-feature-section .btn-container button:hover {
 }
 /* -------------------------- */
+
+
+/* ------------Data accurasy-------------- */
+.Data-section{
+  margin: 5% auto;
+  text-align: center;
+  max-width: 500px;
+}
+.p-one{
+  font-size: 1.5rem;
+}
+.title{
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 110px;
+}
+.tabel{
+  height: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-style: hidden;
+
+  width:100%;
+  max-width: 100%;
+}
+.bordertabel{
+  overflow: auto;
+  border:solid 1px #545454 ;
+  border-radius: 20px;
+  width: 508px;
+  height: 700px;
+  text-align: center;
+  
+}
+.thead{
+  background-color: #143d8d;
+  color: white;
+  height: 3.5rem;
+  font-size: 1.2rem;
+}
+.rent, .asking-price{
+  height: 2.5rem;
+  padding: 5px 0px;
+}
+.rent{
+  background-color: #E8F0FF;
+}
+.tabels{
+  margin-bottom: 5%;
+}
