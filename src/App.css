@@ -1,7 +1,111 @@
+#footer-table-header {
+  padding-bottom: 10px;
+}
+td {
+  padding-right: 40px;
+}
 
-#footer-table-header{
-    padding-bottom: 10px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-td{
-    padding-right: 40px;
+
+.heading-one {
+  font-size: 3rem;
 }
+
+p {
+  color: #4a4a4a;
+}
+
+.Pricing-section {
+  margin: 5% auto;
+  text-align: center;
+  max-width: 500px;
+}
+
+.pricing-table {
+  margin: 7%;
+  /* padding: 2% 3%; */
+  border: solid 1px #143d8d;
+  border-radius: 20px;
+  text-align: center;
+}
+/* 
+  .pricing-table {
+  } */
+
+.start-heading {
+  /* margin: 0;
+    padding: 0; */
+  padding: 3%;
+  width: 100%;
+  background-color: #143d8d;
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.points-section {
+  padding: 3%;
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.price-section {
+  background-color: #f3f3f4;
+  border-top: 1px solid #143d8d;
+  border-radius: 0 0 20px 20px;
+  padding: 3%;
+}
+
+.price-section-content {
+  margin: 4%;
+}
+
+.price-section p:nth-child(2) {
+  font-size: 2.5rem;
+}
+
+.billing-section {
+  line-height: 1rem;
+}
+
+.billing-section h4 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.billing-section p span {
+  font-weight: bold;
+  color: #000;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 15%;
+  left: 5%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="checkbox"] {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background-color: #ffc107;
+}
+
+/* .toggle.tog,
+  .toggle-on.tog,
+  .toggle-off.tog {
+    border-radius: 20px;
+  }
+  .toggle.ios .toggle-handle {
+    border-radius: 20px;
+  } */
