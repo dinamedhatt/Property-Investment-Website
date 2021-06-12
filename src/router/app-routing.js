@@ -3,6 +3,7 @@ import About from '../components/about'
 import Data from '../components/data'
 import Pricing from '../components/Pricing'
 import NavBAR from '../components/navbar'
+import Footer from '../components/footer'
 import Register from '../containers/register'
 import Login from '../containers/Login'
 
@@ -10,7 +11,6 @@ const AppRouting = () => {
 return (
     <BrowserRouter>
      <NavBAR/>
-        <div className='col-12'>
             <Switch>
                 <Route path='/about' component={About} />
                 <Route path='/pricing' component={Pricing} />
@@ -20,7 +20,7 @@ return (
                 {/* <Route exact path='/' component={Home} /> */}
                 {/* <Route path='**' component={Error} /> */}
             </Switch>
-        </div>
+        <Footer/>
     </BrowserRouter>
 )
 }
