@@ -201,9 +201,9 @@ const Data = () => {
          </section>
      </section>
       {/*             section of dealSection component                                     */}
-     {/*  <section className="row">
+      <section className="row">
        <DealSection/>
-     </section> */}
+     </section>
      {/*             section of footer component                                      */}
      <section className="row">
         <Footer/>
