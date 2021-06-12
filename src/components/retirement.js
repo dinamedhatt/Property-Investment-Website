@@ -1,4 +1,4 @@
-import JoinBtn from './join-btn'
+import JoinBtn from '../containers/join-btn'
 const Retirement = () => {
     return (
       <div className='py-5'>
