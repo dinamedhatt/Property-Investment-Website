@@ -170,4 +170,5 @@ input:checked[type="checkbox"]:before {
   transition: all 0.4s linear;
   position: relative;
 }
+
 /* -------------------------- */
