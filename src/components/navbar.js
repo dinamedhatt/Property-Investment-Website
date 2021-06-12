@@ -25,7 +25,7 @@ const NavBAR = () => {
     <div className="row  col-12 fixed-top  sticky-top  shadow-sm">
       <Navbar className="" bg="white" expand="lg">
           <Navbar.Brand className="col-lg-3 col-md-4 col-sm-6 col-7">
-        <NavLink to="/home">
+        <NavLink to="/">
             <img
               className="offset-1  img-fluid w-50 h-50 "
               src="images/logo.png"
@@ -38,7 +38,7 @@ const NavBAR = () => {
         <Navbar.Collapse id="navbarScroll" className="pt-4 ">
           <Nav className="mr-auto  my-2 my-lg-0  fs-5 " navbarScroll>
             <Nav.Link className="mx-auto mx-lg-3 ms-lg-0 ">
-              <NavLink to='/home' activeStyle={active} style={linkStyle}>Home</NavLink>
+              <NavLink to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3">
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
