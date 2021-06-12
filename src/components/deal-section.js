@@ -40,7 +40,7 @@ const DealSection = () => {
       <div className="text-center pb-3">
         <JoinBtn />
         <input
-          class="btn btn-medium btn-rounded px-4 ms-5"
+          className="btn btn-medium btn-rounded px-4 ms-5"
           style={{ backgroundColor: "white", border: "black 2px solid" }}
           type="button"
           value="How it works?"
