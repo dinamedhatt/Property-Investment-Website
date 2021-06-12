@@ -1,5 +1,5 @@
 import { Component } from "react";
-import JoinBtn from "./join-btn";
+import JoinBtn from "../containers/join-btn";
 import { GiCheckMark } from "@react-icons/all-files/gi/GiCheckMark";
 // import { IconContext } from "react-icons";
 class Pricing extends Component {
