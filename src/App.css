@@ -294,3 +294,26 @@ input:checked[type="checkbox"]:before {
   top: 15px !important;
   color: grey !important;
 }
+
+/* -----------------MEDIA QUEREY---------------- */
+@media (max-width: 1200px) {
+  .featureItem-section {
+    display: block;
+    text-align: center;
+  }
+  .featureText-container p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 650px) {
+  .img-container img {
+    width: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .img-container img {
+    width: 200px;
+  }
+}
