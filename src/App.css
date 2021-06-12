@@ -228,3 +228,31 @@ input:checked[type="checkbox"]:before {
 .lbl{
   font-size: 14px;
 }
+
+
+
+/*------------------Login page---------------*/
+
+.welcomSection{
+  text-align: center;
+  max-width: 500px;
+  height: 300px;
+  margin: 5% auto 0;
+ 
+}
+.bground{
+ 
+ height: 600px;
+ width: 100%;
+}
+.bg{
+  height: 100px;
+  width: inherit;
+  height: inherit;
+}
+.form{
+  background-color: white;
+  position: absolute;
+  top:40%;
+  box-shadow:3px 3px 5px 3px rgb(197, 196, 196) ,-3px -3px 5px 3px rgb(197, 196, 196) 
+}
