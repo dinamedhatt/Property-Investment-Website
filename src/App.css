@@ -256,3 +256,16 @@ input:checked[type="checkbox"]:before {
   top:40%;
   box-shadow:3px 3px 5px 3px rgb(197, 196, 196) ,-3px -3px 5px 3px rgb(197, 196, 196) 
 }
+/* ---------Slider----------  */
+
+.slick-dots li.slick-active button:before {
+  color: #2b59b4 !important;
+  font-size: 15px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 12px !important;
+  top: 15px !important;
+  color: grey !important;
+}
+
