@@ -12,6 +12,19 @@ class Features extends Component {
   render() {
     return (
       <section>
+        <div className="features">
+          <h1 className="heading-one">Features</h1>
+          <p>
+            We chosen the features that give you an edge over the traditional
+            real estate investors while keeping things extremely simple. See for
+            yourself!
+          </p>
+          <img
+            src="images/features/features-img.png"
+            alt="Features"
+            className="feature-img"
+          />
+        </div>
         <FeatureItem imgSrc="1" heading="Powerfull filters" />
         <FeatureItem imgSrc="2" heading="Matching property alerts" />
         <FeatureItem imgSrc="3" heading="Local area report" />
