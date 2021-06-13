@@ -2,11 +2,6 @@ import '../App.css';
 import { NavLink } from "react-router-dom";
 
 const Footer= () => {
-  const active = {
-    color:'black',
-    fontWeight:'bold'
-  };
-
   const linkStyle={
     textDecoration: "none",
     color:'black'
@@ -26,18 +21,18 @@ const Footer= () => {
   </thead>
   <tbody>
   <tr>
-    <td>  <NavLink to='/' activeStyle={active} style={linkStyle}>Home</NavLink></td>
-    <td> <NavLink to="/faq" activeStyle={active} style={linkStyle}>FAQ</NavLink></td>
+    <td>  <NavLink exact to='/'  style={linkStyle}>Home</NavLink></td>
+    <td> <NavLink to="/faq"  style={linkStyle}>FAQ</NavLink></td>
     
   </tr>
   <tr>
-    <td><NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink></td>
-    <td> <NavLink to="/pricing"activeStyle={active} style={linkStyle} >Pricing</NavLink></td>
+    <td><NavLink to='/features'  style={linkStyle}>Features</NavLink></td>
+    <td> <NavLink to="/pricing" style={linkStyle} >Pricing</NavLink></td>
     
   </tr>
   <tr>
-     <td><NavLink to='how-to-works' activeStyle={active} style={linkStyle}>How it works?</NavLink></td>
-      <td>  <NavLink to="/data-accuracy" activeStyle={active} style={linkStyle}>Data accuracy</NavLink></td>
+     <td><NavLink to='how-to-works'  style={linkStyle}>How it works?</NavLink></td>
+      <td>  <NavLink to="/data-accuracy"  style={linkStyle}>Data accuracy</NavLink></td>
       
   </tr>
   </tbody>
@@ -52,8 +47,8 @@ const Footer= () => {
   </thead>
   <tbody>
   <tr>
-    <td> <NavLink to="/about" activeStyle={active} style={linkStyle}>About us</NavLink></td>
-    <td>   <NavLink to="/about" activeStyle={active} style={linkStyle}>Contact</NavLink></td>
+    <td> <NavLink to="/about"  style={linkStyle}>About us</NavLink></td>
+    <td>   <NavLink to="/about"  style={linkStyle}>Contact</NavLink></td>
     
   </tr>
   <tr>
