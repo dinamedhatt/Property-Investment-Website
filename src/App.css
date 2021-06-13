@@ -20,7 +20,8 @@ td {
   font-size: 3rem;
 }
 
-p {
+.Pricing-section p,
+.features p {
   color: #4a4a4a;
 }
 
@@ -203,6 +204,20 @@ input:checked[type="checkbox"]:before {
 }
 
 /* Feature component styling */
+.features {
+  text-align: center;
+  margin: 5%;
+}
+
+.feature-img {
+  display: inline-block;
+  margin-top: 15%;
+  /* width: 1151px;
+  height: 466px; */
+  width: 90%;
+  height: 466px;
+}
+
 .feature-comparision-section {
   margin: 5%;
 }
@@ -236,6 +251,7 @@ input:checked[type="checkbox"]:before {
 
 .feature-table-part h4 {
   height: 20%;
+  line-height: 50px;
 }
 
 .feature-table-part:nth-of-type(2) {
@@ -452,7 +468,20 @@ input:checked[type="checkbox"]:before {
   }
 }
 /* -----------------MEDIA QUEREY---------------- */
+@media (max-width: 1290px) {
+  .feature-table-part h4 {
+    line-height: 30px;
+  }
+}
+
 @media (max-width: 1200px) {
+  /* .feature-img {
+    display: inline-block;
+    margin-top: 15%;
+    width: 1151px;
+    height: 466px;
+  } */
+
   .featureItem-section {
     flex-direction: column;
     text-align: center;
@@ -484,15 +513,6 @@ input:checked[type="checkbox"]:before {
   .img-container img {
     width: 250px;
   }
-  /* .feature-table-part h4 {
-    font-size: 85%;
-  } */
-}
-
-@media (max-width: 600px) {
-  /* .feature-table-part h4 {
-    width: 25%;
-  } */
 }
 
 @media (max-width: 400px) {
