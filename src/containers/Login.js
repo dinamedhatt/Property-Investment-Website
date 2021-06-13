@@ -1,5 +1,9 @@
 import { Component } from "react";
 import { FormErrors } from './formError';
+import { NavLink } from "react-router-dom";
+
+
+
 class Login extends Component {
     constructor() {
       super();
@@ -53,18 +57,29 @@ class Login extends Component {
     handelSumbit=(e)=>{
       e.preventDefault();
     }
-    
+
+ 
     render() {
+      const active = {
+        color:"#2B59B4",
+        fontWeight:'bold'
+      };
+    
+      const linkStyle={
+        color:"#2B59B4",
+        textDecoration: "none",
+        
+      }
       return (
         <div className="parent" >
         {/*         welcom message             */}
           <section className=" welcomSection">
              <h1 className="heading-one">Welcome Back!</h1>
-             <p>Login to continue</p>
+             <p className="fs-4">Login to continue</p>
           </section>
           <section className="bground"><img src='images/login.png' className="bg" alt="background"/></section>
           {/*         form section  */}
-           <form className="rounded border   row col-6 offset-3 p-5 my-5 form">
+           <form className="rounded border   shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-5 my-lg-5 my-0 form">
            <div className="panel panel-default">
             <FormErrors formErrors={this.state.formErrors} />
            </div>
@@ -72,7 +87,7 @@ class Login extends Component {
               <label htmlFor="email" className="col-4 offset-2 mb-2 form-label lbl fw-bold">
                 E-mail
               </label>
-              <div className="col-8 offset-2 ">
+              <div className=" col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="email"
                 placeholder="example@mail.com"
@@ -90,7 +105,7 @@ class Login extends Component {
               <label htmlFor="pass" className="col-4 offset-2 mb-2 form-label lbl fw-bold">
                 Password
               </label>
-              <div className=" col-8 offset-2 ">
+              <div className=" col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="password"
                 placeholder="********"
@@ -109,14 +124,14 @@ class Login extends Component {
               type="submit"
               className="btn  col-3 m-auto "
               style={{ backgroundColor: "#2B59B4", color: "white" }}
-              value="Login in"
+              value="Login"
               disabled={!this.state.formValid}
             />
             <div className="row">
             <p 
-              className="col-8  m-auto mt-4"
+              className="col-xl-8 col-sm-10 col-9  text-center m-auto mt-4"
               style={{  color: "#4A4A4A" }}>Don’t have an account? <a href="." className="fw-bold"
-                  style={{  color: "#2B59B4" ,textDecoration:"none"}} >Sign Up</a> now</p>
+                  style={{  color: "#2B59B4" ,textDecoration:"none"}} > <NavLink to='/register' activeStyle={active} style={linkStyle}>Sign Up</NavLink></a> now</p>
             </div>
           </form> 
         </div>

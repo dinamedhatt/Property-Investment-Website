@@ -4,7 +4,7 @@ const Data = () => {
     return (
      <div >
      <div className="Data-section">
-     <section className="row">
+     <section className="row col-10 offset-1 col-lg-12 offset-lg-0">
          <h1 className="heading-one">Data accuracy</h1>
          <p className="p-one">We combine data from over 15 reliable sources both commercial and public</p>
          <p>Our goal is to constantly improve our data resolution to get to a point where each individual 
@@ -14,12 +14,12 @@ const Data = () => {
      </section>
      </div>
      {/*            section of 2 tabel                              */}
-     <section className="row tabels">
+     <section className="row tabels col-12">
          {/*              tabel num 1                                      */}
-         <section className="col-lg-5   offset-lg-1 col-sm-10 offset-sm-2 ">
+         <section className="col-lg-5   offset-lg-1 col-sm-10 offset-sm-2  col-10 offset-0">
             <h2 className="title">Property Market</h2>
-            <div className="bordertabel">
-            <table className="tabel">
+            <div className="bordertabel ">
+            <table className="tabel  ">
                 <thead className="thead">
                     <tr>
                         <td>Metric</td>
@@ -108,7 +108,7 @@ const Data = () => {
             </div>
          </section>
           {/*              tabel num 2                                      */}
-         <section className="col-lg-5   offset-lg-1  offset-sm-2 col-sm-10  ">
+         <section className="col-lg-5   offset-lg-1 col-sm-10 offset-sm-2  col-10 offset-0  pt-lg-0 pt-4 ">
             <h2 className="title mt-lg-0 mt-sm-3 ">Socio-economic</h2>
             <div className="bordertabel">
             <table className="tabel">

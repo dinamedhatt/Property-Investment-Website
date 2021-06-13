@@ -1,6 +1,5 @@
 import '../App.css';
 import { NavLink } from "react-router-dom";
-import { GiBoltDrop } from 'react-icons/gi';
 
 const Footer= () => {
   const active = {
@@ -18,7 +17,7 @@ const Footer= () => {
 
     return ( 
     <div className="row col-12 pt-5 px-5 "style={{backgroundColor:"rgb(243, 243, 244)"}}>
-        <div className="col-lg-3   offset-lg-1 col-md-5 offset-md-1 col-sm-10 pb-5">
+        <div className="col-lg-3  offset-lg-1 col-md-5 offset-md-1 col-sm-10 pb-5">
         <table>
      <thead>
   <tr>
