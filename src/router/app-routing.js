@@ -6,7 +6,7 @@ import NavBAR from '../components/navbar'
 import Footer from '../components/footer'
 import Register from '../containers/register'
 import Login from '../containers/Login'
-
+import Home from './../components/home';
 const AppRouting = () => {
 return (
     <BrowserRouter>
@@ -17,7 +17,8 @@ return (
                 <Route path='/data-accuracy' component={Data} />
                 <Route path='/login' component={Login} />
                 <Route path='/register' component={Register} />
-                {/* <Route exact path='/' component={Home} /> */}
+                <Route path='/home' component={Home} />
+               <Route exact path='/' component={Home} /> 
                 {/* <Route path='**' component={Error} /> */}
             </Switch>
         <Footer/>
