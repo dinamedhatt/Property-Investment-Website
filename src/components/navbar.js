@@ -78,7 +78,7 @@ const NavBAR = () => {
 
             <NavLink to="/login">
               <input
-                className="ms-4  ms-lg-5 ms-xl-3 px-4  btn btn-medium btn-rounded "
+                className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded "
                 style={{ backgroundColor: "white", border: "black 2px solid" }}
                 type="button"
                 value="Log in"
