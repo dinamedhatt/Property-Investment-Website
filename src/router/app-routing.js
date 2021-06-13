@@ -31,6 +31,7 @@ const AppRouting = () => {
                 <Route path='/data-accuracy' component={Data} />
                 <Route path='/login' component={Login} />
                 <Route path='/register' component={Register} />
+                <Route path='/features' component={Features} />
                 <Route path='/' component={Home} />
                <Route exact path='/' component={Home} /> 
                 {/* <Route path='**' component={Error} /> */}
