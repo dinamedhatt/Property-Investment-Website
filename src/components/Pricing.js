@@ -1,7 +1,8 @@
 import { Component } from "react";
 import JoinBtn from "../containers/join-btn";
-import { GiCheckMark } from "@react-icons/all-files/gi/GiCheckMark";
-// import { IconContext } from "react-icons";
+// import { GiCheckMark } from "@react-icons/all-files/gi/GiCheckMark";
+import { GiCheckMark } from "react-icons/gi";
+
 class Pricing extends Component {
   state = {
     checkedStatus: true,

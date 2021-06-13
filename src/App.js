@@ -1,15 +1,13 @@
-import './App.css';
-import { Component} from "react";
+import "./App.css";
+import { Component } from "react";
 import AppRouting from "./router/app-routing";
-
-
 
 class App extends Component {
   render() {
     return (
-          <div>
-        <AppRouting/>
-          </div>
+      <div>
+        <AppRouting />
+      </div>
     );
   }
 }

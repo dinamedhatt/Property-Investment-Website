@@ -206,7 +206,6 @@ const Data = () => {
      </section>
      {/*             section of footer component                                      */}
      <section className="row">
-        <Footer/>
      </section>
      </div>
     );
