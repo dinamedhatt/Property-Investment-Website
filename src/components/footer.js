@@ -1,6 +1,20 @@
 import '../App.css';
+import { NavLink } from "react-router-dom";
+import { GiBoltDrop } from 'react-icons/gi';
+
 const Footer= () => {
- 
+  const active = {
+    color:'black',
+    fontWeight:'bold'
+  };
+
+  const linkStyle={
+    textDecoration: "none",
+    color:'black'
+  }
+
+  
+
 
     return ( 
     <div className="row col-12 pt-5 px-5 "style={{backgroundColor:"rgb(243, 243, 244)"}}>
@@ -13,18 +27,18 @@ const Footer= () => {
   </thead>
   <tbody>
   <tr>
-    <td>Home</td>
-    <td>FAQ</td>
+    <td>  <NavLink to='/' activeStyle={active} style={linkStyle}>Home</NavLink></td>
+    <td> <NavLink to="/faq" activeStyle={active} style={linkStyle}>FAQ</NavLink></td>
     
   </tr>
   <tr>
-    <td>Features</td>
-    <td>Pricing</td>
+    <td><NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink></td>
+    <td> <NavLink to="/pricing"activeStyle={active} style={linkStyle} >Pricing</NavLink></td>
     
   </tr>
   <tr>
-     <td>How it works</td>
-      <td>Data Sources</td>
+     <td><NavLink to='how-to-works' activeStyle={active} style={linkStyle}>How it works?</NavLink></td>
+      <td>  <NavLink to="/data-accuracy" activeStyle={active} style={linkStyle}>Data accuracy</NavLink></td>
       
   </tr>
   </tbody>
@@ -39,8 +53,8 @@ const Footer= () => {
   </thead>
   <tbody>
   <tr>
-    <td>About us</td>
-    <td>Contact</td>
+    <td> <NavLink to="/about" activeStyle={active} style={linkStyle}>About us</NavLink></td>
+    <td>   <NavLink to="/about" activeStyle={active} style={linkStyle}>Contact</NavLink></td>
     
   </tr>
   <tr>
