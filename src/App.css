@@ -202,6 +202,59 @@ input:checked[type="checkbox"]:before {
   text-align: justify;
 }
 
+/* Feature component styling */
+.feature-comparision-section {
+  margin: 5%;
+}
+
+.feature-text-container {
+  text-align: center;
+}
+
+.feature-text-container p:nth-child(2) {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+.feature-text-container p:nth-child(3) {
+  color: #000;
+}
+
+.feature-comparision-table {
+  display: flex;
+  max-width: 70%;
+  margin: auto;
+  border: 1px solid #c4c4c4;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.feature-table-part {
+  width: 35%;
+}
+
+.feature-table-part h4 {
+  height: 20%;
+}
+
+.feature-table-part:nth-of-type(2) {
+  background-color: #e8f0ff;
+}
+
+.feature-table-heading {
+  border-bottom: 1px solid #c4c4c4;
+  padding: 5%;
+}
+
+.feature-table-points p {
+  margin: 13%;
+}
+
+.top-react-icons {
+  fill: #2b59b4;
+}
+
 /* -------------------------- */
 
 /* ------------Data accurasy-------------- */
@@ -265,13 +318,11 @@ input:checked[type="checkbox"]:before {
   height: 300px;
   margin: 5% auto 0;
 }
-.bground{
- 
- height: 50%;
- width: 100%;
+.bground {
+  height: 50%;
+  width: 100%;
 }
 
- 
 .bground {
   height: 600px;
   width: 100%;
@@ -284,10 +335,10 @@ input:checked[type="checkbox"]:before {
 .form {
   background-color: white;
   position: absolute;
-  top:40%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027), 0 6px 20px 0 rgba(0, 0, 0, 0.349);
+  top: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027),
+    0 6px 20px 0 rgba(0, 0, 0, 0.349);
 
- 
   top: 40%;
   box-shadow: 3px 3px 5px 3px rgb(197, 196, 196),
     -3px -3px 5px 3px rgb(197, 196, 196);
@@ -308,11 +359,28 @@ input:checked[type="checkbox"]:before {
 /* -----------------MEDIA QUEREY---------------- */
 @media (max-width: 1200px) {
   .featureItem-section {
-    display: block;
+    flex-direction: column;
     text-align: center;
   }
   .featureText-container p {
     text-align: center;
+  }
+
+  .feature-comparision-table {
+    flex-direction: column;
+    width: 50%;
+  }
+  .feature-table-part {
+    width: 100%;
+  }
+
+  .feature-table-heading {
+    border-top: 1px solid #c4c4c4;
+    padding: 3%;
+  }
+
+  .feature-table-points p {
+    margin: 5%;
   }
 }
 
@@ -320,6 +388,15 @@ input:checked[type="checkbox"]:before {
   .img-container img {
     width: 250px;
   }
+  /* .feature-table-part h4 {
+    font-size: 85%;
+  } */
+}
+
+@media (max-width: 600px) {
+  /* .feature-table-part h4 {
+    width: 25%;
+  } */
 }
 
 @media (max-width: 400px) {
