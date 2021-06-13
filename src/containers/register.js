@@ -1,5 +1,5 @@
 import { Component } from "react";
-// import { Form } from 'react-bootstrap';
+import { FormErrors } from './formError';
 
 class Register extends Component {
     constructor() {
@@ -8,12 +8,61 @@ class Register extends Component {
         email: "",
         pass:"",
         fname:"",
-        lname:""
+        lname:"",
+        formErrors: {email: '', pass: '' ,fname:'' , lname:''},
+        emailValid: false,
+        passwordValid: false,
+        fnameValid:false,
+        lnameValid:false,
+        formValid: false
       };
+    }
+    validateField(fieldName, value) {
+      let fieldValidationErrors = this.state.formErrors;
+      let emailValid = this.state.emailValid;
+      let passwordValid = this.state.passwordValid;
+      let fnameValid = this.state.fnameValid;
+      let lnameValid = this.state.lnameValid;
+  
+      switch(fieldName) {
+        case 'email':
+          emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+          fieldValidationErrors.email = emailValid ? '' : ' Email is invalid';
+          break;
+        case 'pass':
+          passwordValid = value.length >= 6;
+          fieldValidationErrors.pass = passwordValid ? '': ' Password should be more than 5';
+          break;
+        case 'fname':
+          fnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
+          fieldValidationErrors.fname = fnameValid ? '': ' FirstName should be more than 3 and not contain number or space';
+          break;
+        case 'lname':
+          lnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
+          fieldValidationErrors.lname = lnameValid ? '': ' LastName should be more than 3 and not contain number or space';
+          break;
+        default:
+          break;
+      }
+      this.setState({formErrors: fieldValidationErrors,
+        emailValid: emailValid,
+        passwordValid: passwordValid,
+        fnameValid:fnameValid,
+        lnameValid:lnameValid
+
+      }, this.validateForm);
+    }
+    validateForm() {
+      this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.fnameValid && this.state.lnameValid});
+    }
+  
+    errorClass(error) {
+      return(error.length === 0 ? '' : 'has-error');
     }
     handleChange=(e)=>{
       const{name,value}=e.target;
-      this.setState({[name]:value})
+      this.setState({[name]: value},
+        () => { this.validateField(name, value) });
    }
 
    handelSumbit=(e)=>{
@@ -29,19 +78,27 @@ class Register extends Component {
              <h1 className="heading-one">Welcome!</h1>
              <p>Sign up to continue</p>
           </section>
-          <section className="bground"><img src='images/login.png' className="bg"/></section>
-          {/*         form section  */}
-           <form className="rounded border border-secondary row row col-6 offset-3 p-5 my-5 form">
-           <div className=" row mb-2 form-group">
+          <section className="bground"><img src='images/login.png' alt="background" className="bg"/></section>
+         
+         
+         
+         
+         
+          {/*         form section /////////////// */}
+           <form className="rounded border  row col-6 offset-3 p-5 my-5 form">
+           <div className="panel panel-default">
+            <FormErrors formErrors={this.state.formErrors} />
+           </div>
+           <div className=" row mb-2 ">
               <label htmlFor="fname" className="col-4 offset-2 form-label lbl fw-bold">
                 First name
               </label>
-              <label htmlFor="lname" className="col-4 offset-2 form-label lbl fw-bold">
+              <label htmlFor="lname" className="col-4  form-label lbl fw-bold">
                 Last name
               </label>
-              </div>
-              <div className="row">
-              <div className=" col-4 offset-2  mb-4 form-group">
+            </div>
+            <div className="row ">
+            <div className="col-4 offset-2  mb-4 ">
                <input
                className=" form-control"
                 type="text"
@@ -52,7 +109,7 @@ class Register extends Component {
                 onChange={this.handleChange}
               />
               </div>
-              <div className="col-4 offset-2  mb-4 form-group">
+              <div className="col-4 mb-4 ">
                <input
                className="form-control"
                 type="text"
@@ -64,12 +121,12 @@ class Register extends Component {
               />
             </div>
             </div>
-            <div className=" mb-2 form-group col-4 offset-2">
-              <label htmlFor="email" className="form-label lbl fw-bold">
+         
+            <div className="row mb-4 form-group">
+              <label htmlFor="email" className="form-label mb-2 col-4   offset-2 lbl fw-bold">
                 E-mail
               </label>
-              </div>
-              <div className=" mb-4 form-group col-8 offset-2">
+              <div  className="col-8   offset-2">
               <input
                 type="email"
                 placeholder="example@mail.com"
@@ -80,15 +137,13 @@ class Register extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            {/* <Form.Control.Feedback type="invalid" className="mb-3">
-              Please enter a username.
-      </Form.Control.Feedback> */}
-            <div className=" col-4 offset-2 mb-2 form-group">
-              <label htmlFor="pass" className="form-label lbl fw-bold">
+            </div>
+ 
+            <div className="row mb-4 form-group ">
+              <label htmlFor="pass" className="form-label col-4 offset-2 mb-2 lbl fw-bold">
                 Password
               </label>
-              </div>
-              <div className=" col-8 offset-2 mb-4 form-group">
+              <div className="col-8 offset-2">
               <input
                 type="password"
                 placeholder="********"
@@ -99,6 +154,7 @@ class Register extends Component {
                 min="8"
                 onChange={this.handleChange}
               />
+              </div>
             </div>
           
             <input
@@ -106,12 +162,13 @@ class Register extends Component {
               className="btn  col-3 m-auto "
               style={{ backgroundColor: "#2B59B4", color: "white" }}
               value="Sign Up"
-              onChange={this.handelSumbit}
+              onClick={this.handelSumbit}
+              disabled={!this.state.formValid}
             />
             <div className="row">
             <p 
               className="col-8  m-auto mt-4"
-              style={{  color: "#4A4A4A" }}>Don’t have an account? <a className="fw-bold"
+              style={{  color: "#4A4A4A" }}>Don’t have an account? <a href="." className="fw-bold"
                   style={{  color: "#2B59B4" ,textDecoration:"none"}} >Login In</a> now</p>
             </div>
           </form> 

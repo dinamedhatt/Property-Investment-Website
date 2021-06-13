@@ -235,18 +235,17 @@ input:checked[type="checkbox"]:before {
 
 .welcomSection{
   text-align: center;
-  max-width: 500px;
   height: 300px;
   margin: 5% auto 0;
  
 }
 .bground{
  
- height: 600px;
+ height: 50%;
  width: 100%;
 }
 .bg{
-  height: 100px;
+ 
   width: inherit;
   height: inherit;
 }
@@ -254,7 +253,9 @@ input:checked[type="checkbox"]:before {
   background-color: white;
   position: absolute;
   top:40%;
-  box-shadow:3px 3px 5px 3px rgb(197, 196, 196) ,-3px -3px 5px 3px rgb(197, 196, 196) 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027), 0 6px 20px 0 rgba(0, 0, 0, 0.349);
+
+ 
 }
 /* ---------Slider----------  */
 
