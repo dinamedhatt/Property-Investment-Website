@@ -1,11 +1,15 @@
-import './App.css';
+import "./App.css";
+import { Component } from "react";
+import AppRouting from "./router/app-routing";
 
-function App() {
-  return (
-    <div className="App">
-     Hello world
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <AppRouting />
+      </div>
+    );
+  }
 }
 
 export default App;

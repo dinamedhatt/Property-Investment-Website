@@ -37,14 +37,15 @@ const DealSection = () => {
       </div>
 
 
-      <div className="text-center pb-3">
-        <JoinBtn />
-        <input
-          className="btn btn-medium btn-rounded px-4 ms-5"
+      <div className="text-center pb-3 d-flex">
+        <div className='col-2 offset-4'><JoinBtn/></div>
+        
+        <div className='col-2 m-0'><input
+          className="btn btn-medium btn-rounded px-4"
           style={{ backgroundColor: "white", border: "black 2px solid" }}
           type="button"
           value="How it works?"
-        />
+        /></div>
       </div>
     </div>
   );
