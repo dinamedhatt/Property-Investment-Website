@@ -10,8 +10,8 @@ class Contact extends Component {
 
   render() {
     return (
-      <div className="rounded border border-secondary row row col-6 offset-3 p-5 my-5">
-        <div className="text-center my-3">
+      <div className="rounded border border-secondary  row  col-lg-6 offset-lg-3 p-0 p-lg-5 col-10 offset-1  my-5">
+        <div className="text-center my-3 col-10 mx-auto">
           <h3 className="fw-bold pb-3">Contact Us</h3>
           <p>
             Simply send as an email to:
@@ -23,8 +23,8 @@ class Contact extends Component {
           </p>
         </div>
 
-        <form className="row">
-          <div className=" col-5 form-group">
+        <form className="row col-12">
+          <div className=" col-md-5 form-group">
             <label htmlFor="name" className="form-label lbl">
               Name
             </label>
@@ -36,7 +36,7 @@ class Contact extends Component {
             />
           </div>
 
-          <div className=" col-6 offset-1 form-group">
+          <div className=" col-md-6 offset-md-1 mt-md-0 mt-4 form-group">
             <label htmlFor="mail" className="form-label lbl">
               Email
             </label>
@@ -75,7 +75,7 @@ class Contact extends Component {
 
           <input
             type="submit"
-            className="btn btn-rounded col-3 m-auto mt-5"
+            className="btn btn-rounded col-md-3 m-auto mt-5 mb-lg-0 mb-5 px-lg-0 px-5 col-6 "
             style={{ backgroundColor: "#2b59b4", color: "white" }}
             value="Send"
           />

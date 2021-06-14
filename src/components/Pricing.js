@@ -18,7 +18,7 @@ class Pricing extends Component {
     return (
       <section className="Pricing-section">
         <h1 className="heading-one">Pricing</h1>
-        <p>
+        <p className="col-10 offset-1">
           One plane, monthly or yearly payments. Try 14 days for free Dead
           simple like everything we do
         </p>
