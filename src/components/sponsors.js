@@ -8,6 +8,8 @@ const Sponsors = () => {
       <div className='text-center p-5 '>
           <h3>Featured data providers</h3>
           <table className='  m-auto my-5'>
+              <tbody>
+
               <tr className="row col-12">
                   <td className="col-sm-12 col-md-4"><img src='images/sponsors/1.png' alt='sponsor'/></td>
                   <td className="col-sm-12 col-md-4"><img src='images/sponsors/2.png' alt='sponsor'/></td>
@@ -18,6 +20,7 @@ const Sponsors = () => {
                   <td className="col-sm-12 col-md-4"><img src='images/sponsors/5.png' alt='sponsor'/></td>
                   <td className="col-sm-12 col-md-4"><img src='images/sponsors/6.png' alt='sponsor'/></td>
               </tr>
+              </tbody>
           </table>
           <input className='btn btn-medium btn-rounded px-3' style={{backgroundColor:"white",border:"black 2px solid"}} type='button' value='See all available metrics' onClick={reDirect}/>
   
