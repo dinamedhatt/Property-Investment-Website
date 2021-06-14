@@ -507,3 +507,9 @@ input:checked[type="checkbox"]:before {
     width: 200px;
   }
 }
+
+
+/*--------------------------data to rely on-----------------------*/
+#slide{
+  width:13%;
+}
