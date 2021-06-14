@@ -29,9 +29,9 @@ const DealSection = () => {
         }}
       >
         <img className="col-8 col-md-8 col-lg-3 col-xl-3 h-100 pt-3 px-xxl-4 pt-xl-2 img-fluid mt-lg-0 pt-lg-3 pt-md-3 ms-lg-0 ms-sm-4 ms-3 pb-xxl-2 px-lg-2 px-md-4 px-sm-0 ms-md-4" src="images/user.png" alt="user" />
-        <p className="col-12 d-inline pt-3 fw-bold  text-center fs-6 col-md-12 col-lg-9 col-xl-9 pt-lg-2 mt-lg-1 mt-xxl-3 pb-lg-0  pb-xl-2 pt-xl-2 ">
+        <p className="col-12 d-inline pt-3   fs-6 col-md-12 col-lg-9 col-xl-9 pt-lg-2 mt-lg-1 mt-xxl-3 pb-lg-0  pb-xl-2 pt-xl-2 ">
           3 bed flat in London for $233,000
-          <span className="text-secondary text-center d-block" style={{fontSize:"13px"}}>
+          <span className="text-secondary  d-block" style={{fontSize:"13px"}}>
             Saved by John 3 days ago
           </span>
         </p>

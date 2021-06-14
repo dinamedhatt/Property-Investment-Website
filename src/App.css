@@ -344,7 +344,6 @@ input:checked[type="checkbox"]:before {
   width: 100%;
 }
 .bg {
-  height: 100px;
   width: inherit;
   height: inherit;
 }
@@ -381,7 +380,6 @@ input:checked[type="checkbox"]:before {
 }
 
 #coverimg{
-
   box-sizing: border-box;
   position: relative;
   background-repeat:no-repeat;

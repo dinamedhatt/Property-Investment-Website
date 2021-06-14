@@ -79,7 +79,7 @@ class Login extends Component {
           </section>
           <section className="bground"><img src='images/login.png' className="bg" alt="background"/></section>
           {/*         form section  */}
-           <form className="rounded border   shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-5 my-lg-5 my-0 form">
+           <form className="rounded    shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-5 my-lg-5 my-0 form">
            <div className="panel panel-default">
             <FormErrors formErrors={this.state.formErrors} />
            </div>
@@ -108,7 +108,7 @@ class Login extends Component {
               <div className=" col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="password"
-                placeholder="********"
+                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
                 className="form-control"
                 id="pass"
                 name="pass"

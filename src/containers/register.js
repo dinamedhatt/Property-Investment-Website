@@ -158,7 +158,7 @@ class Register extends Component {
               <div className="col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="password"
-                placeholder="********"
+                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
                 className="form-control"
                 name="pass"
                 id="pass"

@@ -12,17 +12,17 @@ class Features extends Component {
   render() {
     return (
       <section>
-        <div className="features">
-          <h1 className="heading-one">Features</h1>
-          <p>
+        <div className="features mt-5 ">
+          <h1 className="heading-one ">Features</h1>
+          <p className=" mt-2 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3 mb-5">
             We chosen the features that give you an edge over the traditional
             real estate investors while keeping things extremely simple. See for
             yourself!
           </p>
-          <img
+          <img className="feature-img row col-10 offset-1 col-xl-6 offset-xl-3  col-lg-8 offset-lg-2 pt-5"
             src="images/features/features-img.png"
             alt="Features"
-            className="feature-img"
+  
           />
         </div>
         <FeatureItem imgSrc="1" heading="Powerfull filters" />
