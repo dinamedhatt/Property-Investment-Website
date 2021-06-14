@@ -34,6 +34,28 @@ class Features extends Component {
             </div>
 
             <div className="feature-icon2">
+              <svg
+                version="1.1"
+                baseProfile="full"
+                width="400"
+                height="250"
+                xlmns="http://www/w3/org/2000/svg"
+              >
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="100"
+                  style={{ stroke: "#2B59B4" }}
+                />
+                <line
+                  x1="0"
+                  y1="100"
+                  x2="90"
+                  y2="100"
+                  style={{ stroke: "#2B59B4" }}
+                />
+              </svg>
               <img
                 className="feature-icon"
                 src="images/features/icon2.png"
@@ -49,8 +71,8 @@ class Features extends Component {
               src="images/features/features-img.png"
               alt="Features"
             />
-            {/* 
-            <SteppedLineTo
+
+            {/* <SteppedLineTo
               from="feature-img"
               fromAnchor="25% 50%"
               to="feature-icon1"
