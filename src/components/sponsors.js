@@ -1,4 +1,9 @@
+import { useHistory } from 'react-router-dom';
+
+
 const Sponsors = () => {
+    const history = useHistory();
+    const reDirect = () => history.push('/data-accuracy'); 
     return (
       <div className='text-center p-5 '>
           <h3>Featured data providers</h3>
@@ -14,7 +19,7 @@ const Sponsors = () => {
                   <td className="col-sm-12 col-md-4"><img src='images/sponsors/6.png' alt='sponsor'/></td>
               </tr>
           </table>
-          <input class='btn btn-medium btn-rounded px-3' style={{backgroundColor:"white",border:"black 2px solid"}} type='button' value='See all available metrics'/>
+          <input className='btn btn-medium btn-rounded px-3' style={{backgroundColor:"white",border:"black 2px solid"}} type='button' value='See all available metrics' onClick={reDirect}/>
   
       </div>
     );

@@ -1,6 +1,10 @@
 import JoinBtn from "../containers/join-btn";
+import { useHistory } from 'react-router-dom';
+
 
 const DealSection = () => {
+  const history = useHistory();
+  const reDirect = () => history.push('/how-it-works'); 
   return (
     <div
       className="py-5 row col-12 m-0 position-relative"
@@ -46,6 +50,7 @@ const DealSection = () => {
           style={{ backgroundColor: "white", border: "black 2px solid" }}
           type="button"
           value="How it works?"
+          onClick={reDirect}
         /></div>
       </div>
     </div>
