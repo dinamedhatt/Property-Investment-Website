@@ -6,7 +6,7 @@ import DealSection from "./deal-section";
 import { Table } from "react-bootstrap";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import { SteppedLineTo } from "react-lineto";
+// import { SteppedLineTo } from "react-lineto";
 class Features extends Component {
   state = {};
   changeImg = () => {};
