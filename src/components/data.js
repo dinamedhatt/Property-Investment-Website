@@ -16,7 +16,7 @@ const Data = () => {
      {/*            section of 2 tabel                              */}
      <section className="row tabels">
          {/*              tabel num 1                                      */}
-         <section className="col-lg-5   offset-lg-1 col-sm-10 offset-sm-2 ">
+         <section className="col-lg-5   offset-lg-1 col-sm-8 offset-sm-2 ">
             <h2 className="title">Property Market</h2>
             <div className="bordertabel">
             <table className="tabel">
@@ -108,7 +108,7 @@ const Data = () => {
             </div>
          </section>
           {/*              tabel num 2                                      */}
-         <section className="col-lg-5   offset-lg-1  offset-sm-2 col-sm-10  ">
+         <section className="col-lg-5   offset-lg-0   offset-sm-2 col-sm-8 ">
             <h2 className="title mt-lg-0 mt-sm-3 ">Socio-economic</h2>
             <div className="bordertabel">
             <table className="tabel">
