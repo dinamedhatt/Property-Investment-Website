@@ -3,7 +3,7 @@ import JoinBtn from "../containers/join-btn";
 const DealSection = () => {
   return (
     <div
-      className="py-5 row col-12 position-relative"
+      className="py-5 row col-12 m-0 position-relative"
       style={{ backgroundColor: " rgba(243, 243, 243, 0.53)" }}
     >
       <div className="text-center">

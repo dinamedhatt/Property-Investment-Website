@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { FormErrors } from './formError';
 import { NavLink } from "react-router-dom";
-import Login from './Login';
 
 class Register extends Component {
     constructor() {

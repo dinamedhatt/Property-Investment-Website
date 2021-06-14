@@ -44,7 +44,7 @@ const NavBAR = () => {
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3">
-              <NavLink to='how-to-works' activeStyle={active} style={linkStyle}>How it works?</NavLink>
+              <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>How it works?</NavLink>
             </Nav.Link>
             <NavDropdown
               style={{ textAlign: "center" }}
