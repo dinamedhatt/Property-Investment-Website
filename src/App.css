@@ -222,12 +222,6 @@ input:checked[type="checkbox"]:before {
   height: 110px;
 }
 
-.feature-icon2 svg {
-  position: absolute;
-  transform: translate(-20%, -40%) rotateX(180deg);
-  z-index: 1000;
-}
-
 .feature-icon1 {
   position: absolute;
   top: -8%;
@@ -239,6 +233,12 @@ input:checked[type="checkbox"]:before {
   transition: all 2s;
 }
 
+.feature-icon1 svg {
+  position: absolute;
+  transform: translate(-60%, -115%) rotate(180deg) scaleY(200%);
+  z-index: 1000;
+}
+
 .feature-icon2 {
   position: absolute;
   top: -15%;
@@ -248,6 +248,12 @@ input:checked[type="checkbox"]:before {
   animation-iteration-count: infinite;
   animation-direction: alternate;
   transition: all 2s;
+}
+
+.feature-icon2 svg {
+  position: absolute;
+  transform: translate(-25%, -45%) rotateX(180deg) scaleY(200%);
+  z-index: 1000;
 }
 
 .feature-img {
@@ -575,4 +581,3 @@ input:checked[type="checkbox"]:before {
 #slide {
   width: 13%;
 }
-

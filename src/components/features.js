@@ -6,6 +6,7 @@ import DealSection from "./deal-section";
 import { Table } from "react-bootstrap";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import RelyData from "./rely-data";
 // import { SteppedLineTo } from "react-lineto";
 class Features extends Component {
   state = {};
@@ -31,6 +32,28 @@ class Features extends Component {
               <p>
                 ROI <br /> COMPUTATION
               </p>
+              <svg
+                version="1.1"
+                baseProfile="full"
+                width="400"
+                height="250"
+                xlmns="http://www/w3/org/2000/svg"
+              >
+                <line
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="100"
+                  style={{ stroke: "#C4C4C4", strokeWidth: "8px" }}
+                />
+                <line
+                  x1="0"
+                  y1="100"
+                  x2="115"
+                  y2="100"
+                  style={{ stroke: "#C4C4C4", strokeWidth: "2px" }}
+                />
+              </svg>
             </div>
 
             <div className="feature-icon2">
@@ -46,14 +69,14 @@ class Features extends Component {
                   y1="0"
                   x2="0"
                   y2="100"
-                  style={{ stroke: "#2B59B4" }}
+                  style={{ stroke: "#2B59B4", strokeWidth: "8px" }}
                 />
                 <line
                   x1="0"
                   y1="100"
-                  x2="90"
+                  x2="115"
                   y2="100"
-                  style={{ stroke: "#2B59B4" }}
+                  style={{ stroke: "#2B59B4", strokeWidth: "2px" }}
                 />
               </svg>
               <img
@@ -166,6 +189,7 @@ class Features extends Component {
           </div>
         </section>
 
+        <RelyData />
         <Sponsors />
         <DealSection />
       </section>
