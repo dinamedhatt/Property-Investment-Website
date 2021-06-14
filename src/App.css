@@ -210,34 +210,48 @@ input:checked[type="checkbox"]:before {
 }
 
 .feature-img-container {
-  margin-top: 5%;
+  position: relative;
+  margin-top: 15%;
 }
 
 .feature-icon {
   display: inline-block;
   width: 110px;
   height: 110px;
-  z-index: 100;
 }
 
 .feature-icon1 {
   position: absolute;
-  top: 40%;
-  left: 25%;
+  top: -8%;
+  left: 20%;
+  animation-name: moveUp;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: all 2s;
 }
 
 .feature-icon2 {
   position: absolute;
-  top: 35%;
-  right: 25%;
+  top: -15%;
+  right: 20%;
+  animation-name: moveUp;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: all 2s;
 }
 
 .feature-img {
   display: inline-block;
   /* width: 1151px;
   height: 466px; */
-  width: 90%;
   height: 466px;
+  animation-name: moveUp;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: all 2s;
 }
 
 .feature-comparision-section {
@@ -259,12 +273,16 @@ input:checked[type="checkbox"]:before {
   color: #000;
 }
 
-.table-borderless {
-  margin: auto;
-  width: 80% !important;
+.feature-comparision-container {
   border: 1px solid #c4c4c4;
-  /* border-radius: 20px !important; */
+  border-radius: 20px;
+  margin: auto;
+  width: 80%;
   text-align: center;
+}
+
+.table {
+  margin-bottom: 0 !important;
 }
 
 .feature-comparision-table thead {
@@ -281,6 +299,7 @@ input:checked[type="checkbox"]:before {
 .feature-comparision-table thead tr th,
 .feature-comparision-table tbody tr td {
   padding: 2.5%;
+  width: 30%;
 }
 
 .top-react-icons {
@@ -477,6 +496,18 @@ input:checked[type="checkbox"]:before {
     transform: translate(180%, 0%);
   }
 }
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(-7%);
+  }
+  50% {
+    transform: translateY(-14%);
+  }
+  100% {
+    transform: translateY(-21%);
+  }
+}
 /* -----------------MEDIA QUEREY---------------- */
 @media (max-width: 1200px) {
   /* .feature-img {
@@ -491,10 +522,32 @@ input:checked[type="checkbox"]:before {
     text-align: center;
   }
 
+  /* .feature-icon1 {
+    top: -18%;
+    left: 8%;
+  }
+
+  .feature-icon2 {
+    top: -25%;
+    right: 10%;
+  } */
+
   .featureText-container p {
     text-align: center;
   }
 }
+
+/* @media (max-width: 850px) {
+  .feature-icon1 {
+    top: -18%;
+    left: 5%;
+  } */
+/* 
+  .feature-icon2 {
+    top: -25%;
+    right: 10%;
+  } */
+/* } */
 
 @media (max-width: 650px) {
   .img-container img {

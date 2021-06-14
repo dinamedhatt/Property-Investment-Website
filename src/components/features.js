@@ -9,7 +9,6 @@ import { IconContext } from "react-icons";
 // import { SteppedLineTo } from "react-lineto";
 class Features extends Component {
   state = {};
-  changeImg = () => {};
 
   render() {
     return (
@@ -23,17 +22,27 @@ class Features extends Component {
           </p>
 
           <div className="feature-img-container">
-            <img
-              className="feature-icon feature-icon1"
-              src="images/features/icon1.png"
-              alt="icon"
-            />
+            <div className="feature-icon1">
+              <img
+                className="feature-icon"
+                src="images/features/icon1.png"
+                alt="icon"
+              />
+              <p>
+                ROI <br /> COMPUTATION
+              </p>
+            </div>
 
-            <img
-              className="feature-icon feature-icon2"
-              src="images/features/icon2.png"
-              alt="icon"
-            />
+            <div className="feature-icon2">
+              <img
+                className="feature-icon"
+                src="images/features/icon2.png"
+                alt="icon"
+              />
+              <p>
+                DEAL <br /> ALERTS
+              </p>
+            </div>
 
             <img
               className="feature-img row col-10 offset-1 col-xl-6 offset-xl-3  col-lg-8 offset-lg-2 pt-5"
@@ -77,60 +86,62 @@ class Features extends Component {
             <p>vs. others</p>
           </div>
 
-          <Table borderless className="feature-comparision-table">
-            <thead>
-              <tr>
-                <th className="feature-table-heading">&nbsp;</th>
-                <th className="feature-table-heading">Property Deal Genie</th>
-                <th className="feature-table-heading">Others</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Time to start</td>
-                <td>Immediatelly</td>
-                <td>After a few hours of training</td>
-              </tr>
-              <tr>
-                <td>Ease of use</td>
-                <td>
-                  <IconContext.Provider
-                    value={{ className: "top-react-icons" }}
-                  >
+          <div className="feature-comparision-container">
+            <Table borderless className="feature-comparision-table">
+              <thead>
+                <tr>
+                  <th className="feature-table-heading">&nbsp;</th>
+                  <th className="feature-table-heading">Property Deal Genie</th>
+                  <th className="feature-table-heading">Others</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Time to start</td>
+                  <td>Immediatelly</td>
+                  <td>After a few hours of training</td>
+                </tr>
+                <tr>
+                  <td>Ease of use</td>
+                  <td>
+                    <IconContext.Provider
+                      value={{ className: "top-react-icons" }}
+                    >
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarFill />
+                      <BsStarHalf />
+                    </IconContext.Provider>
+                  </td>
+                  <td>
                     <BsStarFill />
                     <BsStarFill />
-                    <BsStarFill />
-                    <BsStarFill />
-                    <BsStarHalf />
-                  </IconContext.Provider>
-                </td>
-                <td>
-                  <BsStarFill />
-                  <BsStarFill />
-                  <BsStar />
-                  <BsStar />
-                  <BsStar />
-                </td>
-              </tr>
-              <tr>
-                <td>Property metrics</td>
-                <td>Up to 50</td>
-                <td>34 and counting</td>
-              </tr>
+                    <BsStar />
+                    <BsStar />
+                    <BsStar />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Property metrics</td>
+                  <td>Up to 50</td>
+                  <td>34 and counting</td>
+                </tr>
 
-              <tr>
-                <td>Heatmap overlays</td>
-                <td>All metrics</td>
-                <td>Partially available</td>
-              </tr>
+                <tr>
+                  <td>Heatmap overlays</td>
+                  <td>All metrics</td>
+                  <td>Partially available</td>
+                </tr>
 
-              <tr>
-                <td>Monthly fee</td>
-                <td>From $20</td>
-                <td>Above $100</td>
-              </tr>
-            </tbody>
-          </Table>
+                <tr>
+                  <td>Monthly fee</td>
+                  <td>From $20</td>
+                  <td>Above $100</td>
+                </tr>
+              </tbody>
+            </Table>
+          </div>
         </section>
 
         <Sponsors />
