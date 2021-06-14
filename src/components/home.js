@@ -1,10 +1,13 @@
-import '../App.css';
-
-
+import Carousel from './carousel'
+import Sponsors from './sponsors'
+import DealSection from './deal-section'
+import Retirement from './retirement'
 const Home = () => {
-    return (<div id="cover"  className="row col-12 m-0">
+    return (
+      <div>
+    <div id="cover"  className="row col-12 m-0">
 <div id="coverimg" className="img-fluid  ">
-    <img src="images/home/coverpage.png" />
+    <img src="images/home/coverpage.png" alt='cover' />
 </div>
 
        <div className="text-center col-6 col-sm-6 col-md-6 col-lg-6 px-0 p-0"
@@ -33,7 +36,7 @@ const Home = () => {
           left: "20%"
         }}
       >
-        <img className="col-8 col-md-6 col-lg-5 col-xl-4 h-100 pt-3  pt-xl-2 img-fluid mt-lg-0 pt-lg-4 pt-md-3 ms-md-0 ms-sm-4 ms-3 pb-xxl-2" src="images/home/1.png" alt="user" />
+        <img className="col-8 col-md-6 col-lg-5 col-xl-4 h-100 pt-3  pt-xl-2 img-fluid mt-lg-0 pt-lg-4 pt-md-3 ms-md-0 ms-sm-4 ms-3 pb-xxl-2" src="images/home/1.png" alt="score" />
         <p className="col-12 d-inline pt-3 fw-bold  fs-6 col-md-6 col-lg-7 col-xl-8 pt-lg-5 mt-lg-1 mt-xxl-3 pb-lg-3  pb-xl-2 pt-xl-4 text-center">
          Genie score
           <span className=" d-block fw-bold" style={{fontSize:"18px"}}>
@@ -51,7 +54,7 @@ const Home = () => {
           right: "20%"
         }}
       >
-        <img className="col-8 col-md-6 col-lg-5 col-xl-4 h-100 pt-3  pt-xl-2 img-fluid mt-lg-0 pt-lg-4 pt-md-3 ms-md-0 ms-sm-4 ms-3 pb-xxl-2" src="images/home/2.png" alt="user" />
+        <img className="col-8 col-md-6 col-lg-5 col-xl-4 h-100 pt-3  pt-xl-2 img-fluid mt-lg-0 pt-lg-4 pt-md-3 ms-md-0 ms-sm-4 ms-3 pb-xxl-2" src="images/home/2.png" alt="roi" />
         <p className="col-12 d-inline pt-3 fw-bold  fs-6 mt-lg-1 mt-xxl-3 col-md-6 col-lg-7 col-xl-8 pt-lg-5 pb-lg-3  pb-xl-2 pt-xl-4 text-center">
          Property ROI
           <span className=" d-block fw-bold" style={{fontSize:"18px"}}>
@@ -59,8 +62,11 @@ const Home = () => {
           </span>
         </p>
       </div>
-     
-    
+      </div>
+    <Retirement/>
+    <Carousel/>
+    <Sponsors/>
+    <DealSection/>
 </div>
 );
 }
