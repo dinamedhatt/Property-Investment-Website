@@ -3,8 +3,10 @@ import FeatureItem from "./feature-item";
 import Retirement from "./retirement";
 import Sponsors from "./sponsors";
 import DealSection from "./deal-section";
+import { Table } from "react-bootstrap";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import { SteppedLineTo } from "react-lineto";
 class Features extends Component {
   state = {};
   changeImg = () => {};
@@ -15,15 +17,45 @@ class Features extends Component {
         <div className="features mt-5 ">
           <h1 className="heading-one ">Features</h1>
           <p className=" mt-2 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3 mb-5">
-            We chosen the features that give you an edge over the traditional
-            real estate investors while keeping things extremely simple. See for
-            yourself!
+            We have chosen the features that give you an edge over the
+            traditional real estate investors while keeping things extremely
+            simple. See for yourself!
           </p>
-          <img className="feature-img row col-10 offset-1 col-xl-6 offset-xl-3  col-lg-8 offset-lg-2 pt-5"
-            src="images/features/features-img.png"
-            alt="Features"
-  
-          />
+
+          <div className="feature-img-container">
+            <img
+              className="feature-icon feature-icon1"
+              src="images/features/icon1.png"
+              alt="icon"
+            />
+
+            <img
+              className="feature-icon feature-icon2"
+              src="images/features/icon2.png"
+              alt="icon"
+            />
+
+            <img
+              className="feature-img row col-10 offset-1 col-xl-6 offset-xl-3  col-lg-8 offset-lg-2 pt-5"
+              src="images/features/features-img.png"
+              alt="Features"
+            />
+            {/* 
+            <SteppedLineTo
+              from="feature-img"
+              fromAnchor="25% 50%"
+              to="feature-icon1"
+              orientation="h"
+              borderColor="#C4C4C4"
+            />
+            <SteppedLineTo
+              from="feature-img"
+              fromAnchor="75% 50%"
+              to="feature-icon2"
+              orientation="h"
+              borderColor="#C4C4C4"
+            /> */}
+          </div>
         </div>
         <FeatureItem imgSrc="1" heading="Powerfull filters" />
         <FeatureItem imgSrc="2" heading="Matching property alerts" />
@@ -45,23 +77,23 @@ class Features extends Component {
             <p>vs. others</p>
           </div>
 
-          <div className="feature-comparision-table">
-            <div className="feature-table-part">
-              <h4 className="feature-table-heading">&nbsp;</h4>
-              <div className="feature-table-points">
-                <p>Time to start</p>
-                <p>Ease of use</p>
-                <p>Property metrics</p>
-                <p>Heatmap overlays</p>
-                <p>Monthly fee</p>
-              </div>
-            </div>
-
-            <div className="feature-table-part">
-              <h4 className="feature-table-heading">Property Deal Genie</h4>
-              <div className="feature-table-points">
-                <p>Immediatelly</p>
-                <p>
+          <Table borderless className="feature-comparision-table">
+            <thead>
+              <tr>
+                <th className="feature-table-heading">&nbsp;</th>
+                <th className="feature-table-heading">Property Deal Genie</th>
+                <th className="feature-table-heading">Others</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Time to start</td>
+                <td>Immediatelly</td>
+                <td>After a few hours of training</td>
+              </tr>
+              <tr>
+                <td>Ease of use</td>
+                <td>
                   <IconContext.Provider
                     value={{ className: "top-react-icons" }}
                   >
@@ -71,30 +103,34 @@ class Features extends Component {
                     <BsStarFill />
                     <BsStarHalf />
                   </IconContext.Provider>
-                </p>
-                <p>34 and counting</p>
-                <p>All metrics</p>
-                <p>From $20</p>
-              </div>
-            </div>
+                </td>
+                <td>
+                  <BsStarFill />
+                  <BsStarFill />
+                  <BsStar />
+                  <BsStar />
+                  <BsStar />
+                </td>
+              </tr>
+              <tr>
+                <td>Property metrics</td>
+                <td>Up to 50</td>
+                <td>34 and counting</td>
+              </tr>
 
-            <div className="feature-table-part">
-              <h4 className="feature-table-heading">Others</h4>
-              <div className="feature-table-points">
-                <p>After a few hours of training</p>
-                <p>
-                  <BsStarFill />
-                  <BsStarFill />
-                  <BsStar />
-                  <BsStar />
-                  <BsStar />
-                </p>
-                <p>Up to 50</p>
-                <p>Partially available</p>
-                <p>Above $100</p>
-              </div>
-            </div>
-          </div>
+              <tr>
+                <td>Heatmap overlays</td>
+                <td>All metrics</td>
+                <td>Partially available</td>
+              </tr>
+
+              <tr>
+                <td>Monthly fee</td>
+                <td>From $20</td>
+                <td>Above $100</td>
+              </tr>
+            </tbody>
+          </Table>
         </section>
 
         <Sponsors />

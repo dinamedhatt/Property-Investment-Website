@@ -209,9 +209,31 @@ input:checked[type="checkbox"]:before {
   margin: 5%;
 }
 
+.feature-img-container {
+  margin-top: 5%;
+}
+
+.feature-icon {
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  z-index: 100;
+}
+
+.feature-icon1 {
+  position: absolute;
+  top: 40%;
+  left: 25%;
+}
+
+.feature-icon2 {
+  position: absolute;
+  top: 35%;
+  right: 25%;
+}
+
 .feature-img {
   display: inline-block;
-  margin-top: 15%;
   /* width: 1151px;
   height: 466px; */
   width: 90%;
@@ -224,6 +246,7 @@ input:checked[type="checkbox"]:before {
 
 .feature-text-container {
   text-align: center;
+  /* margin-bottom: 15px; */
 }
 
 .feature-text-container p:nth-child(2) {
@@ -236,35 +259,28 @@ input:checked[type="checkbox"]:before {
   color: #000;
 }
 
-.feature-comparision-table {
-  display: flex;
-  max-width: 70%;
+.table-borderless {
   margin: auto;
+  width: 80% !important;
   border: 1px solid #c4c4c4;
-  border-radius: 20px;
+  /* border-radius: 20px !important; */
   text-align: center;
 }
 
-.feature-table-part {
-  width: 35%;
-}
-
-.feature-table-part h4 {
-  height: 20%;
-  line-height: 50px;
-}
-
-.feature-table-part:nth-of-type(2) {
-  background-color: #e8f0ff;
-}
-
-.feature-table-heading {
+.feature-comparision-table thead {
   border-bottom: 1px solid #c4c4c4;
-  padding: 5%;
 }
 
-.feature-table-points p {
-  margin: 13%;
+.feature-comparision-table thead tr th:nth-of-type(2),
+.feature-comparision-table tbody tr td:nth-of-type(2) {
+  background-color: #e8f0ff;
+  border-left: 1px solid #c4c4c4;
+  border-right: 1px solid #c4c4c4;
+}
+
+.feature-comparision-table thead tr th,
+.feature-comparision-table tbody tr td {
+  padding: 2.5%;
 }
 
 .top-react-icons {
@@ -371,107 +387,97 @@ input:checked[type="checkbox"]:before {
   color: grey !important;
 }
 
-
-
 /*-----------------------------------------home----------------------------------------*/
-#cover{
+#cover {
   overflow: hidden;
   height: 100vh;
 }
 
-#coverimg{
+#coverimg {
   box-sizing: border-box;
   position: relative;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   -webkit-animation: coverimg 6s ease-in-out 1s infinite alternate both;
-            animation: coverimg 6s ease-in-out 1s infinite alternate both;}
- 
-#animatio-one{
-  -webkit-animation: limg 6s ease-in-out 1s infinite alternate both;
-  animation: limg 6s ease-in-out 1s infinite alternate both;}
+  animation: coverimg 6s ease-in-out 1s infinite alternate both;
+}
 
-  #animatio-two{
-    -webkit-animation: rimg 6s ease-in-out 1s infinite alternate both;
-    animation: rimg 6s ease-in-out 1s infinite alternate both;}
-  
-  #animation-dealSection{
-    -webkit-animation: animation-dealSection 10s ease-out 1s infinite alternate both;
-    animation: animation-dealSection 10s ease-out 1s infinite alternate both;}
-  
+#animatio-one {
+  -webkit-animation: limg 6s ease-in-out 1s infinite alternate both;
+  animation: limg 6s ease-in-out 1s infinite alternate both;
+}
+
+#animatio-two {
+  -webkit-animation: rimg 6s ease-in-out 1s infinite alternate both;
+  animation: rimg 6s ease-in-out 1s infinite alternate both;
+}
+
+#animation-dealSection {
+  -webkit-animation: animation-dealSection 10s ease-out 1s infinite alternate
+    both;
+  animation: animation-dealSection 10s ease-out 1s infinite alternate both;
+}
 
 @keyframes coverimg {
   0% {
     -webkit-transform: scale(1) translateY(0);
-            transform: scale(1) translateY(0);
+    transform: scale(1) translateY(0);
     -webkit-transform-origin: 50% 16%;
-            transform-origin: 50% 16%;
+    transform-origin: 50% 16%;
   }
   100% {
     -webkit-transform: scale(1.05) translateY(-5px);
-            transform: scale(1.05) translateY(-5px);
+    transform: scale(1.05) translateY(-5px);
     -webkit-transform-origin: top;
-            transform-origin: top;
+    transform-origin: top;
   }
 }
 @keyframes limg {
   0% {
     -webkit-transform: translateX(0%);
-            transform: translateX(0%);
+    transform: translateX(0%);
   }
-  80%{
+  80% {
     -webkit-transform: translateX(150%);
-    transform:  translateX(150%);
-
+    transform: translateX(150%);
   }
   100% {
-    -webkit-transform: translate(150%,100%);
-            transform:  translate(150%,100%);
+    -webkit-transform: translate(150%, 100%);
+    transform: translate(150%, 100%);
   }
 }
 
 @keyframes rimg {
   0% {
     -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-  
+    transform: translateX(0%);
   }
-  80%{
+  80% {
     -webkit-transform: translateX(-150%);
-    transform:  translateX(-150%);
-
+    transform: translateX(-150%);
   }
   100% {
-    -webkit-transform: translate(-150%,-100%);
-            transform:  translate(-150%,-100%);
+    -webkit-transform: translate(-150%, -100%);
+    transform: translate(-150%, -100%);
   }
 }
-
 
 @keyframes animation-dealSection {
   0% {
     -webkit-transform: translateX(-150%);
-            transform: translateX(-150%);
-  
+    transform: translateX(-150%);
   }
-  80%{
+  80% {
     -webkit-transform: translateX(180%);
-    transform:  translateX(180%);
-
+    transform: translateX(180%);
   }
   100% {
-    -webkit-transform: translate(180%,0%);
-            transform:  translate(180%,0%);
+    -webkit-transform: translate(180%, 0%);
+    transform: translate(180%, 0%);
   }
 }
 /* -----------------MEDIA QUEREY---------------- */
-@media (max-width: 1290px) {
-  .feature-table-part h4 {
-    line-height: 30px;
-  }
-}
-
 @media (max-width: 1200px) {
   /* .feature-img {
     display: inline-block;
@@ -488,23 +494,6 @@ input:checked[type="checkbox"]:before {
   .featureText-container p {
     text-align: center;
   }
-
-  .feature-comparision-table {
-    flex-direction: column;
-    width: 50%;
-  }
-  .feature-table-part {
-    width: 100%;
-  }
-
-  .feature-table-heading {
-    border-top: 1px solid #c4c4c4;
-    padding: 3%;
-  }
-
-  .feature-table-points p {
-    margin: 5%;
-  }
 }
 
 @media (max-width: 650px) {
@@ -516,6 +505,5 @@ input:checked[type="checkbox"]:before {
 @media (max-width: 400px) {
   .img-container img {
     width: 200px;
-
   }
 }
