@@ -323,6 +323,11 @@ input:checked[type="checkbox"]:before {
 }
 
 /* divider section style */
+.divider-component h3 {
+  text-align: center;
+  font-size: 2rem;
+}
+
 .divider-section {
   width: 90%;
   display: flex;
@@ -398,7 +403,6 @@ input:checked[type="checkbox"]:before {
   border-style: hidden;
   width: 100%;
   height: 100%;
-  
 }
 
 .bordertabel {
@@ -408,7 +412,6 @@ input:checked[type="checkbox"]:before {
   width: 100%;
   height: 850px;
   text-align: center;
-
 }
 
 .thead {
@@ -453,13 +456,12 @@ input:checked[type="checkbox"]:before {
 .form {
   background-color: white;
   position: absolute;
-  top:40%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027), 0 6px 20px 0 rgba(0, 0, 0, 0.349);
   top: 40%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027),
     0 6px 20px 0 rgba(0, 0, 0, 0.349);
-
-  
+  top: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027),
+    0 6px 20px 0 rgba(0, 0, 0, 0.349);
 }
 /* ---------Slider----------  */
 

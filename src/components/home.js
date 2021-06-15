@@ -74,6 +74,7 @@ const Home = () => {
         </div>
       </div>
 
+      <Divider />
       <Retirement />
       <Carousel />
       <Sponsors />
