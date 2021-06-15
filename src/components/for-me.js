@@ -40,10 +40,10 @@ const ForMe = () =>{
       const headers = [
         'Find real estate below the market radar easily',
         'Stop wasting time checking listings day by day',
-        'Focus on what matters for you',
+        'Focus on what really matters for a better future',
         'Use filters to see deals matching your criteria',
         'Find a profitable investment before retirement',
-        'Analyze and evaluate your benefits'
+        'Analyze and evaluate carefully what can benefit you'
       ]
       const renderSlide = (header) =>[0, 1, 2, 3, 4 ,5].map(num => (
         <div key={num} className='p-5 mx-3'>
@@ -57,7 +57,7 @@ const ForMe = () =>{
 return (
 <div>
       <h3 className='text-center mb-3'>Is this for me?</h3>
-      <Slider className='col-11 m-auto' {...settings}>
+      <Slider className='col-10 col-lg-11 m-auto' {...settings}>
         {renderSlide(headers)}
       </Slider>
       </div>

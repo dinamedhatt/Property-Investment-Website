@@ -381,7 +381,7 @@ input:checked[type="checkbox"]:before {
 .Data-section {
   margin: 5% auto;
   text-align: center;
-  max-width: 500px;
+  max-width: 50%;
 }
 .p-one {
   font-size: 1.5rem;
@@ -389,25 +389,28 @@ input:checked[type="checkbox"]:before {
 .title {
   font-size: 2rem;
   margin-bottom: 2rem;
-  margin-left: 110px;
+  margin-left: 20%;
 }
+
 .tabel {
-  height: 100%;
   border-spacing: 0;
   border-collapse: collapse;
   border-style: hidden;
-
   width: 100%;
-  max-width: 100%;
+  height: 100%;
+  
 }
+
 .bordertabel {
   overflow: auto;
   border: solid 1px #545454;
   border-radius: 20px;
-  width: 508px;
-  height: 700px;
+  width: 100%;
+  height: 850px;
   text-align: center;
+
 }
+
 .thead {
   background-color: #143d8d;
   color: white;
@@ -443,10 +446,6 @@ input:checked[type="checkbox"]:before {
   width: 100%;
 }
 
-.bground {
-  height: 600px;
-  width: 100%;
-}
 .bg {
   width: inherit;
   height: inherit;
@@ -454,13 +453,13 @@ input:checked[type="checkbox"]:before {
 .form {
   background-color: white;
   position: absolute;
+  top:40%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027), 0 6px 20px 0 rgba(0, 0, 0, 0.349);
   top: 40%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027),
     0 6px 20px 0 rgba(0, 0, 0, 0.349);
 
-  top: 40%;
-  box-shadow: 3px 3px 5px 3px rgb(197, 196, 196),
-    -3px -3px 5px 3px rgb(197, 196, 196);
+  
 }
 /* ---------Slider----------  */
 

@@ -9,6 +9,22 @@ class DataSlide extends Component {
     autoplay: true,
     swipeToSlide: true,
     arrows: false,
+    responsive: [{
+      breakpoint: 1200,
+      settings: {
+          slidesToShow: 7
+      }
+  }, {
+      breakpoint: 992,
+      settings: {
+          slidesToShow: 6
+      }
+  }, {
+      breakpoint: 600,
+      settings: {
+          slidesToShow: 5
+      }
+  }]
   };
 
   render() {
