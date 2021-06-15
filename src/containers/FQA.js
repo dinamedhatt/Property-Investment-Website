@@ -25,7 +25,7 @@ class FQA extends Component {
            <section className="fqa">
              <h1 className="heading-one">Frequently Asked Questions</h1>
             </section>
-            <section className="row col-lg-6 col-sm-4 offset-lg-3 offest-sm-4 text-left ">
+            <section className="row col-6 offset-3  text-left ">
             <Accordion defaultActiveKey="0">
              <Card >
                
@@ -95,9 +95,9 @@ class FQA extends Component {
              </Card>
             </Accordion>
         </section>
-        <section className="row col-12 text-center my-5">
+        <section className="row  text-center my-5">
              <h2>Have other question?</h2>
-             <button className="my-3  col-2  offset-5 bttn" onClick={this.routeChange}>Contact Us</button>
+             <button className="my-3  col-4  offset-4 col-md-2 offset-md-5 bttn" onClick={this.routeChange}>Contact Us</button>
         </section>
        <DealSection/>
     </div>
