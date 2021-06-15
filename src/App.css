@@ -466,6 +466,28 @@ input:checked[type="checkbox"]:before {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027),
     0 6px 20px 0 rgba(0, 0, 0, 0.349);
 }
+
+/* ---------FQA----------  */
+.fqa{
+  text-align: center;
+  height: 100px;
+  margin: 5% auto 0;
+}
+.bttn{
+  background-color: white;
+  border:solid 1px black;
+  border-radius: 5px;
+  color: #4a4a4a;
+  height: 50px;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
 /* ---------Slider----------  */
 
 .slick-dots li.slick-active button:before {
