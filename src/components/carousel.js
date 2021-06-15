@@ -12,7 +12,8 @@ const settings = {
     dots: true,
     infinite: true,
     speed: 1000,
-    fade: true
+    fade: true,
+    arrows:false
   }
     
     return(
