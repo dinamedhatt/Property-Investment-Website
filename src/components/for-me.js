@@ -47,7 +47,7 @@ const ForMe = () =>{
       ]
       const renderSlide = (header) =>[0, 1, 2, 3, 4 ,5].map(num => (
         <div key={num} className='p-5 mx-3'>
-          <div className=' p-4' style={{backgroundColor:"#F3F3F4"}}>
+          <div className='rounded p-4' style={{backgroundColor:"#F3F3F4"}}>
         <img className='col-12' src={`images/Home/slider/${num}.png`} alt={`img${num}`}/>
         <h5 className='my-3 fw-bold'>{header[num]}</h5>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. </p>
