@@ -20,7 +20,7 @@ class DividerItem extends Component {
             alt="divider"
           />
         </div>
-        <p>{this.state.discribtion}</p>
+        <p className="mx-lg-0 mx-auto">{this.state.discribtion}</p>
       </section>
     );
   }
