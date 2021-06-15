@@ -3,7 +3,8 @@ import Sponsors from './sponsors'
 import DealSection from './deal-section'
 import Retirement from './retirement'
 import { useHistory } from "react-router-dom";
-
+import ForMe from './for-me'
+import RelyData from './rely-data/rely-data';
 const Home = () => {
   const history = useHistory();
   const reDirect = () => history.push('/features'); 
@@ -67,6 +68,7 @@ const Home = () => {
         </p>
       </div>
       </div>
+    <ForMe/>
     <Retirement/>
     <Carousel/>
 {/* -------------------------features you will love section---------------------------- */}
@@ -119,7 +121,7 @@ const Home = () => {
 
 
 
-
+    <RelyData/>
     <Sponsors/>
     <DealSection/>
 </div>
