@@ -6,7 +6,7 @@ import NavBAR from "../components/navbar";
 import Footer from "../components/footer";
 import Register from "../containers/register";
 import Login from "../containers/Login";
-import Features from "../components/features";
+import Features from "../components/features/features";
 import Home from './../components/home';
 import Error from './../components/error';
 import Works from './../components/how-works';

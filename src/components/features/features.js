@@ -1,12 +1,12 @@
 import { Component } from "react";
 import FeatureItem from "./feature-item";
-import Retirement from "./retirement";
-import Sponsors from "./sponsors";
-import DealSection from "./deal-section";
+import Retirement from "../retirement";
+import Sponsors from "../sponsors";
+import DealSection from "../deal-section";
 import { Table } from "react-bootstrap";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { IconContext } from "react-icons";
-import RelyData from "./rely-data";
+import RelyData from "../rely-data/rely-data";
 // import { SteppedLineTo } from "react-lineto";
 class Features extends Component {
   state = {};
