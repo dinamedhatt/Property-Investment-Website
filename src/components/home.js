@@ -3,6 +3,8 @@ import Sponsors from "./sponsors";
 import DealSection from "./deal-section";
 import Retirement from "./retirement";
 import Divider from "./divider/divider";
+import ForMe from "./for-me";
+import RelyData from "./rely-data/rely-data";
 
 const Home = () => {
   return (
@@ -73,10 +75,15 @@ const Home = () => {
           </p>
         </div>
       </div>
-
+      <ForMe/>
       <Divider />
       <Retirement />
       <Carousel />
+
+
+      {/* -----------------Features you'll love section---------------------- */}
+
+      <RelyData/>
       <Sponsors />
       <DealSection />
     </div>
