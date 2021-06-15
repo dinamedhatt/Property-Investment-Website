@@ -462,8 +462,9 @@ input:checked[type="checkbox"]:before {
 /* ---------FQA----------  */
 .fqa {
   text-align: center;
-  height: 100px;
-  margin: 5% auto 0;
+  margin-top: 5% ;
+  margin-bottom: 3%;
+ 
 }
 .bttn {
   background-color: white;
@@ -471,6 +472,7 @@ input:checked[type="checkbox"]:before {
   border-radius: 5px;
   color: #4a4a4a;
   height: 50px;
+  max-width: 10%;
   font-size: 20px;
 }
 

@@ -5,8 +5,27 @@ class Contact extends Component {
     super();
     this.state = {
       name: "",
+      email:"",
+      subject:"Product question",
+      body:""
     };
   }
+
+  setName=(e)=>{
+    this.setState({name:e.target.value});
+}
+
+setMail=(e)=>{
+  this.setState({email:e.target.value});
+}
+
+setSubject=(e)=>{
+  this.setState({subject:e.target.value});
+}
+
+setBody=(e)=>{
+  this.setState({body:e.target.value});
+}
 
   render() {
     return (
@@ -33,6 +52,7 @@ class Contact extends Component {
               placeholder="John Smith"
               className="form-control"
               id="name"
+              onChange={this.setName}
             />
           </div>
 
@@ -45,6 +65,7 @@ class Contact extends Component {
               placeholder="John.smith@email.com"
               className="form-control"
               id="mail"
+              onChange={this.setMail}
             />
           </div>
 
@@ -52,13 +73,13 @@ class Contact extends Component {
             <label htmlFor="subject" className="for-label lbl">
               Subject
             </label>
-            <select className="form-select">
-              <option selected disabled>
+            <select className="form-select" defaultValue={this.state.subject} onChange={this.setSubject}>
+              <option disabled>
                 Product question
               </option>
-              <option value="feedback">Feedback</option>
-              <option value="inquiry">Inquiry</option>
-              <option value="payment">Payment</option>
+              <option value="Feedback">Feedback</option>
+              <option value="Inquiry">Inquiry</option>
+              <option value="Payment">Payment</option>
             </select>
           </div>
 
@@ -70,6 +91,7 @@ class Contact extends Component {
               className="form-control"
               placeholder="Leave your message here.."
               rows="5"
+              onChange={this.setBody}
             ></textarea>
           </div>
 
@@ -78,6 +100,12 @@ class Contact extends Component {
             className="btn btn-rounded col-md-3 m-auto mt-5 mb-lg-0 mb-5 px-lg-0 px-5 col-6 "
             style={{ backgroundColor: "#2b59b4", color: "white" }}
             value="Send"
+            onClick={()=>{
+              window.location.href=`mailto:info@dealgenieltd.co.uk?Subject=${this.state.subject}
+              &body=${this.state.body}%0d%0a%0d%0aBest regards,%0d%0a${this.state.name}%0d%0a${this.state.email}`;  
+              //%0d%0a used to make a line break
+            }
+            }
           />
         </form>
       </div>
