@@ -8,7 +8,7 @@ class Divider extends Component {
       <section className="divider-component">
         <h3>How it works?</h3>
 
-        <div className="divider-section">
+        <div className="divider-section ">
           <DividerItem
             number="1"
             subHeader="RESEARCH"
