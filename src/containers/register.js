@@ -100,38 +100,37 @@ class Register extends Component {
            <div className="panel panel-default">
             <FormErrors formErrors={this.state.formErrors} />
            </div>
-           <div className=" row mb-2 ">
-              <label htmlFor="fname" className="col-5 offset-2 form-label lbl fw-bold">
-                First name
-              </label>
-              <label htmlFor="lname" className="col-5  form-label lbl fw-bold">
-                Last name
-              </label>
-            </div>
-            <div className="row ">
-            <div className="col-sm-4 offset-2 col-5 mb-4 ">
-               <input
-               className=" form-control"
-                type="text"
+         <div className='row mb-4 form-group'>
+          <div className=" col-4 offset-2 form-group">
+            <label htmlFor="fname" className="form-label lbl">
+              First Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
                 placeholder="John"
                 name="fname"
                 id="fname"
                 required
                 onChange={this.handleChange}
-              />
-              </div>
-              <div className="col-sm-4  col-5 mb-4">
-               <input
-               className="form-control"
-                type="text"
-                placeholder="Doe"
-                name="lname"
-                id="lname"
-                required
-                onChange={this.handleChange}
-              />
-            </div>
-            </div>
+            />
+          </div>
+
+          <div className=" col-4 form-group">
+            <label htmlFor="lname" className="form-label lbl">
+              Last Name
+            </label>
+            <input
+             className="form-control"
+              type="text"
+              placeholder="Doe"
+              name="lname"
+              id="lname"
+              required
+              onChange={this.handleChange}
+            />
+          </div>
+          </div>
          
             <div className="row mb-4 form-group">
               <label htmlFor="email" className="form-label mb-2 col-4   offset-2 lbl fw-bold">

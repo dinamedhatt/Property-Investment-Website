@@ -1,7 +1,7 @@
 import { Component } from "react";
 import JoinBtn from "../containers/join-btn";
 import { GiCheckMark } from "@react-icons/all-files/gi/GiCheckMark";
-import { useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import { GiCheckMark } from "react-icons/gi";
 
 
@@ -98,9 +98,7 @@ class Pricing extends Component {
         <section className="check-feature-section">
           <p>Not yet convinced?</p>
           <div className="btn-container">
-            <button onClick={()=>{
-              useHistory().push('/features')
-            }}> Check all features </button>
+            <NavLink to='/features'><button> Check all features </button></NavLink>
           </div>
         </section>
       </section>
