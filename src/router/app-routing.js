@@ -6,6 +6,7 @@ import NavBAR from "../components/navbar";
 import Footer from "../components/footer";
 import Register from "../containers/register";
 import Login from "../containers/Login";
+import FAQ from "../containers/FAQ";
 import Features from "../components/features/features";
 import Home from './../components/home';
 import Error from './../components/error';
@@ -24,6 +25,7 @@ const AppRouting = () => {
                 <Route path='/register' component={Register} />
                 <Route path='/how-it-works' component={Works} />
                 <Route path='/features' component={Features} />
+                <Route path='/faq' component={FAQ} />
                 <Route path='/home' component={Home} />
                <Route exact path='/' component={Home} /> 
                 <Route path='**' component={Error} />
