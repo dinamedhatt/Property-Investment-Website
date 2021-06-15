@@ -73,7 +73,6 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <Divider />
 
       <Retirement />
       <Carousel />
