@@ -96,13 +96,14 @@ class Register extends Component {
          
          
           {/*         form section /////////////// */}
-           <form className="rounded border   shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-sm-5 py-5 px-0 my-lg-5 my-0 form">
+           <form className="rounded border pe-sm-0 pe-4  shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-sm-5 py-5 px-0 my-lg-5 my-0 form">
            <div className="panel panel-default">
             <FormErrors formErrors={this.state.formErrors} />
            </div>
-         <div className='row mb-4 form-group'>
-          <div className=" col-4 offset-2 form-group">
-            <label htmlFor="fname" className="form-label lbl">
+         <div className='row  form-group'>
+           
+          <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-4  form-group">
+            <label htmlFor="fname" className="form-label lbl fw-bold ">
               First Name
             </label>
             <input
@@ -116,8 +117,8 @@ class Register extends Component {
             />
           </div>
 
-          <div className=" col-4 form-group">
-            <label htmlFor="lname" className="form-label lbl">
+          <div className=" col-sm-4 offset-sm-0 col-10 offset-2 mb-4   form-group">
+            <label htmlFor="lname" className="form-label lbl fw-bold ">
               Last Name
             </label>
             <input
