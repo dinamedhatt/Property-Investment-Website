@@ -12,10 +12,10 @@ const Data = () => {
         </p>
      </section>
      </div>
-     
-     <section className="row tabels col-12">
-        
-         <section className="col-lg-5   offset-lg-1 col-sm-10 offset-sm-2  col-10 offset-0">
+     {/*            section of 2 tabel                              */}
+     <section className="row tabels">
+         {/*              tabel num 1                                      */}
+         <section className="col-lg-5   offset-lg-1 col-sm-8 offset-sm-2 ">
             <h2 className="title">Property Market</h2>
             <div className="bordertabel ">
             <table className="tabel  ">
@@ -106,8 +106,8 @@ const Data = () => {
             </table>
             </div>
          </section>
-         
-         <section className="col-lg-5   offset-lg-1 col-sm-10 offset-sm-2  col-10 offset-0  pt-lg-0 pt-4 ">
+          {/*              tabel num 2                                      */}
+         <section className="col-lg-5   offset-lg-0   offset-sm-2 col-sm-8 ">
             <h2 className="title mt-lg-0 mt-sm-3 ">Socio-economic</h2>
             <div className="bordertabel">
             <table className="tabel">
