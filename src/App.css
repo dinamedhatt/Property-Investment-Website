@@ -581,3 +581,11 @@ input:checked[type="checkbox"]:before {
 #slide {
   width: 13%;
 }
+
+.slick-prev,.slick-next{
+  font-size: 30px !important;
+}
+.slick-prev:before, .slick-next:before{
+color: grey !important;
+font-size: 30px !important;
+}
