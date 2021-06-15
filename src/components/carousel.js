@@ -26,7 +26,7 @@ const settings = {
                 We believe now is always great time to be investing in property – regardless of short-term rises and drops, property is the single best asset class for returns!
                 <br/><br/>A wise man once said “Don’t wait to buy, buy then wait…”
                 </p><br/>
-                <p className='text-secondary col-xl-12 col-6 offset-6  d-md-block d-none  lbl pb-0 mb-0'>Mike Highnetworth</p>
+                <p className='text-secondary col-xl-12 col-6  ms-xl-1 offset-md-6 d-md-block d-none  lbl pb-0 mb-0'>Mike Highnetworth</p>
             </div>
 
             <Slider className='m-auto col-11 mb-5' {...settings}>{renderSlides()}</Slider>

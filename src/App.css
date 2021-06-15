@@ -449,7 +449,7 @@ input:checked[type="checkbox"]:before {
   margin: 5% auto 0;
 }
 .bground {
-  height: 50%;
+  height: 500px;
   width: 100%;
 }
 
@@ -629,9 +629,9 @@ input:checked[type="checkbox"]:before {
     width: 60%;
   }
   .dividerItem-section hr {
-    top: 60%;
-    right: 61%;
-    width: 72%;
+    top: 55%;
+    right: 63%;
+    width: 67%;
     transform: rotate(90deg);
     
   }
@@ -646,10 +646,10 @@ input:checked[type="checkbox"]:before {
   }
  
   .dividerItem-section hr {
-    top: 60%;
-    right: 56%;
+    top: 55%;
+    right: 60%;
     transform: rotate(90deg);
-    width: 80%;
+    width: 72%;
   }
 }
 
@@ -659,10 +659,10 @@ input:checked[type="checkbox"]:before {
     
   }
   .dividerItem-section hr {
-    top: 60%;
-    right: 48%;
+    top: 55%;
+    right: 53%;
     transform: rotate(90deg);
-    width: 95%;
+    width: 85%;
   }
 }
 /* x-small */
