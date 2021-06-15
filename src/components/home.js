@@ -2,12 +2,16 @@ import Carousel from './carousel'
 import Sponsors from './sponsors'
 import DealSection from './deal-section'
 import Retirement from './retirement'
+import { useHistory } from "react-router-dom";
+
 const Home = () => {
+  const history = useHistory();
+  const reDirect = () => history.push('/features'); 
     return (
       <div>
     <div id="cover"  className="row col-12 m-0">
 <div id="coverimg" className="img-fluid  ">
-    <img src="images/home/coverpage.png" alt='cover' />
+    <img src="images/home/coverpage.png" alt='cover'/>
 </div>
 
        <div className="text-center col-6 col-sm-6 col-md-6 col-lg-6 px-0 p-0"
@@ -65,6 +69,57 @@ const Home = () => {
       </div>
     <Retirement/>
     <Carousel/>
+{/* -------------------------features you will love section---------------------------- */}
+
+<div className="row m-0 col-12 ps-5">
+  <h3 className="text-center mb-5">Features you’ll love</h3>
+{/* ---------partOne------------ */}
+  <div className="row col-lg-4 col-md-6 col-11 offset-md-0 offset-1">
+  <img className="col-3 col-sm-2 col-md-4 col-lg-5 col-xl-5 col-xxl-4 h-100 img-fluid p-xl-4 py-lg-5 py-md-5 py-5" src="images/home/2.png" alt="score" />
+        <p className=" fw-bold  fs-6 col-8 col-md-7  col-lg-7 col-xl-7  mt-lg-1 mt-xxl-3 pb-xl-2 pt-xl-4 pt-lg-5 mt-md-1 pt-md-5 mt-1 pt-5">
+        ROI Computation
+          <span className=" d-block " style={{fontSize:"12px"}}>
+          We can calculate the return on investment for you based on your initial investment
+          </span>
+        </p>
+  </div>
+  
+{/* ---------partTwo------------ */}
+<div className="row col-lg-4 col-md-6 col-11 offset-md-0 offset-1">
+<img className="col-3 col-sm-2 col-md-4 col-lg-5 col-xl-5 col-xxl-4 h-100 img-fluid p-xl-4 py-lg-5 py-md-5 py-5" src="images/home/1.png" alt="score" />
+        <p className="fw-bold  fs-6 col-8 col-md-7  col-lg-7 col-xl-7  mt-lg-1 mt-xxl-3 pb-xl-2 pt-xl-4 pt-lg-5  mt-md-1 pt-md-5 mt-1 pt-5">
+        Genie Score          <span className=" d-block " style={{fontSize:"12px"}}>
+        You can score points based on the return you get and on the investment you make
+          </span>
+        </p>
+  </div>
+{/* ---------partThree------------ */}
+   <div className="row col-lg-4 col-md-12 col-11 offset-md-0 offset-1">
+   <img className="col-3 col-sm-2 col-md-2 col-lg-5 col-xl-5 col-xxl-4 h-100 img-fluid p-xl-4 py-lg-5 py-md-5 py-5" src="images/home/3.png" alt="score" />
+        <p className="fw-bold  fs-6 col-8 col-md-5  col-lg-7 col-xl-7  mt-lg-1 mt-xxl-3 pb-xl-2 pt-xl-4 pt-lg-5 mt-md-1 pt-md-5 mt-1 pt-5">
+        Area and property filters          <span className=" d-block " style={{fontSize:"12px"}}>
+        You can filter the available investments based on the area you prefer
+          </span>
+        </p>
+  </div>
+  <h6 className=" text-center fw-bold mt-5">And many more..</h6>
+  <div  className="text-center"><input
+          className="btn btn-medium btn-rounded px-4 mt-3"
+          style={{ backgroundColor: "white", border: "black 2px solid" }}
+          type="button"
+          value="Check all features"
+          onClick={reDirect}
+        /></div>
+</div>
+
+
+
+
+
+
+
+
+
     <Sponsors/>
     <DealSection/>
 </div>
