@@ -6,23 +6,30 @@ import NavBAR from "../components/navbar";
 import Footer from "../components/footer";
 import Register from "../containers/register";
 import Login from "../containers/Login";
-import Features from "../components/features";
+import Features from "../components/features/features";
+import Home from './../components/home';
+import Error from './../components/error';
+import Works from './../components/how-works';
 
 const AppRouting = () => {
   return (
     <BrowserRouter>
-      <NavBAR />
-      <Switch>
-        <Route path="/about" component={About} />
-        <Route path="/pricing" component={Pricing} />
-        <Route path="/data-accuracy" component={Data} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/features" component={Features} />
-        {/* <Route exact path='/' component={Home} /> */}
-        {/* <Route path='**' component={Error} /> */}
-      </Switch>
-      <Footer />
+
+     <NavBAR/>
+            <Switch>
+                <Route path='/about' component={About} />
+                <Route path='/pricing' component={Pricing} />
+                <Route path='/data-accuracy' component={Data} />
+                <Route path='/login' component={Login} />
+                <Route path='/register' component={Register} />
+                <Route path='/how-it-works' component={Works} />
+                <Route path='/features' component={Features} />
+                <Route path='/home' component={Home} />
+               <Route exact path='/' component={Home} /> 
+                <Route path='**' component={Error} />
+            </Switch>
+        <Footer/>
+
     </BrowserRouter>
   );
 };

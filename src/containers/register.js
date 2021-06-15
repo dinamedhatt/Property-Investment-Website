@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { FormErrors } from './formError';
+import { NavLink } from "react-router-dom";
 
 class Register extends Component {
     constructor() {
@@ -71,12 +72,22 @@ class Register extends Component {
  
     
     render() {
+      const active = {
+        color:"#2B59B4",
+        fontWeight:'bold'
+      };
+    
+      const linkStyle={
+        color:"#2B59B4",
+        textDecoration: "none",
+        
+      }
       return (
         <div className="parent" >
         {/*         welcom message             */}
           <section className=" welcomSection">
              <h1 className="heading-one">Welcome!</h1>
-             <p>Sign up to continue</p>
+             <p className="fs-4">Sign up to continue</p>
           </section>
           <section className="bground"><img src='images/login.png' alt="background" className="bg"/></section>
          
@@ -85,48 +96,47 @@ class Register extends Component {
          
          
           {/*         form section /////////////// */}
-           <form className="rounded border  row col-6 offset-3 p-5 my-5 form">
+           <form className="rounded border   shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-sm-5 py-5 px-0 my-lg-5 my-0 form">
            <div className="panel panel-default">
             <FormErrors formErrors={this.state.formErrors} />
            </div>
-           <div className=" row mb-2 ">
-              <label htmlFor="fname" className="col-4 offset-2 form-label lbl fw-bold">
-                First name
-              </label>
-              <label htmlFor="lname" className="col-4  form-label lbl fw-bold">
-                Last name
-              </label>
-            </div>
-            <div className="row ">
-            <div className="col-4 offset-2  mb-4 ">
-               <input
-               className=" form-control"
-                type="text"
+         <div className='row mb-4 form-group'>
+          <div className=" col-4 offset-2 form-group">
+            <label htmlFor="fname" className="form-label lbl">
+              First Name
+            </label>
+            <input
+              type="text"
+              className="form-control"
                 placeholder="John"
                 name="fname"
                 id="fname"
                 required
                 onChange={this.handleChange}
-              />
-              </div>
-              <div className="col-4 mb-4 ">
-               <input
-               className="form-control"
-                type="text"
-                placeholder="Doe"
-                name="lname"
-                id="lname"
-                required
-                onChange={this.handleChange}
-              />
-            </div>
-            </div>
+            />
+          </div>
+
+          <div className=" col-4 form-group">
+            <label htmlFor="lname" className="form-label lbl">
+              Last Name
+            </label>
+            <input
+             className="form-control"
+              type="text"
+              placeholder="Doe"
+              name="lname"
+              id="lname"
+              required
+              onChange={this.handleChange}
+            />
+          </div>
+          </div>
          
             <div className="row mb-4 form-group">
               <label htmlFor="email" className="form-label mb-2 col-4   offset-2 lbl fw-bold">
                 E-mail
               </label>
-              <div  className="col-8   offset-2">
+              <div  className="col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="email"
                 placeholder="example@mail.com"
@@ -143,10 +153,10 @@ class Register extends Component {
               <label htmlFor="pass" className="form-label col-4 offset-2 mb-2 lbl fw-bold">
                 Password
               </label>
-              <div className="col-8 offset-2">
+              <div className="col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="password"
-                placeholder="********"
+                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"
                 className="form-control"
                 name="pass"
                 id="pass"
@@ -159,7 +169,7 @@ class Register extends Component {
           
             <input
               type="submit"
-              className="btn  col-3 m-auto "
+              className="btn col-md-3 col-4 m-auto "
               style={{ backgroundColor: "#2B59B4", color: "white" }}
               value="Sign Up"
               onClick={this.handelSumbit}
@@ -167,9 +177,9 @@ class Register extends Component {
             />
             <div className="row">
             <p 
-              className="col-8  m-auto mt-4"
+              className="col-xl-8 col-sm-10 col-9  text-center m-auto mt-4"
               style={{  color: "#4A4A4A" }}>Don’t have an account? <a href="." className="fw-bold"
-                  style={{  color: "#2B59B4" ,textDecoration:"none"}} >Login In</a> now</p>
+                  style={{  color: "#2B59B4" ,textDecoration:"none"}} ><NavLink to='/login' activeStyle={active} style={linkStyle}>Login</NavLink></a> now</p>
             </div>
           </form> 
         </div>

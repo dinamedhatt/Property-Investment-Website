@@ -38,13 +38,13 @@ const NavBAR = () => {
         <Navbar.Collapse id="navbarScroll" className="pt-4 ">
           <Nav className="mr-auto  my-2 my-lg-0  fs-5 " navbarScroll>
             <Nav.Link className="mx-auto mx-lg-3 ms-lg-0 ">
-              <NavLink to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
+              <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3">
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3">
-              <NavLink to='how-to-works' activeStyle={active} style={linkStyle}>How it works?</NavLink>
+              <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>How it works?</NavLink>
             </Nav.Link>
             <NavDropdown
               style={{ textAlign: "center" }}
@@ -78,7 +78,7 @@ const NavBAR = () => {
 
             <NavLink to="/login">
               <input
-                className="ms-4  ms-lg-5 ms-xl-3 px-4  btn btn-medium btn-rounded "
+                className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded "
                 style={{ backgroundColor: "white", border: "black 2px solid" }}
                 type="button"
                 value="Log in"

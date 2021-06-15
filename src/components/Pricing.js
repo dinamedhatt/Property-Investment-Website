@@ -1,7 +1,10 @@
 import { Component } from "react";
 import JoinBtn from "../containers/join-btn";
 import { GiCheckMark } from "@react-icons/all-files/gi/GiCheckMark";
-// import { IconContext } from "react-icons";
+import { NavLink } from "react-router-dom";
+// import { GiCheckMark } from "react-icons/gi";
+
+
 class Pricing extends Component {
   state = {
     checkedStatus: true,
@@ -17,7 +20,7 @@ class Pricing extends Component {
     return (
       <section className="Pricing-section">
         <h1 className="heading-one">Pricing</h1>
-        <p>
+        <p className="col-10 offset-1">
           One plane, monthly or yearly payments. Try 14 days for free Dead
           simple like everything we do
         </p>
@@ -95,7 +98,7 @@ class Pricing extends Component {
         <section className="check-feature-section">
           <p>Not yet convinced?</p>
           <div className="btn-container">
-            <button> Check all features </button>
+            <NavLink to='/features'><button> Check all features </button></NavLink>
           </div>
         </section>
       </section>
