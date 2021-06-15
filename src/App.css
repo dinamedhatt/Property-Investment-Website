@@ -393,10 +393,6 @@ input:checked[type="checkbox"]:before {
   width: 100%;
 }
 
-.bground {
-  height: 600px;
-  width: 100%;
-}
 .bg {
   width: inherit;
   height: inherit;
@@ -410,9 +406,7 @@ input:checked[type="checkbox"]:before {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027),
     0 6px 20px 0 rgba(0, 0, 0, 0.349);
 
-  top: 40%;
-  box-shadow: 3px 3px 5px 3px rgb(197, 196, 196),
-    -3px -3px 5px 3px rgb(197, 196, 196);
+  
 }
 /* ---------Slider----------  */
 
