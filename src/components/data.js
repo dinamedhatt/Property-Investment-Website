@@ -13,7 +13,7 @@ const Data = () => {
      </section>
      </div>
      {/*            section of 2 tabel                              */}
-     <section className="row tabels">
+     <section className="row col-12 m-0 tabels">
          {/*              tabel num 1                                      */}
          <section className="col-lg-5   offset-lg-1 col-sm-8 offset-sm-2 ">
             <h2 className="title">Property Market</h2>
@@ -200,11 +200,7 @@ const Data = () => {
         </section>
       </section>
       {/*             section of dealSection component                                     */}
-      <section className="row">
         <DealSection />
-      </section>
-      {/*             section of footer component                                      */}
-      <section className="row"></section>
     </div>
   );
 };
