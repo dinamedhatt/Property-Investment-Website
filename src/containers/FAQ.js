@@ -1,23 +1,15 @@
 import { Component } from "react";
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
-import { withRouter } from 'react-router-dom';
 import DealSection from "../components/deal-section";
-class FQA extends Component {
+class FAQ extends Component {
     constructor(){
         super()
         this.state={
           activeEventKey: "0",
-        }
-        this. activeColor= "#143d8d";
-        this.routeChange = this.routeChange.bind(this);
-  
+        }  
     } 
       
-    routeChange() {
-        let path = '/about';
-        this.props.history.push(path);
-      }
     
     render() {
       return (
@@ -29,9 +21,9 @@ class FQA extends Component {
             <Accordion defaultActiveKey="0">
              <Card >
                
-                <Accordion.Toggle as={Card.Header} eventKey="0" className="fw-bold "
+                <Accordion.Toggle as={Card.Header} eventKey="0"
                  {...(this.state.activeEventKey === "0" && {
-                    style: { backgroundColor: this.activeColor }
+                    style: { backgroundColor:"#143d8d",color:'white',fontWeight:"bold"}
                     })}
                  onClick={() => {this.setState({ activeEventKey: "0" })}}
                 >
@@ -52,9 +44,9 @@ class FQA extends Component {
                 </Accordion.Collapse>
              </Card>
              <Card>
-                <Accordion.Toggle as={Card.Header} eventKey="1" className="fw-bold "
+                <Accordion.Toggle as={Card.Header} eventKey="1"
                   {...(this.state.activeEventKey === "1" && {
-                    style: { backgroundColor: this.activeColor }
+                    style: { backgroundColor:"#143d8d",color:'white',fontWeight:"bold"}
                     })}
                   onClick={() => {this.setState({ activeEventKey: "1" })}}>
                     How frequently do you update the data?
@@ -73,9 +65,9 @@ class FQA extends Component {
                 </Accordion.Collapse>
              </Card>
              <Card>
-                <Accordion.Toggle as={Card.Header} eventKey="2" className="fw-bold "
+                <Accordion.Toggle as={Card.Header} eventKey="2"
                   {...(this.state.activeEventKey === "2" && {
-                    style: { backgroundColor: this.activeColor }
+                    style:  { backgroundColor:"#143d8d",color:'white',fontWeight:"bold"}
                     })}
                  onClick={() => {this.setState({ activeEventKey: "2" })}}>
                     Do I need to actively search for new properties?
@@ -95,9 +87,9 @@ class FQA extends Component {
              </Card>
             </Accordion>
         </section>
-        <section className="row  text-center my-5">
-             <h2>Have other question?</h2>
-             <button className="my-3  col-4  offset-4 col-md-2 offset-md-5 bttn" onClick={this.routeChange}>Contact Us</button>
+        <section className="text-center my-5">
+             <h3>Have other question?</h3>
+             <input className='btn btn-medium btn-rounded px-3 mt-3' style={{backgroundColor:"white",border:"black 2px solid"}} type='button' value='Contact Us' onClick={()=>{this.props.history.push('/about')}}/>
         </section>
        <DealSection/>
     </div>
@@ -105,4 +97,4 @@ class FQA extends Component {
     }
   }
   
-  export default FQA;
+  export default FAQ;
