@@ -10,8 +10,9 @@ class DividerItem extends Component {
       <section className="dividerItem-section">
         <div className="dividerItem-number-container">
           {this.props.number}
-          <hr />
+          <hr/>
         </div>
+        <div className="rightContainer">
         <h5>{this.props.subHeader}</h5>
         <h4>{this.props.header}</h4>
         <div className="divider-img-container">
@@ -21,6 +22,7 @@ class DividerItem extends Component {
           />
         </div>
         <p className="mx-lg-0 mx-auto">{this.state.discribtion}</p>
+        </div>
       </section>
     );
   }
