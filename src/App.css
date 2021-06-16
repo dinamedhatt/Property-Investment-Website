@@ -521,6 +521,50 @@ input:checked[type="checkbox"]:before {
   animation: animation-dealSection 10s ease-out 1s infinite alternate both;
 }
 
+
+#triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid #FFC107;
+  position: relative;
+}
+
+#triangle-down:after {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  top: -95px;
+  left: -30px;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid transparent;
+  content: '2';
+}
+
+#triangle-down-5 {
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid #FFC107;
+  position: relative;
+}
+
+#triangle-down-5:after {
+  position: absolute;
+  color: rgb(0, 0, 0);
+  top: -95px;
+  left: -30px;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 50px solid transparent;
+  content: '5';
+}
+
+
+
+
 @keyframes coverimg {
   0% {
     -webkit-transform: scale(1) translateY(0);
@@ -722,3 +766,6 @@ input:checked[type="checkbox"]:before {
   color: grey !important;
   font-size: 30px !important;
 }
+
+
+

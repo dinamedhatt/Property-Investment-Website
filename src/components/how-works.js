@@ -36,17 +36,17 @@ const Works = () => {
 
        {/* -----------------------------SECTION TWO--------------------------- */}
        <div className='row  col-12 m-0 my-5 py-5'>
-        <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
-            <div className='bg-warning py-1  mt-5 text-center' style={{width:"30px"}}>2</div>
+        <div className=' col-10  col-md-5 col-lg-4 offset-lg-1 ps-md-3 offset-md-1 offset-1'>
+            <div id="triangle-down" className=' py-1  mt-5 text-center' style={{width:"30px"}}></div>
             <h4 className='fw-bold my-3'>Use filters to see deals matching your criteria</h4>
             <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
         </div>
 
-        <div className="position-relative col-xl-6 col-md-5 col-10 mt-5  offset-1 offset-md-1">
+        <div className="position-relative col-10 col-md-6 col-lg-6 offset-lg-1 pt-5 offset-md-0 offset-1">
           <img src="images/works/2.png" alt="img2" className="col-11" />
           <img
             src="images/works/22.png"
-            className="col-4 position-absolute"
+            className="col-4  pt-5 position-absolute"
             style={{ top: -60, right: 120 }}
             alt="img2-zoomed"
           />
@@ -55,7 +55,7 @@ const Works = () => {
 
 
       {/* -----------------------------SECTION THREE--------------------------- */}
-      <div className='row  col-12 m-0 my-5 py-5'>
+      <div className='row  col-12 m-0 my-5 py-5 '>
         <div className="position-relative col-xl-6 col-md-5 col-10 mt-5  offset-1 offset-md-1">
           <img src="images/works/3.png" alt="img3" className="col-11" />
           <img
@@ -78,13 +78,13 @@ const Works = () => {
 
 {/* -----------------------------SECTION FOUR--------------------------- */}
 <div className='row  col-12 m-0 my-5 py-5'>
-        <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
+        <div className=' col-10  col-md-5 col-lg-4 offset-lg-1 ps-md-3 offset-md-1 offset-1'>
             <div className='bg-warning py-1  mt-5 text-center' style={{width:"30px"}}>4</div>
             <h4 className='fw-bold my-3'>Evaluate selected properties</h4>
             <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
         </div>
 
-        <div className="position-relative col-xl-6 col-md-5 col-10 mt-5  offset-1 offset-md-1">
+        <div className="position-relative col-10 col-md-6 col-lg-6 offset-lg-1 pt-5 offset-md-0 offset-1">
           <img src="images/works/4.png" alt="img4" className="col-11" />
           <img
             src="images/works/44.png"
@@ -109,7 +109,7 @@ const Works = () => {
         </div>
 
         <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
-        <div className='bg-warning py-1 mt-5  text-center' style={{width:"30px"}}>5</div>
+        <div id="triangle-down-5" className='py-1 mt-5  text-center' style={{width:"30px"}}></div>
             <h4 className='fw-bold my-3'>Compute accurate ROI for the property</h4>
             <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
         </div>
@@ -118,13 +118,13 @@ const Works = () => {
 
       {/* -----------------------------SECTION SIX--------------------------- */}
 <div className='row  col-12 m-0 my-5 py-5'>
-        <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
+        <div className=' col-10  col-md-5 col-lg-4 offset-lg-1 ps-md-3 offset-md-1 offset-1'>
         <div className='border border-warning  mt-5 py-2 text-center' style={{width:"40px",borderRadius:'100%'}}>6</div>
             <h4 className='fw-bold my-3'>Save your research and setup alerts</h4>
             <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
         </div>
 
-        <div className="position-relative col-xl-6 col-md-5 col-10 mt-5  offset-1 offset-md-1">
+        <div className="position-relative col-10 col-md-6 col-lg-6 offset-lg-1 pt-5 offset-md-0 offset-1">
           <img src="images/works/6.png" alt="img6" className="col-11" />
           <img
             src="images/works/66.png"
