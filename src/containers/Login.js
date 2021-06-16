@@ -76,11 +76,9 @@ class Login extends Component {
              <p className="fs-4">Login to continue</p>
           </section>
           <section className="bground"><img src='images/login.png' className="bg" alt="background"/></section>
-          {/*         form section  */}
+                  {/* form section        */}
+                  
            <form className="rounded    shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-5 my-lg-5 my-0 form">
-           <div className="panel panel-default">
-            <FormErrors formErrors={this.state.formErrors} />
-           </div>
             <div className="row mb-4 form-group">
               <label htmlFor="email" className="col-4 offset-2 mb-2 form-label lbl fw-bold">
                 E-mail
@@ -97,6 +95,9 @@ class Login extends Component {
                 onChange={this.handleChange}
               />
             </div>
+            </div>
+            <div className="fw-bold text-secondary offset-2 ">
+              <FormErrors formErrors={this.state.formErrors.email} />
             </div>
             {/* {this.error.email && <p>{this.error.email}</p>} */}
             <div className="row mb-4 form-group">
@@ -116,6 +117,9 @@ class Login extends Component {
                 onChange={this.handleChange}
               />
             </div>
+            </div>
+            <div className=" fw-bold text-secondary offset-2">
+              <FormErrors formErrors={this.state.formErrors.pass} />
             </div>
             {/* {this.msg && <p>{this.msg}</p>} */}
             <input

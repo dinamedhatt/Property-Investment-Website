@@ -8,13 +8,11 @@ class Register extends Component {
       this.state = {
         email: "",
         pass:"",
-        fname:"",
-        lname:"",
-        formErrors: {email: '', pass: '' ,fname:'' , lname:''},
+        name:"",
+        formErrors: {email: '', pass: '' ,name:'' },
         emailValid: false,
         passwordValid: false,
-        fnameValid:false,
-        lnameValid:false,
+        nameValid:false,
         formValid: false
       };
     }
@@ -22,25 +20,20 @@ class Register extends Component {
       let fieldValidationErrors = this.state.formErrors;
       let emailValid = this.state.emailValid;
       let passwordValid = this.state.passwordValid;
-      let fnameValid = this.state.fnameValid;
-      let lnameValid = this.state.lnameValid;
-  
+      let nameValid = this.state.nameValid;
+      
       switch(fieldName) {
         case 'email':
           emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-          fieldValidationErrors.email = emailValid ? '' : ' Email is invalid';
+          fieldValidationErrors.email = emailValid ? '' : ' *Email is invalid';
           break;
         case 'pass':
           passwordValid = value.length >= 6;
-          fieldValidationErrors.pass = passwordValid ? '': ' Password should be more than 5';
+          fieldValidationErrors.pass = passwordValid ? '': ' *Password should be more than 5';
           break;
-        case 'fname':
-          fnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
-          fieldValidationErrors.fname = fnameValid ? '': ' FirstName should be more than 3 and not contain number or space';
-          break;
-        case 'lname':
-          lnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
-          fieldValidationErrors.lname = lnameValid ? '': ' LastName should be more than 3 and not contain number or space';
+        case 'name':
+          nameValid = value.match(/^([a-zA-Z]{3,})$/) ;
+          fieldValidationErrors.name = nameValid ? '': ' *FirstName & LastName should be more than 3 and not contain number or space';
           break;
         default:
           break;
@@ -48,13 +41,11 @@ class Register extends Component {
       this.setState({formErrors: fieldValidationErrors,
         emailValid: emailValid,
         passwordValid: passwordValid,
-        fnameValid:fnameValid,
-        lnameValid:lnameValid
-
+        nameValid:nameValid,
       }, this.validateForm);
     }
     validateForm() {
-      this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.fnameValid && this.state.lnameValid});
+      this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.nameValid });
     }
   
     errorClass(error) {
@@ -97,11 +88,8 @@ class Register extends Component {
          
           {/*         form section /////////////// */}
            <form className="rounded border pe-sm-0 pe-4  shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-sm-5 py-5 px-0 my-lg-5 my-0 form">
-           <div className="panel panel-default">
-            <FormErrors formErrors={this.state.formErrors} />
-           </div>
+          
          <div className='row  form-group'>
-           
           <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-4  form-group">
             <label htmlFor="fname" className="form-label lbl fw-bold ">
               First Name
@@ -110,13 +98,13 @@ class Register extends Component {
               type="text"
               className="form-control"
                 placeholder="John"
-                name="fname"
+                name="name"
                 id="fname"
                 required
                 onChange={this.handleChange}
             />
           </div>
-
+          
           <div className=" col-sm-4 offset-sm-0 col-10 offset-2 mb-4   form-group">
             <label htmlFor="lname" className="form-label lbl fw-bold ">
               Last Name
@@ -125,13 +113,16 @@ class Register extends Component {
              className="form-control"
               type="text"
               placeholder="Doe"
-              name="lname"
+              name="name"
               id="lname"
               required
               onChange={this.handleChange}
             />
           </div>
-          </div>
+        </div>
+        <div className=" lbl text-secondary offset-2 col-8">
+              <FormErrors formErrors={this.state.formErrors.name} />
+        </div>
          
             <div className="row mb-4 form-group">
               <label htmlFor="email" className="form-label mb-2 col-4   offset-2 lbl fw-bold">
@@ -149,7 +140,9 @@ class Register extends Component {
               />
             </div>
             </div>
- 
+            <div className=" lbl text-secondary offset-2">
+              <FormErrors formErrors={this.state.formErrors.email} />
+            </div>
             <div className="row mb-4 form-group ">
               <label htmlFor="pass" className="form-label col-4 offset-2 mb-2 lbl fw-bold">
                 Password
@@ -167,7 +160,9 @@ class Register extends Component {
               />
               </div>
             </div>
-          
+            <div className=" lbl text-secondary offset-2">
+              <FormErrors formErrors={this.state.formErrors.pass} />
+            </div>
             <input
               type="submit"
               className="btn col-md-3 col-4 m-auto "
