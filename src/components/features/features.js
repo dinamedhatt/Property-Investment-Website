@@ -7,7 +7,6 @@ import { Table } from "react-bootstrap";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import RelyData from "../rely-data/rely-data";
-// import { SteppedLineTo } from "react-lineto";
 class Features extends Component {
   state = {};
 
@@ -21,7 +20,7 @@ class Features extends Component {
             traditional real estate investors while keeping things extremely
             simple. See for yourself!
           </p>
-
+<div style={{overflow:'hidden'}}>
           <div className="feature-img-container">
             <div className="feature-icon1 ">
               <img
@@ -94,21 +93,7 @@ class Features extends Component {
               src="images/features/features-img.png"
               alt="Features"
             />
-
-            {/* <SteppedLineTo
-              from="feature-img"
-              fromAnchor="25% 50%"
-              to="feature-icon1"
-              orientation="h"
-              borderColor="#C4C4C4"
-            />
-            <SteppedLineTo
-              from="feature-img"
-              fromAnchor="75% 50%"
-              to="feature-icon2"
-              orientation="h"
-              borderColor="#C4C4C4"
-            /> */}
+          </div>
           </div>
         </div>
         <FeatureItem imgSrc="1" heading="Powerfull filters" />
