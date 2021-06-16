@@ -23,11 +23,11 @@ class Login extends Component {
       switch(fieldName) {
         case 'email':
           emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-          fieldValidationErrors.email = emailValid ? '' : ' Email is invalid';
+          fieldValidationErrors.email = emailValid ? '' : '*Please write your e-mail in a correct format';
           break;
         case 'pass':
           passwordValid = value.length >= 6;
-          fieldValidationErrors.pass = passwordValid ? '': ' Password should be more than 5';
+          fieldValidationErrors.pass = passwordValid ? '': '*Password should be more than 5 characters';
           break;
         default:
           break;
@@ -96,7 +96,7 @@ class Login extends Component {
               />
             </div>
             </div>
-            <div className="fw-bold text-secondary offset-2 ">
+            <div className="lbl text-secondary offset-2 ">
               <FormErrors formErrors={this.state.formErrors.email} />
             </div>
             {/* {this.error.email && <p>{this.error.email}</p>} */}
@@ -118,7 +118,7 @@ class Login extends Component {
               />
             </div>
             </div>
-            <div className=" fw-bold text-secondary offset-2">
+            <div className=" lbl text-secondary offset-2">
               <FormErrors formErrors={this.state.formErrors.pass} />
             </div>
             {/* {this.msg && <p>{this.msg}</p>} */}
