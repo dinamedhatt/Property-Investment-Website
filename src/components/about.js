@@ -11,7 +11,7 @@ const About = () => {
       </div>
 
       <div style={{backgroundColor:"#F3F3F4"}} className='row col-8 offset-2 mb-5 '>
-          <img src='images/about.png' alt='about' className='col-lg-4'/>
+          <img src='images/about.png' alt='about' className='col-lg-4 px-0'/>
           <div className='row col-12 col-lg-8 py-5 px-4 m-0'>
               <h3 className='fw-bold pb-3 '>Our Mission</h3>
               <p >Deal Genie’s mission is to provide a fully tailored property investment solution for customers’ exact requirements, by offering several services for the customer so that he can choose what suits him more.</p>

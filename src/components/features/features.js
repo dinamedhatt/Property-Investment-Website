@@ -23,7 +23,7 @@ class Features extends Component {
           </p>
 
           <div className="feature-img-container">
-            <div className="feature-icon1">
+            <div className="feature-icon1 ">
               <img
                 className="feature-icon"
                 src="images/features/icon1.png"
@@ -56,7 +56,7 @@ class Features extends Component {
               </svg>
             </div>
 
-            <div className="feature-icon2">
+            <div className="feature-icon2 ">
               <svg
                 version="1.1"
                 baseProfile="full"
