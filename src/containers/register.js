@@ -25,15 +25,15 @@ class Register extends Component {
       switch(fieldName) {
         case 'email':
           emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-          fieldValidationErrors.email = emailValid ? '' : ' *Email is invalid';
+          fieldValidationErrors.email = emailValid ? '' : '*Please write your e-mail in a correct format';
           break;
         case 'pass':
           passwordValid = value.length >= 6;
-          fieldValidationErrors.pass = passwordValid ? '': ' *Password should be more than 5';
+          fieldValidationErrors.pass = passwordValid ? '': '*Password should be more than 5 characters';
           break;
         case 'name':
           nameValid = value.match(/^([a-zA-Z]{3,})$/) ;
-          fieldValidationErrors.name = nameValid ? '': ' *FirstName & LastName should be more than 3 and not contain number or space';
+          fieldValidationErrors.name = nameValid ? '': '*First and last names should be more than 3 characters without space and numbers';
           break;
         default:
           break;
