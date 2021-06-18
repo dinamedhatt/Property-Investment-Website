@@ -26,10 +26,10 @@ const Home = () => {
             left: "25%",
           }}
         >
-          <h2 className=" fw-bold">
+          <h1 className="heading-one">
             Property deals
             <span className="d-block ">that find you</span>
-          </h2>
+          </h1>
         </div>
 
         <div

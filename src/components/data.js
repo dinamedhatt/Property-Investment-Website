@@ -2,12 +2,12 @@ import DealSection from "./deal-section";
 const Data = () => {
     return (
      <div >
-       <div className="features mt-5 ">
+       <div className="mt-5 text-center">
           <h1 className="heading-one ">Data accuracy</h1>
-          <h5 className=" mt-2 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3 mb-4">
+          <h5 className="mt-3 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3 mb-4">
           We combine data from over 15 reliable sources both commercial and public
           </h5>
-          <p className=" mt-2 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3 mb-5">
+          <p className=" mt-2 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3">
           Our goal is to constantly improve our data resolution to get to 
           a point where each individual property can be accuratelly evaluated
            based on neighbourhood quality, investement potential and value of the property itself
@@ -16,8 +16,8 @@ const Data = () => {
      {/*            section of 2 tabel                              */}
      <section className="row col-12 m-0 tabels">
          {/*              tabel num 1                                      */}
-         <section className="col-lg-5   offset-lg-1 col-sm-8 offset-sm-2 ">
-            <h2 className="title">Property Market</h2>
+         <section className="col-lg-5  mt-5 offset-lg-1 col-sm-8 offset-sm-2 ">
+            <h2 className="mb-4 text-center">Property Market</h2>
             <div className="bordertabel ">
             <table className="tabel  ">
                 <thead className="thead">
@@ -108,8 +108,8 @@ const Data = () => {
             </div>
          </section>
           {/*              tabel num 2                                      */}
-         <section className="col-lg-5   offset-lg-0   offset-sm-2 col-sm-8 ">
-            <h2 className="title mt-lg-0 mt-sm-3 ">Socio-economic</h2>
+         <section className="col-lg-5 my-5  offset-lg-0 offset-sm-2 col-sm-8 ">
+            <h2 className="mb-4 text-center">Socio-economic</h2>
             <div className="bordertabel">
             <table className="tabel">
               <thead className="thead">

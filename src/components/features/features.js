@@ -13,9 +13,9 @@ class Features extends Component {
   render() {
     return (
       <section>
-        <div className="features mt-5 ">
-          <h1 className="heading-one ">Features</h1>
-          <p className=" mt-2 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3 mb-5">
+        <div className="text-center mt-5 ">
+          <h1 className="heading-one">Features</h1>
+          <p className=" mt-2 row col-8 offset-2 col-xl-4 offset-xl-4  col-sm-6 offset-sm-3">
             We have chosen the features that give you an edge over the
             traditional real estate investors while keeping things extremely
             simple. See for yourself!

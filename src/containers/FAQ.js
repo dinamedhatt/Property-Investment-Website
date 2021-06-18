@@ -13,11 +13,11 @@ class FAQ extends Component {
     
     render() {
       return (
-        <div className="parent">
-           <section className="fqa">
+        <div>
+           <section className="text-center my-5">
              <h1 className="heading-one">Frequently Asked Questions</h1>
             </section>
-            <section className="row col-6 offset-3  text-left ">
+            <section className="row col-7 mx-auto text-left">
             <Accordion defaultActiveKey="0">
              <Card >
                

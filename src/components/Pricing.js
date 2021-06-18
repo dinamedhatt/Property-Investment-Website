@@ -18,10 +18,10 @@ class Pricing extends Component {
 
   render() {
     return (
-      <section className="Pricing-section">
+      <section className="Pricing-section py-5">
         <h1 className="heading-one">Pricing</h1>
         <p className="col-10 offset-1">
-          One plane, monthly or yearly payments. Try 14 days for free Dead
+          One plan, monthly or yearly payments. Try 14 days for free Dead
           simple like everything we do
         </p>
 

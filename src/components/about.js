@@ -5,8 +5,8 @@ const About = () => {
     <div>
       <div className='text-center pt-5 row col-12'>
         <h1 className="heading-one col-12">About</h1>
-        <p className='py-4 col-8 offset-2'>
-        Our team is a fine blend of real estate investment practicioners,<br/>data nerds and people constantly thinking how to make things <br/>even simpler
+        <p className='py-4 col-lg-5 col-md-7 col-sm-8 mx-auto px-5'>
+        Our team is a fine blend of real estate investment practicioners,data nerds and people constantly thinking how to make things even simpler
         </p>
       </div>
 

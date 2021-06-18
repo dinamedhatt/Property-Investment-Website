@@ -26,7 +26,7 @@ td {
 }
 
 .Pricing-section {
-  margin: 5% auto;
+  margin: auto;
   text-align: center;
   max-width: 550px;
   font-size: 16px;
@@ -212,7 +212,7 @@ input:checked[type="checkbox"]:before {
 
 .feature-img-container {
   position: relative;
-  margin-top: 15%;
+  margin-top: 11%;
 }
 
 .feature-icon {
@@ -457,23 +457,6 @@ input:checked[type="checkbox"]:before {
   top: 40%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.027),
     0 6px 20px 0 rgba(0, 0, 0, 0.349);
-}
-
-/* ---------FQA----------  */
-.fqa {
-  text-align: center;
-  margin-top: 5% ;
-  margin-bottom: 3%;
- 
-}
-.bttn {
-  background-color: white;
-  border: solid 1px black;
-  border-radius: 5px;
-  color: #4a4a4a;
-  height: 50px;
-  max-width: 10%;
-  font-size: 20px;
 }
 
 /* ---------Slider----------  */
