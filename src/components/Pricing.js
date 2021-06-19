@@ -24,7 +24,10 @@ class Pricing extends Component {
           One plan, monthly or yearly payments. Try 14 days for free Dead
           simple like everything we do
         </p>
-
+        <div className="row col-12 m-0">
+        <div className="pricing-table2 col-xxl-4 col-lg-5 col-md-6 col-sm-7 col-8 mt-4 mx-5 "></div>
+        <div className="pricing-table3 col-xxl-4 col-lg-5 col-md-6 col-sm-8 col-9 mt-4 mx-5 "></div>
+        </div>
         <div className="pricing-table">
           <div className="start-heading">Start Now</div>
 

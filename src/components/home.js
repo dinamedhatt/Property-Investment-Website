@@ -12,13 +12,13 @@ const Home = () => {
   const reDirect = () => history.push('/features'); 
   return (
     <div>
-      <div id="cover" className="row col-12 m-0">
-        <div id="coverimg" className="img-fluid  ">
+      <div id="cover" >
+        <div id="coverimg">
           <img src="images/home/coverpage.png" alt="cover" />
         </div>
 
         <div
-          className="text-center col-6 col-sm-6 col-md-6 col-lg-6 px-0 p-0"
+          className="text-center col-8 col-sm-6 col-md-6 col-lg-6 px-0 p-0"
           style={{
             color: "black",
             position: "absolute",

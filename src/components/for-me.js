@@ -56,7 +56,7 @@ const ForMe = () =>{
     
 return (
 <div>
-      <h3 className='text-center mb-3'>Is this for me?</h3>
+      <h3 className='text-center mb-3 mt-5'>Is this for me?</h3>
       <Slider className='col-10 col-lg-11 m-auto' {...settings}>
         {renderSlide(headers)}
       </Slider>
