@@ -46,12 +46,12 @@ const ForMe = () =>{
         'Analyze and evaluate what can truly benefit you'
       ]
       const paras = [
-        'Instead of asking neighbours and hiring agents to know when these properties can be available for purchase',
-        'If you want to avoid checking news and journals lisitings day by day to find proper property for investment',
+        'Instead of asking neighbours and hiring agents to know when properties can be available for sale',
+        'If you want to avoid checking news and journals listings day by day to find proper property for investment',
         'If you want to find what suits your budget and what have better potential for investment than the others',
         'Filtration of available properties makes you set your needs and helps you find what actually meets them',
         'Instead of keeping your savings in the bank after retirement, you can invest with them in profitable propeties',
-        'Careful analysis helps customers to avoid getting fooled and to find and choose the best investment for them'
+        'Careful analysis helps customers to avoid getting fooled and to find the best investment for them'
       ]
       const renderSlide = (header,para) =>[0, 1, 2, 3, 4 ,5].map(num => (
         <div key={num} className='p-5 mx-3'>

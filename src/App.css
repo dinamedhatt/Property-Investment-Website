@@ -16,6 +16,10 @@ td {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+p::first-letter{
+  text-transform: uppercase;
+}
+
 .heading-one {
   font-size: 3rem;
 }

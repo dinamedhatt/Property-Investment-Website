@@ -14,7 +14,7 @@ class Divider extends Component {
             subHeader="RESEARCH"
             header="Define your criteria"
             imgSrc="1"
-            discribtion="tell us the kind of property investment .we will do our searches using various on and off market methods conducting thorough analysis  to ensure a sound investment at a discounted price."
+            discribtion="We search for best investments using various on and off market methods conducting thorough analysis  to ensure a sound investment at a discounted price."
           />
           <hr />
           <DividerItem
