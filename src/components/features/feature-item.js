@@ -4,8 +4,6 @@ class FeatureItem extends Component {
   state = {
     feature: {
       imgAlt: "feature image",
-      description:
-        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     },
   };
   changeImg = () => {};
@@ -22,7 +20,7 @@ class FeatureItem extends Component {
 
         <div className="featureText-container">
           <h4>{this.props.heading}</h4>
-           <p>{this.state.feature.description} </p>
+          <p>{this.props.description}</p>
         </div>
       </section>
     );

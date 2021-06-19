@@ -14,6 +14,7 @@ class Divider extends Component {
             subHeader="RESEARCH"
             header="Define your criteria"
             imgSrc="1"
+            discribtion="tell us the kind of property investment .we will do our searches using various on and off market methods conducting thorough analysis  to ensure a sound investment at a discounted price."
           />
           <hr />
           <DividerItem
@@ -21,6 +22,7 @@ class Divider extends Component {
             subHeader="SOURCE"
             header="Setup property alerts"
             imgSrc="2"
+            discribtion="we will help you to build your investment, we will send a alert contain all property that match your requirements and your budget."
           />
           <hr />
           <DividerItem
@@ -28,6 +30,7 @@ class Divider extends Component {
             subHeader="EVALUATE"
             header="Compute custom ROI"
             imgSrc="3"
+            discribtion="you can compute the ROI by monthly cash flow, equity and future increase in value for each of the properties in your portfolio."
           />
         </div>
       </section>
