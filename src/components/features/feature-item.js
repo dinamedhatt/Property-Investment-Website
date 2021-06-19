@@ -22,7 +22,7 @@ class FeatureItem extends Component {
 
         <div className="featureText-container">
           <h4>{this.props.heading}</h4>
-          <p>{this.state.feature.description}</p>
+           <p>{this.state.feature.description} </p>
         </div>
       </section>
     );
