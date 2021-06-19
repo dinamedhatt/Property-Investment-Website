@@ -97,7 +97,9 @@ class Pricing extends Component {
           </div>
 
           <p>
-            You save <span>{this.state.savings}</span> with the yearly plan
+            You save <span>{this.state.savings}</span> with the
+            <span> {this.state.subscription} </span>
+            plan
           </p>
         </section>
 
