@@ -4,15 +4,18 @@ import { GiCheckMark } from "@react-icons/all-files/gi/GiCheckMark";
 import { NavLink } from "react-router-dom";
 // import { GiCheckMark } from "react-icons/gi";
 
-
 class Pricing extends Component {
   state = {
     checkedStatus: true,
+    subscription: "yearly",
+    savings: "30%",
   };
 
   isChecked = (event) => {
     this.setState({
       checkedStatus: event.target.checked,
+      subscription: event.target.checked ? "Yearly" : "Monthly",
+      savings: event.target.checked ? "30%" : "10%",
     });
   };
 
@@ -21,12 +24,12 @@ class Pricing extends Component {
       <section className="Pricing-section py-5">
         <h1 className="heading-one">Pricing</h1>
         <p className="col-10 offset-1">
-          One plan, monthly or yearly payments. Try 14 days for free Dead
-          simple like everything we do
+          One plan, monthly or yearly payments. Try 14 days for free Dead simple
+          like everything we do
         </p>
         <div className="row col-12 m-0">
-        <div className="pricing-table2 col-xxl-4 col-lg-5 col-md-6 col-sm-7 col-8 mt-4 mx-5 "></div>
-        <div className="pricing-table3 col-xxl-4 col-lg-5 col-md-6 col-sm-8 col-9 mt-4 mx-5 "></div>
+          <div className="pricing-table2 col-xxl-4 col-lg-5 col-md-6 col-sm-7 col-8 mt-4 mx-5 "></div>
+          <div className="pricing-table3 col-xxl-4 col-lg-5 col-md-6 col-sm-8 col-9 mt-4 mx-5 "></div>
         </div>
         <div className="pricing-table">
           <div className="start-heading">Start Now</div>
@@ -90,18 +93,20 @@ class Pricing extends Component {
               checked={this.state.checkedStatus}
               onChange={this.isChecked}
             ></input>
-            <label>Yearly</label>
+            <label>{this.state.subscription}</label>
           </div>
 
           <p>
-            You save <span>30%</span> with the yearly plane
+            You save <span>{this.state.savings}</span> with the yearly plan
           </p>
         </section>
 
         <section className="check-feature-section">
           <p>Not yet convinced?</p>
           <div className="btn-container">
-            <NavLink to='/features'><button> Check all features </button></NavLink>
+            <NavLink to="/features">
+              <button> Check all features </button>
+            </NavLink>
           </div>
         </section>
       </section>
