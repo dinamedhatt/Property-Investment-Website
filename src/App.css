@@ -413,6 +413,7 @@ input:checked[type="checkbox"]:before {
   text-align: center;
   max-width: 50%;
 }
+
 .p-one {
   font-size: 1.5rem;
 }
@@ -427,7 +428,7 @@ input:checked[type="checkbox"]:before {
   border-collapse: collapse;
   border-style: hidden;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .bordertabel {
@@ -435,7 +436,7 @@ input:checked[type="checkbox"]:before {
   border: solid 1px #545454;
   border-radius: 20px;
   width: 100%;
-  height: 850px;
+  /* height: 850px; */
   text-align: center;
 }
 
