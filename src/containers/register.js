@@ -31,18 +31,16 @@ class Register extends Component {
           fieldValidationErrors.email = emailValid ? '' : '*Please write your e-mail in a correct format';
           break;
         case 'pass':
-          passwordValid = value.length >= 6;
-          fieldValidationErrors.pass = passwordValid ? '': '*Password should be more than 5 characters';
+          passwordValid = value.length >= 6 && value.length <=12;
+          fieldValidationErrors.pass = passwordValid ? '': '*Password should be between 6 to 12 characters';
           break;
-        case 'name':
+        case 'fname':
+          case 'lname':
           fnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
           lnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
-          fieldValidationErrors.name = (fnameValid || lnameValid) ? '': '*First and last names should be more than 3 characters without space and numbers';
+          fieldValidationErrors.name = (fnameValid && lnameValid) ? '': '*Names should be more than 3 characters without space and numbers';
           break;
-        // case 'lname':
-        //     lnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
-        //     fieldValidationErrors.name = lnameValid ? '': '*First and last names should be more than 3 characters without space and numbers';
-        //     break;
+
         default:
           break;
       }
@@ -107,7 +105,7 @@ class Register extends Component {
               type="text"
               className="form-control"
                 placeholder="John"
-                name="name"
+                name="fname"
                 id="fname"
                 required
                 onChange={this.handleChange}
@@ -122,7 +120,7 @@ class Register extends Component {
              className="form-control"
               type="text"
               placeholder="Doe"
-              name="name"
+              name="lname"
               id="lname"
               required
               onChange={this.handleChange}
@@ -149,7 +147,7 @@ class Register extends Component {
               />
             </div>
             </div>
-            <div className=" lbl text-secondary offset-2">
+            <div className=" lbl text-secondary text-center">
               <FormErrors formErrors={this.state.formErrors.email} />
             </div>
             <div className="row mb-4 form-group ">
@@ -169,7 +167,7 @@ class Register extends Component {
               />
               </div>
             </div>
-            <div className=" lbl text-secondary offset-2">
+            <div className=" lbl text-secondary  text-center">
               <FormErrors formErrors={this.state.formErrors.pass} />
             </div>
             <input
