@@ -39,62 +39,62 @@ const Data = () => {
                         <td>43d ago</td>
                     </tr>
                     <tr className="asking-price">
-                        <td>Asking Price</td>
+                        <td>Cash Flow</td>
+                        <td>403.233</td>
+                        <td>40d ago</td>
+                    </tr>
+                    <tr className="rent">
+                        <td>Physical Vacancy Rate</td>
+                        <td>333.233</td>
+                        <td>20d ago</td>
+                    </tr>
+                    <tr className="asking-price">
+                        <td >Economic Vacancy Rate</td>
+                        <td>400.233</td>
+                        <td>23d ago</td>
+                    </tr>
+                    <tr className="rent">
+                        <td>Cap Rate</td>
+                        <td>433.233</td>
+                        <td>15d ago</td>
+                    </tr>
+                    <tr className="asking-price">
+                        <td >Operating Expense Ratio</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
                     <tr className="rent">
-                        <td>Rent</td>
+                        <td>Gross Rent Multiplier</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
                     <tr className="asking-price">
-                        <td >Asking Price</td>
+                        <td >Occupancy</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
                     <tr className="rent">
-                        <td>Rent</td>
+                        <td>LTV Ratio</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
                     <tr className="asking-price">
-                        <td >Asking Price</td>
+                        <td >Internal Rate of Return</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
                     <tr className="rent">
-                        <td>Rent</td>
+                        <td>Net Operating Income</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
                     <tr className="asking-price">
-                        <td >Asking Price</td>
+                        <td >Dept Service Coverage Ratio</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
                     <tr className="rent">
-                        <td>Rent</td>
-                        <td>433.233</td>
-                        <td>43d ago</td>
-                    </tr>
-                    <tr className="asking-price">
-                        <td >Asking Price</td>
-                        <td>433.233</td>
-                        <td>43d ago</td>
-                    </tr>
-                    <tr className="rent">
-                        <td>Rent</td>
-                        <td>433.233</td>
-                        <td>43d ago</td>
-                    </tr>
-                    <tr className="asking-price">
-                        <td >Asking Price</td>
-                        <td>433.233</td>
-                        <td>43d ago</td>
-                    </tr>
-                    <tr className="rent">
-                        <td>Rent</td>
+                        <td>Cash on Cash Return</td>
                         <td>433.233</td>
                         <td>43d ago</td>
                     </tr>
@@ -131,67 +131,67 @@ const Data = () => {
                   <td>43d ago</td>
                 </tr>
                 <tr className="asking-price">
-                  <td>Asking Price</td>
+                  <td>Poverty Rate</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="rent">
-                  <td>Rent</td>
+                  <td>Average Household Income</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="asking-price">
-                  <td>Asking Price</td>
+                  <td>Racial Segregation</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="rent">
-                  <td>Rent</td>
+                  <td>Unemployment Rate</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="asking-price">
-                  <td>Asking Price</td>
+                  <td>Affordability Of Sigle-Family Home</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="rent">
-                  <td>Rent</td>
+                  <td>Bankruptcy And Foreclosure Rates</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="asking-price">
-                  <td>Asking Price</td>
+                  <td>Voter Registration And Turnout</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="rent">
-                  <td>Rent</td>
+                  <td>Density Of Voluntary Organizations</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="asking-price">
-                  <td>Asking Price</td>
+                  <td>Percentage Of Single-Parent Households</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="rent">
-                  <td>Rent</td>
+                  <td>Percentage Of Households On Puplic Assistance</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="asking-price">
-                  <td>Asking Price</td>
+                  <td>Percentage Of Children Receiving Free Lunch</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="rent">
-                  <td>Rent</td>
+                  <td>Public High School Graduation And Dropout Rates</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
                 <tr className="asking-price">
-                  <td>Asking Price</td>
+                  <td>Percentage Of Tenth-Grade Students In Math</td>
                   <td>433.233</td>
                   <td>43d ago</td>
                 </tr>
