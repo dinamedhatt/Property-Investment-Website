@@ -29,7 +29,7 @@ const Works = () => {
         <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
             <div className='bg-warning py-1 mt-5 text-center' style={{width:"30px"}}>1</div>
             <h4 className='fw-bold my-3'>Apply heatmap to see the big picture</h4>
-            <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            <p className='pe-4'>at first when you define your requirement will send a map contains all location that is suitable to your investment.</p>
         </div>
       </div>
 
@@ -39,7 +39,7 @@ const Works = () => {
         <div className=' col-10  col-md-5 col-lg-4 offset-lg-1 ps-md-3 offset-md-1 offset-1'>
             <div id="triangle-down" className=' py-1  mt-5 text-center' style={{width:"30px"}}></div>
             <h4 className='fw-bold my-3'>Use filters to see deals matching your criteria</h4>
-            <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            <p className='pe-4'> you can use filtration to reduce the time of search , find quickly and easily the suitable property that match with your requirement and your budget.</p>
         </div>
 
         <div className="position-relative col-10 col-md-6 col-lg-6 offset-lg-1 pt-5 offset-md-0 offset-1">
@@ -69,7 +69,7 @@ const Works = () => {
         <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
             <div className='border border-warning py-2 mt-5  text-center' style={{width:"40px",borderRadius:'100%'}}>3</div>
             <h4 className='fw-bold my-3'>Analyze prospective area</h4>
-            <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            <p className='pe-4'>we will help you by do analysis about the location that you want to begin your investment there to ensure that is suitable and will be success investment.</p>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ const Works = () => {
         <div className=' col-10  col-md-5 col-lg-4 offset-lg-1 ps-md-3 offset-md-1 offset-1'>
             <div className='bg-warning py-1  mt-5 text-center' style={{width:"30px"}}>4</div>
             <h4 className='fw-bold my-3'>Evaluate selected properties</h4>
-            <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            <p className='pe-4'>Careful analysis helps customers to avoid getting fooled and to find and choose the best and suitable property for them</p>
         </div>
 
         <div className="position-relative col-10 col-md-6 col-lg-6 offset-lg-1 pt-5 offset-md-0 offset-1">
@@ -111,7 +111,7 @@ const Works = () => {
         <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
         <div id="triangle-down-5" className='py-1 mt-5  text-center' style={{width:"30px"}}></div>
             <h4 className='fw-bold my-3'>Compute accurate ROI for the property</h4>
-            <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            <p className='pe-4'> you can compute the ROI by monthly cash flow, equity and future increase in value for each of the properties in your portfolio.</p>
         </div>
       </div>
 
@@ -121,7 +121,7 @@ const Works = () => {
         <div className=' col-10  col-md-5 col-lg-4 offset-lg-1 ps-md-3 offset-md-1 offset-1'>
         <div className='border border-warning  mt-5 py-2 text-center' style={{width:"40px",borderRadius:'100%'}}>6</div>
             <h4 className='fw-bold my-3'>Save your research and setup alerts</h4>
-            <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            <p className='pe-4'>we will help you by sending alert all the matched property with your requirement and your budget to choose what is suitable with you.</p>
         </div>
 
         <div className="position-relative col-10 col-md-6 col-lg-6 offset-lg-1 pt-5 offset-md-0 offset-1">
@@ -151,7 +151,7 @@ const Works = () => {
         <div className='col-xl-4 col-md-5 px-lg-5 mt-lg-4 mx-lg-2 col-10 offset-lg-1  ps-md-0 ps-5'>
         <div className='bg-warning py-1 mt-5  text-center' style={{width:"30px"}}>7</div>
             <h4 className='fw-bold my-3'>Find other trending areas using ranking</h4>
-            <p className='pe-4'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+            <p className='pe-4'> we will help your investment to make it more successful by suggesting the best location suitable for your investment or suggest the kind of investment that is suitable for your location .</p>
         </div>
       </div>
 

@@ -9,10 +9,12 @@ class Register extends Component {
         email: "",
         pass:"",
         name:"",
+        // lname:"",
         formErrors: {email: '', pass: '' ,name:'' },
         emailValid: false,
         passwordValid: false,
-        nameValid:false,
+        fnameValid:false,
+        lnameValid:false,
         formValid: false
       };
     }
@@ -20,7 +22,8 @@ class Register extends Component {
       let fieldValidationErrors = this.state.formErrors;
       let emailValid = this.state.emailValid;
       let passwordValid = this.state.passwordValid;
-      let nameValid = this.state.nameValid;
+      let fnameValid = this.state.fnameValid;
+      let lnameValid = this.state.lnameValid;
       
       switch(fieldName) {
         case 'email':
@@ -32,20 +35,26 @@ class Register extends Component {
           fieldValidationErrors.pass = passwordValid ? '': '*Password should be more than 5 characters';
           break;
         case 'name':
-          nameValid = value.match(/^([a-zA-Z]{3,})$/) ;
-          fieldValidationErrors.name = nameValid ? '': '*First and last names should be more than 3 characters without space and numbers';
+          fnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
+          lnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
+          fieldValidationErrors.name = (fnameValid || lnameValid) ? '': '*First and last names should be more than 3 characters without space and numbers';
           break;
+        // case 'lname':
+        //     lnameValid = value.match(/^([a-zA-Z]{3,})$/) ;
+        //     fieldValidationErrors.name = lnameValid ? '': '*First and last names should be more than 3 characters without space and numbers';
+        //     break;
         default:
           break;
       }
       this.setState({formErrors: fieldValidationErrors,
         emailValid: emailValid,
         passwordValid: passwordValid,
-        nameValid:nameValid,
+        fnameValid:fnameValid,
+        lnameValid:lnameValid,
       }, this.validateForm);
     }
     validateForm() {
-      this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.nameValid });
+      this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.fnameValid && this.state.lnameValid});
     }
   
     errorClass(error) {
