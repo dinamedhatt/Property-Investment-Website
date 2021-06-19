@@ -345,6 +345,7 @@ input:checked[type="checkbox"]:before {
 /* divider section style */
 .divider-component {
   margin-top: 5%;
+  margin-bottom: 5%;
 }
 .divider-component h3 {
   text-align: center;
@@ -362,7 +363,9 @@ input:checked[type="checkbox"]:before {
 /* dividerItem section style */
 .dividerItem-section {
   position: relative;
-  width: 100%;
+  width: 90%;
+  height: 500px;
+  margin-right: 1%;
 }
 
 .dividerItem-section hr {
@@ -395,7 +398,7 @@ input:checked[type="checkbox"]:before {
 
 .divider-img-container img {
   height: 250px;
-  /* width: 80%; */
+  width: 80%;
 }
 
 /* -------------------------- */
@@ -680,8 +683,8 @@ input:checked[type="checkbox"]:before {
   }
   .dividerItem-section hr {
     top: 55%;
-    right: 63%;
-    width: 67%;
+    right: 66%;
+    width: 60%;
     transform: rotate(90deg);
   }
   .rightContainer {
@@ -693,6 +696,7 @@ input:checked[type="checkbox"]:before {
   .dividerItem-section hr {
     top: 55%;
     right: 60%;
+    width: 60%;
     transform: rotate(90deg);
     width: 72%;
   }
@@ -721,9 +725,9 @@ input:checked[type="checkbox"]:before {
   }
   .dividerItem-section hr {
     top: 55%;
-    right: 53%;
+    right: 56%;
     transform: rotate(90deg);
-    width: 85%;
+    width: 78%;
   }
 }
 /* x-small */
