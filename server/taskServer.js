@@ -11,8 +11,8 @@ app.use(express.json())
 mongoose.connect('mongodb://localhost:27017/DealGenie', 
 {useNewUrlParser: true});
 
-const FAQ=require("./module/FAQ");
-const User=require("./module/User");
+const FAQ=require("./models/FAQ");
+const User=require("./models/User");
 
 //get All FAQ
 app.get('/faq',(req,res)=>{
