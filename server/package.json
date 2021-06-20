@@ -1,0 +1,24 @@
+{
+  "name": "lecture-demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "taskServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node taskServer.js",
+    "serve": "nodemon taskServer.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-validator": "^6.10.0",
+    "mongodb": "^3.6.5",
+    "mongoose": "^5.12.14",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7"
+  }
+}
