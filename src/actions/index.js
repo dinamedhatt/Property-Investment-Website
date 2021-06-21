@@ -19,8 +19,19 @@ export async function getfaq() {
 
 export async function addUser(user){
     let payload=null;
+    let data = "";
     try{
-       await axios.post(`${baseURL}/register`,user);
+       await axios.post(`${baseURL}/register`,user).then(res=>{
+        if(res.data==='Please fill all fields!'){
+            data= res.data
+        }   
+        else if(res.data === 'User already exists!'){
+              data= res.data;
+           }
+        else{
+            data = res.data
+        }
+       })
         
     }
     catch(err){
@@ -28,6 +39,7 @@ export async function addUser(user){
     }
     return{
         type:'user_add',
+        data,
         payload
     }
 }
