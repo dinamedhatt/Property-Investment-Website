@@ -192,6 +192,10 @@ class Register extends Component {
               </div>
             </div>
 
+            <div className=" lbl text-secondary  text-center">
+              <FormErrors formErrors={this.state.formErrors.pass} />
+            </div>
+
             <div className="row mb-2 form-group ">
             <label htmlFor="Country" className="form-label col-4 offset-2 mb-2 lbl fw-bold">
               Country
@@ -210,9 +214,6 @@ class Register extends Component {
           </div>
 
 
-            <div className=" lbl text-secondary  text-center">
-              <FormErrors formErrors={this.state.formErrors.pass} />
-            </div>
             <input
               type="submit"
               className="btn col-md-3 col-4 m-auto "
