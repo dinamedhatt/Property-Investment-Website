@@ -465,11 +465,15 @@ input:checked[type="checkbox"]:before {
 
 /*------------------Login page---------------*/
 
-.welcomSection {
+.welcomSection,.welcomSection2 {
   text-align: center;
-  height: 300px;
+  height: 200px;
   margin: 3% auto 0;
 }
+.welcomSection2{
+height: 365px;
+}
+
 .bground {
   height: 500px;
   width: 100%;

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { FormErrors } from './formError';
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 class Register extends Component {
     constructor() {
@@ -8,9 +9,11 @@ class Register extends Component {
       this.state = {
         email: "",
         pass:"",
-        name:"",
-        // lname:"",
-        formErrors: {email: '', pass: '' ,name:'' },
+        fname:"",
+        lname:"",
+        country:"Select country",
+    
+        formErrors: {email: '', pass: '' ,fname:'',lname:"" },
         emailValid: false,
         passwordValid: false,
         fnameValid:false,
@@ -18,13 +21,16 @@ class Register extends Component {
         formValid: false
       };
     }
+
+
     validateField(fieldName, value) {
       let fieldValidationErrors = this.state.formErrors;
       let emailValid = this.state.emailValid;
       let passwordValid = this.state.passwordValid;
       let fnameValid = this.state.fnameValid;
       let lnameValid = this.state.lnameValid;
-      
+     
+
       switch(fieldName) {
         case 'email':
           emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -52,7 +58,7 @@ class Register extends Component {
       }, this.validateForm);
     }
     validateForm() {
-      this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.fnameValid && this.state.lnameValid});
+      this.setState({formValid: this.state.emailValid && this.state.passwordValid && this.state.fnameValid && this.state.lnameValid });
     }
   
     errorClass(error) {
@@ -62,11 +68,21 @@ class Register extends Component {
       const{name,value}=e.target;
       this.setState({[name]: value},
         () => { this.validateField(name, value) });
+      
    }
 
-   handelSumbit=(e)=>{
+   handleSumbit=(e)=>{
      e.preventDefault();
+     console.log(this.state.fname+this.state.lname+this.state.email+this.state.country);
+     axios.post("http://localhost:3100/register",{
+      fname:this.state.fname,
+      lname:this.state.lname,
+      email:this.state.email,
+      password:this.state.pass,
+      address:this.state.country,
+     })
    }
+ 
  
     
     render() {
@@ -83,7 +99,7 @@ class Register extends Component {
       return (
         <div className="parent" >
         {/*         welcom message             */}
-          <section className=" welcomSection">
+          <section className=" welcomSection2">
              <h1 className="heading-one">Welcome!</h1>
              <p className="fs-4">Sign up to continue</p>
           </section>
@@ -97,7 +113,7 @@ class Register extends Component {
            <form className="rounded border pe-sm-0 pe-4  shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-sm-5 py-5 px-0 my-lg-5 my-0 form">
           
          <div className='row  form-group'>
-          <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-4  form-group">
+          <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-3  form-group">
             <label htmlFor="fname" className="form-label lbl fw-bold ">
               First Name
             </label>
@@ -109,10 +125,11 @@ class Register extends Component {
                 id="fname"
                 required
                 onChange={this.handleChange}
+                // onChange={this.setFname}
             />
           </div>
           
-          <div className=" col-sm-4 offset-sm-0 col-10 offset-2 mb-4   form-group">
+          <div className=" col-sm-4 offset-sm-0 col-10 offset-2 mb-2   form-group">
             <label htmlFor="lname" className="form-label lbl fw-bold ">
               Last Name
             </label>
@@ -124,6 +141,7 @@ class Register extends Component {
               id="lname"
               required
               onChange={this.handleChange}
+              // onChange={this.setLname}
             />
           </div>
         </div>
@@ -131,7 +149,7 @@ class Register extends Component {
               <FormErrors formErrors={this.state.formErrors.name} />
         </div>
          
-            <div className="row mb-4 form-group">
+            <div className="row mb-2 form-group">
               <label htmlFor="email" className="form-label mb-2 col-4   offset-2 lbl fw-bold">
                 E-mail
               </label>
@@ -144,9 +162,11 @@ class Register extends Component {
                 id="email"
                 required
                 onChange={this.handleChange}
+                // onChange={this.setMail}
               />
             </div>
             </div>
+
             <div className=" lbl text-secondary text-center">
               <FormErrors formErrors={this.state.formErrors.email} />
             </div>
@@ -164,9 +184,29 @@ class Register extends Component {
                 required
                 min="8"
                 onChange={this.handleChange}
+                
               />
               </div>
             </div>
+
+            <div className="row mb-2 form-group ">
+            <label htmlFor="Country" className="form-label col-4 offset-2 mb-2 lbl fw-bold">
+              Country
+            </label>
+            <div className="col-sm-8 offset-sm-2  col-10 offset-2">
+            <select className="form-select " name="country" defaultValue={this.state.country} onChange={this.handleChange} >
+
+              <option value="Select country" disabled>Select country</option>
+              <option value="England">England</option>
+              <option value="France">France</option>
+              <option value="Belgium">Belgium</option>
+              <option value="Germany">Germany</option>
+              <option value="Portugal">Portugal</option>
+            </select>
+            </div>
+          </div>
+
+
             <div className=" lbl text-secondary  text-center">
               <FormErrors formErrors={this.state.formErrors.pass} />
             </div>
@@ -175,8 +215,9 @@ class Register extends Component {
               className="btn col-md-3 col-4 m-auto "
               style={{ backgroundColor: "#2B59B4", color: "white" }}
               value="Sign Up"
-              onClick={this.handelSumbit}
+              onClick={this.handleSumbit}
               disabled={!this.state.formValid}
+              
             />
             <div className="row">
             <p 

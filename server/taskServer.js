@@ -30,6 +30,23 @@ app.get('/users',(req,res)=>{
     });
 })
 
+app.post('/register',(req,res)=>{
+const user={
+     fname :req.body.fname,
+     lname :req.body.lname,
+     email : req.body.email,
+     password : req.body.password,
+     address : req.body.address,
+     occupation:"",
+     image:""
+    }
+    const users=new User(user)
+        try{ users.save();
+        res.send('inserted User data')}
+        catch(err){console.log(err)}
+        
+})
+
 //get All properties
 app.get('/property',(req,res)=>{
     Property.find({},(err,property)=>{

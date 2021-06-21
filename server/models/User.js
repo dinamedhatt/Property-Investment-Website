@@ -20,6 +20,7 @@ password:{
 },
 occupation:{
     type:String
+    
 },
 image:{
     type:String
