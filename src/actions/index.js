@@ -15,3 +15,19 @@ export async function getfaq() {
         payload
     }
 }
+
+
+export async function addUser(user){
+    let payload=null;
+    try{
+       await axios.post(`${baseURL}/register`,user);
+        
+    }
+    catch(err){
+        console.log(err);
+    }
+    return{
+        type:'user_add',
+        payload
+    }
+}

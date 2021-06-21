@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { FormErrors } from './formError';
 import { NavLink } from "react-router-dom";
-import axios from "axios";
+import { connect } from "react-redux";
+import * as actions from "../actions";
 
 class Register extends Component {
     constructor() {
@@ -74,13 +75,15 @@ class Register extends Component {
    handleSumbit=(e)=>{
      e.preventDefault();
      console.log(this.state.fname+this.state.lname+this.state.email+this.state.country);
-     axios.post("http://localhost:3100/register",{
+     const user={
       fname:this.state.fname,
       lname:this.state.lname,
       email:this.state.email,
       password:this.state.pass,
       address:this.state.country,
-     })
+     }
+     this.props.addUser(user);
+     this.props.history.push('/login');
    }
  
  
@@ -231,4 +234,4 @@ class Register extends Component {
     }
   }
   
-  export default Register;
+  export default connect(null,actions)(Register);
