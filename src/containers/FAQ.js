@@ -3,6 +3,10 @@ import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 import DealSection from "../components/deal-section";
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {getfaq} from '../actions'
+
 class FAQ extends Component {
     constructor(){
         super()
@@ -12,13 +16,7 @@ class FAQ extends Component {
         }  
     } 
    
-    componentDidMount(){
-       axios.get('http://localhost:3100/faq').then((res)=>{
-         //  console.log(res);
-         this.setState({faqList:res.data})
-         // console.log(this.state.faqList);
-       })
-    }
+  
     
     render() {
       return (
@@ -61,6 +59,22 @@ class FAQ extends Component {
     </div>
       );
     }
+    async componentDidMount() {
+      await this.props.getfaq();
+      this.setState({ faqList: this.props.faqlist });
+    }
+
   }
   
-  export default FAQ;
+  export default connect(
+        (state) => {
+          console.log(state);
+          return {
+            faqlist: state.faqs.list  //function in faq reducer
+          };
+        },
+        (dispatch) => {
+          return bindActionCreators({getfaq}, dispatch);
+        }
+     )
+ (FAQ);

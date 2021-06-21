@@ -13,6 +13,8 @@ mongoose.connect('mongodb://localhost:27017/DealGenie',
 
 const FAQ=require("./models/FAQ");
 const User=require("./models/User");
+const Property=require("./models/Property")
+
 
 //get All FAQ
 app.get('/faq',(req,res)=>{
@@ -25,6 +27,13 @@ app.get('/faq',(req,res)=>{
 app.get('/users',(req,res)=>{
     User.find({},(err,user)=>{
         res.send(user);
+    });
+})
+
+//get All properties
+app.get('/property',(req,res)=>{
+    Property.find({},(err,property)=>{
+        res.send(property);
     });
 })
 
