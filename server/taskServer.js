@@ -34,7 +34,7 @@ app.get("/users", (req, res) => {
 
 //add user (registration)
 app.post("/register", (req, res) => {
-  const { fname, lname, email, password, address, occupation, image } =
+  const { fname, lname, email, password, address} =
     req.body;
 
   if (!email || !password || !fname || !lname || !address) {
