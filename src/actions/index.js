@@ -43,3 +43,32 @@ export async function addUser(user){
         payload
     }
 }
+
+
+
+export async function userLogin(user){
+    let payload=null;
+    let data = "";
+    try{
+       await axios.post(`${baseURL}/login`,user).then(res=>{
+        if(res.data==='Please fill all fields!'){
+            data= res.data
+        }   
+        else if(res.data === 'User already exists!'){
+              data= res.data;
+           }
+        else{
+            data = res.data
+        }
+       })
+        
+    }
+    catch(err){
+        console.log(err);
+    }
+    return{
+        type:'user_Login',
+        data,
+        payload
+    }
+}

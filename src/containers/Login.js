@@ -1,6 +1,10 @@
 import { Component } from "react";
 import { FormErrors } from './formError';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { userLogin } from "../actions";
+import AlertMsg from "../components/alertMsg";
 
 class Login extends Component {
     constructor() {
@@ -8,6 +12,7 @@ class Login extends Component {
       this.state = {
         email: "",
         pass:"",
+        alert: "",
         formErrors: {email: '', pass: ''},
         emailValid: false,
         passwordValid: false,
@@ -52,9 +57,7 @@ class Login extends Component {
        this.setState({[name]: value},
         () => { this.validateField(name, value) });
     }
-    handelSumbit=(e)=>{
-      e.preventDefault();
-    }
+  
 
  
     render() {
@@ -70,6 +73,11 @@ class Login extends Component {
       }
       return (
         <div className="parent" >
+           <div {...(this.state.alert === '' && {
+                         style: { display:'none'}
+                         })}>
+        <AlertMsg msg={this.state.alert}/>
+        </div>
         {/*         welcom message             */}
           <section className=" welcomSection">
              <h1 className="heading-one">Welcome Back!</h1>
@@ -127,6 +135,7 @@ class Login extends Component {
               className="btn  col-3 m-auto "
               style={{ backgroundColor: "#2B59B4", color: "white" }}
               value="Login"
+              id="submit-btn"
               disabled={!this.state.formValid}
             />
             <div className="row">
@@ -139,7 +148,37 @@ class Login extends Component {
         </div>
       );
     }
+  
+    componentDidMount() {
+      const btn = document.querySelector("#submit-btn");
+      btn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        console.log(
+            this.state.email
+        );
+        const user = {
+          email: this.state.email,
+          password: this.state.pass
+        };
+        await this.props.userLogin(user);
+        if (this.props.data === "success") {
+          this.props.history.push("/");
+        }
+        this.setState({ alert: this.props.data });
+      });
+    }
   }
   
-  export default Login;
+  
+export default connect(
+  (state) => {
+    console.log(state);
+    return {
+      data: state.users.list,
+    };
+  },
+  (dispatch) => {
+    return bindActionCreators({ userLogin }, dispatch);
+  }
+)(Login);
   

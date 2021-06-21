@@ -8,7 +8,7 @@ const AlertMsg=(props)=> {
     return (
       <>
         <Alert show={show} variant="danger" style={{height:"60px"}}>
-          <p>
+          <p className="text-center">
            {props.msg} 
            <FaTimes
               onClick={() => setShow(false)}
