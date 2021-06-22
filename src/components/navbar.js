@@ -1,8 +1,31 @@
 import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import JoinBtn from "../containers/join-btn";
-import { NavLink } from "react-router-dom";
+import { NavLink,withRouter } from "react-router-dom";
+import { Component } from "react";
+import {FaUserAlt} from '@react-icons/all-files/fa/FaUserAlt'
 
-const NavBAR = () => {
+class NavBAR extends Component{
+  constructor(){
+    super();
+    this.state={
+    }
+  }
+
+  componentDidMount(){
+   if(localStorage.getItem('jwt')){
+    let elems  = document.querySelectorAll('.notLogged');
+    for(let i = 0; i < elems.length ;i++){
+      elems[i].style.display='none'
+    }
+   }else{
+    let elems  = document.querySelectorAll('.Logged');
+    for(let i = 0; i < elems.length ;i++){
+      elems[i].style.display='none'
+    }
+   }
+  }
+
+  render(){
   const active = {
     textDecoration: 'underline',
     textUnderlineOffset: '1rem',
@@ -40,10 +63,16 @@ const NavBAR = () => {
             <Nav.Link className="mx-auto mx-lg-3 ms-lg-0 ">
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3">
+            <Nav.Link className="mx-auto mx-lg-3 Logged">
+              <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>Profile</NavLink>
+            </Nav.Link>
+            <Nav.Link className="mx-auto mx-lg-3 Logged">
+              <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>Property</NavLink>
+            </Nav.Link>
+            <Nav.Link className="mx-auto mx-lg-3 notLogged">
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3">
+            <Nav.Link className="mx-auto mx-lg-3 notLogged">
               <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>How it works?</NavLink>
             </Nav.Link>
             <NavDropdown
@@ -52,6 +81,16 @@ const NavBAR = () => {
               title="More"
               id="navbarScrollingDropdown"
             >
+              {/* if user is logged in */}
+              <div id={`${this.state.logStatus}Logged`}>
+               <NavDropdown.Item>
+              <NavLink to="/features" style={dropDownStyle}>Features</NavLink>
+              </NavDropdown.Item> <NavDropdown.Item>
+              <NavLink to="/how-it-works" style={dropDownStyle}>How it Works</NavLink>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              </div>
+
               <NavDropdown.Item>
               <NavLink to="/faq" style={dropDownStyle}>FAQ</NavLink>
               </NavDropdown.Item>
@@ -71,23 +110,39 @@ const NavBAR = () => {
             </NavDropdown>
           </Nav>
 
+          <div className='Logged'>
+            <FaUserAlt style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push('/profile')}}/>
+          <input
+                className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
+                style={{ backgroundColor: "white", border: "black 2px solid" }}
+                type="button"
+                value="Log out"
+                onClick={()=>{
+                  localStorage.clear()
+                  window.location.replace('/')
+                }}
+              />
+          </div>
+
+          <div className='notLogged'>
           <div className="d-flex  flex-xl-row flex-lg-column  flex-xxl-nowrap  flex-xl-nowrap  flex-lg-nowrap">
             <div className="offset-xxl-9  offset-xl-3 offset-lg-2  mb-lg-2  mb-xl-0  mb-0 offset-md-4 offset-sm-3  offset-2">
               <JoinBtn />
             </div>
 
-            <NavLink to="/login">
               <input
-                className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded "
+                className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
                 style={{ backgroundColor: "white", border: "black 2px solid" }}
                 type="button"
                 value="Log in"
+                onClick={()=>{
+                  this.props.history.push('/login')
+                }}
               />
-            </NavLink>
-          </div>
+          </div></div>
         </Navbar.Collapse>
       </Navbar>
     </div>
   );
-};
-export default NavBAR;
+}; }
+export default withRouter(NavBAR);
