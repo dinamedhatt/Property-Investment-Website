@@ -30,6 +30,9 @@ address:{
 },
 property:{
     type:Array
+},
+wishlist:{
+    type:Array
 }
 })
 
