@@ -65,10 +65,10 @@ class NavBAR extends Component{
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3 Logged">
-              <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>Profile</NavLink>
+              <NavLink to='/profile' activeStyle={active} style={linkStyle}>Profile</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3 Logged">
-              <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>Property</NavLink>
+              <NavLink to='/property' activeStyle={active} style={linkStyle}>Property</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3 notLogged">
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
