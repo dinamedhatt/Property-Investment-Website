@@ -5,8 +5,15 @@ const app = express();
 const port = 3100;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const {MONGOURI,JWT_SECRET}=require("./keys")
-const requireLogin = require('./middleware/requireLogin')
+const {
+  MONGOURI,
+  JWT_SECRET,
+  CONTACT_EMAIL,
+  CONTACT_PASSWORD,
+} = require("./keys");
+const requireLogin = require("./middleware/requireLogin");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 app.use(cors());
 app.use(express.json());
@@ -36,8 +43,7 @@ app.get("/users", (req, res) => {
 
 //add user (registration)
 app.post("/register", (req, res) => {
-  const { fname, lname, email, password, address} =
-    req.body;
+  const { fname, lname, email, password, address } = req.body;
 
   if (!email || !password || !fname || !lname || !address) {
     res.send("Please fill all fields!");
@@ -88,8 +94,8 @@ app.post("/login", (req, res) => {
       .then((doMatch) => {
         if (doMatch) {
           // res.send("success");
-          const token = jwt.sign({_id:savedUser._id},JWT_SECRET)
-          res.json({token})
+          const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
+          res.json({ token });
         } else {
           res.send("Invalid email or password!");
           return res.status(422).json({ error: "invalid email or password" }); //invalid password
@@ -101,16 +107,63 @@ app.post("/login", (req, res) => {
   });
 });
 
-
 // get user info in profile
-app.get('/profile',requireLogin,(req,res)=>{
-  res.send('hello user')
-})
+app.get("/profile", requireLogin, (req, res) => {
+  res.send("hello user");
+});
 
 //get All properties
 app.get("/property", (req, res) => {
   Property.find({}, (err, property) => {
     res.send(property);
+  });
+});
+
+//contact us form
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  port: 465,
+  auth: {
+    user: CONTACT_EMAIL,
+    pass: CONTACT_PASSWORD,
+  },
+});
+
+// verify connection configuration
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take our messages");
+  }
+});
+
+app.post("/contact", (req, res, next) => {
+  var mail = {
+    from: req.body.email,
+    to: "dealgenie98@gmail.com",
+    subject: req.body.subject,
+    text: req.body.body,
+    html: `<div>
+        Dear Deal Genie,<br/><br/>
+        ${req.body.body}<br/><br/>
+        Regards,<br/>
+        ${req.body.name}<br/>
+        ${req.body.email}
+      </div>`,
+  };
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.json({
+        status: "fail",
+      });
+    } else {
+      res.json({
+        status: "success",
+      });
+    }
   });
 });
 

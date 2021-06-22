@@ -1,31 +1,56 @@
 import { Component } from "react";
+import axios from "axios";
+import AlertMsg from "../components/alertMsg";
 
 class Contact extends Component {
   constructor() {
     super();
     this.state = {
       name: "",
-      email:"",
-      subject:"Product question",
-      body:""
+      email: "",
+      subject: "Product question",
+      body: "",
+      alert: "",
+      color: "",
     };
   }
 
-  setName=(e)=>{
-    this.setState({name:e.target.value});
-}
+  setName = (e) => {
+    this.setState({ name: e.target.value });
+  };
 
-setMail=(e)=>{
-  this.setState({email:e.target.value});
-}
+  setMail = (e) => {
+    this.setState({ email: e.target.value });
+  };
 
-setSubject=(e)=>{
-  this.setState({subject:e.target.value});
-}
+  setSubject = (e) => {
+    this.setState({ subject: e.target.value });
+  };
 
-setBody=(e)=>{
-  this.setState({body:e.target.value});
-}
+  setBody = (e) => {
+    this.setState({ body: e.target.value });
+  };
+
+  //to handle form
+  formSubmit(e) {
+    e.preventDefault();
+    axios({
+      method: "POST",
+      url: "/contact",
+      data: this.state,
+    }).then((response) => {
+      if (response.data.status === "success") {
+        this.setState({ alert: "message is sent", color: "success" });
+        this.resetForm();
+      } else if (response.data.status === "fail") {
+        this.setState({ alert: "message is NOT sent!", color: "danger" });
+      }
+    });
+  }
+
+  resetForm() {
+    this.setState({ name: "", email: "", subject: "", body: "" });
+  }
 
   render() {
     return (
@@ -42,7 +67,11 @@ setBody=(e)=>{
           </p>
         </div>
 
-        <form className="row col-12">
+        <form
+          className="row col-12"
+          onSubmit={this.formSubmit.bind(this)}
+          method="POST"
+        >
           <div className=" col-md-5 form-group">
             <label htmlFor="name" className="form-label lbl">
               Name
@@ -52,7 +81,8 @@ setBody=(e)=>{
               placeholder="John Smith"
               className="form-control"
               id="name"
-              onChange={this.setName}
+              value={this.state.name}
+              onChange={this.setName.bind(this)}
             />
           </div>
 
@@ -65,7 +95,8 @@ setBody=(e)=>{
               placeholder="John.smith@email.com"
               className="form-control"
               id="mail"
-              onChange={this.setMail}
+              value={this.state.email}
+              onChange={this.setMail.bind(this)}
             />
           </div>
 
@@ -73,10 +104,12 @@ setBody=(e)=>{
             <label htmlFor="subject" className="for-label lbl">
               Subject
             </label>
-            <select className="form-select" defaultValue={this.state.subject} onChange={this.setSubject}>
-              <option disabled>
-                Product question
-              </option>
+            <select
+              className="form-select"
+              defaultValue={this.state.subject}
+              onChange={this.setSubject.bind(this)}
+            >
+              <option disabled>Product question</option>
               <option value="Feedback">Feedback</option>
               <option value="Inquiry">Inquiry</option>
               <option value="Payment">Payment</option>
@@ -91,8 +124,17 @@ setBody=(e)=>{
               className="form-control"
               placeholder="Leave your message here.."
               rows="5"
+              value={this.state.body}
               onChange={this.setBody}
             ></textarea>
+          </div>
+
+          <div
+            {...(this.state.alert === "" && {
+              style: { display: "none" },
+            })}
+          >
+            <AlertMsg color={this.state.color} msg={this.state.alert} />
           </div>
 
           <input
@@ -100,12 +142,7 @@ setBody=(e)=>{
             className="btn btn-rounded col-md-3 m-auto mt-5 mb-lg-0 mb-5 px-lg-0 px-5 col-6 "
             style={{ backgroundColor: "#2b59b4", color: "white" }}
             value="Send"
-            onClick={()=>{
-              window.location.href=`mailto:info@dealgenieltd.co.uk?Subject=${this.state.subject}
-              &body=${this.state.body}%0d%0a%0d%0aBest regards,%0d%0a${this.state.name}%0d%0a${this.state.email}`;  
-              //%0d%0a used to make a line break
-            }
-            }
+            onClick={() => this.setState({ alert: "message is sent" })}
           />
         </form>
       </div>
