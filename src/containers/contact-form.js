@@ -142,7 +142,6 @@ class Contact extends Component {
             className="btn btn-rounded col-md-3 m-auto mt-5 mb-lg-0 mb-5 px-lg-0 px-5 col-6 "
             style={{ backgroundColor: "#2b59b4", color: "white" }}
             value="Send"
-            onClick={() => this.setState({ alert: "message is sent" })}
           />
         </form>
       </div>
