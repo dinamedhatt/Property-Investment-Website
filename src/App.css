@@ -501,7 +501,72 @@ height: 365px;
   top: 15px !important;
   color: grey !important;
 }
+/* ----------------------------------------profile------------------------------------------- */
 
+.user-section{
+  background-color: #F3F3F4;
+  width:700px;
+  height: 250px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10%;
+  padding-top: 40px;
+  position: relative;
+}
+.input{
+  display:block;
+  margin-left:35%;
+  margin-bottom: 2%;
+}
+
+.black , .black::placeholder{
+  color: #000;
+  font-size: 1.1rem;
+}
+.name , .name::placeholder{
+  color: #143D8D ;
+  font-size:"1.8rem";
+  font-weight: bolder;
+}
+.location , .location::placeholder{
+  color:#909090;
+  font-size:"1.1rem";
+  
+}
+.user-image{
+  position: absolute;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  top:-20%;
+  left:-12%;
+
+}
+.recomendation{
+  margin: 60px auto;
+  width: 1200px;
+  height: 650px;
+  border-radius: 20px;
+  
+}
+.property-continer{
+  height: 450px;
+  padding-left: 0px;
+  border-radius: 10px;
+  margin-right: 1px;
+}
+.property-image{
+  width: 257px;
+}
+.img{
+  margin-right: 10px;
+}
+.property-margin{
+  margin-left: 10px;
+}
+.applied-property:hover{
+  background-color: rgba(34, 167, 240, .5);
+}
 /*-----------------------------------------home----------------------------------------*/
 
 #cover {
