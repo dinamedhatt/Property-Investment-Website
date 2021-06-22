@@ -36,12 +36,12 @@ class Contact extends Component {
     e.preventDefault();
     axios({
       method: "POST",
-      url: "/contact",
+      url: "http://localhost:3100/contact",
       data: this.state,
     }).then((response) => {
       if (response.data.status === "success") {
-        this.setState({ alert: "message is sent", color: "success" });
         this.resetForm();
+        this.setState({ color: "success", alert: "message is sent"});
       } else if (response.data.status === "fail") {
         this.setState({ alert: "message is NOT sent!", color: "danger" });
       }

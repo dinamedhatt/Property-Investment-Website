@@ -5,7 +5,15 @@ const app = express();
 const port = 3100;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const {MONGOURI,JWT_SECRET}=require("./keys")
+const {
+  MONGOURI,
+  JWT_SECRET,
+  CONTACT_EMAIL,
+  CONTACT_PASSWORD,
+  } = require("./keys");
+  
+  const nodemailer = require("nodemailer");
+  require("dotenv").config();
 const requireLogin = require('./middleware/requireLogin')
 
 app.use(cors());
@@ -119,6 +127,55 @@ app.get("/property", (req, res) => {
     }
   });
 });
+
+
+//contact us form
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  port: 465,
+  auth: {
+  user: CONTACT_EMAIL,
+  pass: CONTACT_PASSWORD,
+  },
+  });
+  
+  // verify connection configuration
+  transporter.verify(function (error, success) {
+  if (error) {
+  console.log(error);
+  } else {
+  console.log("Server is ready to take our messages");
+  }
+  });
+  
+  app.post("/contact", (req, res, next) => {
+  var mail = {
+  from: req.body.email,
+  to: "dealgenie98@gmail.com",
+  subject: req.body.subject,
+  text: req.body.body,
+  html: `<div>
+  Dear Deal Genie,<br/><br/>
+  ${req.body.body}<br/><br/>
+  Regards,<br/>
+  ${req.body.name}<br/>
+  ${req.body.email}
+  </div>`,
+  };
+  
+   transporter.sendMail(mail, (err, data) => {
+  if (err) {
+  console.log(err);
+  res.json({
+  status: "fail",
+  });
+  } else {
+  res.json({
+  status: "success",
+  });
+  }
+  });
+  });
 
 app.listen(port, () => {
   console.log("server running");
