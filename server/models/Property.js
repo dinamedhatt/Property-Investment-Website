@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const PropertyShema=new mongoose.Schema({
+const PropertySchema=new mongoose.Schema({
 name:{
     type:String,
     required:true
@@ -34,5 +34,5 @@ status:{
 }
  
 });
-const Property=mongoose.model("property",PropertyShema);
+const Property=mongoose.model("property",PropertySchema);
 module.exports=Property;

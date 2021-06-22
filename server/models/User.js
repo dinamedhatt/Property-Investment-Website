@@ -22,6 +22,7 @@ occupation:{
     
 },
 image:{
+    default:"default.png",
     type:String
 },
 address:{
