@@ -20,6 +20,7 @@ class NavBAR extends Component{
    }else{
     let elems  = document.querySelectorAll('.Logged');
     for(let i = 0; i < elems.length ;i++){
+      console.log(elems[i])
       elems[i].style.display='none'
     }
    }
@@ -81,16 +82,16 @@ class NavBAR extends Component{
               title="More"
               id="navbarScrollingDropdown"
             >
+              <div className='Logged'>
               {/* if user is logged in */}
-              <div id={`${this.state.logStatus}Logged`}>
-               <NavDropdown.Item>
+              <NavDropdown.Item>
               <NavLink to="/features" style={dropDownStyle}>Features</NavLink>
               </NavDropdown.Item> <NavDropdown.Item>
               <NavLink to="/how-it-works" style={dropDownStyle}>How it Works</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               </div>
-
+             
               <NavDropdown.Item>
               <NavLink to="/faq" style={dropDownStyle}>FAQ</NavLink>
               </NavDropdown.Item>
