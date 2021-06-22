@@ -31,8 +31,8 @@ class Login extends Component {
           fieldValidationErrors.email = emailValid ? '' : '*Please write your e-mail in a correct format';
           break;
         case 'pass':
-          passwordValid = value.length >= 6;
-          fieldValidationErrors.pass = passwordValid ? '': '*Password should be more than 5 characters';
+          passwordValid = value.length >= 6 && value.length <= 12;
+          fieldValidationErrors.pass = passwordValid ? '': '*Password should be between 6 to 12 characters';
           break;
         default:
           break;
