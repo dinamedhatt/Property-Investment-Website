@@ -72,13 +72,13 @@ class Login extends Component {
         
       }
       return (
-        <div className="parent" >
-           <div {...(this.state.alert === '' && {
+        <div>
+           <div style={{position:'fixed',top:"12%",width:"100%",zIndex:1}} {...(this.state.alert === '' && {
                          style: { display:'none'}
                          })}>
-        <AlertMsg msg={this.state.alert}/>
+        <AlertMsg color='danger' msg={this.state.alert}/>
         </div>
-        {/*         welcom message             */}
+        {/*         welcome message             */}
           <section className=" welcomSection">
              <h1 className="heading-one">Welcome Back!</h1>
              <p className="fs-4">Login to continue</p>
@@ -86,7 +86,7 @@ class Login extends Component {
           <section className="bground"><img src='images/login.png' className="bg" alt="background"/></section>
                   {/* form section        */}
                   
-           <form className="rounded    shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-5 my-lg-5 my-0 form">
+           <form className="rounded shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-5 my-lg-5 my-0 form">
             <div className="row mb-4 form-group">
               <label htmlFor="email" className="col-4 offset-2 mb-2 form-label lbl fw-bold">
                 E-mail
@@ -153,9 +153,6 @@ class Login extends Component {
       const btn = document.querySelector("#submit-btn");
       btn.addEventListener("click", async (e) => {
         e.preventDefault();
-        console.log(
-            this.state.email
-        );
         const user = {
           email: this.state.email,
           password: this.state.pass

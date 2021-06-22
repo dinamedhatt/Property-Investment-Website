@@ -102,10 +102,10 @@ class Register extends Component {
     };
     return (
       <div className="parent">
-        <div {...(this.state.alert === '' && {
+           <div style={{position:'fixed',top:"12%",width:"100%",zIndex:1}} {...(this.state.alert === '' && {
                          style: { display:'none'}
                          })}>
-        <AlertMsg msg={this.state.alert}/>
+        <AlertMsg color='danger' msg={this.state.alert}/>
         </div>
         {/*         welcom message             */}
         <section className=" welcomSection2">
