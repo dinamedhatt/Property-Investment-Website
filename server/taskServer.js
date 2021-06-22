@@ -5,11 +5,13 @@ const app = express();
 const port = 3100;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const {MONGOURI,JWT_SECRET}=require("./keys")
+const requireLogin = require('./middleware/requireLogin')
 
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/DealGenie", {
+mongoose.connect(MONGOURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -85,7 +87,9 @@ app.post("/login", (req, res) => {
       .compare(password, savedUser.password)
       .then((doMatch) => {
         if (doMatch) {
-          res.send("success");
+          // res.send("success");
+          const token = jwt.sign({_id:savedUser._id},JWT_SECRET)
+          res.json({token})
         } else {
           res.send("Invalid email or password!");
           return res.status(422).json({ error: "invalid email or password" }); //invalid password
@@ -96,6 +100,12 @@ app.post("/login", (req, res) => {
       });
   });
 });
+
+
+// get user info in profile
+app.get('/profile',requireLogin,(req,res)=>{
+  res.send('hello user')
+})
 
 //get All properties
 app.get("/property", (req, res) => {
