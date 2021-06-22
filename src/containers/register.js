@@ -119,7 +119,7 @@ class Register extends Component {
         {/*         form section /////////////// */}
         <form className="rounded border pe-sm-0 pe-4  shadow-lg row col-lg-6 offset-lg-3  col-10 offset-1  col-md-8 offset-md-2 p-sm-5 py-5 px-0 my-lg-5 my-0 form">
           <div className="row  form-group">
-            <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-3  form-group">
+            <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-2 form-group">
               <label htmlFor="fname" className="form-label lbl fw-bold ">
                 First Name
               </label>
@@ -131,11 +131,10 @@ class Register extends Component {
                 id="fname"
                 required
                 onChange={this.handleChange}
-                // onChange={this.setFname}
               />
             </div>
 
-            <div className=" col-sm-4 offset-sm-0 col-10 offset-2 mb-2   form-group">
+            <div className=" col-sm-4 offset-sm-0 col-10 offset-2 mb-2 form-group">
               <label htmlFor="lname" className="form-label lbl fw-bold ">
                 Last Name
               </label>
@@ -147,7 +146,6 @@ class Register extends Component {
                 id="lname"
                 required
                 onChange={this.handleChange}
-                // onChange={this.setLname}
               />
             </div>
           </div>
@@ -171,7 +169,6 @@ class Register extends Component {
                 id="email"
                 required
                 onChange={this.handleChange}
-                // onChange={this.setMail}
               />
             </div>
           </div>
@@ -179,7 +176,7 @@ class Register extends Component {
           <div className=" lbl text-secondary text-center">
             <FormErrors formErrors={this.state.formErrors.email} />
           </div>
-          <div className="row mb-4 form-group ">
+          <div className="row mb-2 form-group ">
             <label
               htmlFor="pass"
               className="form-label col-4 offset-2 mb-2 lbl fw-bold"
@@ -204,7 +201,7 @@ class Register extends Component {
             <FormErrors formErrors={this.state.formErrors.pass} />
           </div>
 
-          <div className="row mb-2 form-group ">
+          <div className="row mb-4 form-group ">
             <label
               htmlFor="Country"
               className="form-label col-4 offset-2 mb-2 lbl fw-bold"
