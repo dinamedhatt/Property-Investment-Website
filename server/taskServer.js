@@ -89,7 +89,7 @@ app.post("/login", (req, res) => {
         if (doMatch) {
           // res.send("success");
           const token = jwt.sign({_id:savedUser._id},JWT_SECRET)
-          res.json({token})
+          res.send({token,savedUser})
         } else {
           res.send("Invalid email or password!");
           return res.status(422).json({ error: "invalid email or password" }); //invalid password
@@ -102,15 +102,21 @@ app.post("/login", (req, res) => {
 });
 
 
-// get user info in profile
+// logging into profile and getting data with token in middleware
 app.get('/profile',requireLogin,(req,res)=>{
-  res.send('hello user')
+  res.send('logged to profile')
 })
+
 
 //get All properties
 app.get("/property", (req, res) => {
   Property.find({}, (err, property) => {
+    if(err){
+      console.log(err);
+    }
+    else{
     res.send(property);
+    }
   });
 });
 

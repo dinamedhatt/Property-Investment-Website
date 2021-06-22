@@ -30,6 +30,9 @@ export async function addUser(user){
            }
         else{
             data = res.data
+            res.headers={
+                "Authorization": `Bearer ${res.data.token}`
+            }
         }
        })
         

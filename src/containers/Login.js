@@ -161,10 +161,14 @@ class Login extends Component {
           password: this.state.pass
         };
         await this.props.userLogin(user);
-        if (this.props.data === "success") {
-          this.props.history.push("/");
+        if (this.props.data.token) {
+          localStorage.setItem("jwt",this.props.data.token)
+          localStorage.setItem("user",JSON.stringify(this.props.data.savedUser))
+          this.setState({alert:""})
+          window.location.replace('/profile')
         }
-        this.setState({ alert: this.props.data });
+        else{
+        this.setState({ alert: this.props.data }); }
       });
     }
   }
@@ -172,7 +176,6 @@ class Login extends Component {
   
 export default connect(
   (state) => {
-    console.log(state);
     return {
       data: state.users.list,
     };
