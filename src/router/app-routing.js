@@ -12,7 +12,7 @@ import Home from "./../components/home";
 import Error from "./../components/error";
 import Works from "./../components/how-works";
 import ScrollToTop from "./scrollToTop";
-import Profile from "./../containers/profile/profile"
+import Profile from '../containers/profile/profile';
 import Properties from "../containers/Properties";
 
 const AppRouting = () => {

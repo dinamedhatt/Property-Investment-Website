@@ -8,6 +8,7 @@ import {FaSave} from '@react-icons/all-files/fa/FaSave'
 import {getUser} from '../../actions'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import Error2 from '../../components/error2'
 
 class Profile extends Component {
     constructor(){
@@ -82,13 +83,16 @@ class Profile extends Component {
      }
 
     async componentDidMount(){
+      if(localStorage.getItem('jwt')){
       await this.props.getUser(localStorage.getItem('id'),localStorage.getItem('jwt'))
       const user = this.props.user;
       this.setState({name:`${user.fname} ${user.lname}`,email:`${user.email}`,address:`${user.address}`,occupation:`${user.occupation}`})
-      console.log(this.state)
+      // console.log(this.state)
+      }
     }
 
     render() {
+      if(localStorage.getItem('jwt')){
     return (
         <div className='pb-5'>
             {/* ---------------user section------------------------------------------------------- */}
@@ -120,6 +124,14 @@ class Profile extends Component {
 
         </div>
     );
+      }
+      else{
+       return(
+         <div>
+        <Error2/>
+        </div>
+       )
+      }
   }
 }
 export default connect(
