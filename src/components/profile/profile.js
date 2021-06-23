@@ -1,5 +1,5 @@
 import { Component } from "react";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Applied from "./applied";
 import WishList from "./wishList";
 import {FaMapMarkerAlt} from '@react-icons/all-files/fa/FaMapMarkerAlt'
@@ -86,7 +86,7 @@ class Profile extends Component {
      }
     render() {
     return (
-        <div>
+        <div className='pb-5'>
             {/* ---------------user section------------------------------------------------------- */}
             <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-5">
                 <div className="user-data ">
@@ -112,28 +112,24 @@ class Profile extends Component {
             <Applied/>
             <WishList/>
             {/* -------------------recomndation------------------------------------------------------------------ */}
+    <div className="col-9 rounded mx-auto shadow p-4 ">
 
-            <div className="largecon mx-auto shadow-lg p-4 ">
-
-<div className="d-flex justify-content-between mb-2 ms-3">
+    <div className="d-flex justify-content-between px-2 mb-3">
         <h3>Most Recomended</h3>
-        <p style={{color:"#143D8D", fontSize:"1.1rem"}}>View  all <FaChevronRight/> </p>
+        <NavLink style={{textDecoration:'none'}} to='/property'><p style={{color:"#143D8D", fontSize:"1.1rem"}}>View  all <FaChevronRight/> </p></NavLink>
     </div>
 
     <div className="d-md-flex justify-content-between">
 
-  <div className="smallcon shadow d-md-block d-flex">
-  <img src="images/profile/property1.png"  alt="property" width="100%" height="168px"/>
-      <div className="mx-3 d-md-block ">
+  <div className="rounded smallcon shadow">
+  <img src="images/profile/property1.png" className='fullDiv' alt="property" width="100%" height="168px"/>
+      <div className="px-3 fullDiv">
       <h4 className="mt-2">Sea view chalet</h4>
-            <p style={{color:"#143D8D"}}>Chalet</p>
-            <div className="d-md-block d-flex">
-           <p  id="paraloc"  className="ps-md-0 px-3">  <FaMapMarkerAlt className="me-md-2"  style={{color:"#2B59B4"}}/>Abanilla, Múrcia, Spain   </p>
-           <p className="ps-md-0 px-5"><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>1500</p>
-           </div>
-           
+           <p style={{color:"#143D8D"}}>Chalet</p>
+           <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>Abanilla, Múrcia, Spain   </p>
+           <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>1500</p>           
+        {/* <input className='btn btn-medium rounded' style={{border:"black 2px solid",margin:'auto'}} type='button' value='View' /> */}
     </div>
-            <input className='btn btn-medium btn-rounded px-lg-5 mt-4 px-3 mb-4  d-md-block d-none' style={{backgroundColor:"white",border:"black 2px solid" , marginLeft:"25%"}} type='button' value='View' />
   </div>
 
  

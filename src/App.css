@@ -536,21 +536,9 @@ height: 365px;
   left:-45px
 }
 
-
-
-.largecon{
-  width: 90%;
-  border-radius: 30px;
-
-}
-.smallcon{
-  width:24%;
-  border-radius: 20px;
-}
 .parasmallcon{
   width: 100%;
 }
-#paraloc{ min-width: 150px;}
 
 #image-radius{
   border-radius: 20px;
@@ -698,12 +686,6 @@ height: 365px;
 
 /* -----------------MEDIA QUEREY---------------- */
 @media (max-width: 1200px) {
-  /* .feature-img {
-    display: inline-block;
-    margin-top: 15%;
-    width: 1151px;
-    height: 466px;
-  } */
 
   .featureItem-section {
     flex-direction: column;
@@ -829,4 +811,28 @@ height: 365px;
 .slick-next:before {
   color: grey !important;
   font-size: 30px !important;
+}
+
+
+/* --------------------profile recommendation section----------------------- */
+@media screen and (max-width: 1600px){
+  .smallcon{
+    width:24%;
+    overflow: hidden;
+    display:block
+  }
+  .fullDiv{
+    width:100%;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .smallcon{
+    width:100%;
+    overflow: hidden;
+    display: flex;
+  }
+  .fullDiv{
+    width:45%;
+  }
 }
