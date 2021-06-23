@@ -125,7 +125,7 @@ app.get("/profile/:id", requireLogin, (req, res) => {
 
 
 //get All properties
-app.get("/property", (req, res) => {
+app.get("/property", requireLogin, (req, res) => {
   Property.find({}, (err, property) => {
     if (err) {
       console.log(err);
@@ -134,6 +134,22 @@ app.get("/property", (req, res) => {
     }
   });
 });
+
+
+//get property details
+app.get("/property:id",requireLogin,(req,res)=>{
+  Property.find({},(err,props)=>{
+    props.forEach(prop =>{
+        if(prop.id === req.params.id.split('=')[1])
+        {
+            res.send(prop);
+        }
+    })
+    if(err){
+      console.log(err);
+    }
+  })
+})
 
 //contact us form
 const transporter = nodemailer.createTransport({
