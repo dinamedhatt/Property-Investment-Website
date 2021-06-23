@@ -279,7 +279,8 @@ class Register extends Component {
       if (this.props.data === "success") {
         this.props.history.push("/login");
       }
-      this.setState({ alert: this.props.data });
+      else{
+      this.setState({ alert: this.props.data });}
     });
   }
 }

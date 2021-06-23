@@ -5,6 +5,14 @@ const app = express();
 const port = 3100;
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const nodemailer = require("nodemailer");
+const requireLogin = require("./middleware/requireLogin");
+app.use(cors());
+app.use(express.json());
+// const path=require('path');
+// const multer = require("multer");
+// app.use(express.static(path.join(__dirname, 'images/'))); //for saving images
+
 const {
   MONGOURI,
   JWT_SECRET,
@@ -12,11 +20,6 @@ const {
   CONTACT_PASSWORD,
 } = require("./keys");
 
-const nodemailer = require("nodemailer");
-const requireLogin = require("./middleware/requireLogin");
-
-app.use(cors());
-app.use(express.json());
 
 mongoose.connect(MONGOURI, {
   useNewUrlParser: true,
@@ -26,6 +29,32 @@ mongoose.connect(MONGOURI, {
 const FAQ = require("./models/FAQ");
 const User = require("./models/User");
 const Property = require("./models/Property");
+
+//fixing images storing
+
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => {
+//       cb(null, "./images");
+//   },
+//   filename: (req, file, cb) => {
+//       cb(null, Date.now + "_" + file.originalname);
+//   }
+// });
+
+// const fileFilter = (req, file, cb) => {
+//   if (file.mimetype === "image/jpg" || file.mimetype === "image/png" ||file.mimetype === "image/jpeg") {
+//       cb(null, true);
+//   } else {
+//       cb("Type file is not access", false);
+//   }
+// };
+
+// const upload = multer({
+//   storage,
+//   fileFilter
+// });
+
+
 
 //get All FAQ
 app.get("/faq", (req, res) => {
@@ -124,8 +153,17 @@ app.get("/profile/:id", requireLogin, (req, res) => {
 })
 
 
+//edit user data
+app.post('/edit',requireLogin,(req,res)=>{
+
+  User.updateOne({_id: req.body._id},
+      {fname:req.body.fname, lname: req.body.lname, email: req.body.Email, address: req.body.address, occupation:req.body.occupation},(err)=>{});
+  res.send("updated");
+})
+
+
 //get All properties
-app.get("/property", (req, res) => {
+app.get("/property", requireLogin, (req, res) => {
   Property.find({}, (err, property) => {
     if (err) {
       console.log(err);
@@ -134,6 +172,22 @@ app.get("/property", (req, res) => {
     }
   });
 });
+
+
+//get property details
+app.get("/property:id",requireLogin,(req,res)=>{
+  Property.find({},(err,props)=>{
+    props.forEach(prop =>{
+        if(prop.id === req.params.id.split('=')[1])
+        {
+            res.send(prop);
+        }
+    })
+    if(err){
+      console.log(err);
+    }
+  })
+})
 
 //contact us form
 const transporter = nodemailer.createTransport({

@@ -15,10 +15,17 @@ export async function getfaq() {
   };
 }
 
-export async function getproperties() {
+export async function getproperties(token) {
   let payload = null;
   try {
-    let response = await fetch(`${baseURL}/property`);
+    let response = await fetch(`${baseURL}/property`,{method:'GET',
+    headers:{
+        "Authorization":`Bearer ${token}`
+    }
+});
+if(!token){
+    window.localStorage.clear();
+}
     payload = await response.json();
   } catch (error) {
     console.log(error);
@@ -28,6 +35,32 @@ export async function getproperties() {
     payload,
   };
 }
+
+
+export async function getProp(id='',token){
+    let payload = null;
+    try {
+        let response = await fetch(`${baseURL}/property/id=${id}`,{method:'GET',
+        headers:{
+            "Authorization":`Bearer ${token}`
+        }
+    });
+        if(!token){
+            window.localStorage.clear();
+        }
+        payload = await response.json();
+    }
+    catch (error) {
+        console.log(error);
+
+    }
+    console.log(payload);
+        return {
+            type: "user_details",
+            payload
+        }
+}
+
 
 export async function addUser(user) {
   let payload = null;
@@ -51,7 +84,7 @@ export async function addUser(user) {
   return {
     type: "user_add",
     data,
-    payload,
+    payload
   };
 }
 
@@ -93,8 +126,6 @@ export async function getUser(id='',token){
         }
     });
         if(!token){
-            alert('Unaunthorized Access!');
-            window.location.assign('/login');
             window.localStorage.clear();
         }
         payload = await response.json();

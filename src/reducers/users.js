@@ -1,5 +1,8 @@
 export function users(state = {}, action) {
     switch(action.type){
+        case 'user_add':
+            return { ...state, list: action.data };
+
         case 'user_Login':
             return { ...state, list: action.data };
 
