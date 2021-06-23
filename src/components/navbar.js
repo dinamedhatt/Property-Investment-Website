@@ -8,21 +8,16 @@ class NavBAR extends Component{
   constructor(){
     super();
     this.state={
+      logged:false
     }
   }
 
   componentDidMount(){
    if(localStorage.getItem('jwt')){
-    let elems  = document.querySelectorAll('.notLogged');
-    for(let i = 0; i < elems.length ;i++){
-      elems[i].style.display='none'
-    }
+    this.setState({logged:true});
+    
    }else{
-    let elems  = document.querySelectorAll('.Logged');
-    for(let i = 0; i < elems.length ;i++){
-      console.log(elems[i])
-      elems[i].style.display='none'
-    }
+    this.setState({logged:false});
    }
   }
 
@@ -64,16 +59,16 @@ class NavBAR extends Component{
             <Nav.Link className="mx-auto mx-lg-3 ms-lg-0 ">
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3 Logged">
+            <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
               <NavLink to='/profile' activeStyle={active} style={linkStyle}>Profile</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3 Logged">
+            <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
               <NavLink to='/property' activeStyle={active} style={linkStyle}>Property</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3 notLogged">
+            <Nav.Link className="mx-auto mx-lg-3" {...(this.state.logged && {style: { display:'none'}})}>
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3 notLogged">
+            <Nav.Link className="mx-auto mx-lg-3" {...(this.state.logged && {style: { display:'none'}})}>
               <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>How it works?</NavLink>
             </Nav.Link>
             <NavDropdown
@@ -82,7 +77,7 @@ class NavBAR extends Component{
               title="More"
               id="navbarScrollingDropdown"
             >
-              <div className='Logged'>
+              <div {...(!this.state.logged && {style: { display:'none'}})}>
               {/* if user is logged in */}
               <NavDropdown.Item>
               <NavLink to="/features" style={dropDownStyle}>Features</NavLink>
@@ -111,7 +106,7 @@ class NavBAR extends Component{
             </NavDropdown>
           </Nav>
 
-          <div className='Logged'>
+          <div {...(!this.state.logged && {style: { display:'none'}})}>
             <FaUserAlt style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push('/profile')}}/>
           <input
                 className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
@@ -125,7 +120,7 @@ class NavBAR extends Component{
               />
           </div>
 
-          <div className='notLogged'>
+          <div {...(this.state.logged && {style: { display:'none'}})}>
           <div className="d-flex  flex-xl-row flex-lg-column  flex-xxl-nowrap  flex-xl-nowrap  flex-lg-nowrap">
             <div className="offset-xxl-9  offset-xl-3 offset-lg-2  mb-lg-2  mb-xl-0  mb-0 offset-md-4 offset-sm-3  offset-2">
               <JoinBtn />
