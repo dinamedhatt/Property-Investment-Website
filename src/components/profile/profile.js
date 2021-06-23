@@ -2,6 +2,11 @@ import { Component } from "react";
 // import { NavLink } from "react-router-dom";
 import Applied from "./applied";
 import WishList from "./wishList";
+import {FaMapMarkerAlt} from '@react-icons/all-files/fa/FaMapMarkerAlt'
+import {FaCoins} from '@react-icons/all-files/fa/FaCoins'
+import {FaChevronRight} from '@react-icons/all-files/fa/FaChevronRight'
+
+
 class Profile extends Component {
     constructor(){
         super()
@@ -35,7 +40,7 @@ class Profile extends Component {
                 input:{
                   border:"1px solid gray",
                   backgroundColor: "white",
-                  width:"300px",
+                  width:"55%",
                   height:"35px",
                   padding:"10px",
                   
@@ -44,7 +49,7 @@ class Profile extends Component {
                 imag:{
                     position: "absolute",
                     top:"16%",
-                    left:"90%",
+                    left:"88%",
                     width:"45px",
                   },
                 readOnly:false
@@ -83,7 +88,7 @@ class Profile extends Component {
     return (
         <div>
             {/* ---------------user section------------------------------------------------------- */}
-            <div className="user-section">
+            <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-5">
                 <div className="user-data ">
                    <input className="input  name" type="text" placeholder="John Doe" name="name" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.value} 
@@ -99,82 +104,45 @@ class Profile extends Component {
                     onChange={this.handleChange}/>
                 </div>
                 <img src={this.state.src} style={this.state.imag} alt="edit" onClick={ this.editData}/>
-                <div className="user-image shadow">
-                    <img src="images/profile/user.png" alt="user image" width="250px" height="250px"/>
+                <div className="user-image col-lg-4 col-sm-5 col-5  ms-sm-0 ms-3  mt-sm-0 mt-3 position-absolute bg-white shadow">
+                    <img src="images/profile/user.png" alt="userImage" className="image-fluid w-100 h-100"/>
                 </div>
             </div>
             {/* --------------------------slider appled property-------------------------------------------------- */}
             <Applied/>
             <WishList/>
             {/* -------------------recomndation------------------------------------------------------------------ */}
-            <div className="recomendation shadow p-5">
-                <div className="d-flex justify-content-between ">
-                    <h2>Most Recomended</h2>
-                    <p style={{color:"#143D8D", fontSize:"1.1rem"}}>View  all &gt;</p>
-                </div>
-                <div className="d-flex justify-content-between mt-5 ">
-                    {/* ------------------property1------------------------------ */}
-                    <div className="property-continer shadow">
-                        <img src="images/profile/property1.png" alt="property" className="property-image"></img>
-                        <h3 className="mt-2 property-margin">Sea view chalet</h3>
-                        <p className="property-margin" style={{color:"#143D8D"}}>Chalet</p>
-                        <div className="mb-3 property-margin">
-                           <img className= "img" src="images/profile/location.png" alt="location"/>
-                           <span >Abanilla, Múrcia, Spain</span>
-                        </div>
-                        <div className="property-margin">
-                           <img className= "img" src="images/profile/price.png" alt="price"/>
-                           <span>1500</span>
-                        </div>
-                        <input className='btn btn-medium btn-rounded px-5 mt-4' style={{backgroundColor:"white",border:"black 2px solid" , marginLeft:"60px"}} type='button' value='View' />
-                   </div>
-                    {/* ------------------property2------------------------------ */}
-                    <div className="property-continer shadow">
-                        <img src="images/profile/property2.png" alt="property" width="277px" height="168px"></img>
-                        <h3 className="mt-2 property-margin">One Bedroom Flat</h3>
-                        <p className="property-margin" style={{color:"#143D8D"}}>Apartment</p>
-                        <div className="mb-3 property-margin">
-                           <img className= "img" src="images/profile/location.png" alt="location"/>
-                           <span >Charles Street, London, W1J</span>
-                        </div>
-                        <div className="property-margin" >
-                           <img className= "img" src="images/profile/price.png" alt="price"/>
-                           <span>350.000</span>
-                        </div>
-                        <input className='btn btn-medium btn-rounded px-5 mt-4' style={{backgroundColor:"white",border:"black 2px solid" , marginLeft:"60px"}} type='button' value='View' />
-                   </div>
-                    {/* ------------------property3------------------------------ */}
-                    <div className="property-continer shadow">
-                        <img src="images/profile/property1.png" alt="property" className="property-image"></img>
-                        <h3 className="mt-2 property-margin">Sea view chalet</h3>
-                        <p className="property-margin" style={{color:"#143D8D"}}>Chalet</p>
-                        <div className="mb-3 property-margin">
-                           <img className= "img" src="images/profile/location.png" alt="location"/>
-                           <span >Abanilla, Múrcia, Spain</span>
-                        </div>
-                        <div className="property-margin">
-                           <img className= "img" src="images/profile/price.png" alt="price"/>
-                           <span>1500</span>
-                        </div>
-                        <input className='btn btn-medium btn-rounded px-5 mt-4' style={{backgroundColor:"white",border:"black 2px solid" , marginLeft:"60px"}} type='button' value='View' />
-                   </div>
-                    {/* ------------------property4------------------------------ */}
-                    <div className="property-continer shadow">
-                        <img src="images/profile/property2.png" alt="property" width="277px" height="168px"></img>
-                        <h3 className="mt-2 property-margin">One Bedroom Flat</h3>
-                        <p className="property-margin" style={{color:"#143D8D"}}>Apartment</p>
-                        <div className="mb-3 property-margin">
-                           <img className= "img" src="images/profile/location.png" alt="location"/>
-                           <span >Charles Street, London, W1J</span>
-                        </div>
-                        <div className="property-margin" >
-                           <img className= "img" src="images/profile/price.png" alt="price"/>
-                           <span>350.000</span>
-                        </div>
-                        <input className='btn btn-medium btn-rounded px-5 mt-4' style={{backgroundColor:"white",border:"black 2px solid" , marginLeft:"60px"}} type='button' value='View' />
-                   </div>
-                </div>
-            </div>
+
+            <div className="largecon mx-auto shadow-lg p-4 ">
+
+<div className="d-flex justify-content-between mb-2 ms-3">
+        <h3>Most Recomended</h3>
+        <p style={{color:"#143D8D", fontSize:"1.1rem"}}>View  all <FaChevronRight/> </p>
+    </div>
+
+    <div className="d-md-flex justify-content-between">
+
+  <div className="smallcon shadow d-md-block d-flex">
+  <img src="images/profile/property1.png"  alt="property" width="100%" height="168px"/>
+      <div className="mx-3 d-md-block ">
+      <h4 className="mt-2">Sea view chalet</h4>
+            <p style={{color:"#143D8D"}}>Chalet</p>
+            <div className="d-md-block d-flex">
+           <p  id="paraloc"  className="ps-md-0 px-3">  <FaMapMarkerAlt className="me-md-2"  style={{color:"#2B59B4"}}/>Abanilla, Múrcia, Spain   </p>
+           <p className="ps-md-0 px-5"><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>1500</p>
+           </div>
+           
+    </div>
+            <input className='btn btn-medium btn-rounded px-lg-5 mt-4 px-3 mb-4  d-md-block d-none' style={{backgroundColor:"white",border:"black 2px solid" , marginLeft:"25%"}} type='button' value='View' />
+  </div>
+
+ 
+
+
+  </div>
+</div>
+        
+
         </div>
     );
   }
