@@ -3,6 +3,9 @@ export function users(state = {}, action) {
         case 'user_add':
             return { ...state, list: action.data };
 
+        case 'user_Login':
+            return { ...state, list: action.data };
+
         case 'user_details':
             return { ...state, list: action.payload };
 
