@@ -94,16 +94,16 @@ class Profile extends Component {
             {/* ---------------user section------------------------------------------------------- */}
             <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-5">
                 <div className="user-data ">
-                   <input className="input  name" type="text" placeholder="John Doe" name="name" readOnly={this.state.readOnly}
+                   <input className="input  name col-8" type="text" placeholder="John Doe" name="name" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.name} 
                     onChange={this.handleChange}/>
-                   <input className="input black" type="email" placeholder="JohnDoe_38@gmail.com" name="email" readOnly={this.state.readOnly}
+                   <input className="input black col-8" type="email" placeholder="JohnDoe_38@gmail.com" name="email" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.email} 
                     onChange={this.handleChange}/>
-                   <input className="input black" type="text" placeholder="Doctor" name="occupation" readOnly={this.state.readOnly}
+                   <input className="input black col-8" type="text" placeholder="Doctor" name="occupation" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.occupation} 
                     onChange={this.handleChange}/>
-                   <input className="input location" type="text" placeholder="London,England" name="address" readOnly={this.state.readOnly}
+                   <input className="input location col-8" type="text" placeholder="London,England" name="address" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.address} 
                     onChange={this.handleChange}/>
                 </div>

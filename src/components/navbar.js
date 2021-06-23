@@ -54,8 +54,8 @@ class NavBAR extends Component{
           </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbarScroll" className="me-4" />
-        <Navbar.Collapse id="navbarScroll" className="pt-4 ">
-          <Nav className="mr-auto  my-2 my-lg-0  fs-5 " navbarScroll>
+        <Navbar.Collapse id="navbarScroll" className=" pt-4 ">
+          <Nav className="mr-auto col-xxl-7  col-xl-8 col-lg-9 col-md-12 my-2 my-lg-0 ms-xxl-5  ms-xl-0 fs-5 " navbarScroll>
             <Nav.Link className="mx-auto mx-lg-3 ms-lg-0 ">
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
@@ -107,9 +107,10 @@ class NavBAR extends Component{
           </Nav>
 
           <div {...(!this.state.logged && {style: { display:'none'}})}>
-            <FaUserAlt style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push(`/profile/${localStorage.getItem("id")}`)}}/>
+            <div className=" d-flex col-xl-12 offset-xxl-11 offset-xl-9 me-xxl-4 me-xl-1">
+            <FaUserAlt  className=" mb-lg-2 me-4 mb-xl-0 offset-lg-0  mt-2 offset-sm-5 offset-4" style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push(`/profile/${localStorage.getItem("id")}`)}}/>
           <input
-                className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
+                className="  px-4 btn btn-medium btn-rounded"
                 style={{ backgroundColor: "white", border: "black 2px solid" }}
                 type="button"
                 value="Log out"
@@ -119,15 +120,15 @@ class NavBAR extends Component{
                 }}
               />
           </div>
-
+          </div>
           <div {...(this.state.logged && {style: { display:'none'}})}>
           <div className="d-flex  flex-xl-row flex-lg-column  flex-xxl-nowrap  flex-xl-nowrap  flex-lg-nowrap">
-            <div className="offset-xxl-9  offset-xl-3 offset-lg-2  mb-lg-2  mb-xl-0  mb-0 offset-md-4 offset-sm-3  offset-2">
+            <div className="offset-xxl-6  offset-xl-3 offset-lg-1  mb-lg-2  mb-xl-0  mb-0 offset-md-4 offset-sm-3  offset-2">
               <JoinBtn />
             </div>
 
               <input
-                className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
+                className="ms-4  ms-lg-3 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
                 style={{ backgroundColor: "white", border: "black 2px solid" }}
                 type="button"
                 value="Log in"
