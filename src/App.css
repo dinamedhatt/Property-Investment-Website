@@ -816,6 +816,11 @@ height: 365px;
 
 /* --------------------profile recommendation section----------------------- */
 @media screen and (max-width: 1600px){
+  .largecon{
+    display: flex;
+    justify-content: space-between;
+  }
+
   .smallcon{
     width:24%;
     overflow: hidden;
@@ -826,13 +831,37 @@ height: 365px;
   }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 770px){
+  .largecon{
+    display: block;
+  }
+
   .smallcon{
-    width:100%;
+    width:95%;
     overflow: hidden;
     display: flex;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
   }
   .fullDiv{
-    width:45%;
+    width:50%;
   }
+}
+
+
+/* display button on hover */
+#btnView{
+  border:'white 2px solid';
+  display: none;
+  position:absolute;
+  top: 40%;
+  left:30%;
+}
+#btnView:hover{
+  display: block;
+  color:white;
+}
+
+#imgProp:hover + #btnView{
+    display: block;
 }

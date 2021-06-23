@@ -112,17 +112,61 @@ class Profile extends Component {
             <Applied/>
             <WishList/>
             {/* -------------------recomndation------------------------------------------------------------------ */}
-    <div className="col-9 rounded mx-auto shadow p-4 ">
+    <div className="col-9 rounded mx-auto shadow px-2 py-4">
 
-    <div className="d-flex justify-content-between px-2 mb-3">
-        <h3>Most Recomended</h3>
+    <div className="largecon mb-3 px-2">
+        <h4>Most Recomended</h4>
         <NavLink style={{textDecoration:'none'}} to='/property'><p style={{color:"#143D8D", fontSize:"1.1rem"}}>View  all <FaChevronRight/> </p></NavLink>
     </div>
 
-    <div className="d-md-flex justify-content-between">
+    <div className="d-md-flex justify-content-between mx-2">
+
+{/* -----------------------BTN AT THE END OF DIV-------------------- */}
+ 
+  <div className="rounded smallcon shadow">
+  <img src="images/profile/property1.png" className='fullDiv img-fluid' alt="property"/>
+      <div className="fullDiv">
+    <div className='px-3'>
+      <h4 className="mt-2">Sea view chalet</h4>
+           <p style={{color:"#143D8D"}}>Chalet</p>
+           <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>Abanilla, Múrcia, Spain   </p>
+           <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>1500</p>    
+    </div>       
+        <input className='btn btn-medium col-12 m-auto' style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View' />
+    </div>
+  </div>
+
+{/* -----------------------BTN AT HOVER-------------------- */}
 
   <div className="rounded smallcon shadow">
-  <img src="images/profile/property1.png" className='fullDiv' alt="property" width="100%" height="168px"/>
+      <div style={{position:"relative"}} className='fullDiv'>
+        <img src="images/profile/property1.png" className='w-100 h-100' alt="property" id='imgProp' />
+        <button id='btnView' className='btn btn-medium btn-outline-light px-4' style={{backgroundColor:'rgb(0 0 0 / 48%)'}}>View</button>
+        </div>
+      <div className="px-3 fullDiv">
+      <h4 className="mt-2">Sea view chalet</h4>
+           <p style={{color:"#143D8D"}}>Chalet</p>
+           <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>Abanilla, Múrcia, Spain   </p>
+           <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>1500</p>           
+    </div>
+  </div>
+
+   {/* --------------------OTHER 2 DIVS (NO STYLING)------------------ */}
+
+  <div className="rounded smallcon shadow">
+  <img src="images/profile/property1.png" className='fullDiv img-fluid' alt="property" width="100%" />
+      <div className="px-3 fullDiv">
+      <h4 className="mt-2">Sea view chalet</h4>
+           <p style={{color:"#143D8D"}}>Chalet</p>
+           <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>Abanilla, Múrcia, Spain   </p>
+           <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>1500</p>           
+        {/* <input className='btn btn-medium rounded' style={{border:"black 2px solid",margin:'auto'}} type='button' value='View' /> */}
+    </div>
+  </div>
+
+
+  <div className="rounded smallcon shadow">
+  <img src="images/profile/property1.png" className='fullDiv img-fluid' alt="property" width="100%" />
       <div className="px-3 fullDiv">
       <h4 className="mt-2">Sea view chalet</h4>
            <p style={{color:"#143D8D"}}>Chalet</p>
