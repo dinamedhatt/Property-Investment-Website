@@ -84,7 +84,7 @@ export async function addUser(user) {
   return {
     type: "user_add",
     data,
-    payload,
+    payload
   };
 }
 
