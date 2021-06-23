@@ -16,7 +16,7 @@ td {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-p::first-letter{
+p::first-letter {
   text-transform: uppercase;
 }
 
@@ -405,6 +405,70 @@ input:checked[type="checkbox"]:before {
   width: 80%;
 }
 
+/* -----------------properties styling--------------- */
+.properties-container {
+  margin: 5% auto;
+}
+
+.search-container {
+  background-color: #2b59b4;
+  width: 90%;
+  margin: auto;
+  /* height: 300px; */
+}
+
+.properties-react-icons {
+  color: #4a4a4a;
+  padding: 1%;
+  width: 40px;
+  height: 40px;
+}
+
+.searchBar-container {
+  background-color: #fff;
+  width: 71%;
+  margin: 1% auto;
+  position: relative;
+}
+
+.properties-searchBar {
+  background: none;
+  border: none;
+  text-indent: 5px;
+  padding: 1%;
+}
+
+.properties-searchBar:focus {
+  border: 1px solid transparent;
+}
+
+.properties-find-btn {
+  background-color: #ffc40e;
+  color: #fff;
+  border: none;
+  padding: 1% 7%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.filter-container {
+  width: 75%;
+  margin: auto;
+}
+.filter-container > * {
+  margin: 3% 2.5%;
+  width: 20%;
+  padding: 1%;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.filter-container > * option {
+  background-color: #fff;
+}
+
 /* -------------------------- */
 
 /* ------------Data accurasy-------------- */
@@ -465,13 +529,14 @@ input:checked[type="checkbox"]:before {
 
 /*------------------Login page---------------*/
 
-.welcomSection,.welcomSection2 {
+.welcomSection,
+.welcomSection2 {
   text-align: center;
   height: 200px;
   margin: 3% auto 0;
 }
-.welcomSection2{
-height: 365px;
+.welcomSection2 {
+  height: 365px;
 }
 
 .bground {
@@ -503,44 +568,46 @@ height: 365px;
 }
 /* ----------------------------------------profile------------------------------------------- */
 
-.user-section{
-  background-color: #F3F3F4;
+.user-section {
+  background-color: #f3f3f4;
   height: 250px;
   border-radius: 10px;
   position: relative;
   margin-top: 6%;
 }
-.input{
-  display:block;
-  margin-left:35%;
+.input {
+  display: block;
+  margin-left: 35%;
   margin-bottom: 2%;
 }
 
-.black , .black::placeholder{
+.black,
+.black::placeholder {
   color: #000;
   font-size: 1.1rem;
 }
-.name , .name::placeholder{
-  color: #143D8D ;
-  font-size:"1.8rem";
+.name,
+.name::placeholder {
+  color: #143d8d;
+  font-size: "1.8rem";
   font-weight: bolder;
 }
-.location , .location::placeholder{
-  color:#909090;
-  font-size:"1.1rem";
-  
+.location,
+.location::placeholder {
+  color: #909090;
+  font-size: "1.1rem";
 }
-.user-image{ 
+.user-image {
   border-radius: 50%;
-  top:-35px;
-  left:-45px
+  top: -35px;
+  left: -45px;
 }
 
-.parasmallcon{
+.parasmallcon {
   width: 100%;
 }
 
-#image-radius{
+#image-radius {
   border-radius: 20px;
 }
 .content {
@@ -552,7 +619,7 @@ height: 365px;
 }
 
 .content .content-overlay {
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   position: absolute;
   height: 99%;
   width: 100%;
@@ -564,7 +631,7 @@ height: 365px;
   transition: all 0.4s ease-in-out 0s;
 }
 
-.content:hover .content-overlay{
+.content:hover .content-overlay {
   opacity: 1;
 }
 .content-details {
@@ -579,12 +646,12 @@ height: 365px;
   transition: all 0.3s ease-in-out 0s;
 }
 
-.content:hover .content-details{
+.content:hover .content-details {
   top: 35%;
   left: 1%;
   opacity: 1;
 }
-.content-details h3{
+.content-details h3 {
   color: #fff;
   font-weight: 500;
   letter-spacing: 0.15em;
@@ -592,9 +659,7 @@ height: 365px;
   text-transform: uppercase;
 }
 
-
-
-.fadeIn-top{
+.fadeIn-top {
   top: 20%;
 }
 /*-----------------------------------------home----------------------------------------*/
@@ -740,7 +805,6 @@ height: 365px;
 
 /* -----------------MEDIA QUEREY---------------- */
 @media (max-width: 1200px) {
-
   .featureItem-section {
     flex-direction: column;
     text-align: center;
@@ -867,55 +931,53 @@ height: 365px;
   font-size: 30px !important;
 }
 
-
 /* --------------------profile recommendation section----------------------- */
-@media screen and (max-width: 1600px){
-  .largecon{
+@media screen and (max-width: 1600px) {
+  .largecon {
     display: flex;
     justify-content: space-between;
   }
 
-  .smallcon{
-    width:24%;
+  .smallcon {
+    width: 24%;
     overflow: hidden;
-    display:block
+    display: block;
   }
-  .fullDiv{
-    width:100%;
+  .fullDiv {
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 770px){
-  .largecon{
+@media screen and (max-width: 770px) {
+  .largecon {
     display: block;
   }
 
-  .smallcon{
-    width:95%;
+  .smallcon {
+    width: 95%;
     overflow: hidden;
     display: flex;
     margin: 0 auto;
     margin-bottom: 1.5rem;
   }
-  .fullDiv{
-    width:50%;
+  .fullDiv {
+    width: 50%;
   }
 }
 
-
 /* display button on hover */
-#btnView{
-  border:'white 2px solid';
+#btnView {
+  border: "white 2px solid";
   display: none;
-  position:absolute;
+  position: absolute;
   top: 40%;
-  left:30%;
+  left: 30%;
 }
-#btnView:hover{
+#btnView:hover {
   display: block;
-  color:white;
+  color: white;
 }
 
-#imgProp:hover + #btnView{
-    display: block;
+#imgProp:hover + #btnView {
+  display: block;
 }
