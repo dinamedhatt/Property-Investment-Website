@@ -96,24 +96,24 @@ class Profile extends Component {
     return (
         <div className='pb-5'>
             {/* ---------------user section------------------------------------------------------- */}
-            <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-5">
+            <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-lg-5 ps-md-0">
                 <div className="user-data ">
-                   <input className="input  name col-8" type="text" placeholder="John Doe" name="name" readOnly={this.state.readOnly}
+                   <input className="input  name col-10" type="text" placeholder="John Doe" name="name" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.name} 
                     onChange={this.handleChange}/>
-                   <input className="input black col-8" type="email" placeholder="JohnDoe_38@gmail.com" name="email" readOnly={this.state.readOnly}
+                   <input className="input black col-10" type="email" placeholder="JohnDoe_38@gmail.com" name="email" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.email} 
                     onChange={this.handleChange}/>
-                   <input className="input black col-8" type="text" placeholder="Doctor" name="occupation" readOnly={this.state.readOnly}
+                   <input className="input black col-10" type="text" placeholder="Doctor" name="occupation" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.occupation} 
                     onChange={this.handleChange}/>
-                   <input className="input location col-8" type="text" placeholder="London,England" name="address" readOnly={this.state.readOnly}
+                   <input className="input location col-10" type="text" placeholder="London,England" name="address" readOnly={this.state.readOnly}
                     style={this.state.input} value={this.state.address} 
                     onChange={this.handleChange}/>
                 </div>
                 <span className="me-2" style={this.state.imag} onClick={ this.editData}>{this.state.src}</span>
-                <div className="user-image col-lg-4 col-sm-5 col-5  ms-sm-0 ms-3  mt-sm-0 mt-3 position-absolute bg-white shadow">
-                    <img redirect={(this.state.image)} alt="userImage" className="image-fluid w-100 h-100"/>
+                <div className="user-image col-lg-4 col-5 position-absolute bg-white shadow">
+                    <img src="/images/profile/user.png" alt="userImage" className="image-fluid w-100 h-100"/>
                 </div>
             </div>
             {/* --------------------------slider appled property-------------------------------------------------- */}

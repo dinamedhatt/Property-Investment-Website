@@ -981,3 +981,54 @@ input:checked[type="checkbox"]:before {
 #imgProp:hover + #btnView {
   display: block;
 }
+
+
+
+
+
+/* --------------------profile user section----------------------- */
+@media screen and (max-width: 1000px) {
+  .user-image {
+    border-radius: 50%;
+    top: -170px;
+    left: 170px;
+  }
+  .user-section {
+    background-color: #f3f3f4;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 25%;
+  }
+  .user-data{
+    padding-top: 100px;
+  }
+  .input {
+    display: block;
+    margin-left: 5%;
+    margin-bottom: 2%;
+  }
+
+}
+
+@media screen and (max-width: 850px) {
+  .user-image {
+    top: -150px;
+    left: 160px;
+}
+}
+
+
+@media screen and (max-width: 700px) {
+  .user-image {
+    top: -150px;
+    left: 160px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user-image {
+    top: -100px;
+    left: 130px;
+  }
+}
