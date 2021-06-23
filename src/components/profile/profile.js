@@ -5,7 +5,8 @@ import WishList from "./wishList";
 import {FaMapMarkerAlt} from '@react-icons/all-files/fa/FaMapMarkerAlt'
 import {FaCoins} from '@react-icons/all-files/fa/FaCoins'
 import {FaChevronRight} from '@react-icons/all-files/fa/FaChevronRight'
-
+import {FaUserEdit} from '@react-icons/all-files/fa/FaUserEdit';
+import {FaSave} from '@react-icons/all-files/fa/FaSave'
 
 class Profile extends Component {
     constructor(){
@@ -22,12 +23,12 @@ class Profile extends Component {
             backgroundColor: "transparent",
             
           },
-          src:"images/profile/edit.png",
+          src:<FaUserEdit  style={{color:"#2B59B4" ,width:"50px" ,height:"25px"}} />,
           imag:{
             position: "absolute",
             top:"20%",
             left:"90%",
-            width:"25px",
+            width:"40px",
           },
           readOnly:true
         }  
@@ -45,11 +46,11 @@ class Profile extends Component {
                   padding:"10px",
                   
                 },
-                src:"images/profile/save.png",
+                src:<FaSave style={{color:"#2B59B4" ,width:"50px" ,height:"25px"}} />,
                 imag:{
                     position: "absolute",
                     top:"16%",
-                    left:"88%",
+                    left:"90%",
                     width:"45px",
                   },
                 readOnly:false
@@ -63,12 +64,13 @@ class Profile extends Component {
                     border:"none",
                     backgroundColor: "transparent",
                 },
-                src:"images/profile/edit.png",
+                src:<FaUserEdit style={{color:"#2B59B4" ,width:"50px" ,height:"25px"}} />,
                 imag:{
                     position: "absolute",
                     top:"20%",
                     left:"90%",
                     width:"25px",
+                    
                 },
                 readOnly:true
             });
@@ -103,7 +105,8 @@ class Profile extends Component {
                     style={this.state.input} value={this.state.value} 
                     onChange={this.handleChange}/>
                 </div>
-                <img src={this.state.src} style={this.state.imag} alt="edit" onClick={ this.editData}/>
+                <span className="me-2" style={this.state.imag} onClick={ this.editData}>{this.state.src}</span>
+                {/* <img src={this.state.src} style={this.state.imag} alt="edit" onClick={ this.editData}/> */}
                 <div className="user-image col-lg-4 col-sm-5 col-5  ms-sm-0 ms-3  mt-sm-0 mt-3 position-absolute bg-white shadow">
                     <img src="images/profile/user.png" alt="userImage" className="image-fluid w-100 h-100"/>
                 </div>
