@@ -95,7 +95,8 @@ app.post("/login", (req, res) => {
         if (doMatch) {
           // res.send("success");
           const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
-          res.send({ token, savedUser });
+          const id=savedUser._id
+          res.send({ token,id });
         } else {
           res.send("Invalid email or password!");
           return res.status(422).json({ error: "invalid email or password" }); //invalid password
@@ -107,12 +108,21 @@ app.post("/login", (req, res) => {
   });
 });
 
-// logging into profile and getting data with token in middleware
+// logging into profile
 app.get("/profile/:id", requireLogin, (req, res) => {
-  User.findOne({_id:req.params.id}).then(user=>{
-    res.send({user})
-  }).catch(err=>{res.json({error:"error"})})
+  User.find({},(err,users)=>{
+    users.forEach(user =>{
+        if(user.id === req.params.id.split('=')[1])
+        {
+            res.send(user);
+        }
+    })
+    if(err){
+      console.log(err);
+    }
+  })
 })
+
 
 //get All properties
 app.get("/property", (req, res) => {
@@ -134,9 +144,6 @@ const transporter = nodemailer.createTransport({
     pass: CONTACT_PASSWORD,
   },
 });
-
-// verify connection configuration
-
 app.post("/contact", (req, res, next) => {
   var mail = {
     from: req.body.email,
@@ -151,7 +158,6 @@ app.post("/contact", (req, res, next) => {
   ${req.body.email}
   </div>`,
   };
-
   transporter.sendMail(mail, (err, data) => {
     if (err) {
       console.log(err);

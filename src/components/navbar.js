@@ -47,7 +47,7 @@ class NavBAR extends Component{
         <NavLink to="/">
             <img
               className="offset-1  img-fluid w-50 h-50 "
-              src="images/logo.png"
+              src="/images/logo.png"
               alt="Deal genie"
             />
         </NavLink>
@@ -60,7 +60,7 @@ class NavBAR extends Component{
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
-              <NavLink to='/profile' activeStyle={active} style={linkStyle}>Profile</NavLink>
+              <NavLink to={`/profile/${localStorage.getItem("id")}`} activeStyle={active} style={linkStyle}>Profile</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
               <NavLink to='/property' activeStyle={active} style={linkStyle}>Property</NavLink>
@@ -107,7 +107,7 @@ class NavBAR extends Component{
           </Nav>
 
           <div {...(!this.state.logged && {style: { display:'none'}})}>
-            <FaUserAlt style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push('/profile')}}/>
+            <FaUserAlt style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push(`/profile/${localStorage.getItem("id")}`)}}/>
           <input
                 className="ms-4  ms-lg-5 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
                 style={{ backgroundColor: "white", border: "black 2px solid" }}

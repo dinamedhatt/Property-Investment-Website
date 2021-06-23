@@ -160,9 +160,9 @@ class Login extends Component {
         await this.props.userLogin(user);
         if (this.props.data.token) {
           localStorage.setItem("jwt",this.props.data.token)
-          localStorage.setItem("user",JSON.stringify(this.props.data.savedUser))
+          localStorage.setItem("id",this.props.data.id)
           this.setState({alert:""})
-          window.location.replace('/profile')
+          window.location.replace(`/profile/id=${localStorage.getItem("id")}`)
         }
         else{
         this.setState({ alert: this.props.data }); }

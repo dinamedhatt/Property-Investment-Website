@@ -12,7 +12,7 @@ import Home from "./../components/home";
 import Error from "./../components/error";
 import Works from "./../components/how-works";
 import ScrollToTop from "./scrollToTop";
-import Profile from "./../components/profile/profile"
+import Profile from "./../containers/profile/profile"
 
 const AppRouting = () => {
   return (
@@ -28,7 +28,7 @@ const AppRouting = () => {
         <Route path="/how-it-works" component={Works} />
         <Route path="/features" component={Features} />
         <Route path="/faq" component={FAQ} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:id" component={Profile} />
         <Route path="/home" component={Home} />
         <Route exact path="/" component={Home} />
         <Route path="**" component={Error} />

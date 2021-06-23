@@ -75,3 +75,47 @@ export async function userLogin(user){
         payload
     }
 }
+
+
+export async function getUser(id='',token){
+    let payload = null;
+    try {
+        let response = await fetch(`${baseURL}/profile/id=${id}`,{method:'GET',
+        headers:{
+            "Authorization":`Bearer ${token}`
+        }
+    });
+        if(!token){
+            alert('Unaunthorized Access!');
+            window.location.assign('/login');
+            window.localStorage.clear();
+        }
+        payload = await response.json();
+    }
+    catch (error) {
+        console.log(error);
+
+    }
+    console.log(payload);
+        return {
+            type: "user_details",
+            payload
+        }
+}
+
+
+export async function updateUser(user){
+    let payload=null;
+    try{
+      await axios.post(`${baseURL}/edit`,user).then(res=>{
+        payload = res.json();
+      })
+    }
+    catch(err){
+        console.log(err);
+    }
+    return{
+        type:'user_update',
+        payload
+    }
+}

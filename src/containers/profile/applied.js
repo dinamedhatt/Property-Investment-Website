@@ -42,8 +42,8 @@ const Applied = () =>{
         <div key={num} className='p-5 mx-3 '>
           <div className='rounded content' >
             <div className="content-overlay"></div>
-            <img className='col-12 rounded ' src={`images/profile/${num}.png`} alt={`img${num}`} height="280px" />
-            <div class="content-details fadeIn-top">
+            <img className='col-12 rounded ' src={`/images/profile/${num}.png`} alt={`img${num}`} height="280px" />
+            <div className="content-details fadeIn-top">
               <h3>One Bedroom Flat</h3>
               <NavLink style={{textDecoration:'none'}} to='/property-item'><p style={{color: "#fff" , fontSize: "1em"}}>View</p></NavLink>
               
