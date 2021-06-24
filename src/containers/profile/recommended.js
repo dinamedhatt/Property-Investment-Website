@@ -56,7 +56,7 @@ class Recommend extends Component{
                              <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>{prop.location}</p>
                              <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>{prop.budget}</p>    
                       </div>       
-                          <NavLink to={`/property/${prop.id}`}><input className='btn btn-medium col-12' style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View'/></NavLink>
+                          <NavLink to={`/property/${prop.id}`}><input className='btn btn-medium col-12 img-fluid' style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View'/></NavLink>
                       </div>
                     </div>
                 )

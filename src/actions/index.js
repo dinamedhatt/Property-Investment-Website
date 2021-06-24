@@ -167,20 +167,25 @@ export async function getUser(id='',token){
 }
 
 //edit
-export async function updateUser(user){
-    let payload=null;
-    try{
-      await axios.post(`${baseURL}/edit`,user).then(res=>{
-        payload = res.json();
-      })
-    }
-    catch(err){
-        console.log(err);
-    }
-    return{
-        type:'user_update',
-        payload
-    }
+
+export async function updateUser(user,id) {
+   let payload = null
+   try {
+       let response = await fetch(`${baseURL}/edit/${id}`
+       ,{
+           method:"PUT", 
+           headers: {
+              'Content-type': 'application/json; charset=UTF-8'  
+             },
+           body: JSON.stringify(user)
+          })
+       payload = await response.json()
+
+   } catch (error) {
+       console.log(error)
+   }
+   return {
+       type: "user_update",
+       payload
+   }
 }
-
-
