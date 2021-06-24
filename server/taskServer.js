@@ -153,18 +153,18 @@ app.get("/profile/:id", requireLogin, (req, res) => {
 
 //edit user data
 app.put('/edit/:id',upload.single('image'),(req,res)=>{
-  User.findById(req.params.id).then(user=>{
-    user={
-      fname: req.body.fname,
-      lname:req.body.lname,
-      address:req.body.address,
-      occupation:req.body.occupation,
-    }
-    if(req.file){
-      user.image = req.file.filename;
-    }
-  })
+  // if(req.file){
+  //   user.image = req.file.filename;
+  // }
+  User.updateOne({_id:req.params.id},{$set:{
+    fname: req.body.fname,
+    lname:req.body.lname,
+    address:req.body.address,
+    occupation:req.body.occupation
+  }}).then(()=>res.send('success'))
+  // res.send(user)
 })
+
 
 
 //get All properties
@@ -192,6 +192,15 @@ app.get("/property:id",requireLogin,(req,res)=>{
       console.log(err);
     }
   })
+})
+
+//put the wihlist user
+app.put('/wishlistUser/:id',(req,res)=>{
+ 
+  User.updateOne({_id:req.params.id},{$set:{
+    wishlist: req.body.wishlist,
+  }}).then(()=>res.send('success'))
+
 })
 
 

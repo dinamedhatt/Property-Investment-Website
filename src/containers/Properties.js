@@ -5,21 +5,33 @@ import { getproperties } from "../actions";
 import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import Filter from "./filter";
+import { wishlistUser } from "../actions";
 
 class Properties extends Component {
   constructor() {
     super();
     this.state = {
       propertiesList: [],
+      filteredList:[]
+      
     };
   }
+
+  filterName = (name) => {
+    const listt = this.state.propertiesList.filter((prop) => {
+     return (prop.name.toLowerCase().includes(name.toLowerCase()));
+        
+    })
+    this.setState({ filteredList: listt });
+    console.log('filtername (user) - home:',this.state.filteredList);
+}
 
   render() {
     return (
       <div className="properties-container ">
-        <Filter />
+        <Filter onKeyWordsChange={this.filterName}/>
         <div className="property-items-container">
-          {this.state.propertiesList.map((property, key) => {
+          {this.state.filteredList.map((property, key) => {
             return (
               <div className="property-item " key={key}>
                 <span className="icon-container">
@@ -63,7 +75,7 @@ class Properties extends Component {
   }
   async componentDidMount() {
     await this.props.getproperties(localStorage.getItem("jwt"));
-    this.setState({ propertiesList: this.props.propertiesList });
+    this.setState({ propertiesList: this.props.propertiesList, filteredList:this.props.propertiesList });
     console.log(this.state.propertiesList);
   }
 }

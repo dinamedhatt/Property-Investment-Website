@@ -1,9 +1,5 @@
 import { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { getproperties } from "../actions";
-import { BsSearch } from "react-icons/bs";
-import { IconContext } from "react-icons";
+
 import {Button,InputGroup,FormControl} from 'react-bootstrap'
 import {GoSearch} from '@react-icons/all-files/go/GoSearch'
 
@@ -12,8 +8,14 @@ class Filter extends Component {
     super();
     this.state = {
       propertiesList: [],
+      name:''
     };
   }
+
+  filterText=(e)=>{
+    this.setState({name:e.target.value});
+    this.props.onKeyWordsChange(e.target.value);
+}
 
   render() {
     return (
@@ -29,7 +31,7 @@ class Filter extends Component {
         <div className="searchBar-container">
           <InputGroup>
             <Button variant="light"><GoSearch /></Button>
-            <FormControl placeholder="Search for anything.." />
+            <FormControl placeholder="Search for anything.." onChange={this.filterText} />
             <Button variant="warning" className="px-5">Find</Button>
           </InputGroup>
         </div>
@@ -86,16 +88,5 @@ class Filter extends Component {
   async componentDidMount() {}
 }
 
-export default Filter;
+export default(Filter);
 
-// export default connect(
-//   (state) => {
-//     console.log(state);
-//     return {
-//       propertiesList: state.properties.list, //function in properties reducer
-//     };
-//   },
-//   (dispatch) => {
-//     return bindActionCreators({ getproperties }, dispatch);
-//   }
-// )(Properties);

@@ -4,11 +4,12 @@ import WishList from "./wishList";
 import Recommend from './recommended'
 
 import {FaUserEdit} from '@react-icons/all-files/fa/FaUserEdit';
-import {FaSave} from '@react-icons/all-files/fa/FaSave'
 import {getUser} from '../../actions'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Error2 from '../../components/error2'
+import Edit from './edit'
+
 
 class Profile extends Component {
     constructor(){
@@ -19,62 +20,13 @@ class Profile extends Component {
           occupation:"",
           address:"",
           image:"",
-          input:{
-            border:"none",
-            backgroundColor: "transparent",
-            
-          },
-          src:<FaUserEdit  style={{color:"#2B59B4" ,fontSize:"2rem"}} />,
-          imag:{
-            position: "absolute",
-            top:"20%",
-            left:"90%",
-          },
-          readOnly:true
-        }  
+          edit:false
+        }
     } 
-    edit=true;
     editData=()=>{
-        console.log(this.edit);
-        if(this.edit){
-            this.setState({
-                input:{
-                  border:"1px solid gray",
-                  backgroundColor: "white",
-                  width:"55%",
-                  height:"35px",
-                  padding:"10px",
-                  
-                },
-                src:<FaSave style={{color:"#2B59B4" ,fontSize:"2rem"}} />,
-                imag:{
-                    position: "absolute",
-                    top:"20%",
-                    left:"90%",
-                  },
-                readOnly:false
-                });
-            this.edit=false;
-            console.log(this.edit)    
-        }
-        else{
-            this.setState({
-                input:{
-                    border:"none",
-                    backgroundColor: "transparent",
-                },
-                src:<FaUserEdit style={{color:"#2B59B4" ,fontSize:"2rem"}} />,
-                imag:{
-                    position: "absolute",
-                    top:"20%",
-                    left:"90%",                    
-                },
-                readOnly:true
-            });
-            this.edit=true;
-        }
-        
+            this.setState({edit:true})
     }
+
     handleChange=(e)=>{
       
         const{name,value}=e.target;
@@ -95,23 +47,18 @@ class Profile extends Component {
       if(localStorage.getItem('jwt')){
     return (
         <div className='pb-5'>
+          {(this.state.edit) &&
+          <Edit user={{fname:this.state.fname,lname:this.state.lname,address:this.state.address}}/>
+      }
             {/* ---------------user section------------------------------------------------------- */}
             <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-lg-5 ps-md-0">
                 <div className="user-data ">
-                   <input className="input  name col-10" type="text" placeholder="John Doe" name="name" readOnly={this.state.readOnly}
-                    style={this.state.input} value={this.state.name} 
-                    onChange={this.handleChange}/>
-                   <input className="input black col-10" type="email" placeholder="JohnDoe_38@gmail.com" name="email" readOnly={this.state.readOnly}
-                    style={this.state.input} value={this.state.email} 
-                    onChange={this.handleChange}/>
-                   <input className="input black col-10" type="text" placeholder="Doctor" name="occupation" readOnly={this.state.readOnly}
-                    style={this.state.input} value={this.state.occupation} 
-                    onChange={this.handleChange}/>
-                   <input className="input location col-10" type="text" placeholder="London,England" name="address" readOnly={this.state.readOnly}
-                    style={this.state.input} value={this.state.address} 
-                    onChange={this.handleChange}/>
+                   <p className="input  name col-10">{this.state.name} </p>
+                   <p className='input black col-10'>{this.state.email}</p>
+                   <p className='input black col-10'>{this.state.occupation}</p>
+                   <p className='input location col-10'>{this.state.address}</p>
                 </div>
-                <span className="me-2" style={this.state.imag} onClick={ this.editData}>{this.state.src}</span>
+                <FaUserEdit style={{color:"#2B59B4" ,fontSize:"2rem",position:'absolute',top:'20%',left:'90%',cursor:'pointer'}} onClick={()=>{this.editData()}}/>
                 <div className="user-image col-lg-4 col-5 position-absolute bg-white shadow">
                     <img src={`http://localhost:3100/${this.state.image}`} alt="userImage" className="image-fluid w-100 h-100"/>
                 </div>
