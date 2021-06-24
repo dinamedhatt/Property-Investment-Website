@@ -1,19 +1,33 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getproperties } from "../actions";
+import { getproperties,wishlistUser } from "..//actions";
 import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import Filter from "./filter";
-import { wishlistUser } from "../actions";
+import WishList from './profile/wishList';
+
 
 class Properties extends Component {
   constructor() {
     super();
     this.state = {
       propertiesList: [],
+      wishList:[],
+      
     };
   }
+
+
+//   this.setState({wishList:this.props.wishlist})
+//   console.log("2",this.state.wishList)
+//   let wishlist ={
+//       wishlist:this.state.WishList
+//   }
+//  this.props.wishlistUser(wishlist,localStorage.getItem("id"));
+// console.log("3",this.state.wishList)
+
+  
 
   render() {
     return (
@@ -27,7 +41,14 @@ class Properties extends Component {
                   <IconContext.Provider
                     value={{ className: "item-react-icons" }}
                   >
-                    <FaRegBookmark />
+
+                    <FaRegBookmark onClick={()=>{
+                     
+                      let propArr=[]
+                      propArr.push(property)
+                      this.setState({wishList:propArr})
+                      this.props.wishlistUser(propArr,localStorage.getItem("id"))
+                    }} id="#Bookmark"/>
                   </IconContext.Provider>
                 </span>
                 <img
@@ -66,17 +87,27 @@ class Properties extends Component {
     await this.props.getproperties(localStorage.getItem("jwt"));
     this.setState({ propertiesList: this.props.propertiesList });
     console.log(this.state.propertiesList);
-  }
+
+
+ 
+    };
 }
 
+
+
+
+
 export default connect(
+
   (state) => {
-    console.log(state);
+   
     return {
       propertiesList: state.properties.list, //function in properties reducer
+      wishList:state.users.list
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getproperties }, dispatch);
+    return bindActionCreators({ getproperties,wishlistUser }, dispatch);
   }
 )(Properties);
+

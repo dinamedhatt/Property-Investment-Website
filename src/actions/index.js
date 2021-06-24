@@ -42,28 +42,22 @@ if(!token){
 }
 
 //property-details
-export async function getProp(id='',token){
-    let payload = null;
-    try {
-        let response = await fetch(`${baseURL}/property/id=${id}`,{method:'GET',
-        headers:{
-            "Authorization":`Bearer ${token}`
-        }
-    });
-        if(!token){
-            window.localStorage.clear();
-        }
-        payload = await response.json();
-    }
-    catch (error) {
-        console.log(error);
+export async function getProp(id=''){
+  let payload = null;
+  try {
+      let response = await fetch(`${baseURL}/property/${id}`,{method:'GET'});
+      
+      payload = await response.json();
+  }
+  catch (error) {
+      console.log(error);
 
-    }
-    console.log(payload);
-        return {
-            type: "prop_details",
-            payload
-        }
+  }
+  console.log(payload);
+      return {
+          type: "prop_details",
+          payload
+      }
 }
 
 
@@ -190,12 +184,12 @@ export async function updateUser(user,id) {
    }
 }
 
-//wishlist
+//like
 
-export async function wishlistUser(wishlist,id) {
+export function wishlistUser(wishlist,id) {
   let payload = null
   try {
-      let response = await fetch(`${baseURL}/wishlistUser/${id}`
+      let response =fetch(`${baseURL}/like/${id}`
       ,{
           method:"PUT", 
           headers: {
@@ -203,13 +197,38 @@ export async function wishlistUser(wishlist,id) {
             },
           body: JSON.stringify(wishlist)
          })
-      payload = await response.json()
+      payload = response.json()
 
   } catch (error) {
       console.log(error)
   }
   return {
       type: "Wishlist_user",
+      payload
+  }
+}
+
+
+//unlike
+
+export function unlikeUser(unlike,id) {
+  let payload = null
+  try {
+      let response =fetch(`${baseURL}/unlike/${id}`
+      ,{
+          method:"PUT", 
+          headers: {
+             'Content-type': 'application/json; charset=UTF-8'  
+            },
+          body: JSON.stringify(unlike)
+         })
+      payload = response.json()
+
+  } catch (error) {
+      console.log(error)
+  }
+  return {
+      type: "unlike_user",
       payload
   }
 }

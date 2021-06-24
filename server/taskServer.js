@@ -152,7 +152,7 @@ app.get("/profile/:id", requireLogin, (req, res) => {
 
 
 //edit user data
-app.put('/edit/:id',upload.single('image'),(req,res)=>{
+app.put('/edit/:id',(req,res)=>{
   // if(req.file){
   //   user.image = req.file.filename;
   // }
@@ -179,30 +179,36 @@ app.get("/property", requireLogin, (req, res) => {
 });
 
 
+    
+
 //get property details
-app.get("/property:id",requireLogin,(req,res)=>{
-  Property.find({},(err,props)=>{
-    props.forEach(prop =>{
-        if(prop.id === req.params.id.split('=')[1])
-        {
-            res.send(prop);
-        }
-    })
-    if(err){
-      console.log(err);
-    }
-  })
-})
-
-//put the wihlist user
-app.put('/wishlistUser/:id',(req,res)=>{
+app.get("/property/:id",(req,res)=>{​​​​​​​​
+  Property.findOne({​​​​​​​​id:req.params.id}​​​​​​​​,(err,prop)=>{​​​​​​​​
+  if(prop){​​​​​​​​res.send(prop)}​​​​​​​​
+    }​​​​​​​​)
+  }​​​​​​​​)
  
-  User.updateOne({_id:req.params.id},{$set:{
-    wishlist: req.body.wishlist,
-  }}).then(()=>res.send('success'))
+//put the wihlist user
+app.put('/wishlistUser/:id',(req,res)=>{​​​​​​​​
 
+User.updateOne({​​​​​​​​_id:req.params.id}​​​​​​​​,{​​​​​​​​$set:{​​​​​​​​
+wishlist:req.body.wishlist,
+  }​​​​​​​​}​​​​​​​​).then(()=>res.send('success'))
+ 
+}​​​​​​​​)
+
+
+//put the like user
+app.put('/like/:id',(req,res)=>{
+ 
+  User.updateOne({_id:req.params.id},{$push:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
 })
 
+//put the unlike user
+app.put('/unlike/:id',(req,res)=>{
+ 
+  User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
+})
 
 app.get("/recommend/:id",(req,res)=>{
   Property.find({location:req.params.id},(err,prop)=>{
