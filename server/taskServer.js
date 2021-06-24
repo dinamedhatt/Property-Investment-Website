@@ -177,85 +177,77 @@ app.get("/property", requireLogin, (req, res) => {
     }
   });
 });
-
-
-    
+ 
 
 //get property details
-app.get("/property/:id",(req,res)=>{​​​​​​​​
-  Property.findOne({​​​​​​​​id:req.params.id}​​​​​​​​,(err,prop)=>{​​​​​​​​
-  if(prop){​​​​​​​​res.send(prop)}​​​​​​​​
-    }​​​​​​​​)
-  }​​​​​​​​)
- 
-//put the wihlist user
-app.put('/wishlistUser/:id',(req,res)=>{​​​​​​​​
-
-User.updateOne({​​​​​​​​_id:req.params.id}​​​​​​​​,{​​​​​​​​$set:{​​​​​​​​
-wishlist:req.body.wishlist,
-  }​​​​​​​​}​​​​​​​​).then(()=>res.send('success'))
- 
-}​​​​​​​​)
-
-
-//put the like user
-app.put('/like/:id',(req,res)=>{
- 
-  User.updateOne({_id:req.params.id},{$push:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
-})
-
-//put the unlike user
-app.put('/unlike/:id',(req,res)=>{
- 
-  User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
-})
-
-app.get("/recommend/:id",(req,res)=>{
-  Property.find({location:req.params.id},(err,prop)=>{
-    if(prop){
-      res.send(prop)
-    }
-    else{res.send('error')}
+app.get("/property/:id",(req,res)=>{
+  Property.findOne({id:req.params.id},(err,prop)=>{
+    if(prop){res.send(prop)}
   })
 })
 
+ 
 
-//contact us form
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  port: 465,
-  auth: {
-    user: CONTACT_EMAIL,
-    pass: CONTACT_PASSWORD,
-  },
-});
-app.post("/contact", (req, res, next) => {
-  var mail = {
-    from: req.body.email,
-    to: "dealgenie98@gmail.com",
-    subject: req.body.subject,
-    text: req.body.body,
-    html: `<div>
-  Dear Deal Genie,<br/><br/>
-  ${req.body.body}<br/><br/>
-  Regards,<br/>
-  ${req.body.name}<br/>
-  ${req.body.email}
-  </div>`,
-  };
-  transporter.sendMail(mail, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.json({
-        status: "fail",
-      });
-    } else {
-      res.json({
-        status: "success",
-      });
-    }
+  
+  
+  //put the like user
+  app.put('/like/:id',(req,res)=>{
+   
+    User.updateOne({_id:req.params.id},{$push:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
+  })
+  
+  //put the unlike user
+  app.put('/unlike/:id',(req,res)=>{
+   
+    User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
+  })
+  
+  app.get("/recommend/:id",(req,res)=>{
+    Property.find({location:req.params.id},(err,prop)=>{
+      if(prop){
+        res.send(prop)
+      }
+      else{res.send('error')}
+    })
+  })
+  
+  
+  //contact us form
+  const transporter = nodemailer.createTransport({
+    service: "Gmail",
+    port: 465,
+    auth: {
+      user: CONTACT_EMAIL,
+      pass: CONTACT_PASSWORD,
+    },
   });
-});
+  app.post("/contact", (req, res, next) => {
+    var mail = {
+      from: req.body.email,
+      to: "dealgenie98@gmail.com",
+      subject: req.body.subject,
+      text: req.body.body,
+      html: `<div>
+    Dear Deal Genie,<br/><br/>
+    ${req.body.body}<br/><br/>
+    Regards,<br/>
+    ${req.body.name}<br/>
+    ${req.body.email}
+    </div>`,
+    };
+    transporter.sendMail(mail, (err, data) => {
+      if (err) {
+        console.log(err);
+        res.json({
+          status: "fail",
+        });
+      } else {
+        res.json({
+          status: "success",
+        });
+      }
+    });
+  });
 
 app.listen(port, () => {
   console.log("server running");
