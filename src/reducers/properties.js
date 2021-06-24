@@ -6,6 +6,9 @@ export function properties(state = {}, action) {
     case "prop_recommend":
       return { ...state, list: action.payload };
 
+    case 'prop_details':
+      return { ...state, list: action.payload };
+
     default:
       return state;
   }

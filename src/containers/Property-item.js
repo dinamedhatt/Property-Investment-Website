@@ -1,16 +1,17 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getproperties } from "../actions";
-import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
+import { FaRegBookmark, FaCoins,FaBuilding } from "react-icons/fa";
 import {FaMapMarkerAlt} from '@react-icons/all-files/fa/FaMapMarkerAlt';
 import Recommend from "./profile/recommended"
+import {Breadcrumb} from 'react-bootstrap'
+import {NavLink} from 'react-router-dom'
+import {getProp} from "../actions"
 
 class PropertyDetail extends Component {
     id;
   constructor() {
     super();
-    this.id = window.location.href.slice(31);
     this.state = {
       property: {},
     };
@@ -18,38 +19,55 @@ class PropertyDetail extends Component {
 
   render() {
     return (
-      <div className="p-5">
+      <div className='py-5'>
+      <div className="px-5">
           <div className="links mb-5 ">
-              <span>Properties </span>
-              <span>/</span>
-              <span> Property Details</span>
+              <Breadcrumb>
+              <Breadcrumb.Item linkAs={NavLink} linkProps={{to:"/property",style:{color:"grey",textDecoration:"none"}}}>Property</Breadcrumb.Item>
+              <Breadcrumb.Item linkAs={NavLink} linkProps={{to:`/property/${this.state.property.id}`,style:{color:"black",textDecoration:"none"}}}>{this.state.property.name}</Breadcrumb.Item>
+              </Breadcrumb>
           </div>
           <div className="property-container row mb-5 justify-content-center">
-              <div className="property-img col-md-4 col-sm-12 ">
-                  <img src="../images/profile/1.png" alt="property" style={{width:"100%" ,height:"100%"}} ></img>
+              <div className="col-xl-4 col-lg-12 p-0">
+                  <img src={`/images/properties/${this.state.property.image}`} alt="property" style={{width:"100%" ,height:"100%"}} ></img>
               </div>
-              <div className="property-detail col-md-7 col-sm-12 p-4 ">
-                  <h2 className="mb-3">Two-bedroom Chalet</h2>
-                  <h3 className="mb-3 ">Property Details</h3>
-                  <p>Rental Chalet located close to Funchal and easy access the whole island, located a bit higher with a great sea view, which makes it with higher value than other chalets in this village</p>
-                  <p><FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>Caminho da Corujeira, 9350-241 Ponta do Sol, Portugal</p>
-                  <p><FaRegBookmark className="me-2"  style={{color:"#2B59B4"}}/>Chalet - Rent</p>
+              <div className="property-detail col-xl-6 col-lg-12 px-5 py-4">
+                  <h2 className="mb-3">{this.state.property.name}</h2>
+                  <p>{this.state.property.description}</p>
+                  <p><FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>{this.state.property.location} - {this.state.property.address}</p>
+                  <p><FaBuilding className="me-2"  style={{color:"#2B59B4"}}/>{this.state.property.propType} - {this.state.property.investType}</p>
                   <div className="d-flex justify-content-between">
-                    <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>$ 20,265</p>
-                    <button className="col-4 rounded" 
-                    style={{backgroundColor:"#2B59B4" ,color:"white" ,border:"none", height:"50px"}}
+                    <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>$ {this.state.property.budget}</p>
+                    <button className="btn btn-medium rounded px-3" 
+                    style={{backgroundColor:"#2B59B4" ,color:"white"}}
                     >Apply to investment</button>
                   </div>
                 </div>
             </div>
-            {this.id}
-            {/* <Recommend/> */}
+      </div>
+            <Recommend/>
       </div>
     );
-  }}
+  }
+
+  async componentDidMount(){
+    await this.props.getProp(this.props.match.params.id);
+    this.setState({ property: this.props.prop});
+    // console.log('state aloo',this.state.property);
+  }
+}
 
 
-export default PropertyDetail;
-
+  export default connect(
+    (state) => {
+      console.log(state);
+      return {
+        prop: state.properties.list, //function in properties reducer
+      };
+    },
+    (dispatch) => {
+      return bindActionCreators({ getProp }, dispatch);
+    }
+  )(PropertyDetail);
  
  

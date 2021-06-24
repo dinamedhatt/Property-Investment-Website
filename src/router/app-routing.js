@@ -32,7 +32,7 @@ const AppRouting = () => {
         <Route path="/faq" component={FAQ} />
         <Route path="/profile/:id" component={Profile} />
         <Route path="/property/:id" component={ PropertyDetail} />
-        <Route path="/property" component={Properties} />
+        <Route exact path="/property" component={Properties} />
         <Route path="/home" component={Home} />
         <Route exact path="/" component={Home} />
         <Route path="**" component={Error} />
