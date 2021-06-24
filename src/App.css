@@ -1115,3 +1115,19 @@ input:checked[type="checkbox"]:before {
     left: 130px;
   }
 }
+
+/* -------------------------Property Detail---------------------------- */
+
+.links span{
+  color: #545454;
+}
+
+.property-img{
+ 
+  border: 1px solid blue;
+  background-color: #2b59b4;
+}
+
+.property-detail{
+  background-color: #F3F3F4;
+}
