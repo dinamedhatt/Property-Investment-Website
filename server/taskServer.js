@@ -166,6 +166,7 @@ app.put('/edit/:id',upload.single('image'),(req,res)=>{
 })
 
 
+
 //get All properties
 app.get("/property", requireLogin, (req, res) => {
   Property.find({}, (err, property) => {
@@ -191,6 +192,15 @@ app.get("/property:id",requireLogin,(req,res)=>{
       console.log(err);
     }
   })
+})
+
+//put the wihlist user
+app.put('/wishlistUser/:id',(req,res)=>{
+ 
+  User.updateOne({_id:req.params.id},{$set:{
+    wishlist: req.body.wishlist,
+  }}).then(()=>res.send('success'))
+
 })
 
 

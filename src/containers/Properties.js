@@ -5,6 +5,7 @@ import { getproperties } from "../actions";
 import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import Filter from "./filter";
+import { wishlistUser } from "../actions";
 
 class Properties extends Component {
   constructor() {

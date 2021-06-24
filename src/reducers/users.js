@@ -11,7 +11,10 @@ export function users(state = {}, action) {
 
         case 'user_update':
             return { ...state, list: action.payload };
-        
+
+        case 'Wishlist_user':
+            return { ...state, list: action.payload };
+            
         default:
             return state;
             

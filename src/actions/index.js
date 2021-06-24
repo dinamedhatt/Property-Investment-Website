@@ -189,3 +189,27 @@ export async function updateUser(user,id) {
        payload
    }
 }
+
+//wishlist
+
+export async function wishlistUser(wishlist,id) {
+  let payload = null
+  try {
+      let response = await fetch(`${baseURL}/wishlistUser/${id}`
+      ,{
+          method:"PUT", 
+          headers: {
+             'Content-type': 'application/json; charset=UTF-8'  
+            },
+          body: JSON.stringify(wishlist)
+         })
+      payload = await response.json()
+
+  } catch (error) {
+      console.log(error)
+  }
+  return {
+      type: "Wishlist_user",
+      payload
+  }
+}
