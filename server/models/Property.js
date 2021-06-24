@@ -34,5 +34,5 @@ status:{
 }
  
 });
-const Property=mongoose.model("property",PropertyShema);
+const Property=mongoose.model("Property",PropertyShema);
 module.exports=Property;
