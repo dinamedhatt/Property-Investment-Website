@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { FaRegBookmark, FaCoins,FaBuilding } from "react-icons/fa";
+import {FaCoins,FaBuilding } from "react-icons/fa";
 import {FaMapMarkerAlt} from '@react-icons/all-files/fa/FaMapMarkerAlt';
 import Recommend from "./profile/recommended"
 import {Breadcrumb} from 'react-bootstrap'
