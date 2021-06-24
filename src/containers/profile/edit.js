@@ -2,8 +2,9 @@ import { Component } from "react";
 import {Modal,Button} from 'react-bootstrap'
 import { FormErrors } from "./../formError";
 import { connect } from "react-redux";
+import {getUser,updateUser} from "../../actions";
 import { bindActionCreators } from "redux";
-import { updateUser } from "../../actions";
+
 
 
 class Edit extends Component{
@@ -105,11 +106,10 @@ class Edit extends Component{
             <div className="col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="text"
-                placeholder="Doe"
+                placeholder='Doe'
                 className="form-control"
                 name="lname"
                 id="lname"
-                value={this.state.lname}
                 required
                 onChange={this.handleChange}
               />
@@ -173,10 +173,14 @@ class Edit extends Component{
         )
     }
 
-    componentDidMount(){
+    async componentDidMount(){
+        await this.props.getUser(localStorage.getItem('id'),localStorage.getItem('jwt'))
+        const oldUser = this.props.user;
+        this.setState({fname:oldUser.fname,lname:oldUser.lname,occupation:oldUser.occupation,country:oldUser.address})
         const btn = document.querySelector("#submit-btn");
         btn.addEventListener("click", async (e) => {
           e.preventDefault();
+
 
         let user ={
             fname:this.state.fname,
@@ -185,20 +189,18 @@ class Edit extends Component{
             occupation:this.state.occupation
         }
           await this.props.updateUser(user,localStorage.getItem("id"));
-          window.location.assign('/profile/'+localStorage.getItem("id"))
+          window.location.reload()
         });
     }
 }
 
 export default connect(
     (state) => {
-      console.log('edit',state);
       return {
-        data: state.users.list,
+        user: state.users.list,
       };
     },
     (dispatch) => {
-      return bindActionCreators({ updateUser }, dispatch);
+      return bindActionCreators({ getUser,updateUser }, dispatch);
     }
   )(Edit);
-  
