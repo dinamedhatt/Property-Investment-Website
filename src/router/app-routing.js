@@ -14,6 +14,7 @@ import Works from "./../components/how-works";
 import ScrollToTop from "./scrollToTop";
 import Profile from '../containers/profile/profile';
 import Properties from "../containers/Properties";
+import PropertyDetail from "../containers/Property-item";
 
 const AppRouting = () => {
   return (
@@ -30,7 +31,8 @@ const AppRouting = () => {
         <Route path="/features" component={Features} />
         <Route path="/faq" component={FAQ} />
         <Route path="/profile/:id" component={Profile} />
-        <Route path="/property" component={Properties} />
+        <Route path="/property/:id" component={ PropertyDetail} />
+        <Route exact path="/property" component={Properties} />
         <Route path="/home" component={Home} />
         <Route exact path="/" component={Home} />
         <Route path="**" component={Error} />

@@ -139,8 +139,8 @@ class Edit extends Component{
             </div>
           </div>
 
-          <div className="row  form-group mb-4">
-            <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-2 form-group">
+          <div className="row mb-2 form-group ">
+            <div className="col-sm-8 offset-sm-2  col-10 offset-2">
             <label
               htmlFor="Country"
               className="form-label lbl fw-bold "
@@ -148,7 +148,7 @@ class Edit extends Component{
               Country
             </label>
             <select
-                className="form-select "
+                className="form-select"
                 name="country"
                 defaultValue={this.state.country}
                 onChange={this.handleChange}

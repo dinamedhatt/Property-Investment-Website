@@ -1038,7 +1038,7 @@ input:checked[type="checkbox"]:before {
 }
 
 /* --------------------profile recommendation section----------------------- */
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 2000px) {
   .largecon {
     display: flex;
     justify-content: space-between;
@@ -1114,4 +1114,15 @@ input:checked[type="checkbox"]:before {
     top: -100px;
     left: 130px;
   }
+}
+
+/* -------------------------Property Detail---------------------------- */
+
+.links span{
+  color: #545454;
+}
+
+
+.property-detail{
+  background-color: #F3F3F4;
 }

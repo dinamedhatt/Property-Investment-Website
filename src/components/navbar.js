@@ -63,7 +63,7 @@ class NavBAR extends Component{
               <NavLink to={`/profile/${localStorage.getItem("id")}`} activeStyle={active} style={linkStyle}>Profile</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
-              <NavLink to='/property' activeStyle={active} style={linkStyle}>Property</NavLink>
+              <NavLink exact to='/property' activeStyle={active} style={linkStyle}>Property</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3" {...(this.state.logged && {style: { display:'none'}})}>
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
