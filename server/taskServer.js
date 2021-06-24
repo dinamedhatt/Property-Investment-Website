@@ -9,9 +9,9 @@ const nodemailer = require("nodemailer");
 const requireLogin = require("./middleware/requireLogin");
 app.use(cors());
 app.use(express.json());
-// const path=require('path');
-// const multer = require("multer");
-// app.use(express.static(path.join(__dirname, 'images/'))); //for saving images
+const path=require('path');
+const multer = require("multer");
+app.use(express.static(path.join(__dirname, 'images/'))); //for saving images
 
 const {
   MONGOURI,
@@ -31,28 +31,27 @@ const User = require("./models/User");
 const Property = require("./models/Property");
 
 //fixing images storing
+const storage = multer.diskStorage({
+  destination: (req, file, callback) => {
+      callback(null, "./images");
+  },
+  filename: (req, file, callback) => {
+      callback(null, Date.now + "_" + file.originalname);
+  }
+});
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//       cb(null, "./images");
-//   },
-//   filename: (req, file, cb) => {
-//       cb(null, Date.now + "_" + file.originalname);
-//   }
-// });
+const fileFilter = (req, file, callback) => {
+  if (file.mimetype === "image/jpg" || file.mimetype === "image/png" ||file.mimetype === "image/jpeg") {
+      callback(null, true);
+  } else {
+      callback("Type file is not access", false);
+  }
+};
 
-// const fileFilter = (req, file, cb) => {
-//   if (file.mimetype === "image/jpg" || file.mimetype === "image/png" ||file.mimetype === "image/jpeg") {
-//       cb(null, true);
-//   } else {
-//       cb("Type file is not access", false);
-//   }
-// };
-
-// const upload = multer({
-//   storage,
-//   fileFilter
-// });
+const upload = multer({
+  storage,
+  fileFilter
+});
 
 
 
@@ -71,8 +70,8 @@ app.get("/users", (req, res) => {
 });
 
 //add user (registration)
-app.post("/register", (req, res) => {
-  const { fname, lname, email, password, address } = req.body;
+app.post("/register",upload.single("image"), (req, res,next) => {
+  const { fname, lname, email, password, address} = req.body;
 
   if (!email || !password || !fname || !lname || !address) {
     res.send("Please fill all fields!");
@@ -91,18 +90,17 @@ app.post("/register", (req, res) => {
         email,
         password: hashedPassword,
         address,
-        occupation: "",
-        image: "",
+        occupation: ""
       });
-      newUser
-        .save()
-        .then((user) => {
-          res.send("success");
-        })
-        .catch((err) => {
-          res.send("error");
-        });
-    });
+      if(req.file){
+        newUser.image = req.file.filename;
+    }
+    newUser.save((err,data)=>{
+      if(err){next(err);}
+      else {
+          res.send('success')}
+      });
+  })
   });
 });
 
@@ -154,11 +152,18 @@ app.get("/profile/:id", requireLogin, (req, res) => {
 
 
 //edit user data
-app.post('/edit',requireLogin,(req,res)=>{
-
-  User.updateOne({_id: req.body._id},
-      {fname:req.body.fname, lname: req.body.lname, email: req.body.Email, address: req.body.address, occupation:req.body.occupation},(err)=>{});
-  res.send("updated");
+app.put('/edit/:id',upload.single('image'),(req,res)=>{
+  User.findById(req.params.id).then(user=>{
+    user={
+      fname: req.body.fname,
+      lname:req.body.lname,
+      address:req.body.address,
+      occupation:req.body.occupation,
+    }
+    if(req.file){
+      user.image = req.file.filename;
+    }
+  })
 })
 
 

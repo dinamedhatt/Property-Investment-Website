@@ -22,7 +22,6 @@ occupation:{
     
 },
 image:{
-    default:"default.png",
     type:String
 },
 address:{
@@ -38,4 +37,7 @@ wishlist:{
 })
 
 const User=mongoose.model('User',UserSchema)
+User.on("index",(err)=>{
+    console.log(err);
+})
 module.exports=User

@@ -16,6 +16,7 @@ class Register extends Component {
       lname: "",
       country: "Select country",
       alert: "",
+      image:"",
 
       formErrors: { email: "", pass: "", fname: "", lname: "" },
       emailValid: false,
@@ -201,15 +202,15 @@ class Register extends Component {
             <FormErrors formErrors={this.state.formErrors.pass} />
           </div>
 
-          <div className="row mb-4 form-group ">
+          <div className="row  form-group">
+            <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-2 form-group">
             <label
               htmlFor="Country"
-              className="form-label col-4 offset-2 mb-2 lbl fw-bold"
+              className="form-label lbl fw-bold "
             >
               Country
             </label>
-            <div className="col-sm-8 offset-sm-2  col-10 offset-2">
-              <select
+            <select
                 className="form-select "
                 name="country"
                 defaultValue={this.state.country}
@@ -225,7 +226,25 @@ class Register extends Component {
                 <option value="Portugal">Portugal</option>
               </select>
             </div>
+
+            <div className=" col-sm-4 offset-sm-0 col-10 offset-2 mb-2 form-group">
+              <label htmlFor="image" className="form-label lbl fw-bold ">
+                Image
+              </label>
+              <input
+                className="form-control"
+                type="file"
+                placeholder="Insert image"
+                name="image"
+                id="image"
+                required
+                onChange={(e)=>{
+                  this.setState({image:e.target.files[0]});
+                }}
+              />
+            </div>
           </div>
+
 
           <input
             type="submit"
@@ -262,19 +281,23 @@ class Register extends Component {
     const btn = document.querySelector("#submit-btn");
     btn.addEventListener("click", async (e) => {
       e.preventDefault();
-      console.log(
-        this.state.fname +
-          this.state.lname +
-          this.state.email +
-          this.state.country
-      );
-      const user = {
-        fname: this.state.fname,
-        lname: this.state.lname,
-        email: this.state.email,
-        password: this.state.pass,
-        address: this.state.country,
-      };
+      // const user = {
+      //   fname: this.state.fname,
+      //   lname: this.state.lname,
+      //   email: this.state.email,
+      //   password: this.state.pass,
+      //   address: this.state.country,
+      //   image:this.state.image
+      // };
+
+           let user = new FormData();
+     user.append('fname',this.state.fname);
+     user.append('lname',this.state.lname);
+     user.append('email',this.state.email);
+     user.append('address',this.state.country);
+     user.append('password',this.state.pass);
+     user.append('image',this.state.image);
+
       await this.props.addUser(user);
       if (this.props.data === "success") {
         this.props.history.push("/login");
