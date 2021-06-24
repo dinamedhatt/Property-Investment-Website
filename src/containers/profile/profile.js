@@ -48,7 +48,7 @@ class Profile extends Component {
     return (
         <div className='pb-5'>
           {(this.state.edit) &&
-          <Edit show={true} close={false}/>
+          <Edit user={{fname:this.state.fname,lname:this.state.lname,address:this.state.address}}/>
       }
             {/* ---------------user section------------------------------------------------------- */}
             <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-lg-5 ps-md-0">
