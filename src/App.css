@@ -424,7 +424,7 @@ input:checked[type="checkbox"]:before {
 }
 
 .searchBar-container {
-  background-color: #fff;
+  /* background-color: #fff; */
   width: 71%;
   margin: 1% auto;
   position: relative;

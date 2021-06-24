@@ -4,6 +4,8 @@ import { bindActionCreators } from "redux";
 import { getproperties } from "../actions";
 import { BsSearch } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import {Button,InputGroup,FormControl} from 'react-bootstrap'
+import {GoSearch} from '@react-icons/all-files/go/GoSearch'
 
 class Filter extends Component {
   constructor() {
@@ -17,12 +19,19 @@ class Filter extends Component {
     return (
       <div className="search-container">
         &nbsp;
-        <div className="searchBar-container">
+        {/* <div className="searchBar-container">
           <IconContext.Provider value={{ className: "properties-react-icons" }}>
             <BsSearch />
           </IconContext.Provider>
           <input type="text" className="properties-searchBar" />
           <input type="button" value="find" className="properties-find-btn" />
+        </div> */}
+        <div className="searchBar-container">
+          <InputGroup>
+            <Button variant="light"><GoSearch /></Button>
+            <FormControl placeholder="Search for anything.." />
+            <Button variant="warning" className="px-5">Find</Button>
+          </InputGroup>
         </div>
         <div className="filter-container">
           <select
