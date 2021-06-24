@@ -202,7 +202,7 @@ class Register extends Component {
             <FormErrors formErrors={this.state.formErrors.pass} />
           </div>
 
-          <div className="row  form-group">
+          <div className="row  form-group mb-4">
             <div className=" col-sm-4 offset-sm-2 col-10 offset-2 mb-2 form-group">
             <label
               htmlFor="Country"
