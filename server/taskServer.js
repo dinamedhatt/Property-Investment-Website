@@ -194,6 +194,17 @@ app.get("/property:id",requireLogin,(req,res)=>{
   })
 })
 
+
+app.get("/recommend/:id",(req,res)=>{
+  Property.find({location:req.params.id},(err,prop)=>{
+    if(prop){
+      res.send(prop)
+    }
+    else{res.send('error')}
+  })
+})
+
+
 //contact us form
 const transporter = nodemailer.createTransport({
   service: "Gmail",

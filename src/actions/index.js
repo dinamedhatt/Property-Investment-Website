@@ -1,6 +1,8 @@
 import axios from "axios";
 const baseURL = "http://localhost:3100";
 
+
+//-------------------------FAQS------------------------------
 export async function getfaq() {
   let payload = null;
   try {
@@ -14,6 +16,9 @@ export async function getfaq() {
     payload,
   };
 }
+
+
+//----------------------PROPERTIES----------------------------
 
 export async function getproperties(token) {
   let payload = null;
@@ -36,7 +41,7 @@ if(!token){
   };
 }
 
-
+//property-details
 export async function getProp(id='',token){
     let payload = null;
     try {
@@ -56,12 +61,32 @@ export async function getProp(id='',token){
     }
     console.log(payload);
         return {
-            type: "user_details",
+            type: "prop_details",
             payload
         }
 }
 
 
+//recommendations sections
+export async function getRcmd(id=''){
+  let payload = null;
+  try {
+      let response = await fetch(`${baseURL}/recommend/${id}`,{method:'GET'});
+      payload = await response.json();
+  }
+  catch (error) {
+      console.log(error);
+
+  }
+      return {
+          type: "prop_recommend",
+          payload
+      }
+}
+
+
+//-------------------------USER------------------------------
+//register
 export async function addUser(user) {
   let payload = null;
   let data = "";
@@ -116,7 +141,7 @@ export async function userLogin(user){
     }
 }
 
-
+//profile
 export async function getUser(id='',token){
     let payload = null;
     try {
@@ -141,7 +166,7 @@ export async function getUser(id='',token){
         }
 }
 
-
+//edit
 export async function updateUser(user){
     let payload=null;
     try{

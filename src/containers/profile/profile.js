@@ -87,8 +87,8 @@ class Profile extends Component {
       await this.props.getUser(localStorage.getItem('id'),localStorage.getItem('jwt'))
       const user = this.props.user;
       this.setState({name:`${user.fname} ${user.lname}`,email:`${user.email}`,address:`${user.address}`,occupation:`${user.occupation}`,image:`${user.image}`})
-      // console.log(this.state)
-      }
+      localStorage.setItem("location",this.state.address)
+    }
     }
 
     render() {
@@ -113,7 +113,7 @@ class Profile extends Component {
                 </div>
                 <span className="me-2" style={this.state.imag} onClick={ this.editData}>{this.state.src}</span>
                 <div className="user-image col-lg-4 col-5 position-absolute bg-white shadow">
-                    <img src="/images/profile/user.png" alt="userImage" className="image-fluid w-100 h-100"/>
+                    <img src={`http://localhost:3100/${this.state.image}`} alt="userImage" className="image-fluid w-100 h-100"/>
                 </div>
             </div>
             {/* --------------------------slider appled property-------------------------------------------------- */}

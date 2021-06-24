@@ -1,7 +1,12 @@
 export function properties(state = {}, action) {
-  if (action.type === "PROPERTIES_LIST") {
-    return { ...state, list: action.payload };
-  } else {
-    return state;
+  switch (action.type) {
+    case "PROPERTIES_LIST":
+      return { ...state, list: action.payload };
+
+    case "prop_recommend":
+      return { ...state, list: action.payload };
+
+    default:
+      return state;
   }
 }

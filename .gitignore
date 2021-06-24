@@ -6,6 +6,7 @@
 .pnp.js
 /server/node_modules
 /server/keys.js
+/server/images
 # testing
 /coverage
 

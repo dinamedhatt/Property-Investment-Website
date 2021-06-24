@@ -684,6 +684,7 @@ input:checked[type="checkbox"]:before {
   border-radius: 50%;
   top: -35px;
   left: -45px;
+  overflow: hidden;
 }
 
 .parasmallcon {
@@ -1043,10 +1044,11 @@ input:checked[type="checkbox"]:before {
     justify-content: space-between;
   }
 
-  .smallcon {
+  #smallcon {
     width: 24%;
     overflow: hidden;
     display: block;
+    margin:0 0.5%;
   }
   .fullDiv {
     width: 100%;
@@ -1058,7 +1060,7 @@ input:checked[type="checkbox"]:before {
     display: block;
   }
 
-  .smallcon {
+  #smallcon {
     width: 95%;
     overflow: hidden;
     display: flex;
@@ -1069,24 +1071,6 @@ input:checked[type="checkbox"]:before {
     width: 50%;
   }
 }
-
-/* display button on hover */
-#btnView {
-  border: "white 2px solid";
-  display: none;
-  position: absolute;
-  top: 40%;
-  left: 30%;
-}
-#btnView:hover {
-  display: block;
-  color: white;
-}
-
-#imgProp:hover + #btnView {
-  display: block;
-}
-
 /* --------------------profile user section----------------------- */
 @media screen and (max-width: 1000px) {
   .user-image {
