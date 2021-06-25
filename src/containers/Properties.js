@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getproperties,wishlistUser } from "..//actions";
+import { getproperties,wishlistUser,unlikeUser,getWishlist } from "..//actions";
 import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import {Alert} from 'react-bootstrap'
@@ -15,19 +15,10 @@ class Properties extends Component {
     this.state = {
       propertiesList: [],
       wishList:[],
-      filteredList:[]
-      
+      filteredList:[],
+      likedList:[],
     };
   }
-
-
-//   this.setState({wishList:this.props.wishlist})
-//   console.log("2",this.state.wishList)
-//   let wishlist ={
-//       wishlist:this.state.WishList
-//   }
-//  this.props.wishlistUser(wishlist,localStorage.getItem("id"));
-// console.log("3",this.state.wishList)
 
   
   filterName = (name) => {
@@ -56,14 +47,19 @@ filterPropType = (prop)=>{
                   <IconContext.Provider
                     value={{ className: "item-react-icons" }}
                   >
-
-                    <FaRegBookmark onClick={()=>{
-                     
+                    < FaRegBookmark onClick={()=>{ 
                       let propArr=[]
                       propArr.push(property)
                       this.setState({wishList:propArr})
                       this.props.wishlistUser(propArr,localStorage.getItem("id"))
                     }} id="#Bookmark"/>
+
+                  <FaBookmark onClick={()=>{ 
+                     let obj = {id:property.id}
+                    this.props.unlikeUser(obj,localStorage.getItem("id"))
+                  }} id="#Bookmark"/>
+
+
                   </IconContext.Provider>
                 </span>
                 <img
@@ -111,7 +107,9 @@ filterPropType = (prop)=>{
     this.setState({ propertiesList: this.props.propertiesList, filteredList:this.props.propertiesList });
     console.log(this.state.propertiesList);
 
-
+    await this.props.getWishlist(localStorage.getItem("id"));
+    this.setState({likedList:this.props.userLikes});
+    console.log('LIKED!',this.state.likedList)
  
     };
 }
@@ -126,11 +124,11 @@ export default connect(
    
     return {
       propertiesList: state.properties.list, //function in properties reducer
-      wishList:state.users.list
+      userLikes:state.users.list
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getproperties,wishlistUser }, dispatch);
+    return bindActionCreators({ getproperties,wishlistUser,unlikeUser,getWishlist }, dispatch);
   }
 )(Properties);
 

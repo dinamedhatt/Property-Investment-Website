@@ -193,18 +193,17 @@ app.get("/property/:id",(req,res)=>{
     User.updateOne({_id:req.params.id},{$addToSet:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
   })
 
-    //put the unlike user
+  //   //put the unlike user
+  // app.put('/unlike/:id',(req,res)=>{
+  //   User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
+  // })
+
+//deleting by prop id
   app.put('/unlike/:id',(req,res)=>{
-    User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
+    User.updateOne({_id:req.params.id},{$pull:{wishlist: {id:req.body.id}}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
   })
 
-  // app.put('/unlike/:id',(req,res)=>{
-  //   User.findOne({_id:req.params.id},(err,user)=>{
-  //      const flt = user.wishlist.filter(wish=>wish.id === req.body.id )
-  //     //  res.send(flt)
-  //      User.updateOne({$project:{wishlist:flt}}).then(()=>res.send('alf mbroook')).catch(err=>res.send('khara 3la dmagh iti'))
-  //      })
-  // })
+
 
   //get wishlist of user
   app.get("/wishlist/:id",(req,res)=>{

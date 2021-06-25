@@ -205,16 +205,16 @@ export function wishlistUser(wishlist,id) {
 
 //unlike
 
-export function unlikeUser(unlike,id) {
+export function unlikeUser(prop,usrId) {
   let payload = null
   try {
-      let response =fetch(`${baseURL}/unlike/${id}`
+      let response =fetch(`${baseURL}/unlike/${usrId}`
       ,{
           method:"PUT", 
           headers: {
              'Content-type': 'application/json; charset=UTF-8'  
             },
-          body: JSON.stringify(unlike)
+          body: JSON.stringify(prop)
          })
       payload = response.json()
 
