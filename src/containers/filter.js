@@ -1,45 +1,74 @@
 import { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getRcmd } from "../actions";
 
-import {Button,InputGroup,FormControl} from 'react-bootstrap'
-import {GoSearch} from '@react-icons/all-files/go/GoSearch'
+import { Button, InputGroup, FormControl } from "react-bootstrap";
+import { GoSearch } from "@react-icons/all-files/go/GoSearch";
 
 class Filter extends Component {
   constructor() {
     super();
     this.state = {
-      propertiesList: [],
-      name:''
+      propType: "property type",
+      investType: "investment type",
+      location: "location",
+      filteredList: [],
+      name: "",
     };
   }
 
-  filterText=(e)=>{
-    this.setState({name:e.target.value});
+  filterText = (e) => {
+    this.setState({ name: e.target.value });
     this.props.onKeyWordsChange(e.target.value);
-}
+  };
+
+  handleChange = async (e) => {
+    const { name, value } = e.target;
+    await this.setState({ [name]: value });
+    if (name === "propType") {
+      await this.props.getRcmd(this.state.propType);
+    } else if (name === "investType") {
+      await this.props.getRcmd(this.state.investType);
+    } else {
+      await this.props.getRcmd(this.state.location);
+    }
+
+    this.setState({ filteredList: this.props.propertiesList });
+    this.props.fiteredPropType(this.state.filteredList);
+  };
 
   render() {
     return (
-      <div className="search-container">
+      <div className="search-container row mx-auto col-8">
         &nbsp;
-        {/* <div className="searchBar-container">
-          <IconContext.Provider value={{ className: "properties-react-icons" }}>
-            <BsSearch />
-          </IconContext.Provider>
-          <input type="text" className="properties-searchBar" />
-          <input type="button" value="find" className="properties-find-btn" />
-        </div> */}
-        <div className="searchBar-container">
+        <div className="col-8 mx-auto mt-5">
           <InputGroup>
-            <Button variant="light"><GoSearch /></Button>
-            <FormControl placeholder="Search for anything.." onChange={this.filterText} />
-            <Button variant="warning" className="px-5">Find</Button>
+            <Button variant="light">
+              <GoSearch />
+            </Button>
+            <FormControl
+              placeholder="Search for anything.."
+              onChange={this.filterText}
+            />
+            <Button
+              variant="warning"
+              onClick={() => {
+                window.location.reload();
+              }}
+              className="px-5"
+            >
+              Find All
+            </Button>
           </InputGroup>
         </div>
-        <div className="filter-container">
-          <select
-            name="investment type"
+        <div className="col-8 mx-auto mt-4 mb-5">
+          <InputGroup>
+          <select className="form-select col-3"
+            name="investType"
             id="investment-type"
-            defaultValue="investment-type"
+            defaultValue={this.state.investType}
+            onChange={this.handleChange}
           >
             <option value="investment-type" disabled>
               investment type
@@ -49,10 +78,11 @@ class Filter extends Component {
             <option value="Partnership">Partnership</option>
           </select>
           {/*  */}
-          <select
-            name="property type"
+          <select className="form-select col-3"
+            name="propType"
             id="property-type"
-            defaultValue="property-type"
+            defaultValue={this.state.propType}
+            onChange={this.handleChange}
           >
             <option value="property-type" disabled>
               property type
@@ -61,18 +91,10 @@ class Filter extends Component {
             <option value="Chalet">Chalet</option>
             <option value="Office">Office</option>
           </select>
-          {/*  */}
-          <select name="budget" id="budget" defaultValue="budget">
-            <option value="budget" disabled>
-              budget
-            </option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-          </select>
-          {/*  */}
-          <select name="location" id="location" defaultValue="location">
+
+          <select className="form-select col-3" name="location" id="location"
+          defaultValue={this.state.location}
+          onChange={this.handleChange}>
             <option value="location" disabled>
               location
             </option>
@@ -81,6 +103,7 @@ class Filter extends Component {
             <option value="Germany">Germany</option>
             <option value="Portugal">Portugal</option>
           </select>
+          </InputGroup>
         </div>
       </div>
     );
@@ -88,5 +111,14 @@ class Filter extends Component {
   async componentDidMount() {}
 }
 
-export default(Filter);
-
+export default connect(
+  (state) => {
+    console.log(state);
+    return {
+      propertiesList: state.properties.list, //function in properties reducer
+    };
+  },
+  (dispatch) => {
+    return bindActionCreators({ getRcmd }, dispatch);
+  }
+)(Filter);

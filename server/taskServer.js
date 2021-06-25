@@ -168,7 +168,7 @@ app.put('/edit/:id',(req,res)=>{
 
 
 //get All properties
-app.get("/property", requireLogin, (req, res) => {
+app.get("/property", (req, res) => {
   Property.find({}, (err, property) => {
     if (err) {
       console.log(err);
@@ -202,8 +202,8 @@ app.get("/property/:id",(req,res)=>{
     User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
   })
   
-  app.get("/recommend/:id",(req,res)=>{
-    Property.find({location:req.params.id},(err,prop)=>{
+  app.get("/recommend/:id",async (req,res)=>{
+    await Property.find({$or:[{location: req.params.id},{propType:req.params.id},{investType:req.params.id}]} ,(err,prop)=>{
       if(prop){
         res.send(prop)
       }

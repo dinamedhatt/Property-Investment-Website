@@ -430,29 +430,6 @@ input:checked[type="checkbox"]:before {
   position: relative;
 }
 
-.properties-searchBar {
-  background: none;
-  border: none;
-  text-indent: 5px;
-  padding: 1%;
-  width: 80%;
-}
-
-.properties-searchBar:focus {
-  border: 1px solid transparent;
-}
-
-.properties-find-btn {
-  background-color: #ffc40e;
-  color: #fff;
-  border: none;
-  padding: 1% 7%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
 .filter-container {
   width: 75%;
   margin: auto;
