@@ -70,6 +70,7 @@ class PropertyDetail extends Component {
                   {this.state.property.budget}
                 </p>
                 <button
+                  {...(!localStorage.getItem("jwt")) && {disabled:true}}
                   className="btn btn-medium rounded px-3 property-apply-btn"
                   style={{ backgroundColor: "#2B59B4", color: "white" }}
                   onClick={() => {
