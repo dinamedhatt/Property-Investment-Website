@@ -55,7 +55,7 @@ class Applied extends Component {
     };
 
     const renderSlide = () =>
-      this.state.applyList.map((prop,key) => (
+      this.state.applyList.map((prop, key) => (
         <div key={key} className="p-5 mx-3 ">
           <div className="rounded content">
             <div className="content-overlay"></div>
@@ -99,7 +99,7 @@ class Applied extends Component {
 export default connect(
   (state) => {
     return {
-      applylist: state.users.list, //function in properties reducer
+      applylist: state.users.applylist, //function in properties reducer
     };
   },
   (dispatch) => {

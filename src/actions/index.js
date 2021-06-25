@@ -235,13 +235,16 @@ export function applylistUser(token, property, id) {
       },
       body: JSON.stringify(property),
     });
-    if(!token){ alert('Please login first!')}
-    else {payload = response.json();}
+    if (!token) {
+      alert("Please login first!");
+    } else {
+      payload = response.json();
+    }
   } catch (error) {
     console.log(error);
   }
   return {
-    type: "applylist_user",
+    type: "add_applylist",
     payload,
   };
 }

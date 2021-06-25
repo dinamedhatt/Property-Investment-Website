@@ -21,11 +21,11 @@ export function users(state = {}, action) {
     case "user_wishlist":
       return { ...state, list: action.payload };
 
-    case "applylist_user":
+    case "add_applylist":
       return { ...state, list: action.payload };
 
     case "user_applylist":
-      return { ...state, list: action.payload };
+      return { ...state, applylist: action.payload };
 
     default:
       return state;

@@ -6,7 +6,7 @@ import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
 import Recommend from "./profile/recommended";
 import { Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { getProp, applylistUser, getApplylist } from "../actions";
+import { getProp, applylistUser, getApplylist, getUser } from "../actions";
 
 class PropertyDetail extends Component {
   id;
@@ -70,14 +70,24 @@ class PropertyDetail extends Component {
                   {this.state.property.budget}
                 </p>
                 <button
-                  {...(!localStorage.getItem("jwt")) && {disabled:true}}
+                  {...(!localStorage.getItem("jwt") && { disabled: true })}
+                  {...(
+                    this.state.appliedList.some(
+                      (e) => e.id === this.state.property.id
+                    
+                  ) && { disabled: true })}
+                  // appliedList
                   className="btn btn-medium rounded px-3 property-apply-btn"
                   style={{ backgroundColor: "#2B59B4", color: "white" }}
                   onClick={() => {
                     let Arr = [];
                     Arr.push(this.state.property);
                     this.setState({ appliedList: Arr });
-                    this.props.applylistUser(localStorage.getItem("jwt"),Arr, localStorage.getItem("id"));
+                    this.props.applylistUser(
+                      localStorage.getItem("jwt"),
+                      Arr,
+                      localStorage.getItem("id")
+                    );
                   }}
                 >
                   Apply to investment
@@ -94,19 +104,21 @@ class PropertyDetail extends Component {
   async componentDidMount() {
     await this.props.getProp(this.props.match.params.id);
     this.setState({ property: this.props.prop });
-    // console.log('state aloo',this.state.property);
+    // console.log("yaaaa", this.state.property.id);
 
     await this.props.getApplylist(localStorage.getItem("id"));
-    console.log("applied!", this.state.appliedList);
+
+    this.setState({ appliedList: this.props.applylist });
+    // console.log("applyedList:", this.state.appliedList);
   }
 }
 
 export default connect(
   (state) => {
-    // console.log(state);
+    console.log(state);
     return {
       prop: state.properties.list, //function in properties reducer
-      userapply: state.users.list,
+      applylist: state.users.applylist,
     };
   },
   (dispatch) => {
