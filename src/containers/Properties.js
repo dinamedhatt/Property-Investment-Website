@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { getproperties,wishlistUser } from "..//actions";
 import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
+import {Alert} from 'react-bootstrap'
 import Filter from "./filter";
 import WishList from './profile/wishList';
 
@@ -31,17 +32,22 @@ class Properties extends Component {
   
   filterName = (name) => {
     const listt = this.state.propertiesList.filter((prop) => {
-     return (prop.name.toLowerCase().includes(name.toLowerCase()));
-        
+     return (prop.name.toLowerCase().includes(name.toLowerCase()));     
     })
     this.setState({ filteredList: listt });
     console.log('filtername (user) - home:',this.state.filteredList);
 }
 
+filterPropType = (prop)=>{
+  const list = prop;
+  this.setState({filteredList:list})
+}
+
   render() {
     return (
       <div className="properties-container ">
-        <Filter onKeyWordsChange={this.filterName}/>
+        <Filter onKeyWordsChange={this.filterName} fiteredPropType={this.filterPropType}/>
+        { (this.state.filteredList.length>0) &&
         <div className="property-items-container">
           {this.state.filteredList.map((property, key) => {
             return (
@@ -88,12 +94,19 @@ class Properties extends Component {
               </div>
             );
           })}
-        </div>
+        </div>}
+
+        {(this.state.filteredList.length===0) && 
+        <Alert variant="warning" className='p-4 mt-5'>
+        <Alert.Heading>No properties are available in the selected category for the moment</Alert.Heading>
+        <p>If you are interested in investing in other categories, feel free to check the rest of our properties</p>
+      </Alert>
+        }
       </div>
     );
   }
   async componentDidMount() {
-    await this.props.getproperties(localStorage.getItem("jwt"));
+    await this.props.getproperties();
     this.setState({ propertiesList: this.props.propertiesList, filteredList:this.props.propertiesList });
     console.log(this.state.propertiesList);
 
