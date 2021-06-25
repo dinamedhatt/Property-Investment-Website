@@ -55,8 +55,8 @@ class Applied extends Component {
     };
 
     const renderSlide = () =>
-      this.state.applyList.map((prop) => (
-        <div key={prop.id} className="p-5 mx-3 ">
+      this.state.applyList.map((prop,key) => (
+        <div key={key} className="p-5 mx-3 ">
           <div className="rounded content">
             <div className="content-overlay"></div>
             <img

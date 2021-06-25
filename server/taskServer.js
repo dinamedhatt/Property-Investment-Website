@@ -201,10 +201,7 @@ app.put("/like/:id", (req, res) => {
     });
 });
 
-//   //put the unlike user
-// app.put('/unlike/:id',(req,res)=>{
-//   User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
-// })
+
 
 //deleting by prop id
 app.put("/unlike/:id", (req, res) => {
@@ -248,7 +245,7 @@ app.get("/recommend/:id", async (req, res) => {
 
 // -----------------------------------applied
 //add the appplied
-app.put("/apply/:id", (req, res) => {
+app.put("/apply/:id",requireLogin, (req, res) => {
   //addToSet for unique values
   User.updateOne({ _id: req.params.id }, { $addToSet: { property: req.body } })
     .then(() => res.send("success"))

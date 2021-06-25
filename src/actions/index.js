@@ -224,17 +224,19 @@ export async function getWishlist(id = "") {
 // --------------------applied
 //apply
 
-export function applylistUser(property, id) {
+export function applylistUser(token, property, id) {
   let payload = null;
   try {
     let response = fetch(`${baseURL}/apply/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(property),
     });
-    payload = response.json();
+    if(!token){ alert('Please login first!')}
+    else {payload = response.json();}
   } catch (error) {
     console.log(error);
   }

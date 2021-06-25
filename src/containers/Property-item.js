@@ -76,7 +76,7 @@ class PropertyDetail extends Component {
                     let Arr = [];
                     Arr.push(this.state.property);
                     this.setState({ appliedList: Arr });
-                    this.props.applylistUser(Arr, localStorage.getItem("id"));
+                    this.props.applylistUser(localStorage.getItem("jwt"),Arr, localStorage.getItem("id"));
                   }}
                 >
                   Apply to investment
