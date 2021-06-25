@@ -87,6 +87,7 @@ filterPropType = (prop)=>{
                     <input
                       type="button"
                       value="view"
+                      onClick={()=>{window.location.assign(`/property/${property.id}`)}}
                       className="property-view-btn btn btn-outline-dark"
                     />
                   </div>

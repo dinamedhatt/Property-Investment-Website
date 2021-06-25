@@ -24,13 +24,7 @@ export async function getproperties(token) {
   let payload = null;
   try {
     let response = await fetch(`${baseURL}/property`,{method:'GET',
-    headers:{
-        "Authorization":`Bearer ${token}`
-    }
 });
-if(!token){
-    window.localStorage.clear();
-}
     payload = await response.json();
   } catch (error) {
     console.log(error);
@@ -231,4 +225,23 @@ export function unlikeUser(unlike,id) {
       type: "unlike_user",
       payload
   }
+}
+
+
+//user wishlist
+export async function getWishlist(id=''){
+  let payload = null;
+  try {
+      let response = await fetch(`${baseURL}/wishlist/${id}`,{method:'GET'});
+      payload = await response.json();
+  }
+  catch (error) {
+      console.log(error);
+
+  }
+  console.log(payload);
+      return {
+          type: "user_wishlist",
+          payload
+      }
 }

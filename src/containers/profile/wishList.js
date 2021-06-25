@@ -1,6 +1,10 @@
 import { Component } from "react";
 import Slider from "react-slick";
 import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { getWishlist } from '../../actions';
+
 function Arrow(props) {
     const { className, style, onClick } = props;
     return (
@@ -15,7 +19,12 @@ function Arrow(props) {
 
 class WishList
  extends Component {
-  state = {  }
+   constructor(){
+     super();
+     this.state = { 
+       wishList:[]
+      }
+   }
   render() { 
     const settings ={ 
             infinite: false,
@@ -42,14 +51,14 @@ class WishList
             }]
           }
 
-          const renderSlide = () =>[0, 1, 2, 3, 4 ,5].map(num => (
-                    <div key={num} className='p-5 mx-3 '>
+          const renderSlide = () =>this.state.wishList.map(prop => (
+                    <div key={prop.id} className='p-5 mx-3 '>
                       <div className='rounded content' >
                         <div className="content-overlay"></div>
-                        <img className='col-12 rounded ' src={`/images/profile/${num}.png`} alt={`img${num}`} height="280px" />
+                        <img className='col-12 rounded ' src={`/images/properties/${prop.image}`} alt={`img${prop.id}`} height="280px" />
                         <div className="content-details fadeIn-top">
-                          <h3>One Bedroom Flat</h3>
-                          <NavLink style={{textDecoration:'none'}} to='/property-item'><p style={{color: "#fff" , fontSize: "1em"}}>View</p></NavLink>
+                          <h3>{prop.name}</h3>
+                          <NavLink style={{textDecoration:'none'}} to={`/property/${prop.id}`}><p style={{color: "#fff" , fontSize: "1em"}}>View</p></NavLink>
                         </div>
                       </div>
                     </div>
@@ -59,12 +68,24 @@ class WishList
       <div>
             <h2 className='text-center mb-3 mt-5'>WishList</h2>
             <Slider className='col-10 col-lg-11 m-auto' {...settings}>
-              {renderSlide(NavLink)}
+              {renderSlide()}
             </Slider>
           </div>
      );
   }
+  async componentDidMount(){
+    await this.props.getWishlist(localStorage.getItem("id"))
+    this.setState({wishList:this.props.wishlist})
+  }
 }
  
-export default WishList
-;
+export default connect(
+  (state) => {
+    return {
+      wishlist: state.users.list, //function in properties reducer
+    };
+  },
+  (dispatch) => {
+    return bindActionCreators({ getWishlist }, dispatch);
+  }
+)(WishList);

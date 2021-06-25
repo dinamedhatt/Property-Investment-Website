@@ -201,6 +201,15 @@ app.get("/property/:id",(req,res)=>{
    
     User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
   })
+
+  //get wishlist of user
+  app.get("/wishlist/:id",(req,res)=>{
+    User.findOne({_id:req.params.id},(err,user)=>{
+      if(user){
+        res.send(user.wishlist);
+      }
+    })
+  })
   
   app.get("/recommend/:id",async (req,res)=>{
     await Property.find({$or:[{location: req.params.id},{propType:req.params.id},{investType:req.params.id}]} ,(err,prop)=>{

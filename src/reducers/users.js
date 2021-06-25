@@ -17,6 +17,9 @@ export function users(state = {}, action) {
             
         case "unlike_user":
             return { ...state, list: action.payload };
+        
+        case "user_wishlist":
+            return { ...state, list: action.payload };
 
         default:
             return state;
