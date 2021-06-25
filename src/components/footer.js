@@ -22,7 +22,7 @@ const Footer= () => {
   <tbody>
   <tr>
     <td>  <NavLink exact to='/'  style={linkStyle}>Home</NavLink></td>
-    <td> <NavLink to="/faq"  style={linkStyle}>FAQ</NavLink></td>
+    <td> <NavLink to="/property"  style={linkStyle}>Property</NavLink></td>
     
   </tr>
   <tr>
@@ -31,9 +31,7 @@ const Footer= () => {
     
   </tr>
   <tr>
-     <td><NavLink to='how-to-works'  style={linkStyle}>How it works?</NavLink></td>
-      <td>  <NavLink to="/data-accuracy"  style={linkStyle}>Data accuracy</NavLink></td>
-      
+     <td><NavLink to='how-to-works'  style={linkStyle}>How it works?</NavLink></td>      
   </tr>
   </tbody>
 </table>
@@ -48,12 +46,12 @@ const Footer= () => {
   <tbody>
   <tr>
     <td> <NavLink to="/about"  style={linkStyle}>About us</NavLink></td>
-    <td>   <NavLink to="/about"  style={linkStyle}>Contact</NavLink></td>
+  <td>  <NavLink to="/data-accuracy"  style={linkStyle}>Data Sources</NavLink></td>
     
   </tr>
   <tr>
-    <td>Terms and conditions</td>
-    <td>Privacy policy</td>
+  <td>   <NavLink to="/about"  style={linkStyle}>Contact</NavLink></td>
+  <td>  <NavLink to="/faq"  style={linkStyle}>FAQ</NavLink></td>
     
   </tr>
   </tbody>

@@ -121,12 +121,12 @@ then you will receive notification  receive the monthly cash flow, equity and fu
         <FeatureItem
           imgSrc="5"
           heading="Heatmap data overlays"
-          description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. "
+          description="at first when you define your requirement will send a map contains all location that is suitable to your investment. "
         />
         <FeatureItem
           imgSrc="6"
           heading="Genie Score"
-          description="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. "
+          description="You can score points based on the return you get and on the investment you make. "
         />
         <FeatureItem
           imgSrc="7"

@@ -43,7 +43,7 @@ class NavBAR extends Component{
   return (
     <div className="row  col-12 fixed-top  sticky-top  shadow-sm">
       <Navbar className="" bg="white" expand="lg">
-          <Navbar.Brand className="col-lg-3 col-md-4 col-sm-6 col-7">
+          <Navbar.Brand className="col-lg-3 col-md-4 col-sm-6 col-7 ms-xxl-4">
         <NavLink to="/">
             <img
               className="offset-1  img-fluid w-50 h-50 "
@@ -54,7 +54,7 @@ class NavBAR extends Component{
           </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbarScroll" className="me-4" />
-        <Navbar.Collapse id="navbarScroll" className=" pt-4 ">
+        <Navbar.Collapse id="navbarScroll" className=" pt-4 pt-xxl-5 ">
           <Nav className="mr-auto col-xxl-7  col-xl-8 col-lg-9 col-md-12 my-2 my-lg-0 ms-xxl-5  ms-xl-0 fs-5 " navbarScroll>
             <Nav.Link className="mx-auto mx-lg-3 ms-lg-0 ">
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
@@ -62,14 +62,11 @@ class NavBAR extends Component{
             <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
               <NavLink to={`/profile/${localStorage.getItem("id")}`} activeStyle={active} style={linkStyle}>Profile</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
+            <Nav.Link className="mx-auto mx-lg-3">
               <NavLink exact to='/property' activeStyle={active} style={linkStyle}>Property</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3" {...(this.state.logged && {style: { display:'none'}})}>
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
-            </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3" {...(this.state.logged && {style: { display:'none'}})}>
-              <NavLink to='/how-it-works' activeStyle={active} style={linkStyle}>How it works?</NavLink>
             </Nav.Link>
             <NavDropdown
               style={{ textAlign: "center" }}
@@ -77,16 +74,14 @@ class NavBAR extends Component{
               title="More"
               id="navbarScrollingDropdown"
             >
-              <div {...(!this.state.logged && {style: { display:'none'}})}>
-              {/* if user is logged in */}
+
+              <NavDropdown.Item  {...(!this.state.logged && {style: { display:'none'}})}>
+              <NavLink to="/features" style={dropDownStyle}>Features</NavLink> </NavDropdown.Item> 
+             
               <NavDropdown.Item>
-              <NavLink to="/features" style={dropDownStyle}>Features</NavLink>
-              </NavDropdown.Item> <NavDropdown.Item>
               <NavLink to="/how-it-works" style={dropDownStyle}>How it Works</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              </div>
-             
               <NavDropdown.Item>
               <NavLink to="/faq" style={dropDownStyle}>FAQ</NavLink>
               </NavDropdown.Item>

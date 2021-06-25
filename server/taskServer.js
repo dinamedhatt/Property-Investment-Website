@@ -9,9 +9,9 @@ const nodemailer = require("nodemailer");
 const requireLogin = require("./middleware/requireLogin");
 app.use(cors());
 app.use(express.json());
-const path=require('path');
+const path = require("path");
 const multer = require("multer");
-app.use(express.static(path.join(__dirname, 'images/'))); //for saving images
+app.use(express.static(path.join(__dirname, "images/"))); //for saving images
 
 const {
   MONGOURI,
@@ -19,7 +19,6 @@ const {
   CONTACT_EMAIL,
   CONTACT_PASSWORD,
 } = require("./keys");
-
 
 mongoose.connect(MONGOURI, {
   useNewUrlParser: true,
@@ -33,27 +32,29 @@ const Property = require("./models/Property");
 //fixing images storing
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-      callback(null, "./images");
+    callback(null, "./images");
   },
   filename: (req, file, callback) => {
-      callback(null, Date.now + "_" + file.originalname);
-  }
+    callback(null, Date.now + "_" + file.originalname);
+  },
 });
 
 const fileFilter = (req, file, callback) => {
-  if (file.mimetype === "image/jpg" || file.mimetype === "image/png" ||file.mimetype === "image/jpeg") {
-      callback(null, true);
+  if (
+    file.mimetype === "image/jpg" ||
+    file.mimetype === "image/png" ||
+    file.mimetype === "image/jpeg"
+  ) {
+    callback(null, true);
   } else {
-      callback("Type file is not access", false);
+    callback("Type file is not access", false);
   }
 };
 
 const upload = multer({
   storage,
-  fileFilter
+  fileFilter,
 });
-
-
 
 //get All FAQ
 app.get("/faq", (req, res) => {
@@ -70,8 +71,8 @@ app.get("/users", (req, res) => {
 });
 
 //add user (registration)
-app.post("/register",upload.single("image"), (req, res,next) => {
-  const { fname, lname, email, password, address} = req.body;
+app.post("/register", upload.single("image"), (req, res, next) => {
+  const { fname, lname, email, password, address } = req.body;
 
   if (!email || !password || !fname || !lname || !address) {
     res.send("Please fill all fields!");
@@ -90,17 +91,19 @@ app.post("/register",upload.single("image"), (req, res,next) => {
         email,
         password: hashedPassword,
         address,
-        occupation: ""
+        occupation: "",
       });
-      if(req.file){
+      if (req.file) {
         newUser.image = req.file.filename;
-    }
-    newUser.save((err,data)=>{
-      if(err){next(err);}
-      else {
-          res.send('success')}
+      }
+      newUser.save((err, data) => {
+        if (err) {
+          next(err);
+        } else {
+          res.send("success");
+        }
       });
-  })
+    });
   });
 });
 
@@ -122,8 +125,8 @@ app.post("/login", (req, res) => {
         if (doMatch) {
           // res.send("success");
           const token = jwt.sign({ _id: savedUser._id }, JWT_SECRET);
-          const id=savedUser._id
-          res.send({ token,id });
+          const id = savedUser._id;
+          res.send({ token, id });
         } else {
           res.send("Invalid email or password!");
           return res.status(422).json({ error: "invalid email or password" }); //invalid password
@@ -137,35 +140,36 @@ app.post("/login", (req, res) => {
 
 // logging into profile
 app.get("/profile/:id", requireLogin, (req, res) => {
-  User.find({},(err,users)=>{
-    users.forEach(user =>{
-        if(user.id === req.params.id.split('=')[1])
-        {
-            res.send(user);
-        }
-    })
-    if(err){
+  User.find({}, (err, users) => {
+    users.forEach((user) => {
+      if (user.id === req.params.id.split("=")[1]) {
+        res.send(user);
+      }
+    });
+    if (err) {
       console.log(err);
     }
-  })
-})
-
+  });
+});
 
 //edit user data
-app.put('/edit/:id',(req,res)=>{
+app.put("/edit/:id", (req, res) => {
   // if(req.file){
   //   user.image = req.file.filename;
   // }
-  User.updateOne({_id:req.params.id},{$set:{
-    fname: req.body.fname,
-    lname:req.body.lname,
-    address:req.body.address,
-    occupation:req.body.occupation
-  }}).then(()=>res.send('success'))
+  User.updateOne(
+    { _id: req.params.id },
+    {
+      $set: {
+        fname: req.body.fname,
+        lname: req.body.lname,
+        address: req.body.address,
+        occupation: req.body.occupation,
+      },
+    }
+  ).then(() => res.send("success"));
   // res.send(user)
-})
-
-
+});
 
 //get All properties
 app.get("/property", (req, res) => {
@@ -177,89 +181,124 @@ app.get("/property", (req, res) => {
     }
   });
 });
- 
 
 //get property details
-app.get("/property/:id",(req,res)=>{
-  Property.findOne({id:req.params.id},(err,prop)=>{
-    if(prop){res.send(prop)}
-  })
-})
-  
-  
-  //put the like user
-  app.put('/like/:id',(req,res)=>{
-    //addToSet for unique values
-    User.updateOne({_id:req.params.id},{$addToSet:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
-  })
+app.get("/property/:id", (req, res) => {
+  Property.findOne({ id: req.params.id }, (err, prop) => {
+    if (prop) {
+      res.send(prop);
+    }
+  });
+});
 
-  //   //put the unlike user
-  // app.put('/unlike/:id',(req,res)=>{
-  //   User.updateOne({_id:req.params.id},{$pull:{wishlist: req.body}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
-  // })
+//put the like user
+app.put("/like/:id", (req, res) => {
+  //addToSet for unique values
+  User.updateOne({ _id: req.params.id }, { $addToSet: { wishlist: req.body } })
+    .then(() => res.send("success"))
+    .catch((err) => {
+      res.send("error");
+    });
+});
+
+
 
 //deleting by prop id
-  app.put('/unlike/:id',(req,res)=>{
-    User.updateOne({_id:req.params.id},{$pull:{wishlist: {id:req.body.id}}}).then(()=>res.send('success')).catch(err=>{res.send('error')})
-  })
+app.put("/unlike/:id", (req, res) => {
+  User.updateOne(
+    { _id: req.params.id },
+    { $pull: { wishlist: { id: req.body.id } } }
+  )
+    .then(() => res.send("success"))
+    .catch((err) => {
+      res.send("error");
+    });
+});
 
-
-
-  //get wishlist of user
-  app.get("/wishlist/:id",(req,res)=>{
-    User.findOne({_id:req.params.id},(err,user)=>{
-      if(user){
-        res.send(user.wishlist);
-      }
-    })
-  })
-  
-  app.get("/recommend/:id",async (req,res)=>{
-    await Property.find({$or:[{location: req.params.id},{propType:req.params.id},{investType:req.params.id}]} ,(err,prop)=>{
-      if(prop){
-        res.send(prop)
-      }
-      else{res.send('error')}
-    })
-  })
-  
-  
-  //contact us form
-  const transporter = nodemailer.createTransport({
-    service: "Gmail",
-    port: 465,
-    auth: {
-      user: CONTACT_EMAIL,
-      pass: CONTACT_PASSWORD,
-    },
+//get wishlist of user
+app.get("/wishlist/:id", (req, res) => {
+  User.findOne({ _id: req.params.id }, (err, user) => {
+    if (user) {
+      res.send(user.wishlist);
+    }
   });
-  app.post("/contact", (req, res, next) => {
-    var mail = {
-      from: req.body.email,
-      to: "dealgenie98@gmail.com",
-      subject: req.body.subject,
-      text: req.body.body,
-      html: `<div>
+});
+
+app.get("/recommend/:id", async (req, res) => {
+  await Property.find(
+    {
+      $or: [
+        { location: req.params.id },
+        { propType: req.params.id },
+        { investType: req.params.id },
+      ],
+    },
+    (err, prop) => {
+      if (prop) {
+        res.send(prop);
+      } else {
+        res.send("error");
+      }
+    }
+  );
+});
+
+// -----------------------------------applied
+//add the appplied
+app.put("/apply/:id",requireLogin, (req, res) => {
+  //addToSet for unique values
+  User.updateOne({ _id: req.params.id }, { $addToSet: { property: req.body } })
+    .then(() => res.send("success"))
+    .catch((err) => {
+      res.send("error");
+    });
+});
+
+//get applies list of user
+app.get("/appliedList/:id", (req, res) => {
+  User.findOne({ _id: req.params.id }, (err, user) => {
+    if (user) {
+      res.send(user.property);
+    }
+  });
+});
+
+//contact us form
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  port: 465,
+  auth: {
+    user: CONTACT_EMAIL,
+    pass: CONTACT_PASSWORD,
+  },
+});
+app.post("/contact", (req, res, next) => {
+  var mail = {
+    from: req.body.email,
+    to: "dealgenie98@gmail.com",
+    subject: req.body.subject,
+    text: req.body.body,
+    html: `<div>
     Dear Deal Genie,<br/><br/>
     ${req.body.body}<br/><br/>
     Regards,<br/>
     ${req.body.name}<br/>
     ${req.body.email}
     </div>`,
-    };
-    transporter.sendMail(mail, (err, data) => {
-      if (err) {
-        console.log(err);
-        res.json({
-          status: "fail",
-        });
-      } else {
-        res.json({
-          status: "success",
-        });
-      }
-    });
+  };
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.json({
+        status: "fail",
+      });
+    } else {
+      res.json({
+        status: "success",
+      });
+    }
   });
+});
 
 app.listen(port, () => {
   console.log("server running");
