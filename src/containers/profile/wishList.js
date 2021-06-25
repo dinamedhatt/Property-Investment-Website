@@ -66,10 +66,13 @@ class WishList
 
     return ( 
       <div>
+
+       { (this.state.wishList.length>0) && <div>
             <h2 className='text-center mb-3 mt-5'>WishList</h2>
             <Slider className='col-10 col-lg-11 m-auto' {...settings}>
               {renderSlide()}
             </Slider>
+          </div> }
           </div>
      );
   }

@@ -4,6 +4,7 @@ import { FormErrors } from "./../formError";
 import { connect } from "react-redux";
 import {getUser,updateUser} from "../../actions";
 import { bindActionCreators } from "redux";
+import {Link} from 'react-router-dom'
 
 
 
@@ -167,7 +168,7 @@ class Edit extends Component{
         </Modal.Body>
         <Modal.Footer>
           <Button style={{backgroundColor: "#2B59B4",color:"white"}} id='submit-btn'>Save Changes</Button>
-          <Button variant="secondary" onClick={()=>{this.setState({show:false});window.location.reload()}}>Close</Button>
+          <Button variant="secondary" as={Link} to={`/profile/${localStorage.getItem("id")}`} onClick={()=>{this.setState({show:false})}}>Close</Button>
         </Modal.Footer>
       </Modal>
         )
