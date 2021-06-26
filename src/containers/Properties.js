@@ -82,13 +82,13 @@ filterPropType = (prop)=>{
                       {property.budget}
                     </p>
                   </div>
-                  <div>
+                  <div className='' style={{textAlign:"right"}}>
                     <p>{property.propType}</p>
                     <input
                       type="button"
                       value="view"
                       onClick={()=>{window.location.assign(`/property/${property.id}`)}}
-                      className="property-view-btn btn btn-outline-dark"
+                      className=" property-view-btn btn btn-outline-dark"
                     />
                   </div>
                 </div>
