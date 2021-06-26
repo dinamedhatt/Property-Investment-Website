@@ -1160,3 +1160,45 @@ input:checked[type="checkbox"]:before {
   background-color: #f3f3f4;
 }
 
+/* -------------------------home paragraph cover---------------------------- */
+
+#paracover{
+  color: black;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+
+@media screen and (max-width: 600px) {
+ 
+  #paracover{
+
+    left: 18%;
+  }
+
+}
+
+/* -------------------------carousel paragraph---------------------------- */
+
+
+#carouselPara{
+position: absolute;
+z-index: 2;
+left:12%;
+top:26%
+}
+
+
+@media screen and (max-width: 995px) {
+ 
+  #carouselPara{
+    position: relative;
+    left:0%;
+    top:0%;
+    
+    }
+
+}
+
+
+
