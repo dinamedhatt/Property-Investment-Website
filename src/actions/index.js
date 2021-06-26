@@ -42,7 +42,7 @@ export async function getProp(id = "") {
   } catch (error) {
     console.log(error);
   }
-  console.log(payload);
+  // console.log(payload);
   return {
     type: "prop_details",
     payload,
@@ -132,7 +132,7 @@ export async function getUser(id = "", token) {
   } catch (error) {
     console.log(error);
   }
-  console.log(payload);
+  // console.log(payload);
   return {
     type: "user_details",
     payload,
@@ -260,7 +260,7 @@ export async function getApplylist(id = "") {
   } catch (error) {
     console.log(error);
   }
-  console.log(payload);
+  // console.log(payload);
   return {
     type: "user_applylist",
     payload,
