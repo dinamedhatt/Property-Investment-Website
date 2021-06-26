@@ -164,7 +164,15 @@ class PropertyDetail extends Component {
             onClick={this.sendletter.bind(this)}
           />
         </div>
-        <AlertMsg color={this.state.color} msg={this.state.alert} />
+
+        <div
+          {...(this.state.alert === "" && {
+            style: { display: "none" },
+          })}
+        >
+          <AlertMsg color={this.state.color} msg={this.state.alert} />
+        </div>
+
         <Recommend />
       </div>
     );
