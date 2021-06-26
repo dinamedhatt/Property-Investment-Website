@@ -529,6 +529,24 @@ input:checked[type="checkbox"]:before {
   padding: 2% 25%;
 }
 
+/* property-item */
+.apply-letter {
+  width: 70%;
+  margin: 5% auto;
+  position: relative;
+  display: none;
+}
+
+.apply-letter h3 {
+  text-align: left;
+  margin-bottom: 2%;
+}
+
+.apply-letter textarea {
+  width: 100%;
+  margin-bottom: 5%;
+}
+
 /* -------------------------- */
 
 /* ------------Data accurasy-------------- */
@@ -1026,7 +1044,7 @@ input:checked[type="checkbox"]:before {
     width: 24%;
     overflow: hidden;
     display: block;
-    margin:0 0.5%;
+    margin: 0 0.5%;
   }
   .fullDiv {
     width: 100%;
@@ -1075,6 +1093,9 @@ input:checked[type="checkbox"]:before {
     margin-left: 5%;
     margin-bottom: 2%;
   }
+  .apply-letter textarea {
+    margin-bottom: 7%;
+  }
 }
 
 @media screen and (max-width: 850px) {
@@ -1091,6 +1112,9 @@ input:checked[type="checkbox"]:before {
     left: 160px;
     height:220px;
   }
+  .apply-letter textarea {
+    margin-bottom: 9%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1099,15 +1123,17 @@ input:checked[type="checkbox"]:before {
     left: 110px;
     height:180px;
   }
+  .apply-letter textarea {
+    margin-bottom: 12%;
+  }
 }
 
 /* -------------------------Property Detail---------------------------- */
 
-.links span{
+.links span {
   color: #545454;
 }
 
-
-.property-detail{
-  background-color: #F3F3F4;
+.property-detail {
+  background-color: #f3f3f4;
 }

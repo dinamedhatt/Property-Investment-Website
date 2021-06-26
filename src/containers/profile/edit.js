@@ -71,6 +71,7 @@ class Edit extends Component{
       };
 
     render(){
+      var handleToUpdate = this.props.handleToUpdate;
         return(
             <Modal centered show={this.state.show}>
         <Modal.Header>
@@ -167,7 +168,18 @@ class Edit extends Component{
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button style={{backgroundColor: "#2B59B4",color:"white"}} id='submit-btn'>Save Changes</Button>
+          <Button style={{backgroundColor: "#2B59B4",color:"white"}} id='submit-btn' onClick={async () => {
+        let user ={
+            fname:this.state.fname,
+            lname:this.state.lname,
+            address:this.state.country,
+            occupation:this.state.occupation
+        }
+          await this.props.updateUser(user,localStorage.getItem("id"));
+          handleToUpdate(user,false)
+          localStorage.setItem("location",user.address)
+          window.location.reload()
+        }}>Save Changes</Button>
           <Button variant="secondary" as={Link} to={`/profile/${localStorage.getItem("id")}`} onClick={()=>{this.setState({show:false})}}>Close</Button>
         </Modal.Footer>
       </Modal>
@@ -178,20 +190,6 @@ class Edit extends Component{
         await this.props.getUser(localStorage.getItem('id'),localStorage.getItem('jwt'))
         const oldUser = this.props.user;
         this.setState({fname:oldUser.fname,lname:oldUser.lname,occupation:oldUser.occupation,country:oldUser.address})
-        const btn = document.querySelector("#submit-btn");
-        btn.addEventListener("click", async (e) => {
-          e.preventDefault();
-
-
-        let user ={
-            fname:this.state.fname,
-            lname:this.state.lname,
-            address:this.state.country,
-            occupation:this.state.occupation
-        }
-          await this.props.updateUser(user,localStorage.getItem("id"));
-          window.location.reload()
-        });
     }
 }
 

@@ -74,6 +74,9 @@ class Applied extends Component {
                 <p style={{ color: "#fff", fontSize: "1em" }}>View</p>
               </NavLink>
             </div>
+            <div  className='d-flex p-1 bg-dark text-light position-absolute col-12' style={{bottom:0}}>
+              Status: <p className='my-0' {...(prop.state)}>&nbsp;Pending..</p>
+            </div>
           </div>
         </div>
       ));
@@ -81,7 +84,7 @@ class Applied extends Component {
       <div>
         {this.state.applyList.length > 0 && (
           <div>
-            <h2 className="text-center mb-3 mt-5">Recently applied</h2>
+            <h2 className="text-center mb-3 mt-5">Recently Applied</h2>
             <Slider className="col-10 col-lg-11 m-auto" {...settings}>
               {renderSlide()}
             </Slider>

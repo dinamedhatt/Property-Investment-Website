@@ -7,6 +7,8 @@ import Recommend from "./profile/recommended";
 import { Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { getProp, applylistUser, getApplylist, getUser } from "../actions";
+import axios from "axios";
+import AlertMsg from "../components/alertMsg";
 
 class PropertyDetail extends Component {
   id;
@@ -15,7 +17,54 @@ class PropertyDetail extends Component {
     this.state = {
       property: {},
       appliedList: [],
+      applyLetter: "",
+      alert: "",
+      color: "",
+      msg: "",
+      disabled: false,
+      viewerUser: {},
     };
+  }
+
+  setLetter = (e) => {
+    this.setState({ applyLetter: e.target.value });
+  };
+
+  //to handle sending letter
+  sendletter(e) {
+    //sending the email
+    e.preventDefault();
+    this.setState({ disabled: true });
+
+    axios({
+      method: "POST",
+      url: "http://localhost:3100/sendLetter",
+      data: this.state,
+    }).then((response) => {
+      if (response.data.status === "success") {
+        this.addToAppliedList();
+        this.hideTextArea();
+        this.setState({ color: "success", alert: "apply letter is sent" });
+      } else if (response.data.status === "fail") {
+        this.setState({ alert: "apply letter is NOT sent!", color: "danger" });
+      }
+    });
+  }
+
+  addToAppliedList = () => {
+    //add to applied list
+    let Arr = [];
+    Arr.push(this.state.property);
+    this.setState({ appliedList: Arr });
+    this.props.applylistUser(
+      localStorage.getItem("jwt"),
+      Arr,
+      localStorage.getItem("id")
+    );
+  };
+
+  hideTextArea() {
+    document.getElementById("apply-letter").style.display = "none";
   }
 
   render() {
@@ -71,23 +120,15 @@ class PropertyDetail extends Component {
                 </p>
                 <button
                   {...(!localStorage.getItem("jwt") && { disabled: true })}
-                  {...(
-                    this.state.appliedList.some(
-                      (e) => e.id === this.state.property.id
-                    
+                  {...(this.state.appliedList.some(
+                    (e) => e.id === this.state.property.id
                   ) && { disabled: true })}
-                  // appliedList
+                  appliedList
                   className="btn btn-medium rounded px-3 property-apply-btn"
                   style={{ backgroundColor: "#2B59B4", color: "white" }}
                   onClick={() => {
-                    let Arr = [];
-                    Arr.push(this.state.property);
-                    this.setState({ appliedList: Arr });
-                    this.props.applylistUser(
-                      localStorage.getItem("jwt"),
-                      Arr,
-                      localStorage.getItem("id")
-                    );
+                    document.getElementById("apply-letter").style.display =
+                      "block";
                   }}
                 >
                   Apply to investment
@@ -96,6 +137,38 @@ class PropertyDetail extends Component {
             </div>
           </div>
         </div>
+
+        <div className="apply-letter" id="apply-letter">
+          <h3>Apply Letter </h3>
+          <textarea
+            value={this.state.applyLetter}
+            onChange={this.setLetter.bind(this)}
+          />
+          <input
+            type="button"
+            className="btn btn-medium rounded px-3 send-letter-btn"
+            style={{
+              backgroundColor: "#2B59B4",
+              color: "white",
+              display: "block",
+              position: "absolute",
+              bottom: 0,
+              right: 0,
+            }}
+            value="Send"
+            disabled={this.state.disabled}
+            onClick={this.sendletter.bind(this)}
+          />
+        </div>
+
+        <div
+          {...(this.state.alert === "" && {
+            style: { display: "none" },
+          })}
+        >
+          <AlertMsg color={this.state.color} msg={this.state.alert} />
+        </div>
+
         <Recommend />
       </div>
     );
@@ -107,23 +180,31 @@ class PropertyDetail extends Component {
     // console.log("yaaaa", this.state.property.id);
 
     await this.props.getApplylist(localStorage.getItem("id"));
-
     this.setState({ appliedList: this.props.applylist });
     // console.log("applyedList:", this.state.appliedList);
+
+    if (localStorage.getItem("jwt")) {
+      await this.props.getUser(
+        localStorage.getItem("id"),
+        localStorage.getItem("jwt")
+      );
+      this.setState({ viewerUser: this.props.user });
+    }
   }
 }
 
 export default connect(
   (state) => {
-    console.log(state);
+    // console.log(state);
     return {
       prop: state.properties.list, //function in properties reducer
       applylist: state.users.applylist,
+      user: state.users.list,
     };
   },
   (dispatch) => {
     return bindActionCreators(
-      { getProp, applylistUser, getApplylist },
+      { getProp, applylistUser, getApplylist, getUser },
       dispatch
     );
   }

@@ -201,8 +201,6 @@ app.put("/like/:id", (req, res) => {
     });
 });
 
-
-
 //deleting by prop id
 app.put("/unlike/:id", (req, res) => {
   User.updateOne(
@@ -245,7 +243,7 @@ app.get("/recommend/:id", async (req, res) => {
 
 // -----------------------------------applied
 //add the appplied
-app.put("/apply/:id",requireLogin, (req, res) => {
+app.put("/apply/:id", requireLogin, (req, res) => {
   //addToSet for unique values
   User.updateOne({ _id: req.params.id }, { $addToSet: { property: req.body } })
     .then(() => res.send("success"))
@@ -272,7 +270,8 @@ const transporter = nodemailer.createTransport({
     pass: CONTACT_PASSWORD,
   },
 });
-app.post("/contact", (req, res, next) => {
+
+app.post("/contact", (req, res) => {
   var mail = {
     from: req.body.email,
     to: "dealgenie98@gmail.com",
@@ -286,7 +285,39 @@ app.post("/contact", (req, res, next) => {
     ${req.body.email}
     </div>`,
   };
-  transporter.sendMail(mail, (err, data) => {
+  transporter.sendMail(mail, (err) => {
+    if (err) {
+      console.log(err);
+      res.json({
+        status: "fail",
+      });
+    } else {
+      res.json({
+        status: "success",
+      });
+    }
+  });
+});
+
+// sending apply letter
+app.post("/sendLetter", (req, res) => {
+  var mail = {
+    from: req.body.email,
+    to: "dealgenie98@gmail.com",
+    subject: "apply letter",
+    text: req.body.applyLetter,
+    html: `<div>
+    Dear Deal Genie,<br/><br/>
+    I'm sending you this apply letter regarding the property whose name is ${req.body.property.name} and its id equals ${req.body.property.id}
+    <br/><br/>
+    ${req.body.applyLetter}<br/><br/>
+    Regards,<br/>
+    ${req.body.viewerUser.fname}<br/>
+    ${req.body.viewerUser.email}
+    </div>`,
+  };
+
+  transporter.sendMail(mail, (err) => {
     if (err) {
       console.log(err);
       res.json({

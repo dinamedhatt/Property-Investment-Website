@@ -1,7 +1,7 @@
 import { Component } from "react";
 import axios from "axios";
 import AlertMsg from "../components/alertMsg";
-
+import { FormErrors } from './formError';
 class Contact extends Component {
   constructor() {
     super();
@@ -12,7 +12,27 @@ class Contact extends Component {
       body: "",
       alert: "",
       color: "",
+      formErrors: {email: ''},
+      emailValid: false,
+      formValid: false
     };
+  }
+
+  validateField(fieldName, value) {
+    let fieldValidationErrors = this.state.formErrors;
+    let emailValid = this.state.emailValid;
+    emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    fieldValidationErrors.email = emailValid ? '' : '*Please write your e-mail in a correct format';
+    this.setState({formErrors: fieldValidationErrors,
+      emailValid: emailValid
+    }, this.validateForm);
+  }
+  validateForm() {
+    this.setState({formValid: this.state.emailValid && this.state.passwordValid});
+  }
+
+  errorClass(error) {
+    return(error.length === 0 ? '' : 'has-error');
   }
 
   setName = (e) => {
@@ -20,7 +40,8 @@ class Contact extends Component {
   };
 
   setMail = (e) => {
-    this.setState({ email: e.target.value });
+    this.setState({ email: e.target.value },
+      () => { this.validateField(this.email, e.target.value) });
   };
 
   setSubject = (e) => {
@@ -98,7 +119,11 @@ class Contact extends Component {
               value={this.state.email}
               onChange={this.setMail.bind(this)}
             />
+            <div className="lbl text-secondary mt-3 mb-0 ">
+              <FormErrors formErrors={this.state.formErrors.email} />
           </div>
+          </div>
+         
 
           <div className="form-group my-4">
             <label htmlFor="subject" className="for-label lbl">
@@ -144,6 +169,15 @@ class Contact extends Component {
             value="Send"
           />
         </form>
+        <div className="text-center my-5 col-10 mx-auto">
+          <h3 className="pb-2">Contact details</h3>
+          <p style={{color:"#AEAEAE"}}>
+            Property deal gennie co ltd
+            23A#43  Downing Street
+            43423 Wellington,UK
+            VAT ID:35344355
+          </p>
+        </div>
       </div>
     );
   }
