@@ -17,16 +17,11 @@ const Home = () => {
           <img src="images/home/coverpage.png" alt="cover" />
         </div>
 
-        <div
+        <div id="paracover"
           className="text-center col-8 col-sm-6 col-md-6 col-lg-6 px-0 p-0"
-          style={{
-            color: "black",
-            position: "absolute",
-            top: "20%",
-            left: "25%",
-          }}
+        
         >
-          <h1 className="heading-one">
+          <h1 className="display-5">
             Property deals
             <span className="d-block ">that find you</span>
           </h1>
@@ -49,7 +44,7 @@ const Home = () => {
           />
           <p className="col-12 d-inline pt-3 fw-bold  fs-6 col-md-6 col-lg-7 col-xl-8 pt-lg-5 mt-lg-1 mt-xxl-3 pb-lg-3  pb-xl-2 pt-xl-4 text-center">
             Genie score
-            <span className=" d-block fw-bold" style={{ fontSize: "18px" }}>
+            <span className=" d-block fw-bold" style={{ fontSize: "1rem" }}>
               <span style={{ color: "#FFC107" }}>87</span> / 100
             </span>
           </p>
@@ -72,7 +67,7 @@ const Home = () => {
           />
           <p className="col-12 d-inline pt-3 fw-bold  fs-6 mt-lg-1 mt-xxl-3 col-md-6 col-lg-7 col-xl-8 pt-lg-5 pb-lg-3  pb-xl-2 pt-xl-4 text-center">
             Property ROI
-            <span className=" d-block fw-bold" style={{ fontSize: "18px" }}>
+            <span className=" d-block fw-bold" style={{ fontSize: "1rem" }}>
               <span style={{ color: "#FFC107" }}>8.93%</span>
             </span>
           </p>
