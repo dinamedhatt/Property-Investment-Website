@@ -6,7 +6,6 @@ import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import {Alert} from 'react-bootstrap'
 import Filter from "./filter";
-import WishList from './profile/wishList';
 
 
 class Properties extends Component {
@@ -48,6 +47,7 @@ filterPropType = (prop)=>{
                     value={{ className: "item-react-icons" }}
                   >
                     < FaRegBookmark style={{display:"block"}}
+                    // eslint-disable-next-line eqeqeq
                     {...(this.state.likedList.filter(prop => prop.id === property.id).length==1) && {style:{display:"none"}}} onClick={()=>{ 
                       let propArr=[]
                       propArr.push(property)
@@ -58,6 +58,7 @@ filterPropType = (prop)=>{
                     }} />
 
                   <FaBookmark style={{display:"none"}}
+                  // eslint-disable-next-line eqeqeq
                   {...!this.state.likedList.filter(prop => prop.id === property.id).length==0 && {style:{display:"block"}}} onClick={()=>{ 
                      let obj = {id:property.id}
                     this.props.unlikeUser(obj,localStorage.getItem("id"))
@@ -87,7 +88,7 @@ filterPropType = (prop)=>{
                     <input
                       type="button"
                       value="view"
-                      onClick={()=>{window.location.assign(`/property/${property.id}`)}}
+                      onClick={()=>{this.props.history.push(`/property/${property.id}`)}}
                       className=" property-view-btn btn btn-outline-dark"
                     />
                   </div>

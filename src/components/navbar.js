@@ -111,7 +111,8 @@ class NavBAR extends Component{
                 value="Log out"
                 onClick={()=>{
                   localStorage.clear()
-                  window.location.replace('/')
+                  this.props.history.push('/')
+                  this.setState({logged:false})
                 }}
               />
           </div>
