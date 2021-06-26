@@ -49,7 +49,7 @@ class Recommend extends Component{
                 return(
                     <div className="p-0 rounded shadow" id='smallcon' key={key}>
                     <img src={`/images/properties/${prop.image}`}
-                  alt="property" className='fullDiv img-fluid img' /*style={{height:"180px"}}*/ />
+                  alt="property" className='fullDiv img-fluid ' id="hight" />
                         <div className="fullDiv">
                       <div className='px-3'>
                         <h4 className="mt-2">{prop.name}</h4>

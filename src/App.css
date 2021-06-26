@@ -1034,6 +1034,7 @@ input:checked[type="checkbox"]:before {
 }
 
 /* --------------------profile recommendation section----------------------- */
+
 @media screen and (max-width: 2000px) {
  
   .largecon {
@@ -1049,6 +1050,9 @@ input:checked[type="checkbox"]:before {
     height: 450px;
     position: relative; 
   }
+  #hight{
+    height: 180px;
+  }
   .viweBtn{
     position: absolute;
     top:410px
@@ -1056,9 +1060,7 @@ input:checked[type="checkbox"]:before {
   .fullDiv {
     width: 100%;
   }
-  .img{
-    height:180px;
-  }
+
  
 }
 
@@ -1075,12 +1077,13 @@ input:checked[type="checkbox"]:before {
     margin-bottom: 1.5rem;
     height: auto;
    }
+   #hight{
+    height: 100%;
+  }
    .viweBtn{
      position: static;
     } 
-  .img{
-    height: 100% ;
-  }
+
   
   .fullDiv {
     width: 50%;
