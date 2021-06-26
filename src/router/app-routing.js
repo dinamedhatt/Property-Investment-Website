@@ -8,8 +8,8 @@ import Register from "../containers/register";
 import Login from "../containers/Login";
 import FAQ from "../containers/FAQ";
 import Features from "../components/features/features";
-import Home from "./../components/home";
-import Error from "./../components/error";
+import Home from "./../components/home/home";
+import Error from "../components/errors/error";
 import Works from "./../components/how-works";
 import ScrollToTop from "./scrollToTop";
 import Profile from '../containers/profile/profile';
@@ -19,7 +19,7 @@ import PropertyDetail from "../containers/Property-item";
 const AppRouting = () => {
   return (
     <BrowserRouter>
-      <NavBAR />
+      <NavBAR/>
       <ScrollToTop />
       <Switch>
         <Route path="/about" component={About} />

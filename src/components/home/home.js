@@ -1,10 +1,10 @@
-import Carousel from "./carousel";
-import Sponsors from "./sponsors";
-import DealSection from "./deal-section";
-import Retirement from "./retirement";
+import Carousel from "../carousel";
+import Sponsors from "../sponsors";
+import DealSection from "../deal-section";
+import Retirement from "../retirement";
 import Divider from "./divider/divider";
 import ForMe from "./for-me";
-import RelyData from "./rely-data/rely-data";
+import RelyData from "../rely-data/rely-data";
 import { useHistory } from "react-router-dom";
 
 const Home = () => {
