@@ -1068,13 +1068,15 @@ input:checked[type="checkbox"]:before {
     display: flex;
     margin: 0 auto;
     margin-bottom: 1.5rem;
-    height: 260px;
-    position: relative;
+    height: auto;
+    /* height: 260px;
+    position: relative; */
   }
-  .viweBtn{
-    top:225px;
-    left:0px
-  }
+   .viweBtn{
+    /* top:225px;
+    left:0px */
+    position: static;
+  } 
   .fullDiv {
     width: 50%;
   }
