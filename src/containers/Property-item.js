@@ -22,11 +22,7 @@ class PropertyDetail extends Component {
       color: "",
       msg: "",
       disabled: false,
-      viewerUser: {
-        id: Number,
-        name: String,
-        email: String,
-      },
+      viewerUser: {},
     };
   }
 
