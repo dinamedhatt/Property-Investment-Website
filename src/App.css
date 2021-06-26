@@ -662,6 +662,7 @@ input:checked[type="checkbox"]:before {
   top: -35px;
   left: -45px;
   overflow: hidden;
+  height:280px;
 }
 
 .parasmallcon {
@@ -1049,11 +1050,15 @@ input:checked[type="checkbox"]:before {
   }
 }
 /* --------------------profile user section----------------------- */
+
+
 @media screen and (max-width: 1000px) {
   .user-image {
     border-radius: 50%;
     top: -170px;
     left: 170px;
+    height:250px;
+    
   }
   .user-section {
     background-color: #f3f3f4;
@@ -1076,6 +1081,7 @@ input:checked[type="checkbox"]:before {
   .user-image {
     top: -150px;
     left: 160px;
+    height:240px;
   }
 }
 
@@ -1083,13 +1089,15 @@ input:checked[type="checkbox"]:before {
   .user-image {
     top: -150px;
     left: 160px;
+    height:220px;
   }
 }
 
 @media screen and (max-width: 600px) {
   .user-image {
-    top: -100px;
-    left: 130px;
+    top: -80px;
+    left: 110px;
+    height:180px;
   }
 }
 
