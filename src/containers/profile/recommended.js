@@ -35,7 +35,7 @@ class Recommend extends Component{
     render(){
       if(this.state.propertiesList.length>0){
         return(
-            <div className="col-9 rounded mx-auto shadow px-2 py-4">
+            <div className="col-9 rounded mx-auto shadow px-2 py-4 mt-5">
               
     <div className="largecon mb-3 px-2">
         <h4>Most Recomended</h4>
@@ -48,7 +48,7 @@ class Recommend extends Component{
                 return(
                     <div className="p-0 rounded shadow" id='smallcon' key={key}>
                     <img src={`/images/properties/${prop.image}`}
-                  alt="property" className='fullDiv img-fluid'/>
+                  alt="property" className='fullDiv img-fluid' style={{height:"180px"}}/>
                         <div className="fullDiv">
                       <div className='px-3'>
                         <h4 className="mt-2">{prop.name}</h4>
@@ -56,7 +56,7 @@ class Recommend extends Component{
                              <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>{prop.location}</p>
                              <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>{prop.budget}</p>    
                       </div>       
-                          <input className='btn btn-medium col-12 img-fluid' style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View' onClick={()=>{window.location.assign(`/property/${prop.id}`)}}/>
+                          <input className='btn btn-medium col-12 img-fluid viweBtn'  style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View' onClick={()=>{window.location.assign(`/property/${prop.id}`)}}/>
                       </div>
                     </div>
                 )
@@ -67,7 +67,7 @@ class Recommend extends Component{
         )}
         else{
           return(
-            <Alert variant="warning" className='p-4'>
+            <Alert variant="warning" className='p-4 mt-5'>
               <Alert.Heading>No properties are available in your country for the moment</Alert.Heading>
               <p>If you are interested in investing in other countries, feel free to check the rest of the available properties by&nbsp;
                 <NavLink to='/property' className='alert-link'>clicking here</NavLink>
