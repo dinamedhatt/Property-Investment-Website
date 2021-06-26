@@ -224,6 +224,8 @@ class Register extends Component {
                 <option value="Belgium">Belgium</option>
                 <option value="Germany">Germany</option>
                 <option value="Portugal">Portugal</option>
+                <option value="Portugal">Spain</option>
+
               </select>
             </div>
 
