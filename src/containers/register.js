@@ -259,7 +259,7 @@ class Register extends Component {
               className="col-xl-8 col-sm-10 col-9  text-center m-auto mt-4"
               style={{ color: "#4A4A4A" }}
             >
-              Don’t have an account?{" "}
+              Already have an account?{" "}
               <a
                 href="."
                 className="fw-bold"
