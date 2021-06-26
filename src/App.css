@@ -1068,11 +1068,11 @@ input:checked[type="checkbox"]:before {
     display: flex;
     margin: 0 auto;
     margin-bottom: 1.5rem;
-    height: 340px;
+    height: 260px;
     position: relative;
   }
   .viweBtn{
-    top:300px;
+    top:225px;
     left:0px
   }
   .fullDiv {
