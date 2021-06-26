@@ -12,8 +12,8 @@ import Edit from './edit'
 
 
 class Profile extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props);
         this.state={
           name: "",
           email:"",
@@ -23,9 +23,6 @@ class Profile extends Component {
           edit:false
         }
     } 
-    editData=()=>{
-            this.setState({edit:true})
-    }
 
     handleChange=(e)=>{
       
@@ -43,12 +40,18 @@ class Profile extends Component {
     }
     }
 
+
     render() {
       if(localStorage.getItem('jwt')){
+      console.log('profile render')
     return (
         <div className='pb-5'>
           {(this.state.edit) &&
-          <Edit user={{fname:this.state.fname,lname:this.state.lname,address:this.state.address}}/>
+          <Edit handleToUpdate = {async(obj,editStatus)=>{
+      
+            await this.setState({name:`${obj.fname} ${obj.fname}`,address:obj.address,occupation:obj.occupation,edit:editStatus});
+            console.log("yooooh",this.state)
+        }}/>
       }
             {/* ---------------user section------------------------------------------------------- */}
             <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-lg-5 ps-md-0">
@@ -58,7 +61,7 @@ class Profile extends Component {
                    <p className='input black col-10'>{this.state.occupation}</p>
                    <p className='input location col-10'>{this.state.address}</p>
                 </div>
-                <FaUserEdit style={{color:"#2B59B4" ,fontSize:"2rem",position:'absolute',top:'20%',left:'90%',cursor:'pointer'}} onClick={()=>{this.editData()}}/>
+                <FaUserEdit style={{color:"#2B59B4" ,fontSize:"2rem",position:'absolute',top:'20%',left:'90%',cursor:'pointer'}} onClick={()=>{this.setState({edit:true})}}/>
                 <div className="user-image col-lg-4 col-5 position-absolute bg-white shadow">
                     <img src={`http://localhost:3100/${this.state.image}`} alt="userImage" className="image-fluid w-100 h-100"/>
                 </div>

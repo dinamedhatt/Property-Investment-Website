@@ -74,6 +74,9 @@ class Applied extends Component {
                 <p style={{ color: "#fff", fontSize: "1em" }}>View</p>
               </NavLink>
             </div>
+            <div  className='d-flex p-1 bg-dark text-light position-absolute col-12' style={{bottom:0}}>
+              Status: <p className='my-0' {...(prop.state)}>&nbsp;Pending..</p>
+            </div>
           </div>
         </div>
       ));
