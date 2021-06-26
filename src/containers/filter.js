@@ -46,17 +46,21 @@ class Filter extends Component {
           <InputGroup>
             <Button variant="light" onClick={() => {
                 this.props.onKeyWordsChange("");
+                this.setState({name:""})
               }}>
               <GoSearch />
             </Button>
             <FormControl
+              value={this.state.name}
               placeholder="Search field"
               onChange={this.filterText}
+              
             />
             <Button
               variant="warning"
               onClick={() => {
                 this.props.onKeyWordsChange("");
+                this.setState({name:""})
               }}
               className="px-lg-5 px-3"
             >
