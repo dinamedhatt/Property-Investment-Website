@@ -1045,6 +1045,12 @@ input:checked[type="checkbox"]:before {
     overflow: hidden;
     display: block;
     margin: 0 0.5%;
+    height: 450px;
+    position: relative; 
+  }
+  .viweBtn{
+    position: absolute;
+    top:410px
   }
   .fullDiv {
     width: 100%;
@@ -1062,7 +1068,15 @@ input:checked[type="checkbox"]:before {
     display: flex;
     margin: 0 auto;
     margin-bottom: 1.5rem;
+    height: auto;
+    /* height: 260px;
+    position: relative; */
   }
+   .viweBtn{
+    /* top:225px;
+    left:0px */
+    position: static;
+  } 
   .fullDiv {
     width: 50%;
   }
@@ -1137,3 +1151,4 @@ input:checked[type="checkbox"]:before {
 .property-detail {
   background-color: #f3f3f4;
 }
+

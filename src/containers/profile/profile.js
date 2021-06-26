@@ -37,6 +37,7 @@ class Profile extends Component {
       const user = this.props.user;
       this.setState({name:`${user.fname} ${user.lname}`,email:`${user.email}`,address:`${user.address}`,occupation:`${user.occupation}`,image:`${user.image}`})
       localStorage.setItem("location",this.state.address)
+      console.log("imageeee",this.state)
     }
     }
 
@@ -50,7 +51,6 @@ class Profile extends Component {
           <Edit handleToUpdate = {async(obj,editStatus)=>{
       
             await this.setState({name:`${obj.fname} ${obj.fname}`,address:obj.address,occupation:obj.occupation,edit:editStatus});
-            console.log("yooooh",this.state)
         }}/>
       }
             {/* ---------------user section------------------------------------------------------- */}
@@ -62,8 +62,10 @@ class Profile extends Component {
                    <p className='input location col-10'>{this.state.address}</p>
                 </div>
                 <FaUserEdit style={{color:"#2B59B4" ,fontSize:"2rem",position:'absolute',top:'20%',left:'90%',cursor:'pointer'}} onClick={()=>{this.setState({edit:true})}}/>
-                <div className="user-image col-lg-4 col-5 position-absolute bg-white shadow">
-                    <img src={`http://localhost:3100/${this.state.image}`} alt="userImage" className="image-fluid w-100 h-100"/>
+                <div className="user-image col-lg-4 col-5 position-absolute bg-white p-2">
+                    <img {...(this.state.image)&& {src:`http://localhost:3100/${this.state.image}`}} 
+                    {...(this.state.image==="undefined")&& {src:"/images/default.png"}}
+                    alt="userImage" className="image-fluid w-100 h-100"/>
                 </div>
             </div>
             {/* --------------------------slider appled property-------------------------------------------------- */}

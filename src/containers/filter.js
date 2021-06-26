@@ -44,7 +44,9 @@ class Filter extends Component {
         &nbsp;
         <div className="col-md-8 col-10 mx-auto mt-5">
           <InputGroup>
-            <Button variant="light">
+            <Button variant="light" onClick={() => {
+                this.props.onKeyWordsChange("");
+              }}>
               <GoSearch />
             </Button>
             <FormControl
@@ -54,7 +56,7 @@ class Filter extends Component {
             <Button
               variant="warning"
               onClick={() => {
-                window.location.reload();
+                this.props.onKeyWordsChange("");
               }}
               className="px-lg-5 px-3"
             >
