@@ -17,8 +17,6 @@ class Properties extends Component {
       wishList:[],
       filteredList:[],
       likedList:[],
-      icon:<FaRegBookmark/>,
-      favorite:false
     };
   }
 
@@ -45,64 +43,25 @@ filterPropType = (prop)=>{
           {this.state.filteredList.map((property, key) => {
             return (
               <div className="property-item " key={key}>
-                <span className="icon-container"  onClick={()=>{
-             let theRepeatedId = this.state.likedList.filter(prop => prop.id === property.id)
-              if(this.state.favorite===false){
-                
-                this.setState({
-                  icon:<FaBookmark/>,
-                  favorite:true
-                })
-                let propArr=[]
-                      propArr.push(property)
-                      this.setState({wishList:propArr})
-                      this.props.wishlistUser(propArr,localStorage.getItem("id"))
-                      console.log("hhhh",this.state.likedList)
-              }
-
-              else{
-                this.setState({
-                icon:<FaRegBookmark/>,
-                favorite:false
-                })
-                let obj = {id:property.id}
-                this.props.unlikeUser(obj,localStorage.getItem("id"))
-                console.log(obj)
-                console.log(this.state.likedList)
-                
-              }
-
-
-
-
-                }}>
+                <span className="icon-container">
                   <IconContext.Provider
                     value={{ className: "item-react-icons" }}
                   >
-                    {this.state.icon}
-                    {/* < FaRegBookmark onClick={()=>{ 
-                     // aa 3aiza en kolo ykoun abiad law dost 3ala wa7ed el id da bas howa el yob2a eswed yob2a 3aiza a check if en law gdid mesh flList y7sal chage w yob2a eswed else law el id exist fl list yefdal eswed
-//elseTayalawEswedifId==idFelListChagetoWhiteAndDelete
+                    < FaRegBookmark style={{display:"block"}}
+                    {...(this.state.likedList.filter(prop => prop.id === property.id).length==1) && {style:{display:"none"}}} onClick={()=>{ 
                       let propArr=[]
                       propArr.push(property)
-                      this.setState({wishList:propArr})
+                      this.setState({wishList:propArr},function() {
+                        console.log("haha",this.state.wishList)
+                      })
                       this.props.wishlistUser(propArr,localStorage.getItem("id"))
-                    }} id="#Bookmark"/>
+                    }} />
 
-                  <FaBookmark onClick={()=>{ 
+                  <FaBookmark style={{display:"none"}}
+                  {...!this.state.likedList.filter(prop => prop.id === property.id).length==0 && {style:{display:"block"}}} onClick={()=>{ 
                      let obj = {id:property.id}
                     this.props.unlikeUser(obj,localStorage.getItem("id"))
-                    console.log(obj)
-                    console.log(this.state.likedList)
-console.log("filter",this.state.likedList.filter(prop => prop.id === property.id))
-let theRepeatedId = this.state.likedList.filter(prop => prop.id === property.id)
-// if(theRepeatedId.length===0){
-//   console.log("hait3'air")
-// }
-// else{"meshhai7sal7aga"} */}
-              
-                  {/* }} id="#Bookmark"/> */}
-
+                  }} />
 
 
                   </IconContext.Provider>
