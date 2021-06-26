@@ -6,7 +6,7 @@ import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
 import Recommend from "./profile/recommended";
 import { Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import Error from "../components/error";
+import Error from "../components/errors/error";
 import {
   getProp,
   applylistUser,
