@@ -135,7 +135,6 @@ class PropertyDetail extends Component {
                     {...(this.state.appliedList.some(
                       (e) => e.id === this.state.property.id
                     ) && { disabled: true })}
-                    appliedList
                     className="btn btn-medium rounded px-3 property-apply-btn"
                     style={{ backgroundColor: "#2B59B4", color: "white" }}
                     onClick={() => {
