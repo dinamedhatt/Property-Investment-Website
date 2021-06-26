@@ -40,15 +40,15 @@ class Filter extends Component {
 
   render() {
     return (
-      <div className="search-container row mx-auto col-8">
+      <div className="search-container row mx-auto col-md-8 col-10">
         &nbsp;
-        <div className="col-8 mx-auto mt-5">
+        <div className="col-md-8 col-10 mx-auto mt-5">
           <InputGroup>
             <Button variant="light">
               <GoSearch />
             </Button>
             <FormControl
-              placeholder="Search for anything.."
+              placeholder="Search field"
               onChange={this.filterText}
             />
             <Button
@@ -56,15 +56,16 @@ class Filter extends Component {
               onClick={() => {
                 window.location.reload();
               }}
-              className="px-5"
+              className="px-lg-5 px-3"
             >
               Find All
             </Button>
           </InputGroup>
         </div>
-        <div className="col-8 mx-auto mt-4 mb-5">
+        <div className="col-md-8 col-10 mx-auto mt-4 mb-5">
           <InputGroup>
-          <select className="form-select col-3"
+          <div className="col-lg-4 mb-lg-0 col-12 mb-3">
+          <select className="form-select "
             name="investType"
             id="investment-type"
             defaultValue={this.state.investType}
@@ -77,8 +78,10 @@ class Filter extends Component {
             <option value="Rent">Rent</option>
             <option value="Partnership">Partnership</option>
           </select>
+          </div>
           {/*  */}
-          <select className="form-select col-3"
+          <div className="col-lg-4 mb-lg-0 col-12 mb-3">
+          <select className="form-select "
             name="propType"
             id="property-type"
             defaultValue={this.state.propType}
@@ -91,8 +94,9 @@ class Filter extends Component {
             <option value="Chalet">Chalet</option>
             <option value="Office">Office</option>
           </select>
-
-          <select className="form-select col-3" name="location" id="location"
+          </div>
+          <div className="col-lg-4 mb-lg-0 col-12 mb-3">
+          <select className="form-select" name="location" id="location"
           defaultValue={this.state.location}
           onChange={this.handleChange}>
             <option value="location" disabled>
@@ -103,6 +107,7 @@ class Filter extends Component {
             <option value="Germany">Germany</option>
             <option value="Portugal">Portugal</option>
           </select>
+          </div>
           </InputGroup>
         </div>
       </div>
