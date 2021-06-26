@@ -33,7 +33,8 @@ class Recommend extends Component{
 
 
     render(){
-      if(this.state.propertiesList.length>0){
+      if(this.state.propertiesList){
+      if(this.state.propertiesList.length){
         return(
             <div className="col-9 rounded mx-auto shadow px-2 py-4">
               
@@ -44,7 +45,7 @@ class Recommend extends Component{
 
     <div className="row m-auto">
         {this.state.propertiesList.map((prop,key)=>{
-            console.log(key);
+            // console.log(key);
                 return(
                     <div className="p-0 rounded shadow" id='smallcon' key={key}>
                     <img src={`/images/properties/${prop.image}`}
@@ -75,11 +76,12 @@ class Recommend extends Component{
             </Alert>
           )
         }
+      }
     }
 }
 export default connect(
     (state) => {
-      console.log(state);
+      // console.log(state);
       return {
         propertiesList: state.properties.list, //function in properties reducer
       };
