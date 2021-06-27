@@ -33,7 +33,7 @@ const Home = () => {
           style={{
             height: "fit-content",
             position: "absolute",
-            top: "44%",
+            top: "42%",
             left: "20%",
           }}
         >
@@ -56,7 +56,7 @@ const Home = () => {
           style={{
             height: "fit-content",
             position: "absolute",
-            top: "73%",
+            top: "71%",
             right: "20%",
           }}
         >
