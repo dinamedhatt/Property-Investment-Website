@@ -36,7 +36,7 @@ const Recommend=({propList})=>{
                       <input className='btn btn-medium col-12 img-fluid viweBtn'  
                       style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View' 
                       onClick={()=>{
-                        history.push(`property/${prop.id}`);
+                        history.push(`/property/${prop.id}`);
                       }}
                       />
                       </div>
