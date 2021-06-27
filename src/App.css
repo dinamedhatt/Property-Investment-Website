@@ -1214,4 +1214,9 @@ top:26%
   padding:0.7rem;
   z-index: 1;
   background-color: #212529;
+  transition: all 1s;
+}
+
+.scroll-btn:hover{
+  background-color: black;
 }
