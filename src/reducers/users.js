@@ -27,6 +27,9 @@ export function users(state = {}, action) {
     case "user_applylist":
       return { ...state, applylist: action.payload };
 
+    case "unapply-property":
+      return { ...state, applylist: action.payload };
+
     default:
       return state;
   }

@@ -192,7 +192,7 @@ app.get("/property/:id", (req, res) => {
 });
 
 //put the like user
-app.put("/like/:id",requireLogin, (req, res) => {
+app.put("/like/:id", requireLogin, (req, res) => {
   //addToSet for unique values
   User.updateOne({ _id: req.params.id }, { $addToSet: { wishlist: req.body } })
     .then(() => res.send("success"))
@@ -260,6 +260,19 @@ app.get("/appliedList/:id", (req, res) => {
     }
   });
 });
+
+//deleting property from applied by prop id
+app.put("/unapply/:id", (req, res) => {
+  User.updateOne(
+    { _id: req.params.id },
+    { $pull: { property: { id: req.body.id } } }
+  )
+    .then(() => res.send("success"))
+    .catch((err) => {
+      res.send("error");
+    });
+});
+
 
 //contact us form
 const transporter = nodemailer.createTransport({

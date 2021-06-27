@@ -163,7 +163,7 @@ export async function updateUser(user, id) {
 
 //like
 
-export function wishlistUser(token,wishlist, id) {
+export function wishlistUser(token, wishlist, id) {
   let payload = null;
   try {
     let response = fetch(`${baseURL}/like/${id}`, {
@@ -171,7 +171,6 @@ export function wishlistUser(token,wishlist, id) {
       headers: {
         "Content-type": "application/json; charset=UTF-8",
         Authorization: `Bearer ${token}`,
-        
       },
       body: JSON.stringify(wishlist),
     });
@@ -225,7 +224,7 @@ export async function getWishlist(id = "") {
   } catch (error) {
     console.log(error);
   }
-  console.log(payload);
+  console.log("paylodwish", payload);
   return {
     type: "user_wishlist",
     payload,
@@ -274,6 +273,28 @@ export async function getApplylist(id = "") {
   // console.log(payload);
   return {
     type: "user_applylist",
+    payload,
+  };
+}
+
+//unapply
+export function Unapply(prop, usrId) {
+  let payload = null;
+  try {
+    let response = fetch(`${baseURL}/unapply/${usrId}`, {
+      method: "PUT",
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify(prop),
+    });
+    payload = response.data;
+  } catch (error) {
+    console.log(error);
+  }
+  console.log("pppp", payload);
+  return {
+    type: "unapply-property",
     payload,
   };
 }

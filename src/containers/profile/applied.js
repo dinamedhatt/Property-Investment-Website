@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getApplylist } from "../../actions";
+import { getApplylist, Unapply } from "../../actions";
+import { FaMinusCircle } from "@react-icons/all-files/fa/FaMinusCircle";
 
 function Arrow(props) {
   const { className, style, onClick } = props;
@@ -23,6 +24,11 @@ class Applied extends Component {
       applyList: [],
     };
   }
+
+  getList = async () => {
+    await this.props.getApplylist(localStorage.getItem("id"));
+    this.setState({ applyList: this.props.applylist });
+  };
 
   render() {
     const settings = {
@@ -74,8 +80,30 @@ class Applied extends Component {
                 <p style={{ color: "#fff", fontSize: "1em" }}>View</p>
               </NavLink>
             </div>
-            <div  className='d-flex p-1 bg-dark text-light position-absolute col-12' style={{bottom:0}}>
-              Status: <p className='my-0' {...(prop.state)}>&nbsp;Pending..</p>
+            <FaMinusCircle
+              style={{
+                fontSize: "2rem",
+                color: "white",
+                position: "absolute",
+                zIndex: 1,
+                top: "4%",
+                left: "4%",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                let obj = { id: prop.id };
+                this.props.Unapply(obj, localStorage.getItem("id"));
+                this.getList();
+              }}
+            />
+            <div
+              className="d-flex p-1 bg-dark text-light position-absolute col-12"
+              style={{ bottom: 0 }}
+            >
+              Status:{" "}
+              <p className="my-0" {...prop.state}>
+                &nbsp;Pending..
+              </p>
             </div>
           </div>
         </div>
@@ -106,6 +134,6 @@ export default connect(
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getApplylist }, dispatch);
+    return bindActionCreators({ getApplylist, Unapply }, dispatch);
   }
 )(Applied);
