@@ -8,18 +8,9 @@ class NavBAR extends Component{
   constructor(){
     super();
     this.state={
-      logged:false
     }
   }
 
-  componentDidMount(){
-   if(localStorage.getItem('jwt')){
-    this.setState({logged:true});
-    
-   }else{
-    this.setState({logged:false});
-   }
-  }
 
   render(){
   const active = {
@@ -59,13 +50,13 @@ class NavBAR extends Component{
             <Nav.Link className="mx-auto mx-lg-3 ms-lg-0 ">
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3" {...(!this.state.logged && {style: { display:'none'}})}>
+            <Nav.Link className="mx-auto mx-lg-3" {...(!localStorage.getItem('jwt') && {style: { display:'none'}})}>
               <NavLink to={`/profile/${localStorage.getItem("id")}`} activeStyle={active} style={linkStyle}>Profile</NavLink>
             </Nav.Link>
             <Nav.Link className="mx-auto mx-lg-3">
               <NavLink exact to='/property' activeStyle={active} style={linkStyle}>Property</NavLink>
             </Nav.Link>
-            <Nav.Link className="mx-auto mx-lg-3" {...(this.state.logged && {style: { display:'none'}})}>
+            <Nav.Link className="mx-auto mx-lg-3" {...(localStorage.getItem('jwt') && {style: { display:'none'}})}>
               <NavLink to='/features' activeStyle={active} style={linkStyle}>Features</NavLink>
             </Nav.Link>
             <NavDropdown
@@ -75,7 +66,7 @@ class NavBAR extends Component{
               id="navbarScrollingDropdown"
             >
 
-              <NavDropdown.Item  {...(!this.state.logged && {style: { display:'none'}})}>
+              <NavDropdown.Item  {...(!localStorage.getItem('jwt') && {style: { display:'none'}})}>
               <NavLink to="/features" style={dropDownStyle}>Features</NavLink> </NavDropdown.Item> 
              
               <NavDropdown.Item>
@@ -101,7 +92,7 @@ class NavBAR extends Component{
             </NavDropdown>
           </Nav>
 
-          <div {...(!this.state.logged && {style: { display:'none'}})}>
+          <div {...(!localStorage.getItem('jwt') && {style: { display:'none'}})}>
             <div className=" d-flex col-xl-12 offset-xxl-11 offset-xl-9 me-xxl-4 me-xl-1">
             <FaUserAlt  className=" mb-lg-2 me-4 mb-xl-0 offset-lg-0  mt-2 offset-sm-5 offset-4" style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push(`/profile/${localStorage.getItem("id")}`)}}/>
           <input
@@ -112,12 +103,11 @@ class NavBAR extends Component{
                 onClick={()=>{
                   localStorage.clear()
                   this.props.history.push('/')
-                  this.setState({logged:false})
                 }}
               />
           </div>
           </div>
-          <div {...(this.state.logged && {style: { display:'none'}})}>
+          <div {...(localStorage.getItem('jwt') && {style: { display:'none'}})}>
           <div className="d-flex  flex-xl-row flex-lg-column  flex-xxl-nowrap  flex-xl-nowrap  flex-lg-nowrap">
             <div className="offset-xxl-6  offset-xl-3 offset-lg-1  mb-lg-2  mb-xl-0  mb-0 offset-md-4 offset-sm-3  offset-2">
               <JoinBtn />

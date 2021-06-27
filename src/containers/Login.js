@@ -162,8 +162,8 @@ class Login extends Component {
           localStorage.setItem("jwt",this.props.data.token)
           localStorage.setItem("id",this.props.data.id)
           this.setState({alert:""})
-          // this.props.history.push(`/profile/${localStorage.getItem("id")}`)
-          window.location.assign(`/profile/${localStorage.getItem("id")}`)
+          this.props.history.push(`/profile/${localStorage.getItem("id")}`)
+          // window.location.assign(`/profile/${localStorage.getItem("id")}`)
         }
         else{
         this.setState({ alert: this.props.data }); }
