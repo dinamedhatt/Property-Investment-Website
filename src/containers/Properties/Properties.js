@@ -28,13 +28,22 @@ class Properties extends Component {
       return prop.name.toLowerCase().includes(name.toLowerCase());
     });
     this.setState({ filteredList: listt });
-    console.log("filtername (user) - home:", this.state.filteredList);
+    // console.log("filtername (user) - home:", this.state.filteredList);
   };
 
   filterPropType = (prop) => {
     const list = prop;
     this.setState({ filteredList: list });
   };
+
+  wishlistFunc=async ()=>{
+     if (localStorage.getItem("jwt")) {
+      await this.props.getWishlist(localStorage.getItem("id"));
+      this.setState({ likedList: this.props.userLikes });
+      // console.log("LIKED TANY", this.state.likedList);
+    }
+
+  }
 
   render() {
     return (
@@ -62,7 +71,8 @@ class Properties extends Component {
                           let propArr = [];
                           propArr.push(property);
                           this.setState({ wishList: propArr }, function () {
-                            console.log("haha", this.state.wishList);
+                            // console.log("haha", this.state.wishList);
+                            this.wishlistFunc()
                           });
                           this.props.wishlistUser(
                             propArr,
@@ -74,15 +84,16 @@ class Properties extends Component {
                       <FaBookmark
                         style={{ display: "none" }}
                         // eslint-disable-next-line eqeqeq
-                        {...(!this.state.likedList.filter(
+                        {...(this.state.likedList.filter(
                           (prop) => prop.id === property.id
-                        ).length == 0 && { style: { display: "block" } })}
+                        ).length == 1 && { style: { display: "block" } })}
                         onClick={() => {
                           let obj = { id: property.id };
                           this.props.unlikeUser(
                             obj,
                             localStorage.getItem("id")
-                          );
+                            );
+                            this.wishlistFunc()
                         }}
                       />
                     </IconContext.Provider>
@@ -147,7 +158,7 @@ class Properties extends Component {
     if (localStorage.getItem("jwt")) {
       await this.props.getWishlist(localStorage.getItem("id"));
       this.setState({ likedList: this.props.userLikes });
-      console.log("LIKED!", this.state.likedList);
+      // console.log("LIKED!", this.state.likedList);
     }
   }
 }

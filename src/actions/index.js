@@ -173,7 +173,7 @@ export function wishlistUser(wishlist, id) {
       },
       body: JSON.stringify(wishlist),
     });
-    payload = response.json();
+    payload = response.data;
   } catch (error) {
     console.log(error);
   }
@@ -195,7 +195,7 @@ export function unlikeUser(prop, usrId) {
       },
       body: JSON.stringify(prop),
     });
-    payload = response.json();
+    payload = response.data;
   } catch (error) {
     console.log(error);
   }
