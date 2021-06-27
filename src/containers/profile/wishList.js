@@ -26,6 +26,11 @@ class WishList
        wishList:[]
       }
    }
+   getList = async ()=>{
+    await this.props.getWishlist(localStorage.getItem("id"))
+  this.setState({wishList:this.props.wishlist})
+  }
+
   render() { 
     const settings ={ 
             infinite: false,
@@ -69,9 +74,10 @@ class WishList
                           <NavLink style={{textDecoration:'none'}} to={`/property/${prop.id}`}><p style={{color: "#fff" , fontSize: "1em"}}>View</p></NavLink>
                         </div>
                         <FaMinusCircle style={{fontSize:'2rem', color:'white',position:"absolute",zIndex:1,top:"4%",left:'4%',cursor:"pointer"}} onClick={()=>{
-                        let obj = {id:prop.id}; 
-                        console.log(obj)
-                         this.props.unlikeUser(obj,localStorage.getItem("id"))
+                          let obj = {id:prop.id}; 
+                          console.log(obj)
+                          this.props.unlikeUser(obj,localStorage.getItem("id"))
+                          this.getList()
                         }}/>
                       </div>
                     </div>
