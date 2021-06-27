@@ -2,12 +2,23 @@ import { useHistory } from 'react-router-dom';
 
 const Error2 = ()=>{
 const history = useHistory();
-const reDirect = () => history.push('/login'); 
     
 return(
     <div className='position-relative text-center p-5'>
-    <img src='/images/authorize.png' alt='authorize' className='img-fluid col-lg-5 col-md-7 col-sm-9'/>
-    <button className='btn btn-medium btn-rounded px-4 d-block mx-auto mt-4 position-absolute' style={{ backgroundColor: "#2b59b4", color: "white",top:'50%',left:'40%'}} onClick={reDirect} >Login Now</button>
+    <img src='/images/theif.png' alt='authorize' className='img-fluid col-lg-5 col-md-7 col-sm-9'/>
+    <div className='error-lights'></div>
+
+    <div className='position-absolute' style={{top:"20%",right:"18%"}}>
+    <h1 className='text-dark fw-bold'>Unauthorized<br/>Access</h1>
+    <input type='button' className='btn btn-medium btn-rounded px-4 d-block mx-auto mt-4' 
+    style={{backgroundColor: "white", border: "black 2px solid"}} onClick={()=>{
+        if(localStorage.getItem("jwt")){history.push(`/profile/${localStorage.getItem("id")}`); }
+        else{history.push(`/login`)}
+    }} 
+    {...(localStorage.getItem("jwt")) && {value:"Back to Profile"}}
+    {...(!localStorage.getItem("jwt")) && {value:"Login Now"}}
+    />
+    </div>
     </div>
     )
 }

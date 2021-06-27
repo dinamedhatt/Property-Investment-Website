@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { addUser } from "../actions";
 import AlertMsg from "../components/alertMsg";
+import Error2 from "../components/errors/error2";
 
 class Register extends Component {
   constructor() {
@@ -91,6 +92,25 @@ class Register extends Component {
     });
   };
 
+
+  addUser=async(e)=>{
+      e.preventDefault();
+           let user = new FormData();
+     user.append('fname',this.state.fname);
+     user.append('lname',this.state.lname);
+     user.append('email',this.state.email);
+     user.append('address',this.state.country);
+     user.append('password',this.state.pass);
+     user.append('image',this.state.image);
+
+      await this.props.addUser(user);
+      if (this.props.data === "success") {
+        this.props.history.push("/login");
+      }
+      else{
+      this.setState({ alert: this.props.data });}
+  }
+
   render() {
     const active = {
       color: "#2B59B4",
@@ -101,8 +121,9 @@ class Register extends Component {
       color: "#2B59B4",
       textDecoration: "none",
     };
+    if(!localStorage.getItem("jwt")){
     return (
-      <div className="parent">
+      <div>
            <div style={{position:'fixed',top:"12%",width:"100%",zIndex:1}} {...(this.state.alert === '' && {
                          style: { display:'none'}
                          })}>
@@ -253,8 +274,8 @@ class Register extends Component {
             className="btn col-md-3 col-4 m-auto "
             style={{ backgroundColor: "#2B59B4", color: "white" }}
             value="Sign Up"
-            id="submit-btn"
             disabled={!this.state.formValid}
+            onClick={this.addUser}
           />
           <div className="row">
             <p
@@ -276,38 +297,12 @@ class Register extends Component {
           </div>
         </form>
       </div>
-    );
+    );}
+    else {
+      return (<Error2/>)
+    }
   }
-
-  componentDidMount() {
-    const btn = document.querySelector("#submit-btn");
-    btn.addEventListener("click", async (e) => {
-      e.preventDefault();
-      // const user = {
-      //   fname: this.state.fname,
-      //   lname: this.state.lname,
-      //   email: this.state.email,
-      //   password: this.state.pass,
-      //   address: this.state.country,
-      //   image:this.state.image
-      // };
-
-           let user = new FormData();
-     user.append('fname',this.state.fname);
-     user.append('lname',this.state.lname);
-     user.append('email',this.state.email);
-     user.append('address',this.state.country);
-     user.append('password',this.state.pass);
-     user.append('image',this.state.image);
-
-      await this.props.addUser(user);
-      if (this.props.data === "success") {
-        this.props.history.push("/login");
-      }
-      else{
-      this.setState({ alert: this.props.data });}
-    });
-  }
+    
 }
 
 export default connect(

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { userLogin } from "../actions";
 import AlertMsg from "../components/alertMsg";
+import Error2 from "../components/errors/error2";
 
 class Login extends Component {
     constructor() {
@@ -57,8 +58,24 @@ class Login extends Component {
        this.setState({[name]: value},
         () => { this.validateField(name, value) });
     }
-  
 
+    logUser=async (e) => {
+      e.preventDefault();
+      const user = {
+        email: this.state.email,
+        password: this.state.pass
+      };
+      await this.props.userLogin(user);
+      if (this.props.data.token) {
+        localStorage.setItem("jwt",this.props.data.token)
+        localStorage.setItem("id",this.props.data.id)
+        this.setState({alert:""})
+        this.props.history.push(`/profile/${localStorage.getItem("id")}`)
+        // window.location.assign(`/profile/${localStorage.getItem("id")}`)
+      }
+      else{
+      this.setState({ alert: this.props.data }); }
+    }
  
     render() {
       const active = {
@@ -71,6 +88,7 @@ class Login extends Component {
         textDecoration: "none",
         
       }
+      if(!localStorage.getItem("jwt")){
       return (
         <div>
            <div style={{position:'fixed',top:"12%",width:"100%",zIndex:1}} {...(this.state.alert === '' && {
@@ -135,7 +153,7 @@ class Login extends Component {
               className="btn  col-3 m-auto "
               style={{ backgroundColor: "#2B59B4", color: "white" }}
               value="Login"
-              id="submit-btn"
+              onClick={this.logUser}
               disabled={!this.state.formValid}
             />
             <div className="row">
@@ -146,28 +164,8 @@ class Login extends Component {
             </div>
           </form> 
         </div>
-      );
-    }
-  
-    componentDidMount() {
-      const btn = document.querySelector("#submit-btn");
-      btn.addEventListener("click", async (e) => {
-        e.preventDefault();
-        const user = {
-          email: this.state.email,
-          password: this.state.pass
-        };
-        await this.props.userLogin(user);
-        if (this.props.data.token) {
-          localStorage.setItem("jwt",this.props.data.token)
-          localStorage.setItem("id",this.props.data.id)
-          this.setState({alert:""})
-          this.props.history.push(`/profile/${localStorage.getItem("id")}`)
-          // window.location.assign(`/profile/${localStorage.getItem("id")}`)
-        }
-        else{
-        this.setState({ alert: this.props.data }); }
-      });
+      );}
+      else{return <Error2/>}
     }
   }
   

@@ -10,7 +10,10 @@ const JoinBtn = () => {
         style={{ backgroundColor: "#2b59b4", color: "white" }}
         type="button"
         value="Join Us Now"
-        onClick={()=>{history.push('/register');}}
+        onClick={()=>{
+          if(localStorage.getItem("jwt")){alert("You are logged in, logout first if you want to register to another account.")}
+          else{history.push('/register');}
+        }}
       />
 
     </div>

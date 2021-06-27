@@ -1220,3 +1220,21 @@ top:26%
 .scroll-btn:hover{
   background-color: black;
 }
+
+@keyframes lights {
+  from {left: 15%;}
+  to {left: 60%;}
+}
+
+.error-lights{
+  border-radius: 100%;
+  padding:7%;
+  background-color:#ffcd0038;
+  width: 25rem;
+  height: 25rem;
+  position: absolute;
+  top:7%;
+  z-index: 1;
+  -webkit-animation: lights 3s ease-in-out 1s infinite alternate both;
+  animation: lights 3s ease-in-out 1s infinite alternate both;
+}
