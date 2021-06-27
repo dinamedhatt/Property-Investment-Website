@@ -1202,3 +1202,21 @@ top:26%
 
 
 
+
+/* ---------------Scroll Btn */
+.scroll-btn{
+  cursor:pointer;
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  border-radius: 100%;
+  width: fit-content;
+  padding:0.7rem;
+  z-index: 1;
+  background-color: #212529;
+  transition: all 1s;
+}
+
+.scroll-btn:hover{
+  background-color: black;
+}
