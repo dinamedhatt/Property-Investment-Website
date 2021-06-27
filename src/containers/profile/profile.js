@@ -62,17 +62,22 @@ class Profile extends Component {
     render() {
       if(localStorage.getItem('jwt')){
     return (
-        <div className='pb-5'>
+        <div className='pb-5 position-relative'>
           {(this.state.edit) &&
           <Edit handleToUpdate = {async(obj,editStatus)=>{ 
             await this.setState({name:`${obj.fname} ${obj.lname}`,address:obj.address,occupation:obj.occupation,edit:editStatus});
             this.handleRcmd()
         }}/>
       }
+  
+      <div style={{ background: "linear-gradient(0deg, rgb(23 5 88 / 12%), rgba(19, 6, 94, 0.3)) no-repeat, url(/images/profileCover.jpg)"
+      ,backgroundRepeat: 'no-repeat',height:'200px',
+      position:'absolute',width:'100%'}}></div>
+
             {/* ---------------user section------------------------------------------------------- */}
             <div className="user-section col-xxl-6 col-md-8 col-10 mx-auto p-lg-5 ps-md-0">
                 <div className="user-data ">
-                   <p className="input  name col-10">{this.state.name} </p>
+                   <p className="input  name col-10">{this.state.name}</p>
                    <p className='input black col-10'>{this.state.email}</p>
                    <p className='input black col-10'>{this.state.occupation}</p>
                    <p className='input location col-10'>{this.state.address}</p>
