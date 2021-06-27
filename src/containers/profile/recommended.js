@@ -2,39 +2,16 @@ import {FaMapMarkerAlt} from '@react-icons/all-files/fa/FaMapMarkerAlt'
 import {FaCoins} from '@react-icons/all-files/fa/FaCoins'
 import {FaChevronRight} from '@react-icons/all-files/fa/FaChevronRight'
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { getRcmd } from '../../actions';
-import {Alert,Button} from 'react-bootstrap'
-const { Component } = require("react");
-
-class Recommend extends Component{
-    constructor() {
-        super();
-        this.state = {
-          propertiesList: []
-        };
-        
-      }
-
-    async componentDidMount() {
-        await this.props.getRcmd(localStorage.getItem("location"));
-        this.setState({ propertiesList: this.props.propertiesList });
-        
-        //handling recommendation appearance
-        if(this.state.propertiesList.length>4){
-            var propArr=[];
-            for(let i =0; i<4;i++){
-                propArr.push(this.state.propertiesList[i]);
-            }
-            this.setState({propertiesList:propArr})
-        }
-      }
+import {Alert} from 'react-bootstrap'
+import { useHistory } from 'react-router';
 
 
-    render(){
-      if(this.state.propertiesList){
-      if(this.state.propertiesList.length){
+const Recommend=({propList})=>{
+  const history = useHistory()
+
+      if(propList){
+        console.log("recmd",propList)
+      if(propList.length){
         return(
             <div className="col-9 rounded mx-auto shadow px-2 py-4 mt-5">
               
@@ -44,8 +21,7 @@ class Recommend extends Component{
     </div>
 
     <div className="row m-auto">
-        {this.state.propertiesList.map((prop,key)=>{
-            // console.log(key);
+        {propList.map((prop,key)=>{
                 return(
                     <div className="p-0 rounded shadow" id='smallcon' key={key}>
                     <img src={`/images/properties/${prop.image}`}
@@ -57,7 +33,12 @@ class Recommend extends Component{
                              <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>{prop.location}</p>
                              <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>{prop.budget}</p>    
                       </div>       
-                         <NavLink to={`/property/${prop.id}`} ><input className='btn btn-medium col-12 img-fluid viweBtn'  style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View'/></NavLink> 
+                      <input className='btn btn-medium col-12 img-fluid viweBtn'  
+                      style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View' 
+                      onClick={()=>{
+                        history.push(`property/${prop.id}`);
+                      }}
+                      />
                       </div>
                     </div>
                 )
@@ -78,16 +59,4 @@ class Recommend extends Component{
         }
       }
     }
-}
-export default connect(
-    (state) => {
-      // console.log(state);
-      return {
-        propertiesList: state.properties.list, //function in properties reducer
-      };
-    },
-    (dispatch) => {
-      return bindActionCreators({ getRcmd }, dispatch);
-    }
-  )(Recommend);
-  
+export default Recommend

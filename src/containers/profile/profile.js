@@ -4,7 +4,7 @@ import WishList from "./wishList";
 import Recommend from './recommended'
 
 import {FaUserEdit} from '@react-icons/all-files/fa/FaUserEdit';
-import {getUser} from '../../actions'
+import {getUser,getRcmd} from '../../actions'
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import Error2 from '../../components/errors/error2'
@@ -20,7 +20,8 @@ class Profile extends Component {
           occupation:"",
           address:"",
           image:"",
-          edit:false
+          edit:false,
+          propertiesList: []
         }
     } 
 
@@ -38,19 +39,34 @@ class Profile extends Component {
       this.setState({name:`${user.fname} ${user.lname}`,email:`${user.email}`,address:`${user.address}`,occupation:`${user.occupation}`,image:`${user.image}`})
       localStorage.setItem("location",this.state.address)
       console.log("imageeee",this.state)
+
+      this.handleRcmd()
     }
+    }
+
+    handleRcmd=async()=>{
+      await this.props.getRcmd(this.state.address);
+        this.setState({ propertiesList: this.props.propertiesList });
+        
+        //handling recommendation appearance
+        if(this.state.propertiesList.length>4){
+            var propArr=[];
+            for(let i =0; i<4;i++){
+                propArr.push(this.state.propertiesList[i]);
+            }
+            this.setState({propertiesList:propArr})
+        }
     }
 
 
     render() {
       if(localStorage.getItem('jwt')){
-      console.log('profile render')
     return (
         <div className='pb-5'>
           {(this.state.edit) &&
-          <Edit handleToUpdate = {async(obj,editStatus)=>{
-      
-            await this.setState({name:`${obj.fname} ${obj.fname}`,address:obj.address,occupation:obj.occupation,edit:editStatus});
+          <Edit handleToUpdate = {async(obj,editStatus)=>{ 
+            await this.setState({name:`${obj.fname} ${obj.lname}`,address:obj.address,occupation:obj.occupation,edit:editStatus});
+            this.handleRcmd()
         }}/>
       }
             {/* ---------------user section------------------------------------------------------- */}
@@ -72,7 +88,7 @@ class Profile extends Component {
             <Applied/>
             <WishList/>
             {/* -------------------recomndation------------------------------------------------------------------ */}
-            <Recommend/>
+            <Recommend propList={this.state.propertiesList}/>
 
         </div>
     );
@@ -90,10 +106,11 @@ export default connect(
   (state) => {
     return {
       user: state.users.list,
+      propertiesList: state.properties.list
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getUser }, dispatch);
+    return bindActionCreators({ getUser,getRcmd }, dispatch);
   }
 )(Profile);
   

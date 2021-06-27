@@ -13,6 +13,7 @@ import {
   getApplylist,
   getUser,
   getproperties,
+  getRcmd
 } from "../../actions";
 import axios from "axios";
 import AlertMsg from "../../components/alertMsg";
@@ -24,6 +25,7 @@ class PropertyDetail extends Component {
     this.state = {
       property: {},
       appliedList: [],
+      propertiesList: [],
       applyLetter: "",
       alert: "",
       color: "",
@@ -52,9 +54,9 @@ class PropertyDetail extends Component {
       if (response.data.status === "success") {
         this.addToAppliedList();
         this.hideTextArea();
-        this.setState({ color: "success", alert: "apply letter is sent" });
+        this.setState({ color: "success", alert: "Your application has been submitted successfully! We will get back to you soon on your mail regarding the application" });
       } else if (response.data.status === "fail") {
-        this.setState({ alert: "apply letter is NOT sent!", color: "danger" });
+        this.setState({ alert: "Application letter is NOT sent!", color: "danger" });
       }
     });
   }
@@ -150,8 +152,9 @@ class PropertyDetail extends Component {
           </div>
 
           <div className="apply-letter" id="apply-letter">
-            <h3>Apply Letter </h3>
+            <h3>Application Letter </h3>
             <textarea
+            rows='5'
               value={this.state.applyLetter}
               onChange={this.setLetter.bind(this)}
             />
@@ -180,7 +183,7 @@ class PropertyDetail extends Component {
             <AlertMsg color={this.state.color} msg={this.state.alert} />
           </div>
 
-          <Recommend />
+          <Recommend propList={this.state.propertiesList} />
         </div>
       );
     } else {
@@ -198,39 +201,49 @@ class PropertyDetail extends Component {
       propertiesId: this.props.propertiesList,
     });
 
-    // console.log("props", this.state.propertiesId);
-
     await this.props.getProp(this.props.match.params.id);
     this.setState({ property: this.props.prop });
-    // console.log("yaaaa", this.state.property.id);
 
     await this.props.getApplylist(localStorage.getItem("id"));
     this.setState({ appliedList: this.props.applylist });
-    // console.log("applyedList:", this.state.appliedList);
 
     if (localStorage.getItem("jwt")) {
       await this.props.getUser(
         localStorage.getItem("id"),
         localStorage.getItem("jwt")
       );
+
       this.setState({ viewerUser: this.props.user });
     }
+
+    //------------rcmnd section--------------
+    await this.props.getRcmd(localStorage.getItem("location"));
+        this.setState({ propertiesList: this.props.propertiesList });
+        
+        //handling recommendation appearance
+        if(this.state.propertiesList.length>4){
+            var propArr=[];
+            for(let i =0; i<4;i++){
+                propArr.push(this.state.propertiesList[i]);
+            }
+            this.setState({propertiesList:propArr})
+        }
   }
 }
 
 export default connect(
   (state) => {
-    // console.log(state);
+    console.log(state);
     return {
-      prop: state.properties.list, //function in properties reducer
+      prop: state.properties.prop, //function in properties reducer
       applylist: state.users.applylist,
       user: state.users.list,
       propertiesList: state.properties.list,
     };
   },
   (dispatch) => {
-    return bindActionCreators(
-      { getProp, applylistUser, getApplylist, getUser, getproperties },
+   return bindActionCreators(
+      { getProp, applylistUser, getApplylist, getUser, getRcmd, getproperties },
       dispatch
     );
   }

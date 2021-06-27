@@ -15,7 +15,7 @@ class Edit extends Component{
             show:true,
             fname: "",
             lname: "",
-            country: "Select country",
+            country: "",
             occupation:"",
       
             formErrors: {fname: "", lname: "" },
@@ -88,7 +88,7 @@ class Edit extends Component{
             <div className="col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="text"
-                placeholder="John"
+                value={this.state.fname}
                 className="form-control"
                 name="fname"
                 id="fname"
@@ -108,8 +108,8 @@ class Edit extends Component{
             <div className="col-sm-8 offset-sm-2  col-10 offset-2">
               <input
                 type="text"
-                placeholder='Doe'
                 className="form-control"
+                value={this.state.lname}
                 name="lname"
                 id="lname"
                 required
@@ -135,6 +135,7 @@ class Edit extends Component{
                 placeholder="Doctor"
                 className="form-control"
                 name="occupation"
+                value={this.state.occupation}
                 id="occupation"
                 onChange={this.handleChange}
               />
@@ -153,6 +154,7 @@ class Edit extends Component{
                 className="form-select"
                 name="country"
                 defaultValue={this.state.country}
+                value={this.state.country}
                 onChange={this.handleChange}
               >
                 <option value="Select country" disabled>
@@ -178,9 +180,11 @@ class Edit extends Component{
           await this.props.updateUser(user,localStorage.getItem("id"));
           handleToUpdate(user,false)
           localStorage.setItem("location",user.address)
-          window.location.reload()
         }}>Save Changes</Button>
-          <Button variant="secondary" as={Link} to={`/profile/${localStorage.getItem("id")}`} onClick={()=>{this.setState({show:false})}}>Close</Button>
+          <Button variant="secondary" as={Link} to={`/profile/${localStorage.getItem("id")}`} onClick={()=>{handleToUpdate({fname:this.state.fname,
+            lname:this.state.lname,
+            address:this.state.country,
+            occupation:this.state.occupation},false)}}>Close</Button>
         </Modal.Footer>
       </Modal>
         )

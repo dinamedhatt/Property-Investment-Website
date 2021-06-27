@@ -7,7 +7,7 @@ export function properties(state = {}, action) {
       return { ...state, list: action.payload };
 
     case 'prop_details':
-      return { ...state, list: action.payload };
+      return { ...state, prop: action.payload };
 
     default:
       return state;
