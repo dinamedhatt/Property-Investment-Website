@@ -13,8 +13,8 @@ import Error from "../components/errors/error";
 import Works from "./../components/how-works";
 import ScrollToTop from "./scrollToTop";
 import Profile from '../containers/profile/profile';
-import Properties from "../containers/Properties";
-import PropertyDetail from "../containers/Property-item";
+import Properties from "../containers/Properties/Properties";
+import PropertyDetail from "../containers/Properties/Property-item";
 
 const AppRouting = () => {
   return (

@@ -3,19 +3,19 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { FaCoins, FaBuilding } from "react-icons/fa";
 import { FaMapMarkerAlt } from "@react-icons/all-files/fa/FaMapMarkerAlt";
-import Recommend from "./profile/recommended";
+import Recommend from "../profile/recommended";
 import { Breadcrumb } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import Error from "../components/errors/error";
+import Error from "../../components/errors/error";
 import {
   getProp,
   applylistUser,
   getApplylist,
   getUser,
   getproperties,
-} from "../actions";
+} from "../../actions";
 import axios from "axios";
-import AlertMsg from "../components/alertMsg";
+import AlertMsg from "../../components/alertMsg";
 
 class PropertyDetail extends Component {
   id;

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getRcmd } from "../actions";
+import { getRcmd } from "../../actions";
 
 import { Button, InputGroup, FormControl } from "react-bootstrap";
 import { GoSearch } from "@react-icons/all-files/go/GoSearch";

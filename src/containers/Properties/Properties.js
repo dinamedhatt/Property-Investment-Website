@@ -6,7 +6,7 @@ import {
   wishlistUser,
   unlikeUser,
   getWishlist,
-} from "..//actions";
+} from "../../actions";
 import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { Alert } from "react-bootstrap";
