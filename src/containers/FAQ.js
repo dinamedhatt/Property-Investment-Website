@@ -52,7 +52,7 @@ class FAQ extends Component {
         </section>
         <section className="text-center my-5">
              <h3>Have other question?</h3>
-             <input className='btn btn-medium btn-rounded px-3 mt-3' style={{backgroundColor:"white",border:"black 2px solid"}} type='button' value='Contact Us' onClick={()=>{this.props.history.push('/about')}}/>
+             <input id="allWhiteBtn"  className=' btn btn-medium btn-rounded px-3 mt-3' type='button' value='Contact Us' onClick={()=>{this.props.history.push('/about')}}/>
         </section>
        <DealSection/>
     </div>

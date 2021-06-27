@@ -1325,3 +1325,20 @@ top:26%
   }
  
 }
+
+
+/* ---------allWhiteBtn------------ */
+
+#allWhiteBtn{
+  background-color: rgb(255, 255, 255);
+    border:2px solid black;
+      text-align: center;
+      transition: transform 0.4s linear
+}
+
+#allWhiteBtn:hover{
+background-color:  #292b2e;
+color:white;
+transform: scale(1.1);
+
+}

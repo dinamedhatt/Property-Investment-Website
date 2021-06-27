@@ -10,8 +10,8 @@ return(
 
     <div className='auth'>
     <h1 className='text-dark fw-bold'>Unauthorized<br/>Access</h1>
-    <input type='button' className='btn btn-medium btn-rounded px-4 d-block mx-auto mt-4' 
-    style={{backgroundColor: "white", border: "black 2px solid"}} onClick={()=>{
+    <input id="allWhiteBtn"  type='button' className=' btn btn-medium btn-rounded px-4 d-block mx-auto mt-4' 
+  onClick={()=>{
         if(localStorage.getItem("jwt")){history.push(`/profile/${localStorage.getItem("id")}`); }
         else{history.push(`/login`)}
     }} 
