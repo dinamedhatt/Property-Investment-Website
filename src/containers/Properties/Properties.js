@@ -74,7 +74,7 @@ class Properties extends Component {
                             // console.log("haha", this.state.wishList);
                             this.wishlistFunc()
                           });
-                          this.props.wishlistUser(
+                          this.props.wishlistUser(localStorage.getItem("jwt"),
                             propArr,
                             localStorage.getItem("id")
                           );
@@ -89,7 +89,7 @@ class Properties extends Component {
                         ).length == 1 && { style: { display: "block" } })}
                         onClick={() => {
                           let obj = { id: property.id };
-                          this.props.unlikeUser(
+                          this.props.unlikeUser(localStorage.getItem("jwt"),
                             obj,
                             localStorage.getItem("id")
                             );

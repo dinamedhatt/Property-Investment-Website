@@ -163,17 +163,23 @@ export async function updateUser(user, id) {
 
 //like
 
-export function wishlistUser(wishlist, id) {
+export function wishlistUser(token,wishlist, id) {
   let payload = null;
   try {
     let response = fetch(`${baseURL}/like/${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${token}`,
+        
       },
       body: JSON.stringify(wishlist),
     });
-    payload = response.data;
+    if (!token) {
+      alert("Please login first!");
+    } else {
+      payload = response.data;
+    }
   } catch (error) {
     console.log(error);
   }
@@ -185,17 +191,22 @@ export function wishlistUser(wishlist, id) {
 
 //unlike
 
-export function unlikeUser(prop, usrId) {
+export function unlikeUser(token, prop, usrId) {
   let payload = null;
   try {
     let response = fetch(`${baseURL}/unlike/${usrId}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json; charset=UTF-8",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(prop),
     });
-    payload = response.data;
+    if (!token) {
+      alert("Please login first!");
+    } else {
+      payload = response.data;
+    }
   } catch (error) {
     console.log(error);
   }

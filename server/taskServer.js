@@ -192,7 +192,7 @@ app.get("/property/:id", (req, res) => {
 });
 
 //put the like user
-app.put("/like/:id", (req, res) => {
+app.put("/like/:id",requireLogin, (req, res) => {
   //addToSet for unique values
   User.updateOne({ _id: req.params.id }, { $addToSet: { wishlist: req.body } })
     .then(() => res.send("success"))
@@ -202,7 +202,7 @@ app.put("/like/:id", (req, res) => {
 });
 
 //deleting by prop id
-app.put("/unlike/:id", (req, res) => {
+app.put("/unlike/:id", requireLogin, (req, res) => {
   User.updateOne(
     { _id: req.params.id },
     { $pull: { wishlist: { id: req.body.id } } }
