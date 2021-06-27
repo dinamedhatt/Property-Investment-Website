@@ -8,7 +8,7 @@ return(
     <img src='/images/theif.png' alt='authorize' className='img-fluid col-lg-5 col-md-7 col-sm-9'/>
     <div className='error-lights'></div>
 
-    <div className='position-absolute' style={{top:"20%",right:"18%"}}>
+    <div className='auth'>
     <h1 className='text-dark fw-bold'>Unauthorized<br/>Access</h1>
     <input type='button' className='btn btn-medium btn-rounded px-4 d-block mx-auto mt-4' 
     style={{backgroundColor: "white", border: "black 2px solid"}} onClick={()=>{

@@ -45,7 +45,7 @@ class NavBAR extends Component{
           </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbarScroll" className="me-4" />
-        <Navbar.Collapse id="navbarScroll" className=" pt-4 pt-xxl-5 ">
+        <Navbar.Collapse id="navbarScroll" className=" pt-0 pt-lg-4">
           <Nav className="mr-auto col-xxl-7  col-xl-8 col-lg-9 col-md-12 my-2 my-lg-0 ms-xxl-5  ms-xl-0 fs-5 " navbarScroll>
             <Nav.Link className="mx-auto mx-lg-3 ms-xl-5 ms-lg-3">
               <NavLink exact to='/' activeStyle={active} style={linkStyle}>Home</NavLink>

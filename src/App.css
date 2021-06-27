@@ -1221,11 +1221,11 @@ top:26%
   background-color: black;
 }
 
-@keyframes lights {
-  from {left: 15%;}
-  to {left: 60%;}
-}
 
+
+
+
+/* ------------Error----------------- */
 .error-lights{
   border-radius: 100%;
   padding:7%;
@@ -1237,4 +1237,91 @@ top:26%
   z-index: 1;
   -webkit-animation: lights 3s ease-in-out 1s infinite alternate both;
   animation: lights 3s ease-in-out 1s infinite alternate both;
+}
+
+@keyframes lights {
+  from {left: 15%;}
+  to {left: 60%;}
+}
+
+.auth{top:20%;
+  right:18%;
+  position:absolute;
+}
+
+
+
+@media screen and (max-width: 1350px) {
+ 
+  .error-lights{
+    width: 23rem;
+    height: 23rem;
+    top:8%;
+
+  }
+  @keyframes lights {
+    from {left: 15%;}
+    to {left: 55%;}
+  }
+}
+@media screen and (max-width: 1150px) {
+ 
+  .error-lights{
+    width: 20rem;
+    height: 20rem;
+  }
+  .auth{
+    right:15%;
+    
+  }
+ 
+}
+
+@media screen and (max-width: 1000px) {
+ 
+  .auth{
+    right:10%;
+  }
+  @keyframes lights {
+    from {left: 8%;}
+    to {left: 58%;}
+  }
+ 
+}
+
+@media screen and (max-width: 820px) {
+ 
+  .error-lights{
+    width: 20rem;
+    height: 20rem;
+  }
+  .auth{
+    position: static;
+  }
+  @keyframes lights {
+    from {left: 8%;}
+    to {left: 50%;}
+  }
+ 
+}
+
+@media screen and (max-width: 700px) {
+ 
+  .error-lights{
+    width: 18rem;
+    height: 18rem;
+  }
+  @keyframes lights {
+    from {left: 8%;}
+    to {left: 45%;}
+  }
+ 
+}
+@media screen and (max-width: 550px) {
+ 
+  @keyframes lights {
+    from {left: 8%;}
+    to {left: 38%;}
+  }
+ 
 }
