@@ -273,7 +273,6 @@ app.put("/unapply/:id", (req, res) => {
     });
 });
 
-
 //contact us form
 const transporter = nodemailer.createTransport({
   service: "Gmail",
@@ -327,6 +326,32 @@ app.post("/sendLetter", (req, res) => {
     Regards,<br/>
     ${req.body.viewerUser.fname}<br/>
     ${req.body.viewerUser.email}
+    </div>`,
+  };
+
+  transporter.sendMail(mail, (err) => {
+    if (err) {
+      console.log(err);
+      res.json({
+        status: "fail",
+      });
+    } else {
+      res.json({
+        status: "success",
+      });
+    }
+  });
+});
+
+// cancel apply letter
+app.post("/cancelLetter", (req, res) => {
+  var mail = {
+    from: req.body.user.email,
+    to: "dealgenie98@gmail.com",
+    subject: "cancel apply letter",
+    html: `<div>
+    Dear Deal Genie,<br/><br/>
+    apply sent by ${req.body.user.fname} whos email is ${req.body.user.email} regarding the property "${req.body.propertyData.name}" and its id equals ${req.body.propertyData.id} has been cancelled
     </div>`,
   };
 

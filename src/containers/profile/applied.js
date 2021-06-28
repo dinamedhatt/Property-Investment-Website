@@ -3,8 +3,10 @@ import Slider from "react-slick";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getApplylist, Unapply } from "../../actions";
+import { getApplylist, Unapply, getUser, getProp } from "../../actions";
 import { FaMinusCircle } from "@react-icons/all-files/fa/FaMinusCircle";
+import axios from "axios";
+import AlertMsg from "../../components/alertMsg";
 
 function Arrow(props) {
   const { className, style, onClick } = props;
@@ -22,6 +24,11 @@ class Applied extends Component {
     super();
     this.state = {
       applyList: [],
+      propertyData: {},
+      alert: "",
+      color: "",
+      msg: "",
+      user: {},
     };
   }
 
@@ -29,6 +36,35 @@ class Applied extends Component {
     await this.props.getApplylist(localStorage.getItem("id"));
     this.setState({ applyList: this.props.applylist });
   };
+
+  // getPropId = (_id, _name) => {
+  //   this.setState({ propertyData: { id: _id, name: _name } });
+  //   console.log("proppppppppppppppppppp", this.state.propertyData);
+  // };
+
+  //to handle sending letter
+  sendletter(e) {
+    //sending the email
+    axios({
+      method: "POST",
+      url: "http://localhost:3100/cancelLetter",
+      data: this.state,
+    }).then((response) => {
+      if (response.data.status === "success") {
+        this.setState({
+          color: "success",
+          alert:
+            "Your cancellation has been submitted successfully! We will get back to you soon on your mail regarding the application",
+        });
+        // this.hideTextArea();
+      } else if (response.data.status === "fail") {
+        this.setState({
+          alert: "cancellation letter is NOT sent!",
+          color: "danger",
+        });
+      }
+    });
+  }
 
   render() {
     const settings = {
@@ -60,70 +96,101 @@ class Applied extends Component {
       ],
     };
 
-    const renderSlide = () =>
-      this.state.applyList.map((prop, key) => (
-        <div key={key} className="p-5 mx-3 ">
-          <div className="rounded content">
-            <div className="content-overlay"></div>
-            <img
-              className="col-12 rounded "
-              src={`/images/properties/${prop.image}`}
-              alt={`img${prop.id}`}
-              height="280px"
-            />
-            <div className="content-details fadeIn-top">
-              <h3>{prop.name}</h3>
-              <NavLink
-                style={{ textDecoration: "none" }}
-                to={`/property/${prop.id}`}
-              >
-                <p style={{ color: "#fff", fontSize: "1em" }}>View</p>
-              </NavLink>
-            </div>
-            <FaMinusCircle
-              style={{
-                fontSize: "2rem",
-                color: "white",
-                position: "absolute",
-                zIndex: 1,
-                top: "4%",
-                left: "4%",
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                let obj = { id: prop.id };
-                this.props.Unapply(obj, localStorage.getItem("id"));
-                this.getList();
-              }}
-            />
-            <div
-              className="d-flex p-1 bg-dark text-light position-absolute col-12"
-              style={{ bottom: 0 }}
-            >
-              Status:{" "}
-              <p className="my-0" {...prop.state}>
-                &nbsp;Pending..
-              </p>
-            </div>
-          </div>
-        </div>
-      ));
+    // const renderSlide = () =>
+
+    //   ));
     return (
       <div>
         {this.state.applyList.length > 0 && (
           <div>
             <h2 className="text-center mb-3 mt-5">Recently Applied</h2>
             <Slider className="col-10 col-lg-11 m-auto" {...settings}>
-              {renderSlide()}
+              {this.state.applyList.map((prop, key) => (
+                <div key={key} className="p-5 mx-3 ">
+                  <div className="rounded content">
+                    <div className="content-overlay"></div>
+                    <img
+                      className="col-12 rounded "
+                      src={`/images/properties/${prop.image}`}
+                      alt={`img${prop.id}`}
+                      height="280px"
+                    />
+                    <div className="content-details fadeIn-top">
+                      <h3>{prop.name}</h3>
+                      <NavLink
+                        style={{ textDecoration: "none" }}
+                        to={`/property/${prop.id}`}
+                      >
+                        <p style={{ color: "#fff", fontSize: "1em" }}>View</p>
+                      </NavLink>
+                    </div>
+                    <FaMinusCircle
+                      style={{
+                        fontSize: "2rem",
+                        color: "white",
+                        position: "absolute",
+                        zIndex: 1,
+                        top: "4%",
+                        left: "4%",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => {
+                        let obj = { id: prop.id };
+                        let obj2 = { id: prop.id, name: prop.name };
+                        // console.log(obj2);
+                        this.props.Unapply(obj, localStorage.getItem("id"));
+                        this.setState(
+                          {
+                            propertyData: obj2,
+                          },
+                          () => {
+                            this.sendletter(this);
+                          }
+                        );
+
+                        this.getList();
+                      }}
+                    />
+                    <div
+                      className="d-flex p-1 bg-dark text-light position-absolute col-12"
+                      style={{ bottom: 0 }}
+                    >
+                      Status:{" "}
+                      <p className="my-0" {...prop.state}>
+                        &nbsp;Pending..
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </Slider>
           </div>
         )}
+
+        <div
+          {...(this.state.alert === "" && {
+            style: { display: "none" },
+          })}
+        >
+          <AlertMsg color={this.state.color} msg={this.state.alert} />
+        </div>
       </div>
     );
   }
   async componentDidMount() {
     await this.props.getApplylist(localStorage.getItem("id"));
     this.setState({ applyList: this.props.applylist });
+
+    // await this.props.getProp(this.props.id);
+    // this.setState({ property: this.props.prop });
+    // console.log("property:", this.state.property);
+
+    await this.props.getUser(
+      localStorage.getItem("id"),
+      localStorage.getItem("jwt")
+    );
+
+    this.setState({ user: this.props.user });
   }
 }
 
@@ -131,9 +198,11 @@ export default connect(
   (state) => {
     return {
       applylist: state.users.applylist, //function in properties reducer
+      // prop: state.properties.prop,
+      user: state.users.list,
     };
   },
   (dispatch) => {
-    return bindActionCreators({ getApplylist, Unapply }, dispatch);
+    return bindActionCreators({ getApplylist, Unapply, getUser }, dispatch);
   }
 )(Applied);
