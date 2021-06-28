@@ -33,8 +33,8 @@ const Recommend=({propList})=>{
                              <p>  <FaMapMarkerAlt className="me-2"  style={{color:"#2B59B4"}}/>{prop.location}</p>
                              <p><FaCoins className="me-2"  style={{color:"#2B59B4"}}/>{prop.budget}</p>    
                       </div>       
-                      <input className='btn btn-medium col-12 img-fluid viweBtn'  
-                      style={{backgroundColor:'#2B59B4',color:'white'}} type='button' value='View' 
+                      <input id="allBlueBtn" className='btn btn-medium col-12 img-fluid viweBtn'  
+                       type='button' value='View' 
                       onClick={()=>{
                         history.push(`/property/${prop.id}`);
                       }}

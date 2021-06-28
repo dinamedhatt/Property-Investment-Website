@@ -105,9 +105,9 @@ class Pricing extends Component {
 
         <section className="check-feature-section">
           <p>Not yet convinced?</p>
-          <div  id="allWhiteBtn" className=" btn-container">
+          <div className="btn-container">
             <NavLink to="/features">
-              <button> Check all features </button>
+              <button id="allWhiteBtn"> Check all features </button>
             </NavLink>
           </div>
         </section>

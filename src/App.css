@@ -1342,6 +1342,22 @@ top:26%
 #allWhiteBtn:hover{
 background-color:  #292b2e;
 color:white;
-transform: scale(1.1);
+transform: scale(1.05);
+
+}
+
+/* ---------allBlueBtn------------ */
+
+#allBlueBtn{
+  background-color: #2b59b4;
+  color:white;
+      text-align: center;
+      transition: transform 0.4s linear
+}
+
+#allBlueBtn:hover{
+background-color:  #224997;
+color:white;
+transform: scale(1.05);
 
 }
