@@ -17,7 +17,6 @@ class Edit extends Component{
             lname: "",
             country: "",
             occupation:"",
-      
             formErrors: {fname: "", lname: "" },
             fnameValid: false,
             lnameValid: false,
@@ -25,7 +24,8 @@ class Edit extends Component{
           };
         }
     
-
+    lchange=false;
+    fchange=false;
     validateField(fieldName, value) {
         let fieldValidationErrors = this.state.formErrors;
         let fnameValid = this.state.fnameValid;
@@ -33,13 +33,20 @@ class Edit extends Component{
     
         switch (fieldName) {
           case "fname":
-          case "lname":
             fnameValid = value.match(/^([a-zA-Z]{3,})$/);
-            lnameValid = value.match(/^([a-zA-Z]{3,})$/);
-            fieldValidationErrors.name =
-              fnameValid || lnameValid
-                ? ""
+            fieldValidationErrors.fname =fnameValid ? ""
                 : "*Names should be more than 3 characters without space and numbers";
+                if(fnameValid){
+                  this.fchange=false
+                }
+            break;
+          case "lname":
+            lnameValid = value.match(/^([a-zA-Z]{3,})$/);
+            fieldValidationErrors.lname =lnameValid ? ""
+                : "*Names should be more than 3 characters without space and numbers";
+                if(lnameValid){
+                  this.lchange=false
+                }
             break;
     
           default:
@@ -64,11 +71,20 @@ class Edit extends Component{
     
 
     handleChange = (e) => {
+      
         const { name, value } = e.target;
+        if(name==="lname"){
+            this.lchange=true
+        }
+        if(name==="fname"){
+           this.fchange=true
+        }
         this.setState({ [name]: value }, () => {
           this.validateField(name, value);
         });
+        
       };
+      
 
     render(){
       var handleToUpdate = this.props.handleToUpdate;
@@ -97,6 +113,9 @@ class Edit extends Component{
               />
             </div>
           </div>
+          <div className=" lbl text-secondary  text-center">
+            <FormErrors formErrors={this.state.formErrors.fname} />
+          </div>
 
           <div className="row mb-2 form-group ">
             <label
@@ -119,7 +138,7 @@ class Edit extends Component{
           </div>
 
           <div className=" lbl text-secondary  text-center">
-            <FormErrors formErrors={this.state.formErrors.name} />
+            <FormErrors formErrors={this.state.formErrors.lname} />
           </div>
 
           <div className="row mb-2 form-group ">
@@ -170,7 +189,7 @@ class Edit extends Component{
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button style={{backgroundColor: "#2B59B4",color:"white"}} id='submit-btn' onClick={async () => {
+          <Button  disabled={this.lchange || this.fchange} style={{backgroundColor: "#2B59B4",color:"white"}} id='submit-btn' onClick={async () => {
         let user ={
             fname:this.state.fname,
             lname:this.state.lname,

@@ -651,8 +651,11 @@ input:checked[type="checkbox"]:before {
   height: 250px;
   border-radius: 10px;
   position: relative;
-  margin-top: 6%;
+  top:5rem;
+  margin-bottom: 8rem;
 }
+
+
 .input {
   display: block;
   margin-left: 35%;
@@ -662,13 +665,12 @@ input:checked[type="checkbox"]:before {
 .black,
 .black::placeholder {
   color: #000;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .name,
 .name::placeholder {
   color: #143d8d;
-  font-size: "1.8rem";
-  font-weight: bolder;
+  font-size: 1.6rem;
 }
 .location,
 .location::placeholder {
@@ -1105,7 +1107,8 @@ input:checked[type="checkbox"]:before {
     height: 300px;
     border-radius: 10px;
     position: relative;
-    margin-top: 25%;
+    top:13rem;
+    margin-bottom:16rem
   }
   .user-data {
     padding-top: 100px;
@@ -1324,4 +1327,21 @@ top:26%
     to {left: 38%;}
   }
  
+}
+
+
+/* ---------allWhiteBtn------------ */
+
+#allWhiteBtn{
+  background-color: rgb(255, 255, 255);
+    border:2px solid black;
+      text-align: center;
+      transition: transform 0.4s linear
+}
+
+#allWhiteBtn:hover{
+background-color:  #292b2e;
+color:white;
+transform: scale(1.1);
+
 }

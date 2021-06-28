@@ -96,8 +96,8 @@ class NavBAR extends Component{
             <div className=" d-flex col-xl-12 offset-xxl-11 offset-xl-9 me-xxl-4 me-xl-1">
             <FaUserAlt  className=" mb-lg-2 me-4 mb-xl-0 offset-lg-0  mt-2 offset-sm-5 offset-4" style={{fontSize:'22px',color:'#2B59B4',cursor:'pointer'}} onClick={()=>{this.props.history.push(`/profile/${localStorage.getItem("id")}`)}}/>
           <input
-                className="  px-4 btn btn-medium btn-rounded"
-                style={{ backgroundColor: "white", border: "black 2px solid" }}
+                className=" allWhiteBtn  px-4 btn btn-medium btn-rounded"
+              
                 type="button"
                 value="Log out"
                 onClick={()=>{
@@ -114,8 +114,9 @@ class NavBAR extends Component{
             </div>
 
               <input
+               id="allWhiteBtn" 
                 className="ms-4  ms-lg-3 ms-xl-4 ms-xxl-2 px-4 px-lg-5 px-xl-2 px-xxl-4 btn btn-medium btn-rounded"
-                style={{ backgroundColor: "white", border: "black 2px solid" }}
+             
                 type="button"
                 value="Log in"
                 onClick={()=>{

@@ -22,7 +22,7 @@ const Sponsors = () => {
               </tr>
               </tbody>
           </table>
-          <input className='btn btn-medium btn-rounded px-3' style={{backgroundColor:"white",border:"black 2px solid"}} type='button' value='See all available metrics' onClick={reDirect}/>
+          <input id="allWhiteBtn"  className=' btn btn-medium btn-rounded px-3' type='button' value='See all available metrics' onClick={reDirect}/>
   
       </div>
     );

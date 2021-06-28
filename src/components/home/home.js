@@ -113,9 +113,9 @@ const Home = () => {
         </p>
   </div>
   <h6 className=" text-center fw-bold mt-5">And many more..</h6>
-  <div  className="text-center"><input
-          className="btn btn-medium btn-rounded px-4 mt-3"
-          style={{ backgroundColor: "white", border: "black 2px solid" }}
+  <div  className="text-center"><input 
+  id="allWhiteBtn"
+          className=" btn btn-medium btn-rounded px-4 mt-3"
           type="button"
           value="Check all features"
           onClick={reDirect}

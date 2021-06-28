@@ -46,8 +46,9 @@ const DealSection = () => {
         <div className='col-lg-2 offset-md-3 offset-lg-4 col-md-2 me-md-4  ps-md-4 me-lg-4 me-xl-0 ps-md-0 offset-sm-2 col-sm-2 ps-sm-4 offset-1 col-2 '><JoinBtn/></div>
         
         <div className='col-lg-2 ms-lg-3 col-md-3 ms-md-5 col-sm-8 col-9 ps-5 ps-md-0'><input
-          className="btn btn-medium btn-rounded px-4"
-          style={{ backgroundColor: "white", border: "black 2px solid" }}
+         id="allWhiteBtn" 
+          className=" btn btn-medium btn-rounded px-4"
+       
           type="button"
           value="How it works?"
           onClick={reDirect}
