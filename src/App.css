@@ -670,7 +670,7 @@ input:checked[type="checkbox"]:before {
 .name,
 .name::placeholder {
   color: #143d8d;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 .location,
 .location::placeholder {

@@ -71,7 +71,7 @@ class Profile extends Component {
       }
   
       <div style={{ background: "linear-gradient(0deg, rgb(23 5 88 / 12%), rgba(19, 6, 94, 0.3)) no-repeat, url(/images/profileCover.jpg)"
-      ,backgroundRepeat: 'no-repeat',height:'200px',
+      ,height:'200px',
       position:'absolute',width:'100%'}}></div>
 
             {/* ---------------user section------------------------------------------------------- */}
