@@ -76,13 +76,13 @@ class Contact extends Component {
   render() {
     return (
       <div className="rounded border border-secondary  row  col-lg-6 offset-lg-3  col-10 offset-1  my-5">
-        <div className="text-center col-12 m-0 py-3 mb-2 text-light" 
+        <div className="text-center col-12 m-0 py-3 mb-1 text-light" 
         style={{background:"linear-gradient(0deg, rgb(0 0 0 / 38%), rgb(0 0 0 / 80%)) 0% 0% / cover, no-repeat, url(/images/contact.jpg)",backgroundSize:"cover",backgroundRepeat:"no-repeat"}}>
           <h3 className="fw-bold pb-3 mt-4">Contact Us</h3>
           <p>
             Simply send as an email to:
             <br />{" "}
-            <a href="mailto:dealgenie98@gmail.com?subject=Contact Deal Genie" style={{textDecoration:"none"}}>
+            <a href="mailto:dealgenie98@gmail.com?subject=Contact Deal Genie" style={{color:'white'}}>
             dealgenie98@gmail.com
             </a>{" "}
             or use the form below
