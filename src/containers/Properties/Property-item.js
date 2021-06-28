@@ -137,8 +137,8 @@ class PropertyDetail extends Component {
                     {...(this.state.appliedList.some(
                       (e) => e.id === this.state.property.id
                     ) && { disabled: true })}
+                    id="allBlueBtn"
                     className="btn btn-medium rounded px-3 property-apply-btn"
-                    style={{ backgroundColor: "#2B59B4", color: "white" }}
                     onClick={() => {
                       document.getElementById("apply-letter").style.display =
                         "block";

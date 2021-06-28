@@ -6,8 +6,8 @@ const JoinBtn = () => {
 
       {/* THE JOIN WAITLIST BTN */}
       <input
+      id="allBlueBtn"
         className="btn btn-medium btn-rounded px-4"
-        style={{ backgroundColor: "#2b59b4", color: "white" }}
         type="button"
         value="Join Us Now"
         onClick={()=>{
