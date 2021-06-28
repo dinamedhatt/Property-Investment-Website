@@ -8,7 +8,7 @@ export async function getfaq() {
     let response = await fetch(`${baseURL}/faq`);
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   return {
     type: "FAQ_LIST",
@@ -24,7 +24,7 @@ export async function getproperties(token) {
     let response = await fetch(`${baseURL}/property`, { method: "GET" });
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+  //  console.log(error);
   }
   return {
     type: "PROPERTIES_LIST",
@@ -40,7 +40,7 @@ export async function getProp(id = "") {
 
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   // console.log(payload);
   return {
@@ -56,7 +56,7 @@ export async function getRcmd(id = "") {
     let response = await fetch(`${baseURL}/recommend/${id}`, { method: "GET" });
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   return {
     type: "prop_recommend",
@@ -83,7 +83,7 @@ export async function addUser(user) {
       }
     });
   } catch (err) {
-    console.log(err);
+   // console.log(err);
   }
   return {
     type: "user_add",
@@ -106,7 +106,7 @@ export async function userLogin(user) {
       }
     });
   } catch (err) {
-    console.log(err);
+ //   console.log(err);
   }
   return {
     type: "user_Login",
@@ -130,7 +130,7 @@ export async function getUser(id = "", token) {
     }
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   // console.log(payload);
   return {
@@ -153,7 +153,7 @@ export async function updateUser(user, id) {
     });
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   return {
     type: "user_update",
@@ -180,7 +180,7 @@ export function wishlistUser(token, wishlist, id) {
       payload = response.data;
     }
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   return {
     type: "Wishlist_user",
@@ -207,7 +207,7 @@ export function unlikeUser(token, prop, usrId) {
       payload = response.data;
     }
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   return {
     type: "unlike_user",
@@ -222,9 +222,9 @@ export async function getWishlist(id = "") {
     let response = await fetch(`${baseURL}/wishlist/${id}`, { method: "GET" });
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
-  console.log("paylodwish", payload);
+ // console.log("paylodwish", payload);
   return {
     type: "user_wishlist",
     payload,
@@ -251,7 +251,7 @@ export function applylistUser(token, property, id) {
       payload = response.json();
     }
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
   return {
     type: "add_applylist",
@@ -268,7 +268,7 @@ export async function getApplylist(id = "") {
     });
     payload = await response.json();
   } catch (error) {
-    console.log(error);
+//    console.log(error);
   }
   // console.log(payload);
   return {
@@ -290,9 +290,9 @@ export function Unapply(prop, usrId) {
     });
     payload = response.data;
   } catch (error) {
-    console.log(error);
+   // console.log(error);
   }
-  console.log("pppp", payload);
+  //console.log("pppp", payload);
   return {
     type: "unapply-property",
     payload,

@@ -137,7 +137,7 @@ class Applied extends Component {
                       onClick={() => {
                         let obj = { id: prop.id };
                         let obj2 = { id: prop.id, name: prop.name };
-                        // console.log(obj2);
+                        
                         this.props.Unapply(obj, localStorage.getItem("id"));
                         this.setState(
                           {
@@ -181,9 +181,7 @@ class Applied extends Component {
     await this.props.getApplylist(localStorage.getItem("id"));
     this.setState({ applyList: this.props.applylist });
 
-    // await this.props.getProp(this.props.id);
-    // this.setState({ property: this.props.prop });
-    // console.log("property:", this.state.property);
+  
 
     await this.props.getUser(
       localStorage.getItem("id"),

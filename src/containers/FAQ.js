@@ -67,7 +67,7 @@ class FAQ extends Component {
   
   export default connect(
         (state) => {
-          console.log(state);
+          
           return {
             faqlist: state.faqs.list  //function in faq reducer
           };

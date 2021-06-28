@@ -28,7 +28,6 @@ class Properties extends Component {
       return prop.name.toLowerCase().includes(name.toLowerCase());
     });
     this.setState({ filteredList: listt });
-    // console.log("filtername (user) - home:", this.state.filteredList);
   };
 
   filterPropType = (prop) => {
@@ -40,7 +39,6 @@ class Properties extends Component {
      if (localStorage.getItem("jwt")) {
       await this.props.getWishlist(localStorage.getItem("id"));
       this.setState({ likedList: this.props.userLikes });
-      // console.log("LIKED TANY", this.state.likedList);
     }
 
   }
@@ -72,7 +70,6 @@ class Properties extends Component {
                           let propArr = [];
                           propArr.push(property);
                           this.setState({ wishList: propArr }, function () {
-                            // console.log("haha", this.state.wishList);
                             this.wishlistFunc()
                           });
                           this.props.wishlistUser(localStorage.getItem("jwt"),
@@ -154,12 +151,10 @@ class Properties extends Component {
       propertiesList: this.props.propertiesList,
       filteredList: this.props.propertiesList,
     });
-    // console.log(this.state.propertiesList);
 
     if (localStorage.getItem("jwt")) {
       await this.props.getWishlist(localStorage.getItem("id"));
       this.setState({ likedList: this.props.userLikes });
-      // console.log("LIKED!", this.state.likedList);
     }
   }
 }

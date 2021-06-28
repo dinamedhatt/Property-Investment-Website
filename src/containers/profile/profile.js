@@ -38,7 +38,7 @@ class Profile extends Component {
       const user = this.props.user;
       this.setState({name:`${user.fname} ${user.lname}`,email:`${user.email}`,address:`${user.address}`,occupation:`${user.occupation}`,image:`${user.image}`})
       localStorage.setItem("location",this.state.address)
-      console.log("imageeee",this.state)
+     
 
       this.handleRcmd()
     }

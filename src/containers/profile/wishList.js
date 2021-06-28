@@ -75,7 +75,7 @@ class WishList
                         </div>
                         <FaMinusCircle style={{fontSize:'2rem', color:'white',position:"absolute",zIndex:1,top:"4%",left:'4%',cursor:"pointer"}} onClick={()=>{
                           let obj = {id:prop.id}; 
-                          console.log(obj)
+                          
                           this.props.unlikeUser(localStorage.getItem("jwt"),obj,localStorage.getItem("id"))
                           this.getList()
                         }}/>
@@ -96,7 +96,7 @@ class WishList
  
 export default connect(
   (state) => {
-    console.log(state)
+    
     return {
       wishlist: state.users.list, //function in properties reducer
     };

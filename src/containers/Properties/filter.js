@@ -124,7 +124,6 @@ class Filter extends Component {
 
 export default connect(
   (state) => {
-    console.log(state);
     return {
       propertiesList: state.properties.list, //function in properties reducer
     };

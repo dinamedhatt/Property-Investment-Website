@@ -10,7 +10,7 @@ const Recommend=({propList})=>{
   const history = useHistory()
 
       if(propList){
-        console.log("recmd",propList)
+     
       if(propList.length){
         return(
             <div className="col-9 rounded mx-auto shadow px-2 py-4 mt-5">

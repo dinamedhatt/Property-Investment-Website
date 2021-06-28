@@ -307,7 +307,7 @@ class Register extends Component {
 
 export default connect(
   (state) => {
-    console.log(state);
+    
     return {
       data: state.users.list,
     };

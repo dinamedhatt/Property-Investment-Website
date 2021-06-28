@@ -233,7 +233,6 @@ class PropertyDetail extends Component {
 
 export default connect(
   (state) => {
-    console.log(state);
     return {
       prop: state.properties.prop, //function in properties reducer
       applylist: state.users.applylist,
