@@ -11,7 +11,6 @@ import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { Alert } from "react-bootstrap";
 import Filter from "./filter";
-import {AiOutlineArrowUp} from 'react-icons/ai'
 class Properties extends Component {
   constructor() {
     super();
@@ -46,7 +45,6 @@ class Properties extends Component {
   render() {
     return (
       <div className="properties-container">
-        <div className='scroll-btn' onClick={()=>{window.scrollTo(0,0)}}><AiOutlineArrowUp style={{fontSize:"1.5rem",color:'white'}}/> </div>
         <Filter
           onKeyWordsChange={this.filterName}
           fiteredPropType={this.filterPropType}
@@ -146,14 +144,6 @@ class Properties extends Component {
     );
   }
   async componentDidMount() {
-    window.onscroll = ()=>{
-      const mybutton=document.querySelector('.scroll-btn');
-        if (document.documentElement.scrollTop > 300) {
-          mybutton.style.display = "block";
-        } else {
-          mybutton.style.display = "none";
-        }
-    }
     await this.props.getproperties();
     this.setState({
       propertiesList: this.props.propertiesList,

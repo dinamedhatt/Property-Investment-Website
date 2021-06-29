@@ -15,11 +15,25 @@ import ScrollToTop from "./scrollToTop";
 import Profile from '../containers/profile/profile';
 import Properties from "../containers/Properties/Properties";
 import PropertyDetail from "../containers/Properties/Property-item";
+import { useEffect } from "react";
+import {AiOutlineArrowUp} from 'react-icons/ai'
 
 const AppRouting = () => {
+  useEffect(()=>{
+    window.onscroll = ()=>{
+      const mybutton=document.querySelector('.scroll-btn');
+        if (document.documentElement.scrollTop > 300) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+    }
+  })
+
   return (
     <BrowserRouter>
       <NavBAR/>
+      <div className='scroll-btn' onClick={()=>{window.scrollTo(0,0)}}><AiOutlineArrowUp style={{fontSize:"1.5rem",color:'white'}}/> </div>
       <ScrollToTop />
       <Switch>
         <Route path="/about" component={About} />
