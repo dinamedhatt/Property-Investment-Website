@@ -7,7 +7,8 @@ import {
   unlikeUser,
   getWishlist,
 } from "../../actions";
-import { FaBookmark, FaRegBookmark, FaCoins } from "react-icons/fa";
+import { FaBookmark, FaCoins } from "react-icons/fa";
+import {BsBookmarkPlus} from 'react-icons/bs'
 import { IconContext } from "react-icons";
 import { Alert } from "react-bootstrap";
 import Filter from "./filter";
@@ -58,7 +59,7 @@ class Properties extends Component {
                     <IconContext.Provider
                       value={{ className: "item-react-icons" }}
                     >
-                      <FaRegBookmark
+                      <BsBookmarkPlus
                         style={{ display: "block" }}
                         // eslint-disable-next-line eqeqeq
                         {...(this.state.likedList.filter(
