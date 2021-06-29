@@ -316,7 +316,7 @@ app.post("/sendLetter", (req, res) => {
   var mail = {
     from: req.body.email,
     to: "dealgenie98@gmail.com",
-    subject: "apply letter",
+    subject: "Application letter",
     text: req.body.applyLetter,
     html: `<div>
     Dear Deal Genie,<br/><br/>
@@ -348,10 +348,10 @@ app.post("/cancelLetter", (req, res) => {
   var mail = {
     from: req.body.user.email,
     to: "dealgenie98@gmail.com",
-    subject: "cancel apply letter",
+    subject: "Application Cancellation",
     html: `<div>
     Dear Deal Genie,<br/><br/>
-    apply sent by ${req.body.user.fname} whos email is ${req.body.user.email} regarding the property "${req.body.propertyData.name}" and its id equals ${req.body.propertyData.id} has been cancelled
+    Application sent by ${req.body.user.fname} whos email is ${req.body.user.email} regarding the property "${req.body.propertyData.name}" and its id equals ${req.body.propertyData.id} has been cancelled
     </div>`,
   };
 

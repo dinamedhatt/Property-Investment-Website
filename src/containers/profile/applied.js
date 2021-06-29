@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { getApplylist, Unapply, getUser, getProp } from "../../actions";
+import { getApplylist, Unapply, getUser } from "../../actions";
 import { FaMinusCircle } from "@react-icons/all-files/fa/FaMinusCircle";
 import axios from "axios";
 import AlertMsg from "../../components/alertMsg";
@@ -37,10 +37,6 @@ class Applied extends Component {
     this.setState({ applyList: this.props.applylist });
   };
 
-  // getPropId = (_id, _name) => {
-  //   this.setState({ propertyData: { id: _id, name: _name } });
-  //   console.log("proppppppppppppppppppp", this.state.propertyData);
-  // };
 
   //to handle sending letter
   sendletter(e) {
@@ -54,7 +50,7 @@ class Applied extends Component {
         this.setState({
           color: "success",
           alert:
-            "Your cancellation has been submitted successfully! We will get back to you soon on your mail regarding the application",
+            "Your cancellation has been submitted successfully!",
         });
         // this.hideTextArea();
       } else if (response.data.status === "fail") {
