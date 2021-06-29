@@ -1218,6 +1218,8 @@ top:26%
   z-index: 1;
   background-color: #212529;
   transition: all 1s;
+  display: none;
+  scroll-behavior: smooth;
 }
 
 .scroll-btn:hover{
